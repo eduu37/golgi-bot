@@ -295,7 +295,7 @@ client.on("ready", async () => {
       const fechaActual = new Date().toLocaleString("es-CL");
 
       let mensajeReporte = `*Reporte de Respaldo a Drive por Golgi bot* ☁️\n\n`;
-      mensajeReporte += `🔗 *Link al drive:* https://drive.google.com/drive/folders/${DRIVE_FOLDER_ID}?usp=sharing\n`;
+      mensajeReporte += `🔗 *Link al drive:* https://eduu37.github.io/golgi-bot/`;
       mensajeReporte += `📅 *Fecha:* ${fechaActual}\n`;
       mensajeReporte += `📩 *Mensajes analizados:* ${messagesToProcess.length}\n`;
       mensajeReporte += `✅ *Archivos respaldados:* ${archivosSubidos}\n`;

@@ -108,7 +108,7 @@ export async function recopilarEnlacesWeb() {
           if (data.title) nombre = data.title;
           if (data.author_name) autor = data.author_name;
         }
-      } catch {}
+      } catch { }
     } else if (urlLower.includes("docs.google.com/document")) {
       badge = "DOCS";
       icon = "📝";
@@ -127,7 +127,7 @@ export async function recopilarEnlacesWeb() {
             nombre = m[1].replace(/\s*-\s*Documentos de Google/i, "").trim();
           }
         }
-      } catch {}
+      } catch { }
     } else if (urlLower.includes("docs.google.com/spreadsheets")) {
       badge = "SHEETS";
       icon = "📈";
@@ -390,7 +390,7 @@ export function generarHtmlIndice(datos) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biblioteca Digital Golgi — Materiales y Enlaces de Medicina</title>
+  <title>Biblioteca Digital de Golgi — Materiales y Enlaces</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -958,10 +958,10 @@ export function generarHtmlIndice(datos) {
     <header>
       <div class="header-badge">
         <span class="header-badge-dot"></span>
-        Biblioteca Oficial en Tiempo Real
+        Material de estudio
       </div>
       <h1>Biblioteca Digital Golgi</h1>
-      <p class="subtitle">Catálogo unificado de materiales de Medicina: certámenes, resúmenes, controles en Google Drive y clases grabadas en YouTube.</p>
+      <p class="subtitle">Catálogo unificado de materiales</p>
 
       <div class="stats-grid">
         <div class="stat-card">
@@ -1038,7 +1038,7 @@ export function generarHtmlIndice(datos) {
     </div>
 
     <footer>
-      Generado automáticamente por <strong>Golgi bot</strong> — Sistema de Respaldo y Clasificación para Medicina.
+      Generado automáticamente por <strong>Golgi bot.</strong>
     </footer>
   </div>
 
@@ -1344,7 +1344,7 @@ export async function generarYSincronizarIndice(opciones = {}) {
     try {
       const { exec } = await import("child_process");
       exec(`start "" "${rutaHtmlLocal}"`);
-    } catch {}
+    } catch { }
   }
 
   console.log("\n=================================================");
