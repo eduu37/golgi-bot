@@ -55,7 +55,145 @@ function obtenerExtensionYTipo(nombre) {
 }
 
 // ============================================================
-// 1. RECOPILACIÓN INTELIGENTE DEL CATÁLOGO DESDE DRIVE
+// 1. RECOPILACIÓN INTELIGENTE DE ENLACES WEB (YOUTUBE, DOCS, NOTEBOOKLM)
+// ============================================================
+export async function recopilarEnlacesWeb() {
+  const rutaCsv = path.join(process.cwd(), "enlaces.csv");
+  if (!fs.existsSync(rutaCsv)) return [];
+
+  console.log("🔗 Procesando enlaces y videos web desde enlaces.csv...");
+  const raw = fs.readFileSync(rutaCsv, "utf8");
+  const lineas = raw.split(/\r?\n/).filter(Boolean).slice(1);
+  const linksVistos = new Set();
+  const catalogoLinks = [];
+
+  for (const linea of lineas) {
+    const partes = linea.split('","').map((s) => s.replace(/^"|"$/g, "").trim());
+    if (partes.length < 4) continue;
+    const [url, materiaCsv, tipoCsv, fechaCsv] = partes;
+
+    if (!url || !url.startsWith("http") || linksVistos.has(url)) continue;
+    linksVistos.add(url);
+
+    let nombre = url;
+    let autor = "";
+    let materia = materiaCsv;
+    let tipo = tipoCsv === "Documentos sin clasificar" ? "Recursos Web" : tipoCsv;
+    let badge = "WEB";
+    let icon = "🌐";
+    let colorIcono = "#38bdf8";
+    let subtexto = "Enlace Web";
+    let actionLabel = "Visitar Enlace ↗";
+
+    const urlLower = url.toLowerCase();
+
+    if (urlLower.includes("youtube.com") || urlLower.includes("youtu.be")) {
+      badge = "YOUTUBE";
+      icon = "▶️";
+      colorIcono = "#ef4444";
+      subtexto = "Video / Clase";
+      tipo =
+        tipo === "Documentos sin clasificar" || tipo === "Recursos Web"
+          ? "Clases y Videos"
+          : tipo;
+      actionLabel = "Ver Video ▶️";
+
+      try {
+        const res = await fetch(
+          `https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`,
+          { signal: AbortSignal.timeout(3000) },
+        );
+        if (res.ok) {
+          const data = await res.json();
+          if (data.title) nombre = data.title;
+          if (data.author_name) autor = data.author_name;
+        }
+      } catch {}
+    } else if (urlLower.includes("docs.google.com/document")) {
+      badge = "DOCS";
+      icon = "📝";
+      colorIcono = "#2563eb";
+      subtexto = "Google Docs";
+      actionLabel = "Abrir Documento ↗";
+      try {
+        const res = await fetch(url, {
+          headers: { "User-Agent": "Mozilla/5.0" },
+          signal: AbortSignal.timeout(3000),
+        });
+        if (res.ok) {
+          const html = await res.text();
+          const m = html.match(/<title>([^<]+)<\/title>/i);
+          if (m && m[1]) {
+            nombre = m[1].replace(/\s*-\s*Documentos de Google/i, "").trim();
+          }
+        }
+      } catch {}
+    } else if (urlLower.includes("docs.google.com/spreadsheets")) {
+      badge = "SHEETS";
+      icon = "📈";
+      colorIcono = "#16a34a";
+      subtexto = "Google Sheets";
+      actionLabel = "Abrir Planilla ↗";
+      nombre = "Planilla / Base de Datos Compartida";
+    } else if (urlLower.includes("drive.google.com/drive/folders")) {
+      badge = "CARPETA";
+      icon = "📂";
+      colorIcono = "#f59e0b";
+      subtexto = "Carpeta en Drive";
+      actionLabel = "Explorar Carpeta 📂";
+      nombre = `Carpeta de Recursos: ${materia !== "Sin clasificar" ? materia : "Drive"}`;
+    } else if (urlLower.includes("notebook.google.com") || urlLower.includes("notebooklm")) {
+      badge = "NOTEBOOKLM";
+      icon = "📓";
+      colorIcono = "#8b5cf6";
+      subtexto = "Cuaderno IA";
+      actionLabel = "Abrir Cuaderno 📓";
+      nombre = `Cuaderno NotebookLM ${materia !== "Sin clasificar" ? "— " + materia : ""}`;
+    } else if (urlLower.includes("claude.ai")) {
+      badge = "CLAUDE";
+      icon = "✨";
+      colorIcono = "#d97706";
+      subtexto = "Artefacto IA";
+      actionLabel = "Ver Artefacto ✨";
+      nombre = "Artefacto Interactivo Claude AI";
+    }
+
+    // Reclasificación si estaba sin clasificar
+    if (materia === "Sin clasificar" && nombre !== url) {
+      const reclass = await clasificarArchivo(nombre, "");
+      if (reclass.materia !== "Sin clasificar") {
+        materia = reclass.materia;
+        if (tipo === "Recursos Web") tipo = reclass.tipo;
+      }
+    }
+
+    catalogoLinks.push({
+      id: `link-${catalogoLinks.length + 1}`,
+      nombreOriginal: url,
+      nombreLimpio: nombre,
+      materia,
+      tipo,
+      extension: "link",
+      badge,
+      icon,
+      colorIcono,
+      sizeBytes: 0,
+      sizeFormateado: subtexto,
+      createdTime: null,
+      fechaFormateada: fechaCsv || "—",
+      url,
+      esDuplicado: false,
+      esEnlaceWeb: true,
+      autor,
+      actionLabel,
+    });
+  }
+
+  return catalogoLinks;
+}
+
+// ============================================================
+// 2. RECOPILACIÓN INTELIGENTE DEL CATÁLOGO DESDE DRIVE + ENLACES
 // ============================================================
 export async function recopilarCatalogoDrive() {
   await iniciarDrive();
@@ -106,14 +244,13 @@ export async function recopilarCatalogoDrive() {
   );
 
   let totalBytes = 0;
-  const catalogo = [];
+  const catalogoArchivos = [];
 
   for (const item of itemsDocumentales) {
     const parentFolder = item.parents ? mapaPorId.get(item.parents[0]) : null;
     const grandParentFolder =
       parentFolder && parentFolder.parents ? mapaPorId.get(parentFolder.parents[0]) : null;
 
-    // Determinamos Materia y Tipo desde la estructura física de Drive o por clasificador
     let materia = "Sin clasificar";
     let tipo = "Varios";
 
@@ -129,7 +266,6 @@ export async function recopilarCatalogoDrive() {
       }
     }
 
-    // Si aún no está clasificado con certeza o está en raíz, aplicamos el clasificador local
     if (materia === "Sin clasificar" || materia === "root") {
       const resultado = await clasificarArchivo(item.name, "");
       materia = resultado.materia;
@@ -142,7 +278,7 @@ export async function recopilarCatalogoDrive() {
     const infoExt = obtenerExtensionYTipo(item.name);
     const esDuplicado = idsDuplicados.has(item.id) || materia === "_Duplicados";
 
-    catalogo.push({
+    catalogoArchivos.push({
       id: item.id,
       nombreOriginal: item.name,
       nombreLimpio: limpiarNombre(item.name),
@@ -159,11 +295,20 @@ export async function recopilarCatalogoDrive() {
       url: item.webViewLink || `https://drive.google.com/file/d/${item.id}/view`,
       md5Checksum: item.md5Checksum || "",
       esDuplicado,
+      esEnlaceWeb: false,
+      autor: "",
+      actionLabel: "Abrir en Drive ↗",
     });
   }
 
+  // Recopilar enlaces web externos
+  const catalogoEnlaces = await recopilarEnlacesWeb();
+
+  // Catálogo unificado
+  const catalogoCombinado = [...catalogoArchivos, ...catalogoEnlaces];
+
   // Ordenamos alfabéticamente por Materia -> Tipo -> Nombre
-  catalogo.sort((a, b) => {
+  catalogoCombinado.sort((a, b) => {
     if (a.materia !== b.materia) return a.materia.localeCompare(b.materia, "es");
     if (a.tipo !== b.tipo) return a.tipo.localeCompare(b.tipo, "es");
     return a.nombreLimpio.localeCompare(b.nombreLimpio, "es");
@@ -171,32 +316,48 @@ export async function recopilarCatalogoDrive() {
 
   // Agrupamos por Materia y Tipo para estadísticas
   const materiasMap = {};
-  for (const doc of catalogo) {
-    if (doc.esDuplicado) continue; // no inflar estadísticas de materias con duplicados
+  for (const doc of catalogoCombinado) {
+    if (doc.esDuplicado) continue;
     if (!materiasMap[doc.materia]) {
-      materiasMap[doc.materia] = { total: 0, tipos: {} };
+      materiasMap[doc.materia] = { total: 0, tipos: {}, archivos: 0, enlaces: 0 };
     }
     materiasMap[doc.materia].total++;
+    if (doc.esEnlaceWeb) {
+      materiasMap[doc.materia].enlaces = (materiasMap[doc.materia].enlaces || 0) + 1;
+    } else {
+      materiasMap[doc.materia].archivos = (materiasMap[doc.materia].archivos || 0) + 1;
+    }
     materiasMap[doc.materia].tipos[doc.tipo] =
       (materiasMap[doc.materia].tipos[doc.tipo] || 0) + 1;
   }
 
   return {
     fechaGeneracion: new Date().toISOString(),
-    totalArchivos: catalogo.length,
+    totalArchivos: catalogoArchivos.length,
+    totalEnlaces: catalogoEnlaces.length,
+    totalItems: catalogoCombinado.length,
     totalBytes,
     totalBytesFormateado: formatearBytes(totalBytes),
     duplicadosDetectados: idsDuplicados.size,
     materiasMap,
-    items: catalogo,
+    items: catalogoCombinado,
   };
 }
 
 // ============================================================
-// 2. GENERADOR HTML (MODERNO, GLASSMORPHISM, BUSCADOR REACTIVO)
+// 3. GENERADOR HTML (MODERNO, GLASSMORPHISM, BUSCADOR REACTIVO)
 // ============================================================
 export function generarHtmlIndice(datos) {
-  const { fechaGeneracion, totalArchivos, totalBytesFormateado, duplicadosDetectados, items, materiasMap } = datos;
+  const {
+    fechaGeneracion,
+    totalArchivos,
+    totalEnlaces,
+    totalItems,
+    totalBytesFormateado,
+    duplicadosDetectados,
+    items,
+    materiasMap,
+  } = datos;
 
   const listaMaterias = Object.keys(materiasMap).sort((a, b) => a.localeCompare(b, "es"));
   const fechaTexto = new Date(fechaGeneracion).toLocaleString("es-CL", {
@@ -204,7 +365,7 @@ export function generarHtmlIndice(datos) {
     timeStyle: "short",
   });
 
-  // Generamos opciones de píldoras de materias
+  // Opciones de píldoras de materias
   const pillsMaterias = listaMaterias
     .map(
       (m) =>
@@ -212,7 +373,7 @@ export function generarHtmlIndice(datos) {
     )
     .join("\n");
 
-  // Generamos opciones de píldoras de tipo de documento
+  // Opciones de píldoras de tipo
   const listaTipos = Array.from(new Set(items.map((it) => it.tipo))).filter(Boolean).sort();
   const pillsTipos = listaTipos
     .map(
@@ -221,7 +382,7 @@ export function generarHtmlIndice(datos) {
     )
     .join("\n");
 
-  // Serializamos los items en JSON para el motor de búsqueda en el cliente
+  // Serializamos items en JSON para el cliente
   const itemsJsonSeguro = JSON.stringify(items).replace(/</g, "\\u003c");
 
   return `<!DOCTYPE html>
@@ -229,7 +390,7 @@ export function generarHtmlIndice(datos) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biblioteca Digital Golgi — Índice de Materiales</title>
+  <title>Biblioteca Digital Golgi — Materiales y Enlaces de Medicina</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -323,6 +484,7 @@ export function generarHtmlIndice(datos) {
     .subtitle {
       color: var(--text-muted);
       font-size: 1.05rem;
+      max-width: 800px;
     }
 
     /* STATS GRID */
@@ -368,13 +530,63 @@ export function generarHtmlIndice(datos) {
       position: sticky;
       top: 1rem;
       z-index: 50;
-      background: rgba(10, 14, 23, 0.85);
+      background: rgba(10, 14, 23, 0.88);
       backdrop-filter: var(--glass-blur);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
       padding: 1.25rem;
       margin-bottom: 2rem;
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    /* ORIGIN TABS (TODOS / DRIVE / ENLACES) */
+    .origin-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.15rem;
+      flex-wrap: wrap;
+    }
+
+    .origin-tab {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 0.55rem 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .origin-tab:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .origin-tab.active {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2));
+      border-color: var(--accent-cyan);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+
+    .tab-count {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted);
+    }
+
+    .origin-tab.active .tab-count {
+      background: rgba(56, 189, 248, 0.3);
+      color: #fff;
     }
 
     .search-wrapper {
@@ -538,7 +750,16 @@ export function generarHtmlIndice(datos) {
       color: #fff;
       word-break: break-word;
       line-height: 1.35;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .file-author {
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .file-tags {
@@ -573,6 +794,48 @@ export function generarHtmlIndice(datos) {
       color: var(--text-dim);
       font-weight: 700;
       font-size: 0.68rem;
+    }
+
+    .tag-badge-YOUTUBE {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .tag-badge-DOCS {
+      background: rgba(37, 99, 235, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(37, 99, 235, 0.3);
+    }
+
+    .tag-badge-SHEETS {
+      background: rgba(22, 163, 74, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(22, 163, 74, 0.3);
+    }
+
+    .tag-badge-CARPETA {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .tag-badge-NOTEBOOKLM {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+
+    .tag-badge-CLAUDE {
+      background: rgba(217, 119, 6, 0.15);
+      color: #f59e0b;
+      border: 1px solid rgba(217, 119, 6, 0.3);
+    }
+
+    .tag-badge-WEB {
+      background: rgba(6, 182, 212, 0.15);
+      color: #22d3ee;
+      border: 1px solid rgba(6, 182, 212, 0.3);
     }
 
     .tag-dupe {
@@ -617,6 +880,28 @@ export function generarHtmlIndice(datos) {
     .btn-open:hover {
       background: var(--accent-cyan);
       color: #041019;
+    }
+
+    .btn-open-yt {
+      background: rgba(239, 68, 68, 0.14);
+      color: #fca5a5;
+      border-color: rgba(239, 68, 68, 0.35);
+    }
+
+    .btn-open-yt:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    .btn-open-notebook {
+      background: rgba(168, 85, 247, 0.14);
+      color: #d8b4fe;
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+
+    .btn-open-notebook:hover {
+      background: #a855f7;
+      color: #fff;
     }
 
     .btn-copy {
@@ -675,48 +960,62 @@ export function generarHtmlIndice(datos) {
     <header>
       <div class="header-badge">
         <span class="header-badge-dot"></span>
-        Índice Oficial en Tiempo Real
+        Biblioteca Oficial en Tiempo Real
       </div>
       <h1>Biblioteca Digital Golgi</h1>
-      <p class="subtitle">Catálogo interactivo con acceso directo a todos los certámenes, resúmenes, apuntes y controles organizados en Google Drive.</p>
+      <p class="subtitle">Catálogo unificado de materiales de Medicina: certámenes, resúmenes, controles en Google Drive y clases grabadas en YouTube.</p>
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-label">Documentos Totales</div>
-          <div class="stat-val" id="stat-total">${totalArchivos}</div>
+          <div class="stat-label">Documentos Drive</div>
+          <div class="stat-val" id="stat-archivos">${totalArchivos}</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Enlaces y Videos</div>
+          <div class="stat-val" id="stat-enlaces" style="color: var(--accent-cyan);">${totalEnlaces}</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Materias</div>
           <div class="stat-val">${listaMaterias.length}</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Espacio Ocupado</div>
+          <div class="stat-label">Almacenamiento Drive</div>
           <div class="stat-val">${totalBytesFormateado}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Duplicados Aislados</div>
-          <div class="stat-val" style="color: ${duplicadosDetectados > 0 ? "var(--accent-amber)" : "var(--accent-emerald)"};">
-            ${duplicadosDetectados}
-          </div>
         </div>
       </div>
     </header>
 
     <div class="controls-panel">
+      <!-- Selector de Origen -->
+      <div class="origin-tabs">
+        <button class="origin-tab active" data-origen="todos">
+          <span>🌟 Todo el Material</span>
+          <span class="tab-count">${totalItems}</span>
+        </button>
+        <button class="origin-tab" data-origen="drive">
+          <span>📄 Archivos Drive</span>
+          <span class="tab-count">${totalArchivos}</span>
+        </button>
+        <button class="origin-tab" data-origen="links">
+          <span>🔗 Enlaces y Videos Web</span>
+          <span class="tab-count">${totalEnlaces}</span>
+        </button>
+      </div>
+
       <div class="search-wrapper">
         <span class="search-icon">🔍</span>
         <input 
           type="text" 
           id="searchInput" 
           class="search-input" 
-          placeholder="Buscar por certamen, profe, tema (ej: ATM, somitos, Arellano, certamen 1, anki)..."
+          placeholder="Buscar por tema, video, certamen, profe (ej: ATM, somitos, fecundación, anki, YouTube)..."
           autocomplete="off"
         >
       </div>
 
       <div class="filters-row">
         <span class="filter-label">Materia:</span>
-        <button class="filter-pill filter-pill-materia active" data-materia="todas">Todas <span class="pill-count">${totalArchivos}</span></button>
+        <button class="filter-pill filter-pill-materia active" data-materia="todas">Todas <span class="pill-count">${totalItems}</span></button>
         ${pillsMaterias}
       </div>
 
@@ -728,7 +1027,7 @@ export function generarHtmlIndice(datos) {
     </div>
 
     <div class="results-info">
-      <div>Mostrando <strong id="visibleCount" style="color: #fff;">${totalArchivos}</strong> archivos</div>
+      <div>Mostrando <strong id="visibleCount" style="color: #fff;">${totalItems}</strong> recursos</div>
       <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: ${fechaTexto}</div>
     </div>
 
@@ -736,7 +1035,7 @@ export function generarHtmlIndice(datos) {
 
     <div class="empty-state" id="emptyState">
       <div class="empty-icon">🔎</div>
-      <h3>No se encontraron documentos</h3>
+      <h3>No se encontraron recursos</h3>
       <p>Prueba con otros términos de búsqueda o selecciona otra materia.</p>
     </div>
 
@@ -747,6 +1046,7 @@ export function generarHtmlIndice(datos) {
 
   <script>
     const CATALOGO = ${itemsJsonSeguro};
+    let origenActivo = 'todos';
     let materiaActiva = 'todas';
     let tipoActivo = 'todos';
     let terminoBusqueda = '';
@@ -755,6 +1055,7 @@ export function generarHtmlIndice(datos) {
     const emptyState = document.getElementById('emptyState');
     const visibleCount = document.getElementById('visibleCount');
     const searchInput = document.getElementById('searchInput');
+    const tabsOrigen = document.querySelectorAll('.origin-tab');
     const pillsMateria = document.querySelectorAll('.filter-pill-materia');
     const pillsTipo = document.querySelectorAll('.filter-pill-tipo');
 
@@ -763,15 +1064,15 @@ export function generarHtmlIndice(datos) {
       const query = normalizar(terminoBusqueda);
 
       const filtrados = CATALOGO.filter(item => {
+        // Filtro por pestaña de origen
+        if (origenActivo === 'drive' && item.esEnlaceWeb) return false;
+        if (origenActivo === 'links' && !item.esEnlaceWeb) return false;
+
         // Filtro por materia
-        if (materiaActiva !== 'todas' && item.materia !== materiaActiva) {
-          return false;
-        }
+        if (materiaActiva !== 'todas' && item.materia !== materiaActiva) return false;
 
         // Filtro por tipo de documento
-        if (tipoActivo !== 'todos' && item.tipo !== tipoActivo) {
-          return false;
-        }
+        if (tipoActivo !== 'todos' && item.tipo !== tipoActivo) return false;
 
         // Filtro por buscador reactivo
         if (query) {
@@ -779,8 +1080,10 @@ export function generarHtmlIndice(datos) {
           const matchOriginal = normalizar(item.nombreOriginal).includes(query);
           const matchMateria = normalizar(item.materia).includes(query);
           const matchTipo = normalizar(item.tipo).includes(query);
+          const matchBadge = normalizar(item.badge).includes(query);
           const matchExt = normalizar(item.extension).includes(query);
-          if (!matchNombre && !matchOriginal && !matchMateria && !matchTipo && !matchExt) {
+          const matchAutor = item.autor ? normalizar(item.autor).includes(query) : false;
+          if (!matchNombre && !matchOriginal && !matchMateria && !matchTipo && !matchBadge && !matchExt && !matchAutor) {
             return false;
           }
         }
@@ -796,50 +1099,68 @@ export function generarHtmlIndice(datos) {
       }
 
       emptyState.style.display = 'none';
-      grid.innerHTML = filtrados.map(item => \`
-        <div class="file-card">
-          <div>
-            <div class="file-card-top">
-              <div class="file-icon-box" style="color: \${item.colorIcono};">
-                \${item.icon}
-              </div>
-              <div class="file-info">
-                <div class="file-title" title="\${item.nombreOriginal}">\${item.nombreLimpio}</div>
-                <div class="file-tags">
-                  <span class="tag tag-materia">\${item.materia}</span>
-                  <span class="tag tag-tipo">\${item.tipo}</span>
-                  <span class="tag tag-ext">\${item.badge}</span>
-                  \${item.esDuplicado ? '<span class="tag tag-dupe">Repetido</span>' : ''}
+      grid.innerHTML = filtrados.map(item => {
+        const esYt = item.badge === 'YOUTUBE';
+        const esNotebook = item.badge === 'NOTEBOOKLM';
+        const btnClase = esYt ? 'btn-open btn-open-yt' : (esNotebook ? 'btn-open btn-open-notebook' : 'btn-open');
+        const badgeClase = item.esEnlaceWeb ? ('tag tag-badge-' + item.badge) : 'tag tag-ext';
+
+        return \`
+          <div class="file-card">
+            <div>
+              <div class="file-card-top">
+                <div class="file-icon-box" style="color: \${item.colorIcono};">
+                  \${item.icon}
+                </div>
+                <div class="file-info">
+                  <div class="file-title" title="\${item.nombreOriginal}">\${item.nombreLimpio}</div>
+                  \${item.autor ? \`<div class="file-author"><span>👤 \${item.autor}</span></div>\` : ''}
+                  <div class="file-tags">
+                    <span class="tag tag-materia">\${item.materia}</span>
+                    <span class="tag tag-tipo">\${item.tipo}</span>
+                    <span class="tag \${badgeClase}">\${item.badge}</span>
+                    \${item.esDuplicado ? '<span class="tag tag-dupe">Repetido</span>' : ''}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div>
-            <div class="file-meta">
-              <span>\${item.sizeFormateado}</span>
-              <span>\${item.fechaFormateada}</span>
-            </div>
-            <div class="file-actions">
-              <a href="\${item.url}" target="_blank" rel="noopener noreferrer" class="btn-open">
-                Abrir en Drive ↗
-              </a>
-              <button class="btn-copy" onclick="copiarEnlace('\${item.url}', this)" title="Copiar enlace directo">
-                📋
-              </button>
+            <div>
+              <div class="file-meta">
+                <span>\${item.sizeFormateado}</span>
+                <span>\${item.fechaFormateada}</span>
+              </div>
+              <div class="file-actions">
+                <a href="\${item.url}" target="_blank" rel="noopener noreferrer" class="\${btnClase}">
+                  \${item.actionLabel || (item.esEnlaceWeb ? 'Visitar Enlace ↗' : 'Abrir en Drive ↗')}
+                </a>
+                <button class="btn-copy" onclick="copiarEnlace('\${item.url}', this)" title="Copiar enlace directo">
+                  📋
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      \`).join('');
+        \`;
+      }).join('');
     }
 
-    // Buscador en tiempo real con debounce mínimo
+    // Buscador en tiempo real
     searchInput.addEventListener('input', (e) => {
       terminoBusqueda = e.target.value;
       renderizar();
     });
 
-    // Filtros de materia por botón pill
+    // Pestañas de origen (Todos / Drive / Enlaces)
+    tabsOrigen.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabsOrigen.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        origenActivo = tab.getAttribute('data-origen');
+        renderizar();
+      });
+    });
+
+    // Filtros de materia
     pillsMateria.forEach(pill => {
       pill.addEventListener('click', () => {
         pillsMateria.forEach(p => p.classList.remove('active'));
@@ -849,7 +1170,7 @@ export function generarHtmlIndice(datos) {
       });
     });
 
-    // Filtros de tipo por botón pill
+    // Filtros de tipo
     pillsTipo.forEach(pill => {
       pill.addEventListener('click', () => {
         pillsTipo.forEach(p => p.classList.remove('active'));
@@ -859,7 +1180,7 @@ export function generarHtmlIndice(datos) {
       });
     });
 
-    // Copiar enlace al portapapeles con feedback visual
+    // Copiar enlace al portapapeles
     window.copiarEnlace = function(url, btn) {
       navigator.clipboard.writeText(url).then(() => {
         const textoOriginal = btn.innerHTML;
@@ -876,11 +1197,11 @@ export function generarHtmlIndice(datos) {
 }
 
 // ============================================================
-// 3. GENERADOR CSV (SINCRONIZABLE A GOOGLE SHEETS)
+// 4. GENERADOR CSV (SINCRONIZABLE A GOOGLE SHEETS)
 // ============================================================
 export function generarCsvIndice(datos) {
   const lineas = [
-    "Materia,Tipo,Nombre_Archivo,Formato,Tamano,Fecha_Subida,Enlace_Directo,Estado,ID_Drive",
+    "Materia,Tipo,Nombre_Archivo,Formato,Tamano_o_Tipo,Fecha_Subida,Enlace_Directo,Estado,ID_o_Referencia",
   ];
 
   for (const item of datos.items) {
@@ -894,7 +1215,7 @@ export function generarCsvIndice(datos) {
         escapar(item.sizeFormateado),
         escapar(item.fechaFormateada),
         escapar(item.url),
-        escapar(item.esDuplicado ? "Duplicado" : "Único"),
+        escapar(item.esEnlaceWeb ? "Enlace Web" : item.esDuplicado ? "Duplicado" : "Único"),
         escapar(item.id),
       ].join(","),
     );
@@ -904,12 +1225,12 @@ export function generarCsvIndice(datos) {
 }
 
 // ============================================================
-// 4. GENERADOR MARKDOWN (PARA LECTURA RÁPIDA)
+// 5. GENERADOR MARKDOWN (PARA LECTURA RÁPIDA)
 // ============================================================
 export function generarMarkdownIndice(datos) {
-  let md = `# 📚 Biblioteca Digital Golgi — Índice de Materiales\n\n`;
+  let md = `# 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos\n\n`;
   md += `> **Última actualización:** ${new Date(datos.fechaGeneracion).toLocaleString("es-CL")}\n`;
-  md += `> **Total de Documentos:** ${datos.totalArchivos} | **Espacio:** ${datos.totalBytesFormateado}\n\n`;
+  md += `> **Total de Recursos:** ${datos.totalItems} (${datos.totalArchivos} en Drive, ${datos.totalEnlaces} enlaces web) | **Espacio Drive:** ${datos.totalBytesFormateado}\n\n`;
 
   // Agrupamos por Materia y Tipo
   const materias = {};
@@ -923,10 +1244,14 @@ export function generarMarkdownIndice(datos) {
     md += `## 📁 ${materia}\n\n`;
     for (const [tipo, items] of Object.entries(tipos)) {
       md += `### ${tipo} (${items.length})\n\n`;
-      md += `| Nombre | Formato | Tamaño | Enlace |\n`;
+      md += `| Título / Nombre | Formato | Detalle | Enlace |\n`;
       md += `| :--- | :---: | :---: | :---: |\n`;
       for (const it of items) {
-        md += `| ${it.nombreLimpio} | \`${it.badge}\` | ${it.sizeFormateado} | [Abrir en Drive](${it.url}) |\n`;
+        const detalle = it.esEnlaceWeb
+          ? (it.autor ? `Canal: ${it.autor}` : it.sizeFormateado)
+          : it.sizeFormateado;
+        const textoEnlace = it.esEnlaceWeb ? `Visitar ${it.badge}` : `Abrir en Drive`;
+        md += `| ${it.nombreLimpio} | \`${it.badge}\` | ${detalle} | [${textoEnlace}](${it.url}) |\n`;
       }
       md += `\n`;
     }
@@ -936,19 +1261,21 @@ export function generarMarkdownIndice(datos) {
 }
 
 // ============================================================
-// 5. FUNCIÓN MAESTRA: GENERAR Y SINCRONIZAR
+// 6. FUNCIÓN MAESTRA: GENERAR Y SINCRONIZAR
 // ============================================================
 export async function generarYSincronizarIndice(opciones = {}) {
   const { subirADrive = true, abrirLocal = false } = opciones;
 
   console.log("=================================================");
-  console.log("🚀 GENERADOR AUTOMÁTICO DE ÍNDICE DE DRIVE");
+  console.log("🚀 GENERADOR AUTOMÁTICO DE ÍNDICE DIGITAL UNIFICADO");
   console.log("=================================================");
 
   const catalogo = await recopilarCatalogoDrive();
 
-  console.log(`\n📦 Total de archivos catalogados: ${catalogo.totalArchivos}`);
-  console.log(`💾 Espacio total documentado: ${catalogo.totalBytesFormateado}`);
+  console.log(`\n📦 Total de recursos catalogados: ${catalogo.totalItems}`);
+  console.log(`   - 📄 Archivos en Google Drive: ${catalogo.totalArchivos}`);
+  console.log(`   - 🔗 Enlaces web y videos: ${catalogo.totalEnlaces}`);
+  console.log(`💾 Espacio total en Drive: ${catalogo.totalBytesFormateado}`);
   console.log(`🔁 Duplicados identificados: ${catalogo.duplicadosDetectados}`);
 
   // 1. Generamos contenidos
@@ -968,7 +1295,7 @@ export async function generarYSincronizarIndice(opciones = {}) {
   fs.writeFileSync(rutaCsvLocal, csvContent, "utf8");
   fs.writeFileSync(rutaMdLocal, mdContent, "utf8");
 
-  // 📁 Carpeta docs/ para GitHub Pages (index.html)
+  // Carpeta docs/ para GitHub Pages
   const dirDocs = path.join(process.cwd(), "docs");
   if (!fs.existsSync(dirDocs)) {
     fs.mkdirSync(dirDocs, { recursive: true });
