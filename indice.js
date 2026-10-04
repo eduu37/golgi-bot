@@ -958,10 +958,13 @@ export async function generarYSincronizarIndice(opciones = {}) {
 
   // 2. Guardamos copias locales en el proyecto
   const rutaHtmlLocal = path.join(process.cwd(), "INDICE_BIBLIOTECA.html");
+  const rutaIndexRoot = path.join(process.cwd(), "index.html");
   const rutaCsvLocal = path.join(process.cwd(), "INDICE_BIBLIOTECA.csv");
   const rutaMdLocal = path.join(process.cwd(), "INDICE_BIBLIOTECA.md");
 
   fs.writeFileSync(rutaHtmlLocal, htmlContent, "utf8");
+  fs.writeFileSync(rutaIndexRoot, htmlContent, "utf8");
+  fs.writeFileSync(path.join(process.cwd(), ".nojekyll"), "", "utf8");
   fs.writeFileSync(rutaCsvLocal, csvContent, "utf8");
   fs.writeFileSync(rutaMdLocal, mdContent, "utf8");
 
@@ -975,8 +978,9 @@ export async function generarYSincronizarIndice(opciones = {}) {
   fs.writeFileSync(path.join(dirDocs, ".nojekyll"), "", "utf8");
 
   console.log("\n💾 Archivos locales generados:");
+  console.log(`   - [index.html](${rutaIndexRoot}) (GitHub Pages Raíz)`);
+  console.log(`   - [docs/index.html](${rutaDocsHtml}) (GitHub Pages /docs)`);
   console.log(`   - [INDICE_BIBLIOTECA.html](${rutaHtmlLocal})`);
-  console.log(`   - [docs/index.html](${rutaDocsHtml}) (Listo para GitHub Pages)`);
   console.log(`   - [INDICE_BIBLIOTECA.csv](${rutaCsvLocal})`);
   console.log(`   - [INDICE_BIBLIOTECA.md](${rutaMdLocal})`);
 
