@@ -3,8 +3,9 @@
   "version": "2.0.0",
   "description": "Bot inteligente de WhatsApp a Google Drive con clasificador académico, deduplicador por hash MD5 y biblioteca interactiva.",
   "type": "module",
-  "main": "index.js",
+  "main": "electron-main.js",
   "scripts": {
+    "app": "electron .",
     "start": "node index.js",
     "ordenar": "node ordenador.js",
     "ordenar:simular": "node ordenador.js --dry-run",
@@ -12,7 +13,46 @@
     "indice:abrir": "node indice.js --abrir",
     "indice:local": "node indice.js --solo-local",
     "get-id": "node get-id.js",
-    "sincronizar:enlaces": "node sincronizador.js"
+    "sincronizar:enlaces": "node sincronizador.js",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.medicina.golgibot",
+    "productName": "Golgi Bot",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "app/**/*",
+      "electron-main.js",
+      "electron-preload.cjs",
+      "index.js",
+      "drive.js",
+      "clasificador.js",
+      "renombrador.js",
+      "enlaces.js",
+      "indice.js",
+      "ordenador.js",
+      "config.js",
+      "status.js",
+      "categorias.json",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.education"
+    }
   },
   "keywords": [
     "whatsapp-bot",
@@ -27,7 +67,12 @@
     "@google-cloud/local-auth": "^3.0.1",
     "googleapis": "^182.0.0",
     "pdf-parse": "^2.4.5",
+    "qrcode": "^1.5.4",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "github:pedroslopez/whatsapp-web.js#main"
+  },
+  "devDependencies": {
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3"
   }
 }

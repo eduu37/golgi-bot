@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golgi Bot — Panel de Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- BARRA LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🧬</div>
+        <div>
+          <div class="brand-title">Golgi Bot</div>
+          <div class="brand-subtitle">Medicina Digital</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-tab="tab-dashboard">
+          <span class="nav-icon">📊</span>
+          <span>Panel de Control</span>
+        </button>
+        <button class="nav-item" data-tab="tab-settings">
+          <span class="nav-icon">⚙️</span>
+          <span>Configuración</span>
+        </button>
+        <button class="nav-item" data-tab="tab-subjects">
+          <span class="nav-icon">📚</span>
+          <span>Materias</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-indicator">
+          <span class="status-dot dot-offline" id="globalStatusDot"></span>
+          <span class="status-text" id="globalStatusText">Desconectado</span>
+        </div>
+        <div class="version-tag">Versión 2.0.0 (Desktop)</div>
+      </div>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="main-content">
+      <!-- HEADER SUPERIOR -->
+      <header class="top-header">
+        <div>
+          <h1 id="pageTitle">Panel de Control</h1>
+          <p class="header-desc" id="pageDesc">Supervisión y control del bot de WhatsApp y sincronización con Google Drive.</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-outline" id="btnOpenWeb">
+            <span>🌐 Ver Biblioteca Web</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- TAB 1: PANEL DE CONTROL -->
+      <section class="tab-pane active" id="tab-dashboard">
+        <!-- TARJETA DE ESTADO PRINCIPAL -->
+        <div class="card status-hero-card">
+          <div class="hero-left">
+            <div class="hero-status-badge" id="heroBadge">
+              <span class="badge-dot"></span>
+              <span id="heroBadgeText">Servicio en Pausa</span>
+            </div>
+            <h2 id="heroTitle">El bot está detenido</h2>
+            <p id="heroDesc">Presiona Iniciar para conectar con WhatsApp, monitorear el grupo y respaldar apuntes automáticamente.</p>
+          </div>
+          <div class="hero-right">
+            <button class="btn btn-primary btn-large" id="btnToggleBot">
+              <span id="btnBotIcon">▶️</span>
+              <span id="btnBotText">Iniciar Bot</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SECCIÓN DE CÓDIGO QR (OCULTA POR DEFECTO) -->
+        <div class="card qr-card" id="qrCard" style="display: none;">
+          <div class="qr-content">
+            <div class="qr-image-wrapper">
+              <img id="qrImage" src="" alt="Código QR de WhatsApp">
+            </div>
+            <div class="qr-instructions">
+              <h3>📱 Vincula tu WhatsApp</h3>
+              <p>1. Abre WhatsApp en tu celular.</p>
+              <p>2. Ve a <strong>Ajustes > Dispositivos vinculados</strong>.</p>
+              <p>3. Toca <strong>Vincular un dispositivo</strong> y apunta tu cámara a este código QR.</p>
+              <div class="qr-status-tag">Esperando escaneo en tiempo real...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCIONES RÁPIDAS -->
+        <div class="quick-actions-grid">
+          <div class="card action-card" id="cardOrdenarDrive">
+            <div class="action-icon">📁</div>
+            <div class="action-info">
+              <h3>Ordenar y Limpiar Drive</h3>
+              <p>Clasifica archivos sueltos y aísla duplicados por hash MD5.</p>
+            </div>
+            <button class="btn btn-secondary" id="btnRunOrdenar">Ejecutar</button>
+          </div>
+
+          <div class="card action-card" id="cardActualizarWeb">
+            <div class="action-icon">🚀</div>
+            <div class="action-info">
+              <h3>Actualizar Biblioteca Web</h3>
+              <p>Compila el índice y publica los cambios a GitHub Pages.</p>
+            </div>
+            <button class="btn btn-secondary" id="btnRunActualizar">Publicar</button>
+          </div>
+        </div>
+
+        <!-- CONSOLA DE REGISTROS (LOGS) -->
+        <div class="card logs-card">
+          <div class="logs-header">
+            <div class="logs-title">
+              <span>📟 Registro de Actividad</span>
+              <span class="live-tag">EN VIVO</span>
+            </div>
+            <button class="btn-clear" id="btnClearLogs" title="Limpiar pantalla">Limpiar</button>
+          </div>
+          <div class="logs-terminal" id="logsTerminal">
+            <div class="log-entry log-info">
+              <span class="log-time">[00:00:00]</span>
+              <span class="log-msg">Aplicación lista. Presiona "Iniciar Bot" para comenzar.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: CONFIGURACIÓN -->
+      <section class="tab-pane" id="tab-settings">
+        <div class="card settings-card">
+          <h2>Configuración de la Generación</h2>
+          <p class="card-subtitle">Personaliza la carpeta de Google Drive y el grupo de WhatsApp que usará el bot.</p>
+
+          <form id="settingsForm">
+            <div class="form-group">
+              <label for="inputDrive">Carpeta de Google Drive (Enlace o ID)</label>
+              <div class="input-desc">Pega el link normal de la carpeta compartida de tu generación.</div>
+              <input type="text" id="inputDrive" class="form-control" placeholder="https://drive.google.com/drive/folders/1abc... o ID">
+            </div>
+
+            <div class="form-group">
+              <label for="inputGroup">ID del Grupo de WhatsApp</label>
+              <div class="input-desc">El identificador oficial del grupo del curso (ej: 120363xxx@g.us).</div>
+              <div class="input-group-btn">
+                <input type="text" id="inputGroup" class="form-control" placeholder="120363xxxxxxxxx@g.us">
+                <button type="button" class="btn btn-secondary" id="btnDetectGroup">🔍 Detectar Grupos</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputGemini">Clave de Google Gemini AI (Opcional)</label>
+              <div class="input-desc">Permite clasificación con IA para archivos difíciles. Consigue una gratis en Google AI Studio.</div>
+              <input type="password" id="inputGemini" class="form-control" placeholder="AIzaSy...">
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="btnSaveSettings">
+                <span>💾 Guardar Cambios</span>
+              </button>
+              <span class="save-feedback" id="saveFeedback"></span>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- TAB 3: MATERIAS Y ASIGNATURAS -->
+      <section class="tab-pane" id="tab-subjects">
+        <div class="card subjects-card">
+          <div class="subjects-header">
+            <div>
+              <h2>Asignaturas y Palabras Clave</h2>
+              <p class="card-subtitle">Administra las materias de tu año para que el bot clasifique los apuntes de forma exacta.</p>
+            </div>
+            <button class="btn btn-primary" id="btnAddSubject">+ Nueva Materia</button>
+          </div>
+
+          <div class="subjects-list" id="subjectsList">
+            <!-- Se llena dinámicamente con JavaScript -->
+          </div>
+
+          <div class="form-actions" style="margin-top: 1.5rem;">
+            <button class="btn btn-primary" id="btnSaveSubjects">
+              <span>💾 Guardar Materias</span>
+            </button>
+            <span class="save-feedback" id="saveSubjectsFeedback"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
