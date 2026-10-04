@@ -21,26 +21,26 @@
 
 ---
 
-### Paso 2: Configurar tu Generación
+### Paso 2: Abrir la Aplicación de Escritorio
 Abre la carpeta del bot y haz **doble clic** en:
-* 🪟 En Windows: **`1 - CONFIGURAR_BOT.bat`**
-* 🍎 En Mac: **`1 - CONFIGURAR_BOT.command`**
+* 🪟 En Windows: **`ABRIR_GOLGI_BOT.bat`**
+* 🍎 En Mac: **`ABRIR_GOLGI_BOT.command`**
 
-El asistente te preguntará en español:
-1. **Carpeta de Google Drive:** Solo pega el enlace normal de la carpeta de Drive de tu generación (el programa extrae el código automáticamente).
-2. **Clave de Gemini AI:** Es opcional y gratuita; puedes pegarla o presionar Enter para omitir.
-3. **Grupo de WhatsApp:** Elige la opción `[1]`, escanea el código QR que aparecerá en pantalla con tu WhatsApp (como si fuera WhatsApp Web) y selecciona tu grupo de la lista.
-
-> ✅ ¡Listo! No tienes que tocar ni editar ningún archivo de código.
+Se abrirá una ventana visual con botones modernos y modo oscuro. Desde allí podrás:
+1. **Configurar tu carpeta de Drive y Grupo de WhatsApp** desde la pestaña ⚙️ **Configuración**.
+2. **Escanear el código QR** que aparece directamente en pantalla.
+3. **Iniciar o detener el bot** con el botón `[ Iniciar Bot ]`.
+4. **Ver los registros en vivo** en la consola integrada.
+5. **Gestionar las asignaturas** de tu curso desde la pestaña 📚 **Materias**.
 
 ---
 
-### Paso 3: Encender el Bot en el día a día
-Cada vez que quieras que el bot revise el grupo y guarde materiales:
-* 🪟 En Windows: Doble clic en **`2 - INICIAR_BOT.bat`**
-* 🍎 En Mac: Doble clic en **`2 - INICIAR_BOT.command`**
-
-Verás una ventana negra que mostrará el progreso. Cuando termine de procesar los mensajes, enviará automáticamente el reporte con el link de la biblioteca al grupo.
+### Alternativa: Asistente Rápido por Terminal
+Si prefieres usar los lanzadores individuales numerados:
+* **`1 - CONFIGURAR_BOT`**: Asistente rápido paso a paso en español.
+* **`2 - INICIAR_BOT`**: Inicia el bot directamente.
+* **`3 - ORDENAR_DRIVE`**: Limpia y organiza el Drive.
+* **`4 - ACTUALIZAR_WEB`**: Actualiza GitHub Pages.
 
 ---
 
