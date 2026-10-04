@@ -43,7 +43,7 @@ Sistema automatizado de captura, clasificación académica y biblioteca digital 
 ├── ABRIR_GOLGI_BOT.bat        # Lanzador 1-clic para Windows
 ├── ABRIR_GOLGI_BOT.command    # Lanzador 1-clic para macOS
 ├── index.js                   # Proceso principal: Bot de WhatsApp en tiempo real
-├── configurador.js            # Asistente interactivo de configuración
+├── sincronizador-git.js       # Sincronizador autónomo de GitHub Pages por HTTP API
 ├── ordenador.js               # Escáner profundo y reordenador autónomo de Google Drive
 ├── indice.js                  # Generador y publicador de la biblioteca por generaciones
 ├── clasificador.js            # Motor de clasificación por reglas y Gemini AI

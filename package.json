@@ -33,6 +33,8 @@
       "enlaces.js",
       "indice.js",
       "ordenador.js",
+      "sincronizador-git.js",
+      "generaciones.json",
       "config.js",
       "status.js",
       "categorias.json",

@@ -35,33 +35,19 @@ Se abrirá una ventana visual con botones modernos y modo oscuro. Desde allí po
 
 ---
 
-### Alternativa: Asistente Rápido por Terminal
-Si prefieres usar los lanzadores individuales numerados:
-* **`1 - CONFIGURAR_BOT`**: Asistente rápido paso a paso en español.
-* **`2 - INICIAR_BOT`**: Inicia el bot directamente.
-* **`3 - ORDENAR_DRIVE`**: Limpia y organiza el Drive.
-* **`4 - ACTUALIZAR_WEB`**: Actualiza GitHub Pages.
-
----
-
-## 🛠️ Herramientas Extra (1 Clic)
-
-| Archivo | ¿Para qué sirve? |
-| :--- | :--- |
-| **`3 - ORDENAR_DRIVE`** | Revisa todo tu Google Drive, ordena archivos sueltos en carpetas y mueve los duplicados a `_Duplicados`. |
-| **`4 - ACTUALIZAR_WEB`** | Vuelve a generar la página web de la biblioteca y la sincroniza con GitHub Pages. |
+### Acciones Disponibles desde la Aplicación:
+Desde el **Panel de Control** de la aplicación tienes todo en un solo clic:
+* **▶️ Iniciar / Detener Bot:** Conecta con WhatsApp, muestra el código QR automáticamente y monitorea el grupo.
+* **🧹 Organizar Drive:** Revisa todo tu Google Drive, ordena archivos sueltos en sus respectivas carpetas de asignaturas y traslada duplicados a `_Duplicados`.
+* **🚀 Publicar Biblioteca Web:** Compila la biblioteca digital interactiva y la sube en vivo a GitHub Pages.
 
 ---
 
 ## 📚 ¿Cómo cambiar o agregar materias cuando pasen de año?
-Cuando pasen a 2° año, 3° año, etc., las asignaturas cambian. Para cambiar las materias:
-1. Abre el archivo **`categorias.json`** con el Bloc de Notas o cualquier editor de texto.
-2. Verás una lista de materias con sus palabras clave:
-   ```json
-   "Anatomía": ["anato", "osteología", "músculos"],
-   "Fisiología": ["fisio", "potencial de acción", "sinapsis"]
-   ```
-3. Solo cambia o agrega los nombres de las asignaturas nuevas de tu curso y guarda el archivo (`Ctrl + G`).
+Cuando pasen a 2° año, 3° año, etc., las asignaturas cambian:
+1. Abre la aplicación y dirígete a la pestaña 📚 **Materias**.
+2. Haz clic en **`+ Agregar Materia`**, escribe el nombre de la nueva asignatura e introduce sus palabras clave (*ej: fármaco, dosis, receta*).
+3. Presiona **`Guardar Materias`** y listo. El clasificador la reconocerá de inmediato.
 
 ---
 
