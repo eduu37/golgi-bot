@@ -260,58 +260,145 @@ ipcMain.handle("shell:open-external", (_event, url) => {
   }
 });
 
-// 9. Detectar Grupos de WhatsApp
+let detectorClient = null;
+
+// 9. Detectar Grupos de WhatsApp (con soporte para Comunidades y detección en vivo)
 ipcMain.handle("whatsapp:detectar-grupos", async () => {
+  if (botProcess !== null) {
+    return {
+      ok: false,
+      error: "El bot está actualmente en ejecución. Por favor detén el bot primero desde el panel principal para buscar grupos sin conflicto de sesión.",
+      grupos: [],
+    };
+  }
+
+  if (detectorClient) {
+    try {
+      await detectorClient.destroy();
+    } catch {}
+    detectorClient = null;
+  }
+
   enviarLog("🔍 Iniciando detector de grupos de WhatsApp...", "info");
   const { default: wwebjs } = await import("whatsapp-web.js");
   const { Client, LocalAuth } = wwebjs;
 
-  const client = new Client({
+  detectorClient = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: { args: ["--no-sandbox", "--disable-setuid-sandbox"] },
   });
 
   return new Promise((resolve) => {
-    client.on("qr", async (qr) => {
-      enviarLog("📱 Código QR generado para escanear.", "info");
+    let mapaComunidades = new Map();
+
+    detectorClient.on("qr", async (qr) => {
+      enviarLog("📱 Escanea el código QR en la ventana emergente para ver tus grupos.", "info");
       try {
         const qrDataUrl = await QRCode.toDataURL(qr, { margin: 2, scale: 6 });
-        lastQR = qrDataUrl;
-        cambiarEstado("conectando");
-        if (mainWindow) {
-          mainWindow.webContents.send("bot:qr", qrDataUrl);
+        if (mainWindow && !mainWindow.isDestroyed()) {
+          mainWindow.webContents.send("whatsapp:detector-qr", qrDataUrl);
         }
       } catch (err) {
         enviarLog("Error generando imagen QR: " + err.message, "error");
       }
     });
 
-    client.on("ready", async () => {
-      enviarLog("✅ WhatsApp conectado. Obteniendo lista de grupos...", "success");
-      try {
-        const chats = await client.getChats();
-        const grupos = chats
-          .filter((c) => c.isGroup)
-          .map((g) => ({
-            id: g.id._serialized,
-            name: g.name,
-          }));
+    detectorClient.on("ready", async () => {
+      enviarLog("✅ WhatsApp conectado. Obteniendo grupos y comunidades...", "success");
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.webContents.send("whatsapp:detector-qr", null);
+      }
 
-        await client.destroy();
-        lastQR = null;
-        cambiarEstado("detenido");
+      try {
+        const chats = await detectorClient.getChats();
+
+        // 1. Mapear comunidades padre
+        mapaComunidades.clear();
+        for (const c of chats) {
+          const isCommunityParent = Boolean(c.isParentGroup || c.groupMetadata?.isParentGroup);
+          if (isCommunityParent) {
+            mapaComunidades.set(c.id._serialized, c.name || "Comunidad");
+          }
+        }
+
+        // 2. Extraer todos los grupos y subgrupos
+        const grupos = [];
+        for (const c of chats) {
+          const id = c.id && c.id._serialized;
+          if (!id) continue;
+          const isGroup = c.isGroup || id.endsWith("@g.us");
+          if (!isGroup) continue;
+
+          const isCommunityParent = Boolean(c.isParentGroup || c.groupMetadata?.isParentGroup);
+          const parentId = c.groupMetadata?.parentGroup?._serialized || null;
+          let comunidadNombre = null;
+          if (parentId && mapaComunidades.has(parentId)) {
+            comunidadNombre = mapaComunidades.get(parentId);
+          }
+
+          grupos.push({
+            id,
+            name: c.name || c.formattedTitle || "Grupo sin nombre",
+            isCommunityParent,
+            isCommunitySubgroup: Boolean(parentId),
+            comunidadNombre,
+            unreadCount: c.unreadCount || 0,
+          });
+        }
+
+        // Ordenar alfabéticamente
+        grupos.sort((a, b) => a.name.localeCompare(b.name, "es"));
+
+        enviarLog(`📋 Se encontraron ${grupos.length} grupos/comunidades disponibles.`, "info");
         resolve({ ok: true, grupos });
       } catch (err) {
-        await client.destroy();
         resolve({ ok: false, error: err.message, grupos: [] });
       }
     });
 
-    client.initialize().catch((err) => {
+    // Detección en vivo si envían un mensaje en el grupo
+    detectorClient.on("message_create", async (msg) => {
+      const chatID = msg.id && msg.id.remote;
+      if (chatID && chatID.endsWith("@g.us")) {
+        let chatName = "Grupo de WhatsApp";
+        let comunidadNombre = null;
+        try {
+          const chatObj = await msg.getChat();
+          if (chatObj) {
+            chatName = chatObj.name || chatObj.formattedTitle || chatName;
+            const parentId = chatObj.groupMetadata?.parentGroup?._serialized;
+            if (parentId && mapaComunidades.has(parentId)) {
+              comunidadNombre = mapaComunidades.get(parentId);
+            }
+          }
+        } catch {}
+
+        enviarLog(`⚡ Grupo detectado en tiempo real: "${chatName}"`, "success");
+        if (mainWindow && !mainWindow.isDestroyed()) {
+          mainWindow.webContents.send("whatsapp:grupo-en-vivo", {
+            id: chatID,
+            name: chatName,
+            comunidadNombre,
+          });
+        }
+      }
+    });
+
+    detectorClient.initialize().catch((err) => {
       enviarLog("❌ Error conectando WhatsApp: " + err.message, "error");
       resolve({ ok: false, error: err.message, grupos: [] });
     });
   });
+});
+
+ipcMain.handle("whatsapp:cancelar-detectar-grupos", async () => {
+  if (detectorClient) {
+    try {
+      await detectorClient.destroy();
+    } catch {}
+    detectorClient = null;
+  }
+  return { ok: true };
 });
 
 app.whenReady().then(() => {

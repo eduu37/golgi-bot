@@ -14,6 +14,7 @@ contextBridge.exposeInMainWorld("golgiAPI", {
   getCategorias: () => ipcRenderer.invoke("categorias:get"),
   saveCategorias: (data) => ipcRenderer.invoke("categorias:save", data),
   detectarGrupos: () => ipcRenderer.invoke("whatsapp:detectar-grupos"),
+  cancelarDeteccionGrupos: () => ipcRenderer.invoke("whatsapp:cancelar-detectar-grupos"),
 
   // Utilidades del sistema
   openExternal: (url) => ipcRenderer.invoke("shell:open-external", url),
@@ -24,4 +25,8 @@ contextBridge.exposeInMainWorld("golgiAPI", {
     ipcRenderer.on("bot:status-changed", (_event, data) => callback(data)),
   onQR: (callback) => ipcRenderer.on("bot:qr", (_event, data) => callback(data)),
   onReady: (callback) => ipcRenderer.on("bot:ready", (_event, data) => callback(data)),
+  onGrupoEnVivo: (callback) =>
+    ipcRenderer.on("whatsapp:grupo-en-vivo", (_event, data) => callback(data)),
+  onDetectorQR: (callback) =>
+    ipcRenderer.on("whatsapp:detector-qr", (_event, data) => callback(data)),
 });

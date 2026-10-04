@@ -42,8 +42,22 @@ const btnAddSubject = document.getElementById('btnAddSubject');
 const btnSaveSubjects = document.getElementById('btnSaveSubjects');
 const saveSubjectsFeedback = document.getElementById('saveSubjectsFeedback');
 
+// Modal Detector de Grupos & Comunidades
+const modalGrupos = document.getElementById('modalGrupos');
+const btnCloseModalGrupos = document.getElementById('btnCloseModalGrupos');
+const btnCancelGroupModal = document.getElementById('btnCancelGroupModal');
+const searchGroupInput = document.getElementById('searchGroupInput');
+const modalQrState = document.getElementById('modalQrState');
+const modalQrImage = document.getElementById('modalQrImage');
+const modalLoadingState = document.getElementById('modalLoadingState');
+const modalLoadingText = document.getElementById('modalLoadingText');
+const groupsList = document.getElementById('groupsList');
+const noGroupsFound = document.getElementById('noGroupsFound');
+
 let currentStatus = 'detenido';
 let categoriasData = { materias: {}, tipos: {} };
+let listaGruposDetectados = [];
+let modalGruposAbierto = false;
 
 // ============================================================
 // 1. NAVEGACIÓN ENTRE PESTAÑAS
@@ -228,26 +242,121 @@ settingsForm.addEventListener('submit', async (e) => {
   }
 });
 
-btnDetectGroup.addEventListener('click', async () => {
-  btnDetectGroup.disabled = true;
-  btnDetectGroup.textContent = '⏳ Escaneando...';
-  agregarLog('Iniciando detector de grupos de WhatsApp...', 'info');
+// ============================================================
+// MODAL DE DETECCIÓN DE GRUPOS & COMUNIDADES
+// ============================================================
+function abrirModalGrupos() {
+  if (currentStatus === 'activo' || currentStatus === 'conectando') {
+    alert('El bot está actualmente en ejecución. Por favor, primero haz clic en "Detener Bot" en el Panel de Control para poder buscar grupos sin interferir con la sesión de WhatsApp.');
+    return;
+  }
 
-  const res = await window.golgiAPI.detectarGrupos();
-  btnDetectGroup.disabled = false;
-  btnDetectGroup.textContent = '🔍 Detectar Grupos';
+  modalGrupos.style.display = 'flex';
+  modalGruposAbierto = true;
+  modalLoadingState.style.display = 'flex';
+  modalLoadingText.textContent = 'Conectando con WhatsApp y buscando grupos...';
+  modalQrState.style.display = 'none';
+  groupsList.style.display = 'none';
+  groupsList.innerHTML = '';
+  noGroupsFound.style.display = 'none';
+  searchGroupInput.value = '';
+  listaGruposDetectados = [];
 
-  if (res.ok && res.grupos && res.grupos.length > 0) {
-    const nombres = res.grupos.map((g, i) => `${i + 1}. ${g.name}`).join('\n');
-    const elegidaStr = prompt(`Selecciona el número de tu grupo:\n\n${nombres}\n\nIngresa el número:`);
-    const idx = parseInt(elegidaStr, 10);
-    if (idx > 0 && idx <= res.grupos.length) {
-      const g = res.grupos[idx - 1];
-      inputGroup.value = g.id;
-      agregarLog(`Grupo asignado: "${g.name}" (${g.id})`, 'success');
+  agregarLog('Iniciando detector de grupos y comunidades de WhatsApp...', 'info');
+
+  window.golgiAPI.detectarGrupos().then((res) => {
+    if (!modalGruposAbierto) return;
+
+    if (res.ok && res.grupos) {
+      listaGruposDetectados = res.grupos;
+      modalLoadingState.style.display = 'none';
+      renderizarGrupos(searchGroupInput.value);
+    } else {
+      modalLoadingState.style.display = 'flex';
+      modalLoadingText.innerHTML = `⚠️ ${escapeHtml(res.error || 'No se pudieron obtener grupos automáticamente.')}`;
     }
-  } else {
-    alert('No se pudieron obtener grupos automáticamente. Puedes pegar el ID manualmente.');
+  });
+}
+
+function cerrarModalGrupos() {
+  modalGrupos.style.display = 'none';
+  modalGruposAbierto = false;
+  window.golgiAPI.cancelarDeteccionGrupos();
+}
+
+function renderizarGrupos(filtro = '') {
+  const query = (filtro || '').toLowerCase().trim();
+  const filtrados = listaGruposDetectados.filter((g) => {
+    if (!query) return true;
+    const nameMatch = g.name && g.name.toLowerCase().includes(query);
+    const comMatch = g.comunidadNombre && g.comunidadNombre.toLowerCase().includes(query);
+    const idMatch = g.id && g.id.toLowerCase().includes(query);
+    return nameMatch || comMatch || idMatch;
+  });
+
+  if (filtrados.length === 0) {
+    groupsList.style.display = 'none';
+    noGroupsFound.style.display = 'block';
+    return;
+  }
+
+  noGroupsFound.style.display = 'none';
+  groupsList.style.display = 'flex';
+
+  groupsList.innerHTML = filtrados
+    .map((g) => {
+      let badgeHtml = '';
+      if (g.isLive) {
+        badgeHtml = '<span class="badge-tag badge-live">⚡ Detectado en vivo</span>';
+      } else if (g.isCommunityParent) {
+        badgeHtml = '<span class="badge-tag badge-community">🏛️ Comunidad Principal</span>';
+      } else if (g.isCommunitySubgroup) {
+        const comNombre = g.comunidadNombre ? `En: ${escapeHtml(g.comunidadNombre)}` : 'En Comunidad';
+        badgeHtml = `<span class="badge-tag badge-subgroup">🏛️ ${comNombre}</span>`;
+      }
+
+      return `
+        <div class="group-item ${g.isLive ? 'live-highlight' : ''}">
+          <div class="group-info">
+            <div class="group-name-row">
+              <span class="group-name" title="${escapeHtml(g.name)}">${escapeHtml(g.name)}</span>
+              ${badgeHtml}
+            </div>
+            <div class="group-id">${escapeHtml(g.id)}</div>
+          </div>
+          <button type="button" class="btn-select-group" data-id="${escapeHtml(g.id)}" data-name="${escapeHtml(g.name)}">
+            Seleccionar
+          </button>
+        </div>
+      `;
+    })
+    .join('');
+}
+
+btnDetectGroup.addEventListener('click', abrirModalGrupos);
+btnCloseModalGrupos.addEventListener('click', cerrarModalGrupos);
+btnCancelGroupModal.addEventListener('click', cerrarModalGrupos);
+
+modalGrupos.addEventListener('click', (e) => {
+  if (e.target === modalGrupos) {
+    cerrarModalGrupos();
+  }
+});
+
+searchGroupInput.addEventListener('input', (e) => {
+  renderizarGrupos(e.target.value);
+});
+
+groupsList.addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn-select-group');
+  if (btn) {
+    const id = btn.getAttribute('data-id');
+    const name = btn.getAttribute('data-name');
+    inputGroup.value = id;
+    agregarLog(`Grupo asignado: "${name}" (${id})`, 'success');
+    saveFeedback.textContent = `✅ Grupo "${name}" seleccionado. Recuerda Guardar Cambios.`;
+    setTimeout(() => { saveFeedback.textContent = ''; }, 4000);
+    cerrarModalGrupos();
   }
 });
 
@@ -333,6 +442,49 @@ window.golgiAPI.onQR((qrDataUrl) => {
 window.golgiAPI.onReady(() => {
   actualizarEstadoUI('activo');
   agregarLog('¡El bot está en línea y conectado a WhatsApp!', 'success');
+});
+
+window.golgiAPI.onDetectorQR((qrDataUrl) => {
+  if (modalGruposAbierto) {
+    if (qrDataUrl) {
+      modalQrState.style.display = 'flex';
+      modalQrImage.src = qrDataUrl;
+      modalLoadingState.style.display = 'none';
+    } else {
+      modalQrState.style.display = 'none';
+      modalLoadingState.style.display = 'flex';
+      modalLoadingText.textContent = 'WhatsApp conectado. Cargando grupos y comunidades...';
+    }
+  }
+});
+
+window.golgiAPI.onGrupoEnVivo((data) => {
+  if (!data || !data.id) return;
+  const existente = listaGruposDetectados.find((g) => g.id === data.id);
+  if (existente) {
+    existente.isLive = true;
+    if (data.name) existente.name = data.name;
+    if (data.comunidadNombre) existente.comunidadNombre = data.comunidadNombre;
+    listaGruposDetectados = [
+      existente,
+      ...listaGruposDetectados.filter((g) => g.id !== data.id),
+    ];
+  } else {
+    listaGruposDetectados.unshift({
+      id: data.id,
+      name: data.name || 'Grupo de WhatsApp',
+      isCommunityParent: false,
+      isCommunitySubgroup: Boolean(data.comunidadNombre),
+      comunidadNombre: data.comunidadNombre,
+      isLive: true,
+    });
+  }
+
+  if (modalGruposAbierto) {
+    modalLoadingState.style.display = 'none';
+    modalQrState.style.display = 'none';
+    renderizarGrupos(searchGroupInput.value);
+  }
 });
 
 // Inicialización

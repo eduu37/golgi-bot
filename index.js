@@ -53,7 +53,7 @@ client.on("ready", async () => {
     const chat = await client.getChatById(TARGET_GROUP_ID);
     console.log(`📁 Grupo encontrado: "${chat.name}"`);
 
-    const messages = await chat.fetchMessages({ limit: 100 });
+    const messages = await chat.fetchMessages({ limit: 300 });
 
     if (messages.length === 0) {
       console.log("❌ El grupo aparece vacío.");
