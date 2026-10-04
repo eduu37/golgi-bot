@@ -576,9 +576,186 @@
       grid-column: 1 / -1;
     }
 
-    .empty-icon {
-      font-size: 3rem;
-      margin-bottom: 0.8rem;
+    /* MODAL CLASIFICACIÓN MANUAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 13, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      padding: 1.5rem;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 540px;
+      background: linear-gradient(150deg, #131b2a 0%, #0d121c 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 18px;
+      box-shadow: 0 25px 65px -10px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(245, 158, 11, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalPop {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .modal-close-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-dim);
+      font-size: 1.4rem;
+      line-height: 1;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(244, 63, 94, 0.2);
+      border-color: rgba(244, 63, 94, 0.4);
+      color: #fff;
+    }
+
+    .modal-select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 10px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .modal-select:focus {
+      border-color: var(--accent-amber);
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+    }
+
+    .modal-select option {
+      background: #131b2a;
+      color: #fff;
+    }
+
+    .btn-classify {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(217, 119, 6, 0.18));
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      font-size: 0.83rem;
+      font-weight: 700;
+      padding: 0.55rem 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-classify:hover {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #041019;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .tag-unclassified {
+      background: rgba(245, 158, 11, 0.15) !important;
+      color: #fbbf24 !important;
+      border: 1px solid rgba(245, 158, 11, 0.35) !important;
+      font-weight: 700 !important;
+    }
+
+    .btn-move-drive {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+
+    .btn-move-drive:hover {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-notify-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.2));
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.55rem 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-notify-wa:hover {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .btn-cancel {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.55rem 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-cancel:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
     }
 
     /* FOOTER */
@@ -694,15 +871,70 @@
 
     <div class="results-info">
       <div>Mostrando <strong id="visibleCount" style="color: #fff;">146</strong> recursos</div>
-      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 7:18 p. m.</div>
+      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 8:14 p. m.</div>
     </div>
 
     <div class="files-grid" id="filesGrid"></div>
 
-    <div class="empty-state" id="emptyState">
-      <div class="empty-icon">🔎</div>
-      <h3>No se encontraron recursos</h3>
-      <p>Prueba con otros términos de búsqueda o selecciona otra materia.</p>
+    <!-- MODAL DE CLASIFICACIÓN MANUAL -->
+    <div class="modal-overlay" id="modalClasificar" style="display: none;">
+      <div class="modal-box">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <span style="font-size: 1.5rem;">🏷️</span>
+            <div>
+              <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin: 0;">Clasificar Documento</h3>
+              <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.15rem;">Asigna la materia correcta a este recurso.</p>
+            </div>
+          </div>
+          <button class="modal-close-btn" onclick="cerrarModalClasificar()">&times;</button>
+        </div>
+
+        <div class="modal-body" style="padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 0.85rem 1rem;">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700; margin-bottom: 0.25rem;">Archivo:</div>
+            <div id="modalClasificarNombre" style="font-size: 0.95rem; font-weight: 600; color: #fff; word-break: break-word;"></div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">¿A qué Asignatura pertenece?</label>
+            <select id="selectMateriaClasificar" class="modal-select">
+              <option value="Anatomía">Anatomía</option>
+<option value="Bioestadística">Bioestadística</option>
+<option value="Biología célular y molecular">Biología célular y molecular</option>
+<option value="Física">Física</option>
+<option value="Histología y Embriología">Histología y Embriología</option>
+<option value="Salúd pública">Salúd pública</option>
+            </select>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">¿Qué Tipo de Recurso es?</label>
+            <select id="selectTipoClasificar" class="modal-select">
+              <option value="Apuntes">Apuntes / Clases</option>
+              <option value="Certámenes">Certámenes</option>
+              <option value="Controles">Controles</option>
+              <option value="Seminarios">Seminarios</option>
+              <option value="Resúmenes">Resúmenes</option>
+              <option value="Guías">Guías / Talleres</option>
+              <option value="Libros">Libros</option>
+              <option value="Varios">Varios</option>
+            </select>
+          </div>
+
+          <div style="background: rgba(56, 189, 248, 0.06); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 10px; padding: 0.85rem 1rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.45;">
+            <strong style="color: var(--accent-cyan); display: block; margin-bottom: 0.25rem;">💡 ¿Cómo moverlo al lugar adecuado?</strong>
+            <p style="margin-bottom: 0.35rem;"><strong>Si tienes acceso al Drive:</strong> Haz clic en <em>"Abrir y Mover en Drive"</em>. En Google Drive presiona el icono de carpeta 📁 (<strong>Organizar / Mover</strong>) y colócalo dentro de la carpeta de la materia.</p>
+            <p><strong>Si eres alumno:</strong> Haz clic en <em>"Notificar por WhatsApp"</em> para que el delegado lo mueva por ti con 1 clic.</p>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="padding: 1rem 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.6rem;">
+          <button type="button" class="btn-cancel" onclick="cerrarModalClasificar()">Cancelar</button>
+          <button type="button" class="btn-notify-wa" id="btnNotificarWA" onclick="notificarClasificacionWA()">💬 Notificar por WhatsApp</button>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-move-drive" id="btnMoverEnDrive">📁 Abrir y Mover en Drive ↗</a>
+        </div>
+      </div>
     </div>
 
     <footer>
@@ -770,6 +1002,9 @@
         const esNotebook = item.badge === 'NOTEBOOKLM';
         const btnClase = esYt ? 'btn-open btn-open-yt' : (esNotebook ? 'btn-open btn-open-notebook' : 'btn-open');
         const badgeClase = item.esEnlaceWeb ? ('tag tag-badge-' + item.badge) : 'tag tag-ext';
+        const esSinClasificar = (item.materia || '').toLowerCase().includes('sin clasificar');
+        const tagMateriaClase = esSinClasificar ? 'tag tag-materia tag-unclassified' : 'tag tag-materia';
+        const tagMateriaTexto = esSinClasificar ? '⚠️ Sin clasificar' : item.materia;
 
         return `
           <div class="file-card">
@@ -782,7 +1017,7 @@
                   <div class="file-title" title="${item.nombreOriginal}">${item.nombreLimpio}</div>
                   ${item.autor ? `<div class="file-author"><span>👤 ${item.autor}</span></div>` : ''}
                   <div class="file-tags">
-                    <span class="tag tag-materia">${item.materia}</span>
+                    <span class="${tagMateriaClase}">${tagMateriaTexto}</span>
                     <span class="tag tag-tipo">${item.tipo}</span>
                     <span class="tag ${badgeClase}">${item.badge}</span>
                     ${item.esDuplicado ? '<span class="tag tag-dupe">Repetido</span>' : ''}
@@ -797,6 +1032,11 @@
                 <span>${item.fechaFormateada}</span>
               </div>
               <div class="file-actions">
+                ${esSinClasificar ? `
+                  <button type="button" class="btn-classify" onclick="abrirModalClasificar('${item.id}')" title="Asignar materia adecuada">
+                    🏷️ Clasificar
+                  </button>
+                ` : ''}
                 <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="${btnClase}">
                   ${item.actionLabel || (item.esEnlaceWeb ? 'Visitar Enlace ↗' : 'Abrir en Drive ↗')}
                 </a>
@@ -854,6 +1094,47 @@
         setTimeout(() => { btn.innerHTML = textoOriginal; }, 1500);
       });
     };
+
+    // Modal de clasificación manual
+    let itemAClasificar = null;
+    const modalClasificar = document.getElementById('modalClasificar');
+    const modalClasificarNombre = document.getElementById('modalClasificarNombre');
+    const selectMateriaClasificar = document.getElementById('selectMateriaClasificar');
+    const selectTipoClasificar = document.getElementById('selectTipoClasificar');
+    const btnMoverEnDrive = document.getElementById('btnMoverEnDrive');
+
+    window.abrirModalClasificar = function(id) {
+      itemAClasificar = CATALOGO.find(it => String(it.id) === String(id));
+      if (!itemAClasificar) return;
+
+      modalClasificarNombre.textContent = itemAClasificar.nombreLimpio || itemAClasificar.nombreOriginal;
+      btnMoverEnDrive.href = itemAClasificar.url;
+      modalClasificar.style.display = 'flex';
+    };
+
+    window.cerrarModalClasificar = function() {
+      if (modalClasificar) modalClasificar.style.display = 'none';
+      itemAClasificar = null;
+    };
+
+    window.notificarClasificacionWA = function() {
+      if (!itemAClasificar) return;
+      const materia = selectMateriaClasificar ? selectMateriaClasificar.value : 'General';
+      const tipo = selectTipoClasificar ? selectTipoClasificar.value : 'Apuntes';
+      const nombreItem = itemAClasificar.nombreLimpio || itemAClasificar.nombreOriginal;
+      const texto = 'Hola! En la Biblioteca Digital el archivo "' + nombreItem + '" que figura Sin Clasificar corresponde a:
+📚 *Materia:* ' + materia + '
+📂 *Tipo:* ' + tipo + '
+🔗 ' + itemAClasificar.url;
+      const waUrl = 'https://wa.me/?text=' + encodeURIComponent(texto);
+      window.open(waUrl, '_blank');
+    };
+
+    if (modalClasificar) {
+      modalClasificar.addEventListener('click', (e) => {
+        if (e.target === modalClasificar) cerrarModalClasificar();
+      });
+    }
 
     // Render inicial
     renderizar();
