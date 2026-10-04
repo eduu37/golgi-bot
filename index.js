@@ -11,6 +11,9 @@ import {
   DETECTAR_DUPLICADOS_HASH,
   AUTO_ACTUALIZAR_INDICE,
   AUTO_PUBLICAR_GITHUB,
+  GITHUB_PAGES_URL,
+  GITHUB_PAGES_GENERACION_URL,
+  GENERACION,
 } from "./config.js";
 
 import {
@@ -298,8 +301,9 @@ client.on("ready", async () => {
 
       const fechaActual = new Date().toLocaleString("es-CL");
 
-      let mensajeReporte = `*Reporte de Respaldo a Drive por Golgi bot* ☁️\n\n`;
-      mensajeReporte += `🔗 *Link a la biblioteca:* https://eduu37.github.io/golgi-bot/\n`;
+      let mensajeReporte = `*Reporte de Respaldo a Drive por Golgi bot* ☁️\n`;
+      mensajeReporte += `🎓 *Generación:* ${GENERACION}\n\n`;
+      mensajeReporte += `🔗 *Link a la biblioteca (Gen ${GENERACION}):* ${GITHUB_PAGES_GENERACION_URL}\n`;
       mensajeReporte += `📅 *Fecha:* ${fechaActual}\n`;
       mensajeReporte += `📩 *Mensajes analizados:* ${messagesToProcess.length}\n`;
       mensajeReporte += `✅ *Archivos respaldados:* ${archivosSubidos}\n`;

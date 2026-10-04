@@ -4,6 +4,7 @@ import fs from "fs";
 import { fork } from "child_process";
 import { fileURLToPath } from "url";
 import QRCode from "qrcode";
+import { obtenerUrlBibliotecaWeb } from "./config.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -169,6 +170,10 @@ ipcMain.handle("settings:get", () => {
     DRIVE_FOLDER_ID: "",
     TARGET_GROUP_ID: "",
     GEMINI_API_KEY: "",
+    GENERACION: "2026",
+    GITHUB_REPO: "eduu37/golgi-bot",
+    GITHUB_TOKEN: "",
+    GITHUB_PAGES_URL: "",
   };
 
   if (fs.existsSync(rutaEnv)) {
@@ -177,6 +182,10 @@ ipcMain.handle("settings:get", () => {
       const m = linea.match(/^([A-Z_]+)=(.*)$/);
       if (m) datos[m[1]] = m[2].trim();
     }
+  }
+
+  if (!datos.GITHUB_PAGES_URL) {
+    datos.GITHUB_PAGES_URL = obtenerUrlBibliotecaWeb(datos.GENERACION || "2026");
   }
 
   return datos;
@@ -188,18 +197,24 @@ ipcMain.handle("settings:save", (_event, settings) => {
   const match = driveId.match(/\/folders\/([a-zA-Z0-9_-]+)/);
   if (match && match[1]) driveId = match[1];
 
+  const gen = (settings.GENERACION || "2026").trim().replace(/[^a-zA-Z0-9_-]/g, "");
+
   const contenido = `# ============================================================
 # GOLGI BOT — VARIABLES DE ENTORNO
 # Modificado desde la Aplicación de Escritorio
 # ============================================================
-GEMINI_API_KEY=${settings.GEMINI_API_KEY || ""}
+GENERACION=${gen}
 TARGET_GROUP_ID=${settings.TARGET_GROUP_ID || ""}
 DRIVE_FOLDER_ID=${driveId}
+GITHUB_REPO=${settings.GITHUB_REPO || "eduu37/golgi-bot"}
+GITHUB_TOKEN=${settings.GITHUB_TOKEN || ""}
+GITHUB_PAGES_URL=${settings.GITHUB_PAGES_URL || ""}
+GEMINI_API_KEY=${settings.GEMINI_API_KEY || ""}
 `;
 
   fs.writeFileSync(rutaEnv, contenido, "utf8");
   enviarLog("💾 Configuración guardada en .env", "success");
-  return { ok: true, driveId };
+  return { ok: true, driveId, pagesUrl: settings.GITHUB_PAGES_URL, generacion: gen };
 });
 
 // 7. Leer y Guardar Categorías (categorias.json)

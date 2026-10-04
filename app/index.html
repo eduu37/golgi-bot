@@ -143,6 +143,12 @@
 
           <form id="settingsForm">
             <div class="form-group">
+              <label for="inputGeneracion">🎓 Generación de tu Curso (Año)</label>
+              <div class="input-desc">Identificador del año de ingreso de tu generación (ej: 2026, 2027). Creará una web independiente para tu curso.</div>
+              <input type="text" id="inputGeneracion" class="form-control" placeholder="2026">
+            </div>
+
+            <div class="form-group">
               <label for="inputDrive">Carpeta de Google Drive (Enlace o ID)</label>
               <div class="input-desc">Pega el link normal de la carpeta compartida de tu generación.</div>
               <input type="text" id="inputDrive" class="form-control" placeholder="https://drive.google.com/drive/folders/1abc... o ID">
@@ -155,6 +161,24 @@
                 <input type="text" id="inputGroup" class="form-control" placeholder="120363xxxxxxxxx@g.us">
                 <button type="button" class="btn btn-secondary" id="btnDetectGroup">🔍 Detectar Grupos</button>
               </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputGithubToken">🔑 Token de GitHub (Opcional — Para publicar sin instalar Git)</label>
+              <div class="input-desc">Si no tienes Git instalado en tu PC, pega aquí un token de GitHub (Personal Access Token) para publicar la web directamente por internet.</div>
+              <input type="password" id="inputGithubToken" class="form-control" placeholder="ghp_... o github_pat_...">
+            </div>
+
+            <div class="form-group">
+              <label for="inputGithubRepo">📦 Repositorio de GitHub</label>
+              <div class="input-desc">Nombre del repositorio oficial (formato: usuario/nombre-repo).</div>
+              <input type="text" id="inputGithubRepo" class="form-control" placeholder="eduu37/golgi-bot">
+            </div>
+
+            <div class="form-group">
+              <label for="inputPagesUrl">Enlace Web de la Biblioteca</label>
+              <div class="input-desc">Se detecta automáticamente. Cada generación tiene su enlace directo (ej: .../2026/).</div>
+              <input type="text" id="inputPagesUrl" class="form-control" placeholder="https://tu-usuario.github.io/golgi-bot/2026/">
             </div>
 
             <div class="form-group">

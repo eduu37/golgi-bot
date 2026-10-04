@@ -66,9 +66,37 @@ Cuando pasen a 2° año, 3° año, etc., las asignaturas cambian. Para cambiar l
 ---
 
 ## 🔄 ¿Cómo traspasar el bot a la siguiente generación?
-1. Comprime toda la carpeta en un archivo **ZIP** (o compárteles el repositorio de GitHub).
+1. Comprime toda la carpeta en un archivo **ZIP** (o compárteles el enlace del repositorio de GitHub).
 2. Envíales este mismo documento (`MANUAL_DELEGADO.md`).
-3. El nuevo delegado solo tendrá que instalar Node.js, abrir **`1 - CONFIGURAR_BOT`** y vincular su propio grupo de WhatsApp y su propia carpeta de Drive.
+3. El nuevo delegado solo tendrá que instalar Node.js, abrir la aplicación (**`ABRIR_GOLGI_BOT.bat`** o **`ABRIR_GOLGI_BOT.command`**) y vincular su propio grupo de WhatsApp y su propia carpeta de Drive en la pestaña ⚙️ **Configuración**.
+
+---
+
+## 🌐 ¿Cómo funciona la Página Web y la división por Generaciones?
+
+### 🎓 Páginas Independientes por Generación y Portal Central
+El sistema separa el material automáticamente para que cada generación tenga su propio rincón:
+1. En la aplicación (pestaña ⚙️ **Configuración**), cada curso define su año en **Generación** (por ejemplo: `2026`, `2027`, etc.).
+2. El bot genera:
+   * **Una web independiente para tu curso:** `https://eduu37.github.io/golgi-bot/2026/` (o el repositorio correspondiente).
+   * **Un Portal Central de la Carrera:** `https://eduu37.github.io/golgi-bot/`, donde aparecen las tarjetas de todas las generaciones registradas con accesos directos, estadísticas y fechas de actualización. De esta forma, las generaciones nuevas pueden consultar el material que dejaron las generaciones anteriores sin pisarse entre sí.
+
+---
+
+### 🚀 ¿Cómo publicar la web si el delegado NO tiene Git instalado en su PC?
+
+Un estudiante de Medicina no necesita instalar Git ni abrir la terminal:
+1. En GitHub, ve a tu foto de perfil $\rightarrow$ **Settings** $\rightarrow$ **Developer settings** $\rightarrow$ **Personal access tokens** $\rightarrow$ **Tokens (classic)** (o Fine-grained).
+2. Haz clic en **Generate new token**, dale un nombre (ej: *Golgi Bot*) y marca la casilla **`repo`** (o permisos de lectura y escritura de contenido).
+3. Copia el token que empieza con `ghp_...` o `github_pat_...`.
+4. Abre la aplicación de Golgi Bot, ve a la pestaña ⚙️ **Configuración**, pega el token en la casilla **"Token de GitHub"** y haz clic en **Guardar Cambios**.
+5. **¡Listo!** El bot usará internet para subir y actualizar la página web automáticamente cada vez que procese apuntes o le des a *"Publicar"*, **sin necesidad de tener Git instalado en tu computador**.
+
+---
+
+### 📁 Alternativa sin internet: Directamente en Google Drive
+* Cada vez que el bot clasifica apuntes o se presiona *"Publicar"*, también sube automáticamente el archivo **`INDICE_BIBLIOTECA.html`** a la raíz de Google Drive de tu generación.
+* Cualquier estudiante puede hacer doble clic en ese archivo en su computador o celular y tendrá la misma biblioteca interactiva funcionando sin depender de GitHub ni servidores.
 
 ---
 *Desarrollado para la carrera de Medicina por Eduardo Ortega — Golgi Bot.*

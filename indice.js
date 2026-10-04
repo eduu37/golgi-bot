@@ -1,6 +1,15 @@
 import fs from "fs";
 import path from "path";
-import { DRIVE_FOLDER_ID, AUTO_PUBLICAR_GITHUB } from "./config.js";
+import {
+  DRIVE_FOLDER_ID,
+  AUTO_PUBLICAR_GITHUB,
+  GENERACION,
+  GITHUB_REPO,
+  GITHUB_TOKEN,
+  GITHUB_BRANCH,
+  GITHUB_PAGES_URL,
+  GITHUB_PAGES_GENERACION_URL,
+} from "./config.js";
 import {
   iniciarDrive,
   obtenerDriveClient,
@@ -347,7 +356,7 @@ export async function recopilarCatalogoDrive() {
 // ============================================================
 // 3. GENERADOR HTML (MODERNO, GLASSMORPHISM, BUSCADOR REACTIVO)
 // ============================================================
-export function generarHtmlIndice(datos) {
+export function generarHtmlIndice(datos, generacion = GENERACION) {
   const {
     fechaGeneracion,
     totalArchivos,
@@ -393,7 +402,7 @@ export function generarHtmlIndice(datos) {
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biblioteca Digital de Golgi — Materiales y Enlaces</title>
+  <title>Biblioteca Digital — Generación ${generacion}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -447,6 +456,28 @@ export function generarHtmlIndice(datos) {
       margin-bottom: 2.5rem;
       border-bottom: 1px solid var(--border-subtle);
       padding-bottom: 2rem;
+    }
+
+    .portal-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--accent-cyan);
+      text-decoration: none;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      margin-bottom: 0.85rem;
+    }
+
+    .portal-nav-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-cyan);
+      transform: translateX(-2px);
     }
 
     .header-badge {
@@ -967,12 +998,18 @@ export function generarHtmlIndice(datos) {
 <body>
   <div class="container">
     <header>
+      <div>
+        <a href="../" class="portal-nav-btn">
+          <span>⬅️</span>
+          <span>Todas las Generaciones</span>
+        </a>
+      </div>
       <div class="header-badge">
         <span class="header-badge-dot"></span>
-        Material de estudio
+        🎓 Generación ${generacion}
       </div>
-      <h1>Biblioteca Digital Golgi</h1>
-      <p class="subtitle">Catálogo unificado de materiales</p>
+      <h1>Biblioteca Digital — Generación ${generacion}</h1>
+      <p class="subtitle">Materiales de estudio, certámenes y enlaces oficiales recopilados por Golgi Bot</p>
 
       <div class="stats-grid">
         <div class="stat-card">
@@ -1270,17 +1307,383 @@ export function generarMarkdownIndice(datos) {
 }
 
 // ============================================================
-// 6. FUNCIÓN MAESTRA: GENERAR Y SINCRONIZAR
+// 6. GENERADOR PORTAL PRINCIPAL DE GENERACIONES
+// ============================================================
+export function generarHtmlPortalGeneraciones(generaciones = []) {
+  const cardsHtml = generaciones
+    .map((gen) => {
+      const fecha = gen.ultimaActualizacion
+        ? new Date(gen.ultimaActualizacion).toLocaleDateString("es-CL", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          })
+        : "Reciente";
+
+      return `
+      <div class="gen-card">
+        <div class="gen-card-badge">🎓 Generación ${gen.id}</div>
+        <h2 class="gen-card-title">Generación ${gen.id}</h2>
+        <p class="gen-card-desc">Materiales oficiales, certámenes, seminarios y enlaces recopilados automáticamente por Golgi Bot.</p>
+        
+        <div class="gen-stats-grid">
+          <div class="gen-stat-item">
+            <span class="gen-stat-num">${gen.totalItems || 0}</span>
+            <span class="gen-stat-lbl">Recursos</span>
+          </div>
+          <div class="gen-stat-item">
+            <span class="gen-stat-num">${gen.totalMaterias || 0}</span>
+            <span class="gen-stat-lbl">Materias</span>
+          </div>
+          <div class="gen-stat-item">
+            <span class="gen-stat-num">${gen.totalArchivos || 0}</span>
+            <span class="gen-stat-lbl">Archivos Drive</span>
+          </div>
+        </div>
+
+        <div class="gen-card-footer">
+          <span class="gen-date">🕒 Act: ${fecha}</span>
+          <a href="${gen.url || gen.id + '/'}" class="btn-enter-gen">
+            <span>Entrar a Biblioteca</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+      `;
+    })
+    .join("\n");
+
+  return `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Digital de Medicina — Portal de Generaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0a0e17;
+      --bg-card: rgba(18, 24, 38, 0.7);
+      --bg-card-hover: rgba(26, 35, 54, 0.9);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(56, 189, 248, 0.4);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-cyan: #38bdf8;
+      --accent-teal: #14b8a6;
+      --accent-emerald: #10b981;
+      --glass-blur: blur(16px);
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.15), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(20, 184, 166, 0.1), transparent 60%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .generaciones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .gen-card {
+      background: var(--bg-card);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gen-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
+      opacity: 0.7;
+    }
+
+    .gen-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-active);
+      background: var(--bg-card-hover);
+      box-shadow: 0 16px 36px -12px rgba(56, 189, 248, 0.2);
+    }
+
+    .gen-card-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.78rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .gen-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .gen-card-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .gen-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 0.85rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .gen-stat-num {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+    }
+
+    .gen-stat-lbl {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 0.15rem;
+    }
+
+    .gen-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .gen-date {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .btn-enter-gen {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+      color: #041019;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-enter-gen:hover {
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-enter-gen .arrow {
+      transition: transform 0.2s ease;
+    }
+
+    .btn-enter-gen:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        Archivo Académico Central de Medicina
+      </div>
+      <h1>Biblioteca Digital — Portal de Generaciones</h1>
+      <p class="subtitle">Explora los apuntes, certámenes, seminarios y enlaces organizados por generación.</p>
+    </header>
+
+    <div class="generaciones-grid">
+      ${cardsHtml}
+    </div>
+
+    <footer>
+      <p>🧬 Desarrollado para la carrera de Medicina — Golgi Bot &bull; Actualizado automáticamente</p>
+    </footer>
+  </div>
+</body>
+</html>`;
+}
+
+// ============================================================
+// 7. SUBIDA DIRECTA A GITHUB VÍA API REST (CERO GIT REQUERIDO)
+// ============================================================
+export async function publicarAGitHubAPI({ archivos, token, repo, rama = "main" }) {
+  const [owner, repoName] = repo.split("/");
+  if (!owner || !repoName) {
+    throw new Error(`Repositorio inválido: "${repo}". Debe tener formato "usuario/repo".`);
+  }
+
+  console.log(`🌐 Sincronizando ${archivos.length} archivo(s) con GitHub Pages vía API (${owner}/${repoName}@${rama})...`);
+
+  for (const archivo of archivos) {
+    const { ruta, contenido } = archivo;
+    const url = `https://api.github.com/repos/${owner}/${repoName}/contents/${ruta}`;
+    let sha = null;
+
+    try {
+      const getRes = await fetch(`${url}?ref=${rama}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/vnd.github+json",
+          "User-Agent": "GolgiBot-Uploader",
+        },
+      });
+      if (getRes.ok) {
+        const data = await getRes.json();
+        sha = data.sha;
+      }
+    } catch {}
+
+    const putRes = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "User-Agent": "GolgiBot-Uploader",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: `bot: Actualizar ${ruta}`,
+        content: Buffer.from(contenido, "utf8").toString("base64"),
+        branch: rama,
+        ...(sha ? { sha } : {}),
+      }),
+    });
+
+    if (!putRes.ok) {
+      const errText = await putRes.text();
+      throw new Error(`Error en API de GitHub (${putRes.status}) al subir ${ruta}: ${errText}`);
+    }
+    console.log(`   ✅ Sincronizado en GitHub: ${ruta}`);
+  }
+}
+
+// ============================================================
+// 8. FUNCIÓN MAESTRA: GENERAR Y SINCRONIZAR POR GENERACIÓN
 // ============================================================
 export async function generarYSincronizarIndice(opciones = {}) {
   const {
     subirADrive = true,
     abrirLocal = false,
     publicarAGitHub = AUTO_PUBLICAR_GITHUB ?? true,
+    generacion = opciones.generacion || GENERACION,
   } = opciones;
 
   console.log("=================================================");
-  console.log("🚀 GENERADOR AUTOMÁTICO DE ÍNDICE DIGITAL UNIFICADO");
+  console.log(`🚀 GENERADOR DE BIBLIOTECA DIGITAL — GENERACIÓN ${generacion}`);
   console.log("=================================================");
 
   const catalogo = await recopilarCatalogoDrive();
@@ -1291,59 +1694,101 @@ export async function generarYSincronizarIndice(opciones = {}) {
   console.log(`💾 Espacio total en Drive: ${catalogo.totalBytesFormateado}`);
   console.log(`🔁 Duplicados identificados: ${catalogo.duplicadosDetectados}`);
 
-  // 1. Generamos contenidos
-  const htmlContent = generarHtmlIndice(catalogo);
+  // 1. Generamos contenidos para la generación
+  const htmlContentGen = generarHtmlIndice(catalogo, generacion);
   const csvContent = generarCsvIndice(catalogo);
   const mdContent = generarMarkdownIndice(catalogo);
 
-  // 2. Guardamos copias locales en el proyecto
-  const rutaHtmlLocal = path.join(process.cwd(), "INDICE_BIBLIOTECA.html");
+  // 2. Registro histórico de generaciones (generaciones.json)
+  const rutaGeneraciones = path.join(process.cwd(), "generaciones.json");
+  let listaGeneraciones = [];
+  if (fs.existsSync(rutaGeneraciones)) {
+    try {
+      listaGeneraciones = JSON.parse(fs.readFileSync(rutaGeneraciones, "utf8"));
+    } catch {}
+  }
+  if (!Array.isArray(listaGeneraciones)) listaGeneraciones = [];
+
+  const idx = listaGeneraciones.findIndex((g) => g.id === generacion);
+  const datosGen = {
+    id: generacion,
+    nombre: `Generación ${generacion}`,
+    totalArchivos: catalogo.totalArchivos,
+    totalEnlaces: catalogo.totalEnlaces,
+    totalItems: catalogo.totalItems,
+    totalMaterias: Object.keys(catalogo.materiasMap).length,
+    totalBytes: catalogo.totalBytesFormateado,
+    ultimaActualizacion: new Date().toISOString(),
+    url: `${generacion}/`,
+  };
+  if (idx >= 0) {
+    listaGeneraciones[idx] = datosGen;
+  } else {
+    listaGeneraciones.push(datosGen);
+  }
+  listaGeneraciones.sort((a, b) => b.id.localeCompare(a.id, "es", { numeric: true }));
+
+  const jsonGeneraciones = JSON.stringify(listaGeneraciones, null, 2);
+  fs.writeFileSync(rutaGeneraciones, jsonGeneraciones, "utf8");
+
+  // 3. Generamos portal principal
+  const portalHtml = generarHtmlPortalGeneraciones(listaGeneraciones);
+
+  // 4. Guardamos archivos locales
+  // A. Carpetas de la generación
+  const dirGen = path.join(process.cwd(), generacion);
+  if (!fs.existsSync(dirGen)) fs.mkdirSync(dirGen, { recursive: true });
+  fs.writeFileSync(path.join(dirGen, "index.html"), htmlContentGen, "utf8");
+  fs.writeFileSync(path.join(dirGen, ".nojekyll"), "", "utf8");
+
+  const dirDocsGen = path.join(process.cwd(), "docs", generacion);
+  if (!fs.existsSync(dirDocsGen)) fs.mkdirSync(dirDocsGen, { recursive: true });
+  fs.writeFileSync(path.join(dirDocsGen, "index.html"), htmlContentGen, "utf8");
+  fs.writeFileSync(path.join(dirDocsGen, ".nojekyll"), "", "utf8");
+
+  // B. Raíz y docs (Portal Principal)
   const rutaIndexRoot = path.join(process.cwd(), "index.html");
+  fs.writeFileSync(rutaIndexRoot, portalHtml, "utf8");
+  fs.writeFileSync(path.join(process.cwd(), ".nojekyll"), "", "utf8");
+
+  const dirDocs = path.join(process.cwd(), "docs");
+  if (!fs.existsSync(dirDocs)) fs.mkdirSync(dirDocs, { recursive: true });
+  fs.writeFileSync(path.join(dirDocs, "index.html"), portalHtml, "utf8");
+  fs.writeFileSync(path.join(dirDocs, "generaciones.json"), jsonGeneraciones, "utf8");
+  fs.writeFileSync(path.join(dirDocs, ".nojekyll"), "", "utf8");
+
+  // C. Copias locales para Drive y visualización directa
+  const rutaHtmlLocal = path.join(process.cwd(), "INDICE_BIBLIOTECA.html");
   const rutaCsvLocal = path.join(process.cwd(), "INDICE_BIBLIOTECA.csv");
   const rutaMdLocal = path.join(process.cwd(), "INDICE_BIBLIOTECA.md");
 
-  fs.writeFileSync(rutaHtmlLocal, htmlContent, "utf8");
-  fs.writeFileSync(rutaIndexRoot, htmlContent, "utf8");
-  fs.writeFileSync(path.join(process.cwd(), ".nojekyll"), "", "utf8");
+  fs.writeFileSync(rutaHtmlLocal, htmlContentGen, "utf8");
   fs.writeFileSync(rutaCsvLocal, csvContent, "utf8");
   fs.writeFileSync(rutaMdLocal, mdContent, "utf8");
 
-  // Carpeta docs/ para GitHub Pages
-  const dirDocs = path.join(process.cwd(), "docs");
-  if (!fs.existsSync(dirDocs)) {
-    fs.mkdirSync(dirDocs, { recursive: true });
-  }
-  const rutaDocsHtml = path.join(dirDocs, "index.html");
-  fs.writeFileSync(rutaDocsHtml, htmlContent, "utf8");
-  fs.writeFileSync(path.join(dirDocs, ".nojekyll"), "", "utf8");
-
   console.log("\n💾 Archivos locales generados:");
-  console.log(`   - [index.html](${rutaIndexRoot}) (GitHub Pages Raíz)`);
-  console.log(`   - [docs/index.html](${rutaDocsHtml}) (GitHub Pages /docs)`);
-  console.log(`   - [INDICE_BIBLIOTECA.html](${rutaHtmlLocal})`);
-  console.log(`   - [INDICE_BIBLIOTECA.csv](${rutaCsvLocal})`);
-  console.log(`   - [INDICE_BIBLIOTECA.md](${rutaMdLocal})`);
+  console.log(`   - [${generacion}/index.html] (Web Generación ${generacion})`);
+  console.log(`   - [docs/${generacion}/index.html] (GitHub Pages /docs/${generacion})`);
+  console.log(`   - [index.html] (Portal de Generaciones Principal)`);
+  console.log(`   - [INDICE_BIBLIOTECA.html] (Copia autónoma para Drive)`);
 
-  // 3. Subir a Google Drive (en la raíz DRIVE_FOLDER_ID)
+  // 5. Subir a Google Drive (en la raíz DRIVE_FOLDER_ID)
   if (subirADrive) {
     console.log("\n☁️ Sincronizando índices hacia la raíz de Google Drive...");
 
-    // Subir página web interactiva
     await sincronizarArchivoEnDrive({
       nombreArchivo: "INDICE_BIBLIOTECA.html",
-      contenido: htmlContent,
+      contenido: htmlContentGen,
       mimeType: "text/html; charset=utf-8",
       carpetaDestinoId: DRIVE_FOLDER_ID,
     });
 
-    // Subir Google Sheet nativo interactivo
     await sincronizarCSVDrive(
       "INDICE_BIBLIOTECA",
       rutaCsvLocal,
       DRIVE_FOLDER_ID,
     );
 
-    // Subir Markdown
     await sincronizarArchivoEnDrive({
       nombreArchivo: "INDICE_BIBLIOTECA.md",
       contenido: mdContent,
@@ -1354,26 +1799,52 @@ export async function generarYSincronizarIndice(opciones = {}) {
     console.log("✅ Índices sincronizados exitosamente en Google Drive.");
   }
 
-  // 4. Publicación automática a GitHub Pages
+  // 6. Publicación a GitHub Pages
   if (publicarAGitHub) {
-    console.log("\n🚀 Publicando automáticamente en GitHub Pages...");
-    try {
-      const { execSync } = await import("child_process");
-      execSync(
-        "git add index.html docs/index.html INDICE_BIBLIOTECA.html INDICE_BIBLIOTECA.csv INDICE_BIBLIOTECA.md enlaces.csv",
-        { stdio: "ignore" },
-      );
+    console.log("\n🚀 Publicando en GitHub Pages...");
+
+    if (GITHUB_TOKEN && GITHUB_TOKEN.trim() !== "") {
+      console.log("🔑 GITHUB_TOKEN detectado: Sincronizando vía API REST (¡Sin Git instalado!)...");
       try {
-        execSync('git commit -m "bot: Auto-actualizar biblioteca digital"', {
-          stdio: "ignore",
+        await publicarAGitHubAPI({
+          token: GITHUB_TOKEN,
+          repo: GITHUB_REPO,
+          rama: GITHUB_BRANCH,
+          archivos: [
+            { ruta: "index.html", contenido: portalHtml },
+            { ruta: "docs/index.html", contenido: portalHtml },
+            { ruta: `${generacion}/index.html`, contenido: htmlContentGen },
+            { ruta: `docs/${generacion}/index.html`, contenido: htmlContentGen },
+            { ruta: "generaciones.json", contenido: jsonGeneraciones },
+            { ruta: "docs/generaciones.json", contenido: jsonGeneraciones },
+            { ruta: "INDICE_BIBLIOTECA.html", contenido: htmlContentGen },
+          ],
         });
-        execSync("git push origin main", { stdio: "ignore" });
-        console.log("✅ Biblioteca digital desplegada exitosamente en GitHub Pages.");
-      } catch {
-        console.log("ℹ️ No hay cambios pendientes para subir a GitHub.");
+        console.log(`✅ ¡Biblioteca de la Generación ${generacion} desplegada exitosamente en GitHub Pages!`);
+      } catch (errApi) {
+        console.warn("⚠️ Error al publicar vía API de GitHub:", errApi.message);
       }
-    } catch (errGit) {
-      console.warn("⚠️ No se pudo auto-publicar en GitHub:", errGit.message);
+    } else {
+      // Fallback a git local
+      try {
+        const { execSync } = await import("child_process");
+        execSync(
+          `git add index.html docs/ ${generacion}/ INDICE_BIBLIOTECA.html INDICE_BIBLIOTECA.csv INDICE_BIBLIOTECA.md generaciones.json enlaces.csv`,
+          { stdio: "ignore" },
+        );
+        try {
+          execSync(`git commit -m "bot: Auto-actualizar biblioteca digital Gen ${generacion}"`, {
+            stdio: "ignore",
+          });
+          execSync(`git push origin ${GITHUB_BRANCH}`, { stdio: "ignore" });
+          console.log(`✅ Biblioteca digital (Gen ${generacion}) desplegada en GitHub Pages vía Git local.`);
+        } catch {
+          console.log("ℹ️ No hay cambios pendientes para subir a GitHub.");
+        }
+      } catch (errGit) {
+        console.warn("⚠️ No se pudo auto-publicar vía Git local:", errGit.message);
+        console.log("💡 TIP: Agrega tu GITHUB_TOKEN en Configuración o en el archivo .env para publicar automáticamente sin tener Git instalado.");
+      }
     }
   }
 
@@ -1381,12 +1852,12 @@ export async function generarYSincronizarIndice(opciones = {}) {
     console.log("\n🌐 Abriendo dashboard en tu navegador...");
     try {
       const { exec } = await import("child_process");
-      exec(`start "" "${rutaHtmlLocal}"`);
+      exec(`start "" "${path.join(dirGen, "index.html")}"`);
     } catch { }
   }
 
   console.log("\n=================================================");
-  console.log("✨ GENERACIÓN DE ÍNDICE COMPLETADA");
+  console.log(`✨ GENERACIÓN DE ÍNDICE COMPLETADA (GEN ${generacion})`);
   console.log("=================================================");
 
   return catalogo;

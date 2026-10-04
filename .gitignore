@@ -23,3 +23,6 @@ temp_*
 # Sistema operativo
 .DS_Store
 Thumbs.db
+
+# Compilados de Electron
+dist/
