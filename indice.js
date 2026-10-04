@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { DRIVE_FOLDER_ID } from "./config.js";
+import { DRIVE_FOLDER_ID, AUTO_PUBLICAR_GITHUB } from "./config.js";
 import {
   iniciarDrive,
   obtenerDriveClient,
@@ -1262,7 +1262,11 @@ export function generarMarkdownIndice(datos) {
 // 6. FUNCIÓN MAESTRA: GENERAR Y SINCRONIZAR
 // ============================================================
 export async function generarYSincronizarIndice(opciones = {}) {
-  const { subirADrive = true, abrirLocal = false } = opciones;
+  const {
+    subirADrive = true,
+    abrirLocal = false,
+    publicarAGitHub = AUTO_PUBLICAR_GITHUB ?? true,
+  } = opciones;
 
   console.log("=================================================");
   console.log("🚀 GENERADOR AUTOMÁTICO DE ÍNDICE DIGITAL UNIFICADO");
@@ -1337,6 +1341,29 @@ export async function generarYSincronizarIndice(opciones = {}) {
     });
 
     console.log("✅ Índices sincronizados exitosamente en Google Drive.");
+  }
+
+  // 4. Publicación automática a GitHub Pages
+  if (publicarAGitHub) {
+    console.log("\n🚀 Publicando automáticamente en GitHub Pages...");
+    try {
+      const { execSync } = await import("child_process");
+      execSync(
+        "git add index.html docs/index.html INDICE_BIBLIOTECA.html INDICE_BIBLIOTECA.csv INDICE_BIBLIOTECA.md enlaces.csv",
+        { stdio: "ignore" },
+      );
+      try {
+        execSync('git commit -m "bot: Auto-actualizar biblioteca digital"', {
+          stdio: "ignore",
+        });
+        execSync("git push origin main", { stdio: "ignore" });
+        console.log("✅ Biblioteca digital desplegada exitosamente en GitHub Pages.");
+      } catch {
+        console.log("ℹ️ No hay cambios pendientes para subir a GitHub.");
+      }
+    } catch (errGit) {
+      console.warn("⚠️ No se pudo auto-publicar en GitHub:", errGit.message);
+    }
   }
 
   if (abrirLocal) {

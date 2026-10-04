@@ -10,6 +10,7 @@ import {
   ESTANDARIZAR_NOMBRES,
   DETECTAR_DUPLICADOS_HASH,
   AUTO_ACTUALIZAR_INDICE,
+  AUTO_PUBLICAR_GITHUB,
 } from "./config.js";
 
 import {
@@ -282,11 +283,14 @@ client.on("ready", async () => {
         );
       }
 
-      if (archivosSubidos > 0 && AUTO_ACTUALIZAR_INDICE) {
-        console.log("📑 Actualizando y sincronizando el Índice de la Biblioteca en Drive...");
+      if ((archivosSubidos > 0 || enlacesGuardados > 0) && AUTO_ACTUALIZAR_INDICE) {
+        console.log("📑 Actualizando y sincronizando la Biblioteca en Drive y GitHub Pages...");
         try {
           const { generarYSincronizarIndice } = await import("./indice.js");
-          await generarYSincronizarIndice({ subirADrive: true });
+          await generarYSincronizarIndice({
+            subirADrive: true,
+            publicarAGitHub: AUTO_PUBLICAR_GITHUB,
+          });
         } catch (errIndice) {
           console.error("⚠️ Error actualizando índice:", errIndice.message);
         }
@@ -295,7 +299,7 @@ client.on("ready", async () => {
       const fechaActual = new Date().toLocaleString("es-CL");
 
       let mensajeReporte = `*Reporte de Respaldo a Drive por Golgi bot* ☁️\n\n`;
-      mensajeReporte += `🔗 *Link al drive:* https://eduu37.github.io/golgi-bot/`;
+      mensajeReporte += `🔗 *Link a la biblioteca:* https://eduu37.github.io/golgi-bot/\n`;
       mensajeReporte += `📅 *Fecha:* ${fechaActual}\n`;
       mensajeReporte += `📩 *Mensajes analizados:* ${messagesToProcess.length}\n`;
       mensajeReporte += `✅ *Archivos respaldados:* ${archivosSubidos}\n`;

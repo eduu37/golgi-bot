@@ -22,6 +22,7 @@ export const DETECTAR_DUPLICADOS_HASH = true;
 export const FORMATO_NOMBRE = '[Nombre]'; // '[Nombre]' o '[Materia] - [Tipo] - [Nombre]'
 export const AISLAR_DUPLICADOS = true; // Mueve archivos idénticos (mismo MD5) a carpeta '_Duplicados'
 export const AUTO_ACTUALIZAR_INDICE = true; // Regenera y sincroniza automáticamente INDICE_BIBLIOTECA en Drive
+export const AUTO_PUBLICAR_GITHUB = true; // Sube automáticamente los cambios a GitHub Pages al detectar nuevos archivos o enlaces
 
 export const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
 export const TOKEN_PATH = path.join(process.cwd(), 'token.json');
