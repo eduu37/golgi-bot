@@ -389,6 +389,9 @@ export function generarHtmlIndice(datos) {
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca Digital de Golgi — Materiales y Enlaces</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -525,9 +528,17 @@ export function generarHtmlIndice(datos) {
       color: #fff;
     }
 
-    /* CONTROLS (SEARCH & FILTERS) */
+    /* CONTROLS (SEARCH & FILTERS) - COMPLETAMENTE ESTÁTICO (NO STICKY) */
+    .controls-panel,
+    .search-wrapper,
+    .filters-row,
+    .origin-tabs {
+      position: static !important;
+      top: auto !important;
+      bottom: auto !important;
+    }
+
     .controls-panel {
-      position: relative;
       background: rgba(10, 14, 23, 0.88);
       backdrop-filter: var(--glass-blur);
       border: 1px solid var(--border-subtle);
