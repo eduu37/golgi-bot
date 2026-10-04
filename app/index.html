@@ -201,6 +201,17 @@
             <button class="btn btn-primary" id="btnAddSubject">+ Nueva Materia</button>
           </div>
 
+          <div class="modal-search-wrapper" style="margin-bottom: 1.25rem;">
+            <span class="modal-search-icon">🔍</span>
+            <input 
+              type="text" 
+              id="searchSubjectsInput" 
+              class="form-control modal-search-input" 
+              placeholder="Buscar materia o palabra clave (ej: Anatomía, fármaco, examen)..."
+              autocomplete="off"
+            >
+          </div>
+
           <div class="subjects-list" id="subjectsList">
             <!-- Se llena dinámicamente con JavaScript -->
           </div>
@@ -278,6 +289,75 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" id="btnCancelGroupModal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE CREACIÓN / EDICIÓN DE MATERIA Y PALABRAS CLAVE -->
+  <div class="modal-overlay" id="modalMateria" style="display: none;">
+    <div class="modal-container" style="max-width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title-wrapper">
+          <span class="modal-icon">📚</span>
+          <div>
+            <h3 id="modalMateriaTitle">Nueva Asignatura</h3>
+            <p class="modal-subtitle" id="modalMateriaSubtitle">Configura el nombre y las palabras clave asociadas.</p>
+          </div>
+        </div>
+        <button class="modal-close" id="btnCloseModalMateria" title="Cerrar">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <input type="hidden" id="inputOriginalMateriaName" value="">
+
+        <div class="form-group">
+          <label for="inputMateriaName">Nombre de la Asignatura</label>
+          <div class="input-desc">Nombre oficial que tendrá la carpeta en Google Drive y la categoría en la web.</div>
+          <input type="text" id="inputMateriaName" class="form-control" placeholder="Ej: Farmacología, Pediatría..." autocomplete="off">
+        </div>
+
+        <div class="form-group">
+          <label for="inputMateriaKeywords">Palabras Clave (Keywords)</label>
+          <div class="input-desc">Ingresa las palabras clave separadas por comas (o saltos de línea). El bot las buscará en los archivos para clasificar el material aquí.</div>
+          <textarea id="inputMateriaKeywords" class="form-control" rows="5" placeholder="fármaco, dosis, receta, antibiótico, amoxicilina..." style="resize: vertical; font-family: inherit; font-size: 0.88rem; line-height: 1.5;"></textarea>
+        </div>
+
+        <div class="keywords-preview-box">
+          <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-dim); margin-bottom: 0.4rem;">
+            Vista previa de palabras clave (<span id="keywordsCount">0</span>):
+          </div>
+          <div class="subject-keywords" id="keywordsPreviewContainer" style="max-height: 110px; overflow-y: auto; padding-right: 0.25rem;">
+            <!-- Badges reactivos -->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button type="button" class="btn btn-secondary" id="btnCancelModalMateria">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmSaveMateria">💾 Guardar Asignatura</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE CONFIRMACIÓN PARA ELIMINAR MATERIA -->
+  <div class="modal-overlay" id="modalConfirmDelete" style="display: none;">
+    <div class="modal-container" style="max-width: 440px;">
+      <div class="modal-header">
+        <div class="modal-title-wrapper">
+          <span class="modal-icon">⚠️</span>
+          <div>
+            <h3>¿Eliminar Asignatura?</h3>
+            <p class="modal-subtitle" id="deleteSubjectConfirmText">Esta acción removerá la materia de la clasificación.</p>
+          </div>
+        </div>
+        <button class="modal-close" id="btnCloseConfirmDelete" title="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding-top: 0.5rem; font-size: 0.88rem; color: var(--text-muted);">
+        Los archivos existentes en Google Drive no se borrarán, pero el bot ya no clasificará nuevos apuntes bajo este nombre.
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button type="button" class="btn btn-secondary" id="btnCancelDeleteSubject">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="btnConfirmDeleteSubject">🗑️ Sí, Eliminar</button>
       </div>
     </div>
   </div>

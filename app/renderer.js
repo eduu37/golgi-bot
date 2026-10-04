@@ -38,9 +38,31 @@ const saveFeedback = document.getElementById('saveFeedback');
 
 // Subjects
 const subjectsList = document.getElementById('subjectsList');
+const searchSubjectsInput = document.getElementById('searchSubjectsInput');
 const btnAddSubject = document.getElementById('btnAddSubject');
 const btnSaveSubjects = document.getElementById('btnSaveSubjects');
 const saveSubjectsFeedback = document.getElementById('saveSubjectsFeedback');
+
+// Modal Crear / Modificar Materia y Palabras Clave
+const modalMateria = document.getElementById('modalMateria');
+const modalMateriaTitle = document.getElementById('modalMateriaTitle');
+const modalMateriaSubtitle = document.getElementById('modalMateriaSubtitle');
+const btnCloseModalMateria = document.getElementById('btnCloseModalMateria');
+const btnCancelModalMateria = document.getElementById('btnCancelModalMateria');
+const btnConfirmSaveMateria = document.getElementById('btnConfirmSaveMateria');
+const inputOriginalMateriaName = document.getElementById('inputOriginalMateriaName');
+const inputMateriaName = document.getElementById('inputMateriaName');
+const inputMateriaKeywords = document.getElementById('inputMateriaKeywords');
+const keywordsCount = document.getElementById('keywordsCount');
+const keywordsPreviewContainer = document.getElementById('keywordsPreviewContainer');
+
+// Modal Confirmación Eliminación
+const modalConfirmDelete = document.getElementById('modalConfirmDelete');
+const deleteSubjectConfirmText = document.getElementById('deleteSubjectConfirmText');
+const btnCloseConfirmDelete = document.getElementById('btnCloseConfirmDelete');
+const btnCancelDeleteSubject = document.getElementById('btnCancelDeleteSubject');
+const btnConfirmDeleteSubject = document.getElementById('btnConfirmDeleteSubject');
+let materiaAEliminar = null;
 
 // Modal Detector de Grupos & Comunidades
 const modalGrupos = document.getElementById('modalGrupos');
@@ -368,53 +390,236 @@ async function cargarCategorias() {
   renderizarMaterias();
 }
 
-function renderizarMaterias() {
+function parseKeywordsFromText(texto) {
+  if (!texto) return [];
+  const raw = texto.split(/[,\n]/);
+  const seen = new Set();
+  const result = [];
+  for (const item of raw) {
+    const trimmed = item.trim();
+    if (!trimmed) continue;
+    const lower = trimmed.toLowerCase();
+    if (!seen.has(lower)) {
+      seen.add(lower);
+      result.push(trimmed);
+    }
+  }
+  return result;
+}
+
+function actualizarPreviewKeywords() {
+  const palabras = parseKeywordsFromText(inputMateriaKeywords.value);
+  keywordsCount.textContent = palabras.length;
+  if (palabras.length === 0) {
+    keywordsPreviewContainer.innerHTML = '<span style="font-size: 0.78rem; color: var(--text-dim); font-style: italic;">Escribe palabras clave separadas por comas o saltos de línea...</span>';
+    return;
+  }
+  keywordsPreviewContainer.innerHTML = palabras
+    .map((p) => `<span class="keyword-tag">${escapeHtml(p)}</span>`)
+    .join('');
+}
+
+function abrirModalMateria(materiaNombre = null) {
+  if (materiaNombre && categoriasData.materias && categoriasData.materias[materiaNombre]) {
+    // Modo Edición
+    inputOriginalMateriaName.value = materiaNombre;
+    inputMateriaName.value = materiaNombre;
+    const palabras = categoriasData.materias[materiaNombre] || [];
+    inputMateriaKeywords.value = palabras.join(', ');
+    modalMateriaTitle.textContent = `Modificar Asignatura`;
+    modalMateriaSubtitle.textContent = `Edita el nombre o añade, quita y modifica las palabras clave de "${materiaNombre}".`;
+  } else {
+    // Modo Nueva Materia
+    inputOriginalMateriaName.value = '';
+    inputMateriaName.value = '';
+    inputMateriaKeywords.value = '';
+    modalMateriaTitle.textContent = 'Nueva Asignatura';
+    modalMateriaSubtitle.textContent = 'Configura el nombre y las palabras clave asociadas para clasificar apuntes.';
+  }
+
+  actualizarPreviewKeywords();
+  modalMateria.style.display = 'flex';
+  setTimeout(() => {
+    if (materiaNombre) {
+      inputMateriaKeywords.focus();
+    } else {
+      inputMateriaName.focus();
+    }
+  }, 50);
+}
+
+function cerrarModalMateria() {
+  modalMateria.style.display = 'none';
+}
+
+inputMateriaKeywords.addEventListener('input', actualizarPreviewKeywords);
+
+btnConfirmSaveMateria.addEventListener('click', async () => {
+  const nuevoNombre = inputMateriaName.value.trim();
+  if (!nuevoNombre) {
+    alert('Por favor, ingresa el nombre de la asignatura.');
+    inputMateriaName.focus();
+    return;
+  }
+
+  let palabras = parseKeywordsFromText(inputMateriaKeywords.value);
+  if (palabras.length === 0) {
+    palabras = [nuevoNombre.toLowerCase()];
+  }
+
+  if (!categoriasData.materias) {
+    categoriasData.materias = {};
+  }
+
+  const nombreOriginal = inputOriginalMateriaName.value.trim();
+  if (nombreOriginal && nombreOriginal !== nuevoNombre) {
+    delete categoriasData.materias[nombreOriginal];
+  }
+
+  categoriasData.materias[nuevoNombre] = palabras;
+
+  // Guardar de inmediato en categorias.json
+  const res = await window.golgiAPI.saveCategorias(categoriasData);
+  if (res.ok) {
+    saveSubjectsFeedback.textContent = `✅ Materia "${nuevoNombre}" guardada (${palabras.length} palabras)`;
+    setTimeout(() => { saveSubjectsFeedback.textContent = ''; }, 3500);
+  }
+
+  cerrarModalMateria();
+  renderizarMaterias(searchSubjectsInput ? searchSubjectsInput.value : '');
+});
+
+function renderizarMaterias(filtro = '') {
   subjectsList.innerHTML = '';
   const materias = categoriasData.materias || {};
+  const query = (filtro || '').toLowerCase().trim();
 
-  Object.entries(materias).forEach(([materia, palabras]) => {
+  const entradas = Object.entries(materias)
+    .filter(([nombre, palabras]) => {
+      if (!query) return true;
+      const nombreMatch = nombre.toLowerCase().includes(query);
+      const palabraMatch = (palabras || []).some((p) => p.toLowerCase().includes(query));
+      return nombreMatch || palabraMatch;
+    })
+    .sort(([a], [b]) => a.localeCompare(b, 'es'));
+
+  if (entradas.length === 0) {
+    subjectsList.innerHTML = `
+      <div style="text-align: center; padding: 2.5rem 1rem; color: var(--text-dim);">
+        <p style="font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff;">🔍 No se encontraron asignaturas</p>
+        <p style="font-size: 0.85rem;">Prueba con otro término de búsqueda o crea una nueva materia con el botón "+ Nueva Materia".</p>
+      </div>
+    `;
+    return;
+  }
+
+  entradas.forEach(([materia, palabras]) => {
     const item = document.createElement('div');
     item.className = 'subject-item';
 
-    const tagsHtml = (palabras || [])
-      .slice(0, 8)
+    const maxTags = 12;
+    const palabrasArr = palabras || [];
+    const tagsHtml = palabrasArr
+      .slice(0, maxTags)
       .map((p) => `<span class="keyword-tag">${escapeHtml(p)}</span>`)
       .join('');
 
+    const moreHtml = palabrasArr.length > maxTags 
+      ? `<span class="keyword-tag-more">+${palabrasArr.length - maxTags} más</span>` 
+      : '';
+
     item.innerHTML = `
-      <div>
-        <div class="subject-name">${escapeHtml(materia)}</div>
-        <div class="subject-keywords">${tagsHtml}</div>
+      <div class="subject-main-info">
+        <div class="subject-title-row">
+          <span class="subject-name">${escapeHtml(materia)}</span>
+          <span class="subject-count-badge">${palabrasArr.length} palabras clave</span>
+        </div>
+        <div class="subject-keywords">
+          ${tagsHtml}
+          ${moreHtml}
+        </div>
       </div>
-      <button class="btn-delete-subject" title="Eliminar materia" data-materia="${escapeHtml(materia)}">🗑️</button>
+      <div class="subject-actions">
+        <button type="button" class="btn-edit-subject" data-materia="${escapeHtml(materia)}" title="Modificar nombre o palabras clave">
+          ✏️ Modificar
+        </button>
+        <button type="button" class="btn-delete-subject" data-materia="${escapeHtml(materia)}" title="Eliminar materia">
+          🗑️
+        </button>
+      </div>
     `;
 
     subjectsList.appendChild(item);
   });
-
-  // Listeners de eliminar
-  document.querySelectorAll('.btn-delete-subject').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const mat = btn.getAttribute('data-materia');
-      if (confirm(`¿Eliminar la materia "${mat}"?`)) {
-        delete categoriasData.materias[mat];
-        renderizarMaterias();
-      }
-    });
-  });
 }
 
-btnAddSubject.addEventListener('click', () => {
-  const nombre = prompt('Ingresa el nombre de la nueva materia (ej: Pediatría, Farmacología):');
-  if (!nombre || !nombre.trim()) return;
+// Event delegation para editar y eliminar
+subjectsList.addEventListener('click', (e) => {
+  const editBtn = e.target.closest('.btn-edit-subject');
+  if (editBtn) {
+    const mat = editBtn.getAttribute('data-materia');
+    abrirModalMateria(mat);
+    return;
+  }
 
-  const palabrasStr = prompt('Ingresa palabras clave separadas por comas (ej: fármaco, dosis, receta):');
-  const palabras = palabrasStr ? palabrasStr.split(',').map((p) => p.trim()).filter(Boolean) : [];
-
-  if (!categoriasData.materias) categoriasData.materias = {};
-  categoriasData.materias[nombre.trim()] = palabras;
-  renderizarMaterias();
+  const delBtn = e.target.closest('.btn-delete-subject');
+  if (delBtn) {
+    const mat = delBtn.getAttribute('data-materia');
+    materiaAEliminar = mat;
+    deleteSubjectConfirmText.textContent = `¿Estás seguro de que deseas eliminar la asignatura "${mat}"?`;
+    modalConfirmDelete.style.display = 'flex';
+    return;
+  }
 });
+
+// Botón + Nueva Materia
+btnAddSubject.addEventListener('click', () => {
+  abrirModalMateria(null);
+});
+
+// Cerrar modal materia
+btnCloseModalMateria.addEventListener('click', cerrarModalMateria);
+btnCancelModalMateria.addEventListener('click', cerrarModalMateria);
+modalMateria.addEventListener('click', (e) => {
+  if (e.target === modalMateria) cerrarModalMateria();
+});
+
+// Modal confirmación eliminar
+btnCloseConfirmDelete.addEventListener('click', () => {
+  modalConfirmDelete.style.display = 'none';
+  materiaAEliminar = null;
+});
+btnCancelDeleteSubject.addEventListener('click', () => {
+  modalConfirmDelete.style.display = 'none';
+  materiaAEliminar = null;
+});
+modalConfirmDelete.addEventListener('click', (e) => {
+  if (e.target === modalConfirmDelete) {
+    modalConfirmDelete.style.display = 'none';
+    materiaAEliminar = null;
+  }
+});
+btnConfirmDeleteSubject.addEventListener('click', async () => {
+  if (materiaAEliminar && categoriasData.materias && categoriasData.materias[materiaAEliminar]) {
+    const matBorrada = materiaAEliminar;
+    delete categoriasData.materias[materiaAEliminar];
+    const res = await window.golgiAPI.saveCategorias(categoriasData);
+    if (res.ok) {
+      saveSubjectsFeedback.textContent = `🗑️ Asignatura "${matBorrada}" eliminada`;
+      setTimeout(() => { saveSubjectsFeedback.textContent = ''; }, 3500);
+    }
+    renderizarMaterias(searchSubjectsInput ? searchSubjectsInput.value : '');
+  }
+  modalConfirmDelete.style.display = 'none';
+  materiaAEliminar = null;
+});
+
+// Buscador de materias en vivo
+if (searchSubjectsInput) {
+  searchSubjectsInput.addEventListener('input', (e) => {
+    renderizarMaterias(e.target.value);
+  });
+}
 
 btnSaveSubjects.addEventListener('click', async () => {
   const res = await window.golgiAPI.saveCategorias(categoriasData);
