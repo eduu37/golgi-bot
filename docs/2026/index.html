@@ -871,7 +871,7 @@
 
     <div class="results-info">
       <div>Mostrando <strong id="visibleCount" style="color: #fff;">146</strong> recursos</div>
-      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 8:14 p. m.</div>
+      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 8:20 p. m.</div>
     </div>
 
     <div class="files-grid" id="filesGrid"></div>
@@ -1122,10 +1122,13 @@
       const materia = selectMateriaClasificar ? selectMateriaClasificar.value : 'General';
       const tipo = selectTipoClasificar ? selectTipoClasificar.value : 'Apuntes';
       const nombreItem = itemAClasificar.nombreLimpio || itemAClasificar.nombreOriginal;
-      const texto = 'Hola! En la Biblioteca Digital el archivo "' + nombreItem + '" que figura Sin Clasificar corresponde a:
-📚 *Materia:* ' + materia + '
-📂 *Tipo:* ' + tipo + '
-🔗 ' + itemAClasificar.url;
+      const partes = [
+        'Hola! En la Biblioteca Digital el archivo "' + nombreItem + '" que figura Sin Clasificar corresponde a:',
+        '📚 *Materia:* ' + materia,
+        '📂 *Tipo:* ' + tipo,
+        '🔗 ' + itemAClasificar.url
+      ];
+      const texto = partes.join('\n');
       const waUrl = 'https://wa.me/?text=' + encodeURIComponent(texto);
       window.open(waUrl, '_blank');
     };
