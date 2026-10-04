@@ -527,9 +527,7 @@ export function generarHtmlIndice(datos) {
 
     /* CONTROLS (SEARCH & FILTERS) */
     .controls-panel {
-      position: sticky;
-      top: 1rem;
-      z-index: 50;
+      position: relative;
       background: rgba(10, 14, 23, 0.88);
       backdrop-filter: var(--glass-blur);
       border: 1px solid var(--border-subtle);

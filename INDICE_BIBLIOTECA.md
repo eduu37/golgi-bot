@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 04-10-2026, 6:15:39 p. m.
-> **Total de Recursos:** 147 (123 en Drive, 24 enlaces web) | **Espacio Drive:** 661.55 MB
+> **Última actualización:** 04-10-2026, 6:20:47 p. m.
+> **Total de Recursos:** 146 (123 en Drive, 23 enlaces web) | **Espacio Drive:** 661.55 MB
 
 ## 📁 Anatomía
 
@@ -280,12 +280,6 @@
 | Certamen I.pdf | `PDF` | 234.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1-MEE6yxxDrlhnwZXZqmflQ0I_R69BlFf/view?usp=drivesdk) |
 | Ensayo C1 2025.pdf | `PDF` | 142.5 KB | [Abrir en Drive](https://drive.google.com/file/d/15FFM5sF2Qq_vDuZfMM-tD4ryC_1CGk4U/view?usp=drivesdk) |
 | Pauta Certamen 1 2021.pdf | `PDF` | 1.95 MB | [Abrir en Drive](https://drive.google.com/file/d/1EZeb2S0y8mx89LVc2iUMZyheurRDJv2L/view?usp=drivesdk) |
-
-### Clases y Videos (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Los Picantes - Falso Amor (resubido) | `YOUTUBE` | Canal: archivostrampa | [Visitar YOUTUBE](https://www.youtube.com/watch?v=NpZWhEHmAvU) |
 
 ### Documentos sin clasificar (4)
 
