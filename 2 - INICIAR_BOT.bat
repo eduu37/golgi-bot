@@ -1,54 +1,54 @@
 @echo off
-chcp 65001 >nul
 title Golgi Bot - Iniciador Principal
 cd /d "%~dp0"
 
 echo ============================================================
-echo   🧬 GOLGI BOT — BIBLIOTECA DIGITAL PARA MEDICINA
+echo   GOLGI BOT - BIBLIOTECA DIGITAL PARA MEDICINA
 echo ============================================================
 echo.
 
+if exist "C:\Program Files\nodejs" set "PATH=C:\Program Files\nodejs;%APPDATA%\npm;%PATH%"
+if exist "C:\Program Files (x86)\nodejs" set "PATH=C:\Program Files (x86)\nodejs;%PATH%"
+if exist "%LOCALAPPDATA%\Programs\node" set "PATH=%LOCALAPPDATA%\Programs\node;%PATH%"
+
 where node >nul 2>nul
 if %errorlevel% neq 0 (
-    echo [ERROR] No se encontró Node.js en tu computador.
-    echo.
+    echo [ERROR] No se encontro Node.js en tu computador.
     echo Node.js es necesario para ejecutar el bot.
-    echo Se abrirá la página oficial de descarga en tu navegador.
-    echo Por favor instala la versión recomendada (LTS) y vuelve a abrir este archivo.
-    echo.
+    echo Se abrira la pagina oficial de descarga en tu navegador.
     start https://nodejs.org/
     pause
     exit /b
 )
 
 if not exist "node_modules\" (
-    echo [1/2] Primera ejecución detectada.
-    echo       Instalando componentes necesarios automáticamente...
+    echo [1/2] Primera ejecucion detectada.
+    echo       Instalando componentes necesarios automaticamente...
     echo.
     call npm install
     if %errorlevel% neq 0 (
-        echo [ERROR] Hubo un problema instalando las librerías. Revisa tu conexión a internet.
+        echo [ERROR] Hubo un problema instalando las librerias. Revisa tu conexion a internet.
         pause
         exit /b
     )
     echo.
-    echo [OK] Componentes instalados con éxito.
+    echo [OK] Componentes instalados con exito.
     echo.
 )
 
 if not exist ".env" (
-    echo [AVISO] Aún no has configurado el bot para tu generación.
-    echo         Abriendo el Asistente de Configuración...
+    echo [AVISO] Aun no has configurado el bot para tu generacion.
+    echo         Abriendo el Asistente de Configuracion...
     echo.
-    node configurador.js
+    call node configurador.js
     pause
     exit /b
 )
 
 echo [2/2] Iniciando Golgi Bot...
-echo       (Si te pide código QR, escanéalo con WhatsApp como WhatsApp Web)
+echo       (Si te pide codigo QR, escanealo con WhatsApp como WhatsApp Web)
 echo.
-node index.js
+call node index.js
 
 if %errorlevel% neq 0 (
     echo.
