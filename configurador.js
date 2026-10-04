@@ -24,9 +24,13 @@ function extraerIdDrive(input) {
 
 function leerEnvExistente() {
   const valores = {
-    GEMINI_API_KEY: "",
+    GENERACION: "2026",
     TARGET_GROUP_ID: "",
     DRIVE_FOLDER_ID: "",
+    GITHUB_REPO: "eduu37/golgi-bot",
+    GITHUB_TOKEN: "",
+    GITHUB_PAGES_URL: "",
+    GEMINI_API_KEY: "",
   };
   if (fs.existsSync(RUTA_ENV)) {
     const raw = fs.readFileSync(RUTA_ENV, "utf8");
@@ -41,19 +45,29 @@ function leerEnvExistente() {
 }
 
 function guardarEnv(valores) {
+  const gen = (valores.GENERACION || "2026").trim().replace(/[^a-zA-Z0-9_-]/g, "");
+
   const contenido = `# ============================================================
 # GOLGI BOT — CONFIGURACIÓN DE LA GENERACIÓN
-# Generado automáticamente por el Asistente de Configuración
+# Modificado por el Asistente de Configuración
 # ============================================================
 
-# Clave de API de Google Gemini (para clasificación con IA)
-GEMINI_API_KEY=${valores.GEMINI_API_KEY || ""}
+# Generación oficial del curso (ej: 2026, 2027)
+GENERACION=${gen}
 
 # ID del grupo de WhatsApp oficial de la generación
 TARGET_GROUP_ID=${valores.TARGET_GROUP_ID || ""}
 
 # ID de la carpeta de Google Drive donde se guardan los archivos
 DRIVE_FOLDER_ID=${valores.DRIVE_FOLDER_ID || ""}
+
+# Repositorio y publicación web (GitHub Pages)
+GITHUB_REPO=${valores.GITHUB_REPO || "eduu37/golgi-bot"}
+GITHUB_TOKEN=${valores.GITHUB_TOKEN || ""}
+GITHUB_PAGES_URL=${valores.GITHUB_PAGES_URL || ""}
+
+# Clave de API de Google Gemini (opcional, para clasificación con IA)
+GEMINI_API_KEY=${valores.GEMINI_API_KEY || ""}
 `;
 
   fs.writeFileSync(RUTA_ENV, contenido, "utf8");
@@ -139,8 +153,24 @@ export async function iniciarConfigurador() {
   const actual = leerEnvExistente();
   const rl = crearInterface();
 
-  // 1. CARPETA DE DRIVE
-  console.log("📁 PASO 1: CARPETA DE GOOGLE DRIVE");
+  // 1. GENERACIÓN DEL CURSO
+  console.log("🎓 PASO 1: GENERACIÓN DEL CURSO");
+  console.log("   Año de ingreso o cohorte de tu generación (ej: 2026, 2027).");
+  const actualGen = actual.GENERACION || "2026";
+  const inputGen = await preguntar(
+    rl,
+    `   Ingresa tu generación [Enter para mantener "${actualGen}"]: `,
+  );
+  if (inputGen.trim()) {
+    actual.GENERACION = inputGen.trim().replace(/[^a-zA-Z0-9_-]/g, "");
+    console.log(`   ✅ Generación asignada: ${actual.GENERACION}\n`);
+  } else {
+    actual.GENERACION = actualGen;
+    console.log(`   ➡️ Generación: ${actual.GENERACION}\n`);
+  }
+
+  // 2. CARPETA DE DRIVE
+  console.log("📁 PASO 2: CARPETA DE GOOGLE DRIVE");
   console.log("   Crea una carpeta en Google Drive para tu generación y copia su enlace.");
   if (actual.DRIVE_FOLDER_ID) {
     console.log(`   (ID actual guardado: ${actual.DRIVE_FOLDER_ID})`);
@@ -156,8 +186,8 @@ export async function iniciarConfigurador() {
     console.log(`   ➡️ Se mantiene la carpeta actual.\n`);
   }
 
-  // 2. GEMINI API KEY (OPCIONAL)
-  console.log("🧠 PASO 2: CLAVE DE GEMINI AI (CLASIFICADOR INTELIGENTE)");
+  // 3. GEMINI API KEY (OPCIONAL)
+  console.log("🧠 PASO 3: CLAVE DE GEMINI AI (CLASIFICADOR INTELIGENTE)");
   console.log("   Puedes obtener una clave gratuita en: https://aistudio.google.com/app/apikey");
   if (actual.GEMINI_API_KEY) {
     console.log(`   (Clave actual: ${actual.GEMINI_API_KEY.slice(0, 8)}...)`);
@@ -173,8 +203,8 @@ export async function iniciarConfigurador() {
     console.log(`   ➡️ Sin cambios en Gemini.\n`);
   }
 
-  // 3. GRUPO DE WHATSAPP
-  console.log("💬 PASO 3: GRUPO DE WHATSAPP");
+  // 4. GRUPO DE WHATSAPP
+  console.log("💬 PASO 4: GRUPO DE WHATSAPP");
   if (actual.TARGET_GROUP_ID) {
     console.log(`   (Grupo actual vinculado: ${actual.TARGET_GROUP_ID})`);
   }
@@ -208,6 +238,7 @@ export async function iniciarConfigurador() {
   console.log("\n============================================================");
   console.log("  ✨ ¡CONFIGURACIÓN COMPLETADA CON ÉXITO!");
   console.log("============================================================");
+  console.log(`  🎓 Generación:        ${actual.GENERACION || "2026"}`);
   console.log(`  📁 Carpeta de Drive:  ${actual.DRIVE_FOLDER_ID || "Sin configurar"}`);
   console.log(`  💬 Grupo de WhatsApp: ${actual.TARGET_GROUP_ID || "Sin configurar"}`);
   console.log(`  🧠 Gemini AI:         ${actual.GEMINI_API_KEY ? "Configurado" : "Sin configurar (usará reglas locales)"}`);

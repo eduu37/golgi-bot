@@ -12,8 +12,6 @@
     "indice": "node indice.js",
     "indice:abrir": "node indice.js --abrir",
     "indice:local": "node indice.js --solo-local",
-    "get-id": "node get-id.js",
-    "sincronizar:enlaces": "node sincronizador.js",
     "dist": "electron-builder",
     "dist:win": "electron-builder --win",
     "dist:mac": "electron-builder --mac"

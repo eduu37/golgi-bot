@@ -37,19 +37,25 @@ Sistema automatizado de captura, clasificación académica y biblioteca digital 
 ## 📁 Estructura del Proyecto
 
 ```text
-├── docs/                      # Web pública servida por GitHub Pages
-│   ├── index.html             # Dashboard interactivo con buscador en vivo
-│   └── .nojekyll              # Evita procesamiento innecesario de Jekyll
+├── app/                       # Interfaz visual de escritorio (HTML/CSS/JS)
+├── electron-main.js           # Proceso principal de Electron (App de escritorio)
+├── electron-preload.cjs       # Puente seguro de Electron IPC
+├── ABRIR_GOLGI_BOT.bat        # Lanzador 1-clic para Windows
+├── ABRIR_GOLGI_BOT.command    # Lanzador 1-clic para macOS
 ├── index.js                   # Proceso principal: Bot de WhatsApp en tiempo real
+├── configurador.js            # Asistente interactivo de configuración
 ├── ordenador.js               # Escáner profundo y reordenador autónomo de Google Drive
-├── indice.js                  # Generador y sincronizador de la biblioteca digital
+├── indice.js                  # Generador y publicador de la biblioteca por generaciones
 ├── clasificador.js            # Motor de clasificación por reglas y Gemini AI
 ├── renombrador.js             # Motor de limpieza y estandarización de nombres
 ├── drive.js                   # Módulo de integración con la API de Google Drive v3
 ├── enlaces.js                 # Extractor y acumulador de enlaces compartidos
 ├── status.js                  # Persistencia del último mensaje procesado
 ├── categorias.json            # Taxonomía y términos clave de las asignaturas
-├── config.js                  # Parámetros de configuración del bot
+├── generaciones.json          # Registro histórico de generaciones académicas
+├── docs/                      # Web pública servida por GitHub Pages (Portal y Generaciones)
+├── config.js                  # Parámetros y utilidades del bot
+├── MANUAL_DELEGADO.md         # Guía no técnica para delegados
 ├── .env.example               # Plantilla de variables de entorno
 └── .gitignore                 # Protección estricta de credenciales y sesiones
 ```
@@ -75,12 +81,11 @@ Sistema automatizado de captura, clasificación académica y biblioteca digital 
    * Habilita la **Google Drive API**.
    * Descarga el archivo de credenciales OAuth 2.0 y guárdalo en la raíz del proyecto como `credentials.json`.
 
-4. **Variables de Entorno:**
-   * Copia `.env.example` a `.env`:
+4. **Iniciar la Aplicación:**
+   * Puedes hacer doble clic en `ABRIR_GOLGI_BOT.bat` (Windows) o `ABRIR_GOLGI_BOT.command` (macOS), o ejecutar:
      ```bash
-     cp .env.example .env
+     npm run app
      ```
-   * Completa tus variables opcionales (claves de Gemini o IDs personalizados).
 
 ---
 
@@ -88,12 +93,13 @@ Sistema automatizado de captura, clasificación académica y biblioteca digital 
 
 | Comando | Descripción |
 | :--- | :--- |
-| `npm start` | Inicia el bot de WhatsApp, procesa mensajes pendientes y sube archivos nuevos |
+| `npm run app` | Abre la aplicación gráfica de escritorio de Golgi Bot |
+| `npm start` | Inicia el bot de WhatsApp por consola y procesa mensajes |
 | `npm run ordenar` | Escanea todo tu Google Drive, aísla duplicados y reordena los archivos |
 | `npm run ordenar:simular` | Modo prueba (`--dry-run`): Muestra qué cambios se harían sin alterar Drive |
 | `npm run indice` | Regenera y sincroniza la Biblioteca Digital en local, GitHub Pages y Drive |
 | `npm run indice:abrir` | Regenera la biblioteca y la abre de inmediato en tu navegador |
-| `npm run get-id` | Herramienta para obtener fácilmente el ID de un grupo de WhatsApp |
+| `npm run indice:local` | Genera los archivos HTML locales sin sincronizar con Drive ni GitHub |
 
 ---
 
