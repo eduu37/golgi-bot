@@ -1512,7 +1512,13 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
       const materia = selectMateriaClasificar ? selectMateriaClasificar.value : 'General';
       const tipo = selectTipoClasificar ? selectTipoClasificar.value : 'Apuntes';
       const nombreItem = itemAClasificar.nombreLimpio || itemAClasificar.nombreOriginal;
-      const texto = 'Hola! En la Biblioteca Digital el archivo "' + nombreItem + '" que figura Sin Clasificar corresponde a:\n📚 *Materia:* ' + materia + '\n📂 *Tipo:* ' + tipo + '\n🔗 ' + itemAClasificar.url;
+      const partes = [
+        'Hola! En la Biblioteca Digital el archivo \"' + nombreItem + '\" que figura Sin Clasificar corresponde a:',
+        '📚 *Materia:* ' + materia,
+        '📂 *Tipo:* ' + tipo,
+        '🔗 ' + itemAClasificar.url
+      ];
+      const texto = partes.join('\\n');
       const waUrl = 'https://wa.me/?text=' + encodeURIComponent(texto);
       window.open(waUrl, '_blank');
     };
