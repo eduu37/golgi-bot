@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+
+# Credenciales y Secretos (CRÍTICO: NUNCA SUBIR A GITHUB)
+.env
+credentials.json
+token.json
+secret.txt
+*.pem
+*.key
+
+# Sesiones de WhatsApp
+.wwebjs_auth/
+.wwebjs_cache/
+
+# Archivos de estado local y temporales
+estado.json
+status.json
+scratch/
+temp_*
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

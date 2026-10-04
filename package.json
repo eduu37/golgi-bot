@@ -1,0 +1,33 @@
+{
+  "name": "golgi-bot",
+  "version": "2.0.0",
+  "description": "Bot inteligente de WhatsApp a Google Drive con clasificador académico, deduplicador por hash MD5 y biblioteca interactiva.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "ordenar": "node ordenador.js",
+    "ordenar:simular": "node ordenador.js --dry-run",
+    "indice": "node indice.js",
+    "indice:abrir": "node indice.js --abrir",
+    "indice:local": "node indice.js --solo-local",
+    "get-id": "node get-id.js",
+    "sincronizar:enlaces": "node sincronizador.js"
+  },
+  "keywords": [
+    "whatsapp-bot",
+    "google-drive",
+    "academic-classifier",
+    "medicine",
+    "study-group"
+  ],
+  "author": "Eduardo Ortega",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "googleapis": "^182.0.0",
+    "pdf-parse": "^2.4.5",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "github:pedroslopez/whatsapp-web.js#main"
+  }
+}
