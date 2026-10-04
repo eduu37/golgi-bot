@@ -171,8 +171,6 @@ ipcMain.handle("settings:get", () => {
     TARGET_GROUP_ID: "",
     GEMINI_API_KEY: "",
     GENERACION: "2026",
-    GITHUB_REPO: "eduu37/golgi-bot",
-    GITHUB_TOKEN: "",
     GITHUB_PAGES_URL: "",
   };
 
@@ -180,7 +178,9 @@ ipcMain.handle("settings:get", () => {
     const raw = fs.readFileSync(rutaEnv, "utf8");
     for (const linea of raw.split(/\r?\n/)) {
       const m = linea.match(/^([A-Z_]+)=(.*)$/);
-      if (m) datos[m[1]] = m[2].trim();
+      if (m && m[1] !== "GITHUB_TOKEN") {
+        datos[m[1]] = m[2].trim();
+      }
     }
   }
 
@@ -199,6 +199,24 @@ ipcMain.handle("settings:save", (_event, settings) => {
 
   const gen = (settings.GENERACION || "2026").trim().replace(/[^a-zA-Z0-9_-]/g, "");
 
+  // Preservar valores secretos existentes en .env (como GITHUB_TOKEN)
+  let existingToken = "";
+  let existingRepo = "eduu37/golgi-bot";
+  let existingPagesUrl = "";
+  if (fs.existsSync(rutaEnv)) {
+    const raw = fs.readFileSync(rutaEnv, "utf8");
+    for (const linea of raw.split(/\r?\n/)) {
+      const m = linea.match(/^([A-Z_]+)=(.*)$/);
+      if (m) {
+        if (m[1] === "GITHUB_TOKEN") existingToken = m[2].trim();
+        if (m[1] === "GITHUB_REPO") existingRepo = m[2].trim();
+        if (m[1] === "GITHUB_PAGES_URL") existingPagesUrl = m[2].trim();
+      }
+    }
+  }
+
+  const pagesUrl = existingPagesUrl || obtenerUrlBibliotecaWeb(gen);
+
   const contenido = `# ============================================================
 # GOLGI BOT — VARIABLES DE ENTORNO
 # Modificado desde la Aplicación de Escritorio
@@ -206,15 +224,15 @@ ipcMain.handle("settings:save", (_event, settings) => {
 GENERACION=${gen}
 TARGET_GROUP_ID=${settings.TARGET_GROUP_ID || ""}
 DRIVE_FOLDER_ID=${driveId}
-GITHUB_REPO=${settings.GITHUB_REPO || "eduu37/golgi-bot"}
-GITHUB_TOKEN=${settings.GITHUB_TOKEN || ""}
-GITHUB_PAGES_URL=${settings.GITHUB_PAGES_URL || ""}
+GITHUB_REPO=${existingRepo}
+GITHUB_TOKEN=${existingToken}
+GITHUB_PAGES_URL=${pagesUrl}
 GEMINI_API_KEY=${settings.GEMINI_API_KEY || ""}
 `;
 
   fs.writeFileSync(rutaEnv, contenido, "utf8");
   enviarLog("💾 Configuración guardada en .env", "success");
-  return { ok: true, driveId, pagesUrl: settings.GITHUB_PAGES_URL, generacion: gen };
+  return { ok: true, driveId, pagesUrl, generacion: gen };
 });
 
 // 7. Leer y Guardar Categorías (categorias.json)

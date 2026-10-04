@@ -164,21 +164,14 @@
             </div>
 
             <div class="form-group">
-              <label for="inputGithubToken">🔑 Token de GitHub (Opcional — Para publicar sin instalar Git)</label>
-              <div class="input-desc">Si no tienes Git instalado en tu PC, pega aquí un token de GitHub (Personal Access Token) para publicar la web directamente por internet.</div>
-              <input type="password" id="inputGithubToken" class="form-control" placeholder="ghp_... o github_pat_...">
-            </div>
-
-            <div class="form-group">
-              <label for="inputGithubRepo">📦 Repositorio de GitHub</label>
-              <div class="input-desc">Nombre del repositorio oficial (formato: usuario/nombre-repo).</div>
-              <input type="text" id="inputGithubRepo" class="form-control" placeholder="eduu37/golgi-bot">
-            </div>
-
-            <div class="form-group">
               <label for="inputPagesUrl">Enlace Web de la Biblioteca</label>
-              <div class="input-desc">Se detecta automáticamente. Cada generación tiene su enlace directo (ej: .../2026/).</div>
-              <input type="text" id="inputPagesUrl" class="form-control" placeholder="https://tu-usuario.github.io/golgi-bot/2026/">
+              <div class="input-desc">Enlace oficial donde tus compañeros ven el material. Se calcula automáticamente según tu generación.</div>
+              <input type="text" id="inputPagesUrl" class="form-control" readonly style="opacity: 0.9; cursor: pointer;" title="Haz clic en 'Ver Biblioteca Web' en el inicio para abrirla">
+            </div>
+
+            <div class="web-status-badge">
+              <span class="web-status-dot"></span>
+              <span>Servidor Web: Sincronización automática de GitHub Pages conectada.</span>
             </div>
 
             <div class="form-group">

@@ -31,8 +31,6 @@ const settingsForm = document.getElementById('settingsForm');
 const inputGeneracion = document.getElementById('inputGeneracion');
 const inputDrive = document.getElementById('inputDrive');
 const inputGroup = document.getElementById('inputGroup');
-const inputGithubToken = document.getElementById('inputGithubToken');
-const inputGithubRepo = document.getElementById('inputGithubRepo');
 const inputPagesUrl = document.getElementById('inputPagesUrl');
 const inputGemini = document.getElementById('inputGemini');
 const btnDetectGroup = document.getElementById('btnDetectGroup');
@@ -202,8 +200,6 @@ async function cargarConfiguracion() {
   if (inputGeneracion) inputGeneracion.value = datos.GENERACION || '2026';
   inputDrive.value = datos.DRIVE_FOLDER_ID || '';
   inputGroup.value = datos.TARGET_GROUP_ID || '';
-  if (inputGithubToken) inputGithubToken.value = datos.GITHUB_TOKEN || '';
-  if (inputGithubRepo) inputGithubRepo.value = datos.GITHUB_REPO || 'eduu37/golgi-bot';
   inputGemini.value = datos.GEMINI_API_KEY || '';
   if (datos.GITHUB_PAGES_URL) {
     currentPagesUrl = datos.GITHUB_PAGES_URL;
@@ -217,16 +213,16 @@ settingsForm.addEventListener('submit', async (e) => {
     GENERACION: inputGeneracion ? inputGeneracion.value.trim() : '2026',
     DRIVE_FOLDER_ID: inputDrive.value.trim(),
     TARGET_GROUP_ID: inputGroup.value.trim(),
-    GITHUB_TOKEN: inputGithubToken ? inputGithubToken.value.trim() : '',
-    GITHUB_REPO: inputGithubRepo ? inputGithubRepo.value.trim() : 'eduu37/golgi-bot',
     GEMINI_API_KEY: inputGemini.value.trim(),
-    GITHUB_PAGES_URL: inputPagesUrl ? inputPagesUrl.value.trim() : '',
   };
 
   const res = await window.golgiAPI.saveSettings(settings);
   if (res.ok) {
     if (res.driveId) inputDrive.value = res.driveId;
-    if (res.pagesUrl) currentPagesUrl = res.pagesUrl;
+    if (res.pagesUrl) {
+      currentPagesUrl = res.pagesUrl;
+      if (inputPagesUrl) inputPagesUrl.value = res.pagesUrl;
+    }
     saveFeedback.textContent = '✅ Guardado con éxito';
     setTimeout(() => { saveFeedback.textContent = ''; }, 3000);
   }

@@ -83,14 +83,14 @@ El sistema separa el material automáticamente para que cada generación tenga s
 
 ---
 
-### 🚀 ¿Cómo publicar la web si el delegado NO tiene Git instalado en su PC?
-
-Un estudiante de Medicina no necesita instalar Git ni abrir la terminal:
-1. En GitHub, ve a tu foto de perfil $\rightarrow$ **Settings** $\rightarrow$ **Developer settings** $\rightarrow$ **Personal access tokens** $\rightarrow$ **Tokens (classic)** (o Fine-grained).
-2. Haz clic en **Generate new token**, dale un nombre (ej: *Golgi Bot*) y marca la casilla **`repo`** (o permisos de lectura y escritura de contenido).
-3. Copia el token que empieza con `ghp_...` o `github_pat_...`.
-4. Abre la aplicación de Golgi Bot, ve a la pestaña ⚙️ **Configuración**, pega el token en la casilla **"Token de GitHub"** y haz clic en **Guardar Cambios**.
-5. **¡Listo!** El bot usará internet para subir y actualizar la página web automáticamente cada vez que procese apuntes o le des a *"Publicar"*, **sin necesidad de tener Git instalado en tu computador**.
+### 🚀 Publicación Web Automática (Cero configuración técnica para el delegado)
+El bot ya incluye internamente la conexión segura al servidor oficial de la Biblioteca Digital:
+* El delegado de la generación **NO necesita instalar Git, ni crear tokens, ni abrir consolas técnicas**.
+* En la aplicación, el delegado solo debe ingresar la información de su curso:
+  1. **Generación** (año de su cohorte, ej: `2026`, `2027`).
+  2. **Carpeta de Google Drive** de su curso.
+  3. **Grupo de WhatsApp** de su curso.
+* Cada vez que el bot clasifique archivos o presiones el botón *"Publicar"*, la web de la generación se actualizará sola en segundo plano a través de internet.
 
 ---
 
