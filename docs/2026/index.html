@@ -391,6 +391,25 @@
       color: #fff;
     }
 
+    .filter-pill-unclassified {
+      border-color: rgba(245, 158, 11, 0.4) !important;
+      color: #fbbf24 !important;
+      background: rgba(245, 158, 11, 0.1) !important;
+    }
+
+    .filter-pill-unclassified:hover {
+      background: rgba(245, 158, 11, 0.22) !important;
+      border-color: #f59e0b !important;
+      color: #fff !important;
+    }
+
+    .filter-pill-unclassified.active {
+      background: #f59e0b !important;
+      border-color: #f59e0b !important;
+      color: #041019 !important;
+      font-weight: 700 !important;
+    }
+
     /* RESULTS SUMMARY */
     .results-info {
       display: flex;
@@ -1033,7 +1052,7 @@
 <button class="filter-pill filter-pill-materia" data-materia="Biología célular y molecular" data-semestre="2">Biología célular y molecular <span class="pill-count">30</span></button>
 <button class="filter-pill filter-pill-materia" data-materia="Física" data-semestre="2">Física <span class="pill-count">13</span></button>
 <button class="filter-pill filter-pill-materia" data-materia="Histología y Embriología" data-semestre="2">Histología y Embriología <span class="pill-count">37</span></button>
-<button class="filter-pill filter-pill-materia" data-materia="Sin clasificar" data-semestre="">Sin clasificar <span class="pill-count">13</span></button>
+<button class="filter-pill filter-pill-materia filter-pill-unclassified" data-materia="Sin clasificar" data-semestre="1">⚠️ Sin clasificar <span class="pill-count">13</span></button>
       </div>
 
       <div class="filters-row" style="margin-top: 0.65rem;">
@@ -1056,7 +1075,7 @@
 
     <div class="results-info">
       <div>Mostrando <strong id="visibleCount" style="color: #fff;">146</strong> recursos</div>
-      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 11:39 p. m.</div>
+      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 11:45 p. m.</div>
     </div>
 
     <div class="files-grid" id="filesGrid"></div>
@@ -1226,16 +1245,26 @@
           }
         } else {
           const semMateria = pill.getAttribute('data-semestre') || MAPA_MATERIA_SEMESTRE[mat] || '';
-          const visible = (semestreActivo === 'todos') || (semMateria === semestreActivo);
-          pill.style.display = visible ? 'inline-flex' : 'none';
+          const esSinClasificar = (mat || '').toLowerCase().includes('sin clasificar');
 
           if (mat === materiaActiva) pill.classList.add('active');
           else pill.classList.remove('active');
 
           const countSpan = pill.querySelector('.pill-count');
+          let count = 0;
           if (countSpan) {
-            const count = CATALOGO.filter(it => it.materia === mat).length;
+            count = (semestreActivo === 'todos')
+              ? CATALOGO.filter(it => it.materia === mat).length
+              : CATALOGO.filter(it => it.materia === mat && String(it.semestre) === String(semestreActivo)).length;
             countSpan.textContent = count;
+          }
+
+          if (esSinClasificar) {
+            const visible = (semestreActivo === 'todos') || (count > 0);
+            pill.style.display = visible ? 'inline-flex' : 'none';
+          } else {
+            const visible = (semestreActivo === 'todos') || (semMateria === semestreActivo);
+            pill.style.display = visible ? 'inline-flex' : 'none';
           }
         }
       });
