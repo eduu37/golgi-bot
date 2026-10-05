@@ -1271,6 +1271,12 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
 
     <div class="files-grid" id="filesGrid"></div>
 
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🔎</div>
+      <h3>No se encontraron recursos</h3>
+      <p>Prueba con otros términos de búsqueda o selecciona otra materia.</p>
+    </div>
+
     <!-- MODAL DE CLASIFICACIÓN MANUAL -->
     <div class="modal-overlay" id="modalClasificar" style="display: none;">
       <div class="modal-box">
@@ -1382,11 +1388,11 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
 
       if (filtrados.length === 0) {
         grid.innerHTML = '';
-        emptyState.style.display = 'block';
+        if (emptyState) emptyState.style.display = 'block';
         return;
       }
 
-      emptyState.style.display = 'none';
+      if (emptyState) emptyState.style.display = 'none';
       grid.innerHTML = filtrados.map(item => {
         const esYt = item.badge === 'YOUTUBE';
         const esNotebook = item.badge === 'NOTEBOOKLM';
