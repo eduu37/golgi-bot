@@ -967,7 +967,7 @@
 
     <div class="results-info">
       <div>Mostrando <strong id="visibleCount" style="color: #fff;">146</strong> recursos</div>
-      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 10:28 p. m.</div>
+      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 10:56 p. m.</div>
     </div>
 
     <div class="files-grid" id="filesGrid"></div>
@@ -1246,6 +1246,8 @@
     // Modal de clasificación manual y Webhook de Google Apps Script
     let itemAClasificar = null;
     const APPS_SCRIPT_URL_COMPILED = "https://script.google.com/macros/s/AKfycbzKDFJqHLSFQ9yuqz1Z0zB5m9pigYJx52SDDSrMg9n7M9-xtCF0UIKV-H2VEs-ar5JMKw/exec";
+    const DRIVE_FOLDER_ID_GEN = "1yoFG4Vy7G0DMhLu-ONlbtfqqdyQKCczF";
+    const GENERACION_ACTIVA = "2026";
     const modalClasificar = document.getElementById('modalClasificar');
     const modalClasificarNombre = document.getElementById('modalClasificarNombre');
     const selectMateriaClasificar = document.getElementById('selectMateriaClasificar');
@@ -1350,7 +1352,9 @@
         const payload = {
           fileId: itemAClasificar.id,
           materia: materia,
-          tipo: tipo
+          tipo: tipo,
+          folderId: DRIVE_FOLDER_ID_GEN,
+          generacion: GENERACION_ACTIVA
         };
 
         const res = await fetch(urlScript, {
