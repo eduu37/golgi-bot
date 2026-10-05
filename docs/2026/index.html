@@ -871,10 +871,16 @@
 
     <div class="results-info">
       <div>Mostrando <strong id="visibleCount" style="color: #fff;">146</strong> recursos</div>
-      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 8:20 p. m.</div>
+      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 9:09 p. m.</div>
     </div>
 
     <div class="files-grid" id="filesGrid"></div>
+
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🔎</div>
+      <h3>No se encontraron recursos</h3>
+      <p>Prueba con otros términos de búsqueda o selecciona otra materia.</p>
+    </div>
 
     <!-- MODAL DE CLASIFICACIÓN MANUAL -->
     <div class="modal-overlay" id="modalClasificar" style="display: none;">
@@ -992,11 +998,11 @@
 
       if (filtrados.length === 0) {
         grid.innerHTML = '';
-        emptyState.style.display = 'block';
+        if (emptyState) emptyState.style.display = 'block';
         return;
       }
 
-      emptyState.style.display = 'none';
+      if (emptyState) emptyState.style.display = 'none';
       grid.innerHTML = filtrados.map(item => {
         const esYt = item.badge === 'YOUTUBE';
         const esNotebook = item.badge === 'NOTEBOOKLM';
