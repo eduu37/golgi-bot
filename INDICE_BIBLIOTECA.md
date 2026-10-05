@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 04-10-2026, 9:39:48 p. m.
+> **Última actualización:** 04-10-2026, 9:51:37 p. m.
 > **Total de Recursos:** 146 (123 en Drive, 23 enlaces web) | **Espacio Drive:** 661.55 MB
 
 ## 📁 Anatomía
@@ -158,10 +158,11 @@
 | Dinámica 2.pdf | `PDF` | 617.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1_AqwILjc-Vc1JzGDEcUrx6ItBIDHo983/view?usp=drivesdk) |
 | W y e Física - 10-9-2026.docx | `DOCX` | 60.8 KB | [Abrir en Drive](https://docs.google.com/document/d/1ga0Sqr1mcymb6QXTZ5Qq_tDCPY7oislV/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
 
-### Certámenes (1)
+### Certámenes (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| C1 2024.pdf | `PDF` | 286.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAJeArUd6AXZXkdDJcP7Her7jd0zsbQr/view?usp=drivesdk) |
 | Carpeta de Recursos: Física | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/1ax-Da83S2p75wNsHGhXnhwBrnXu79g3M) |
 
 ### Controles (4)
@@ -269,11 +270,10 @@
 
 ## 📁 Sin clasificar
 
-### Certámenes (7)
+### Certámenes (6)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| C1 2024.pdf | `PDF` | 286.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAJeArUd6AXZXkdDJcP7Her7jd0zsbQr/view?usp=drivesdk) |
 | C1 2025.pdf | `PDF` | 476.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ON22-FY7uyCEfgnLCtnPL0U4CT19U2Ht/view?usp=drivesdk) |
 | Certamen 1 2022.pdf | `PDF` | 1.80 MB | [Abrir en Drive](https://drive.google.com/file/d/13opb1nBgdzU_PbcgRsy1PcJCp9UpZiVK/view?usp=drivesdk) |
 | Certamen 1 Pauta 2023.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1KcTBt6cJ2k1HzIu6PvNzYDWIVtwiaL3e/view?usp=drivesdk) |
