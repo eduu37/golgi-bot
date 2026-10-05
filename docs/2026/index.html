@@ -758,6 +758,102 @@
       color: #fff;
     }
 
+    .btn-move-direct {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.65rem 1.25rem;
+      border-radius: 9px;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-move-direct:hover:not(:disabled) {
+      background: linear-gradient(135deg, #34d399, #10b981);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+    }
+
+    .btn-move-direct:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      filter: grayscale(0.4);
+      transform: none !important;
+    }
+
+    .modal-status-box {
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-size: 0.84rem;
+      line-height: 1.45;
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .status-loading {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+    }
+
+    .status-success {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #4ade80;
+    }
+
+    .status-error {
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.4);
+      color: #fb7185;
+    }
+
+    .status-config {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+    }
+
+    .modal-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 0.55rem 0.75rem;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+
+    .modal-input:focus {
+      border-color: var(--accent-amber);
+    }
+
+    .secondary-options-toggle {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      transition: color 0.15s ease;
+    }
+
+    .secondary-options-toggle:hover {
+      color: #fff;
+    }
+
     /* FOOTER */
     footer {
       margin-top: 4rem;
@@ -871,7 +967,7 @@
 
     <div class="results-info">
       <div>Mostrando <strong id="visibleCount" style="color: #fff;">146</strong> recursos</div>
-      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 9:21 p. m.</div>
+      <div style="font-size: 0.8rem; color: var(--text-dim);">Última sincronización: domingo, 4 de octubre de 2026, 9:35 p. m.</div>
     </div>
 
     <div class="files-grid" id="filesGrid"></div>
@@ -896,14 +992,14 @@
           <button class="modal-close-btn" onclick="cerrarModalClasificar()">&times;</button>
         </div>
 
-        <div class="modal-body" style="padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+        <div class="modal-body" style="padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.95rem;">
           <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 0.85rem 1rem;">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700; margin-bottom: 0.25rem;">Archivo:</div>
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700; margin-bottom: 0.25rem;">Archivo a Clasificar:</div>
             <div id="modalClasificarNombre" style="font-size: 0.95rem; font-weight: 600; color: #fff; word-break: break-word;"></div>
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 0.35rem;">
-            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">¿A qué Asignatura pertenece?</label>
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">📚 ¿A qué Asignatura pertenece?</label>
             <select id="selectMateriaClasificar" class="modal-select">
               <option value="Anatomía">Anatomía</option>
 <option value="Bioestadística">Bioestadística</option>
@@ -915,7 +1011,7 @@
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 0.35rem;">
-            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">¿Qué Tipo de Recurso es?</label>
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">📂 ¿Qué Tipo de Recurso es?</label>
             <select id="selectTipoClasificar" class="modal-select">
               <option value="Apuntes">Apuntes / Clases</option>
               <option value="Certámenes">Certámenes</option>
@@ -928,17 +1024,42 @@
             </select>
           </div>
 
-          <div style="background: rgba(56, 189, 248, 0.06); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 10px; padding: 0.85rem 1rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.45;">
-            <strong style="color: var(--accent-cyan); display: block; margin-bottom: 0.25rem;">💡 ¿Cómo moverlo al lugar adecuado?</strong>
-            <p style="margin-bottom: 0.35rem;"><strong>Si tienes acceso al Drive:</strong> Haz clic en <em>"Abrir y Mover en Drive"</em>. En Google Drive presiona el icono de carpeta 📁 (<strong>Organizar / Mover</strong>) y colócalo dentro de la carpeta de la materia.</p>
-            <p><strong>Si eres alumno:</strong> Haz clic en <em>"Notificar por WhatsApp"</em> para que el delegado lo mueva por ti con 1 clic.</p>
+          <!-- CAJA DE ESTADO / ALERTAS DINÁMICAS -->
+          <div id="modalStatusBox" class="modal-status-box"></div>
+
+          <!-- CAJA DE CONFIGURACIÓN RÁPIDA (SI NO SE HA CONFIGURADO LA URL DE APPS SCRIPT) -->
+          <div id="modalConfigBox" class="modal-status-box status-config" style="display: none;">
+            <div style="font-weight: 700; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem;">
+              <span>⚡</span> Activar Mover con 1 Clic (Google Apps Script)
+            </div>
+            <p style="font-size: 0.8rem; margin-bottom: 0.5rem; line-height: 1.4;">
+              Pega aquí la URL de tu aplicación web de Google Apps Script:
+            </p>
+            <div style="display: flex; gap: 0.4rem;">
+              <input type="url" id="inputAppsScriptUrl" class="modal-input" placeholder="https://script.google.com/macros/s/.../exec">
+              <button type="button" class="btn-classify" style="padding: 0.45rem 0.85rem;" onclick="guardarUrlAppsScriptModal()">Guardar</button>
+            </div>
+          </div>
+
+          <!-- OPCIONES ALTERNATIVAS / MANUALES -->
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 0.65rem;">
+            <button type="button" class="secondary-options-toggle" onclick="toggleOpcionesSecundarias()">
+              ➕ Ver opciones alternativas (Mover manual en Drive o WhatsApp)...
+            </button>
+            <div id="opcionesSecundarias" style="display: none; margin-top: 0.75rem; flex-direction: column; gap: 0.6rem;">
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button type="button" class="btn-notify-wa" id="btnNotificarWA" onclick="notificarClasificacionWA()">💬 Notificar por WhatsApp</button>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn-move-drive" id="btnMoverEnDrive">📁 Abrir y Mover en Drive ↗</a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="modal-footer" style="padding: 1rem 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.6rem;">
-          <button type="button" class="btn-cancel" onclick="cerrarModalClasificar()">Cancelar</button>
-          <button type="button" class="btn-notify-wa" id="btnNotificarWA" onclick="notificarClasificacionWA()">💬 Notificar por WhatsApp</button>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-move-drive" id="btnMoverEnDrive">📁 Abrir y Mover en Drive ↗</a>
+        <div class="modal-footer" style="padding: 1rem 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; justify-content: space-between; align-items: center; gap: 0.6rem;">
+          <button type="button" class="btn-cancel" onclick="cerrarModalClasificar()">Cerrar</button>
+          <button type="button" class="btn-move-direct" id="btnMoverDirecto" onclick="ejecutarMoverDirecto()">
+            <span>⚡ Mover en Drive Ahora</span>
+          </button>
         </div>
       </div>
     </div>
@@ -1101,13 +1222,54 @@
       });
     };
 
-    // Modal de clasificación manual
+    // Modal de clasificación manual y Webhook de Google Apps Script
     let itemAClasificar = null;
+    const APPS_SCRIPT_URL_COMPILED = "";
     const modalClasificar = document.getElementById('modalClasificar');
     const modalClasificarNombre = document.getElementById('modalClasificarNombre');
     const selectMateriaClasificar = document.getElementById('selectMateriaClasificar');
     const selectTipoClasificar = document.getElementById('selectTipoClasificar');
     const btnMoverEnDrive = document.getElementById('btnMoverEnDrive');
+    const btnMoverDirecto = document.getElementById('btnMoverDirecto');
+    const modalStatusBox = document.getElementById('modalStatusBox');
+    const modalConfigBox = document.getElementById('modalConfigBox');
+    const opcionesSecundarias = document.getElementById('opcionesSecundarias');
+
+    function obtenerAppsScriptUrl() {
+      return APPS_SCRIPT_URL_COMPILED || localStorage.getItem('golgi_apps_script_url') || '';
+    }
+
+    window.guardarUrlAppsScriptModal = function() {
+      const input = document.getElementById('inputAppsScriptUrl');
+      const url = (input ? input.value : '').trim();
+      if (!url.startsWith('https://script.google.com/')) {
+        alert('Por favor ingresa una URL válida de Google Apps Script (debe empezar con https://script.google.com/)');
+        return;
+      }
+      localStorage.setItem('golgi_apps_script_url', url);
+      if (modalConfigBox) modalConfigBox.style.display = 'none';
+      mostrarEstadoModal('success', '✅ URL de Google Apps Script guardada con éxito. ¡Ya puedes mover con 1 clic!');
+    };
+
+    window.toggleOpcionesSecundarias = function() {
+      if (opcionesSecundarias) {
+        opcionesSecundarias.style.display = opcionesSecundarias.style.display === 'none' ? 'flex' : 'none';
+      }
+    };
+
+    function mostrarEstadoModal(tipo, mensaje) {
+      if (!modalStatusBox) return;
+      modalStatusBox.className = 'modal-status-box status-' + tipo;
+      modalStatusBox.innerHTML = mensaje;
+      modalStatusBox.style.display = 'block';
+    }
+
+    function ocultarEstadoModal() {
+      if (modalStatusBox) {
+        modalStatusBox.style.display = 'none';
+        modalStatusBox.innerHTML = '';
+      }
+    }
 
     window.abrirModalClasificar = function(id) {
       itemAClasificar = CATALOGO.find(it => String(it.id) === String(id));
@@ -1115,12 +1277,94 @@
 
       modalClasificarNombre.textContent = itemAClasificar.nombreLimpio || itemAClasificar.nombreOriginal;
       btnMoverEnDrive.href = itemAClasificar.url;
+      ocultarEstadoModal();
+
+      if (btnMoverDirecto) {
+        btnMoverDirecto.disabled = false;
+        btnMoverDirecto.innerHTML = '<span>⚡ Mover en Drive Ahora</span>';
+      }
+
+      if (opcionesSecundarias) opcionesSecundarias.style.display = 'none';
+
+      const scriptUrl = obtenerAppsScriptUrl();
+      if (!scriptUrl && modalConfigBox) {
+        modalConfigBox.style.display = 'block';
+      } else if (modalConfigBox) {
+        modalConfigBox.style.display = 'none';
+      }
+
       modalClasificar.style.display = 'flex';
     };
 
     window.cerrarModalClasificar = function() {
       if (modalClasificar) modalClasificar.style.display = 'none';
       itemAClasificar = null;
+      ocultarEstadoModal();
+    };
+
+    window.ejecutarMoverDirecto = async function() {
+      if (!itemAClasificar) return;
+      const urlScript = obtenerAppsScriptUrl();
+      if (!urlScript) {
+        if (modalConfigBox) modalConfigBox.style.display = 'block';
+        mostrarEstadoModal('config', '⚠️ Para mover automáticamente con 1 clic, primero ingresa la URL de tu Google Apps Script arriba.');
+        return;
+      }
+
+      const materia = selectMateriaClasificar ? selectMateriaClasificar.value : '';
+      const tipo = selectTipoClasificar ? selectTipoClasificar.value : 'Apuntes';
+
+      if (!materia) {
+        mostrarEstadoModal('error', '⚠️ Debes seleccionar una asignatura destino.');
+        return;
+      }
+
+      try {
+        if (btnMoverDirecto) {
+          btnMoverDirecto.disabled = true;
+          btnMoverDirecto.innerHTML = '<span>⏳ Moviendo en Drive...</span>';
+        }
+        mostrarEstadoModal('loading', '⏳ Moviendo <strong>' + itemAClasificar.nombreLimpio + '</strong> a <strong>' + materia + ' / ' + tipo + '</strong> en Google Drive...');
+
+        const payload = {
+          fileId: itemAClasificar.id,
+          materia: materia,
+          tipo: tipo
+        };
+
+        const res = await fetch(urlScript, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (data.ok) {
+          mostrarEstadoModal('success', '✅ ¡Listo! <strong>' + itemAClasificar.nombreLimpio + '</strong> fue movido con éxito a <strong>' + materia + ' / ' + tipo + '</strong> en Google Drive.');
+          if (btnMoverDirecto) btnMoverDirecto.innerHTML = '<span>✅ ¡Movido con éxito!</span>';
+
+          // Actualizar dinámicamente en el catálogo local
+          itemAClasificar.materia = materia;
+          itemAClasificar.tipo = tipo;
+
+          // Re-renderizar después de breve pausa y cerrar modal
+          setTimeout(() => {
+            renderizar();
+            cerrarModalClasificar();
+          }, 1500);
+        } else {
+          throw new Error(data.error || 'Error al procesar la solicitud en Google Drive.');
+        }
+      } catch (err) {
+        console.error('Error al mover archivo:', err);
+        if (btnMoverDirecto) {
+          btnMoverDirecto.disabled = false;
+          btnMoverDirecto.innerHTML = '<span>⚡ Reintentar Mover</span>';
+        }
+        mostrarEstadoModal('error', '❌ <strong>Error al mover:</strong> ' + err.message + '<br><small>Verifica los permisos de tu Google Apps Script o usa las opciones alternativas abajo.</small>');
+        if (opcionesSecundarias) opcionesSecundarias.style.display = 'flex';
+      }
     };
 
     window.notificarClasificacionWA = function() {
