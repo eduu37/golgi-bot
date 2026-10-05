@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 05-10-2026, 12:41:44 a. m.
+> **Última actualización:** 05-10-2026, 1:30:31 p. m.
 > **Total de Recursos:** 146 (123 en Drive, 23 enlaces web) | **Espacio Drive:** 661.55 MB
 
 ## 📁 Anatomía
@@ -105,7 +105,7 @@
 | Apoyo Clase Transcripción.pdf | `PDF` | 1.10 MB | [Abrir en Drive](https://drive.google.com/file/d/1HPMfdx6puBV3ZDaHZ9Wyb_k2QGXCOz2l/view?usp=drivesdk) |
 | Apuntes Núcleo y Expresión Génica.pdf | `PDF` | 749.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1TYNNymWcno-HJN_vg51lU5rJnbxJChVa/view?usp=drivesdk) |
 | Apuntes Traducción.pdf | `PDF` | 804.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1pwqQl1GXNgkIhyrXViwoC7Frocldh7iS/view?usp=drivesdk) |
-| BIOLOGÍA CELULAR - UNIDAD 1 | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
+| BIOLOGÍA CELULAR - UNIDAD 1 - Google Docs | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
 | Cavidad Oral Transcripcion.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/138RrUCP3Wj0q5HxDB9Ol9ox-Rz-S4Ds1/view?usp=drivesdk) |
 | Fascia Cervical Transcripcion.pdf | `PDF` | 2.28 MB | [Abrir en Drive](https://drive.google.com/file/d/136mQxJEPCzdf0i7Cuc59RrbGLbv_WEwB/view?usp=drivesdk) |
 | Lengua y Dientes Transcripcion.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1SuYA4SUFnOhuBAfvxeWtuFb4pn3yj6ui/view?usp=drivesdk) |
