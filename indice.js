@@ -1599,6 +1599,14 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
               <option value="4">4º Semestre</option>
               <option value="5">5º Semestre</option>
               <option value="6">6º Semestre</option>
+              <option value="7">7º Semestre</option>
+              <option value="8">8º Semestre</option>
+              <option value="9">9º Semestre</option>
+              <option value="10">10º Semestre</option>
+              <option value="11">11º Semestre</option>
+              <option value="12">12º Semestre</option>
+              <option value="13">13º Semestre</option>
+              <option value="14">14º Semestre</option>
             </select>
           </div>
 
