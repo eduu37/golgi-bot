@@ -171,6 +171,7 @@ ipcMain.handle("settings:get", () => {
     TARGET_GROUP_ID: "",
     GEMINI_API_KEY: "",
     GENERACION: "2026",
+    SEMESTRE: "1",
     GITHUB_PAGES_URL: "",
   };
 
@@ -198,11 +199,13 @@ ipcMain.handle("settings:save", (_event, settings) => {
   if (match && match[1]) driveId = match[1];
 
   const gen = (settings.GENERACION || "2026").trim().replace(/[^a-zA-Z0-9_-]/g, "");
+  const sem = (settings.SEMESTRE || "1").trim();
 
-  // Preservar valores secretos existentes en .env (como GITHUB_TOKEN)
+  // Preservar valores existentes en .env (como GITHUB_TOKEN y APPS_SCRIPT_URL)
   let existingToken = "";
   let existingRepo = "eduu37/golgi-bot";
   let existingPagesUrl = "";
+  let existingAppsScriptUrl = "";
   if (fs.existsSync(rutaEnv)) {
     const raw = fs.readFileSync(rutaEnv, "utf8");
     for (const linea of raw.split(/\r?\n/)) {
@@ -211,6 +214,7 @@ ipcMain.handle("settings:save", (_event, settings) => {
         if (m[1] === "GITHUB_TOKEN") existingToken = m[2].trim();
         if (m[1] === "GITHUB_REPO") existingRepo = m[2].trim();
         if (m[1] === "GITHUB_PAGES_URL") existingPagesUrl = m[2].trim();
+        if (m[1] === "APPS_SCRIPT_URL") existingAppsScriptUrl = m[2].trim();
       }
     }
   }
@@ -222,8 +226,10 @@ ipcMain.handle("settings:save", (_event, settings) => {
 # Modificado desde la Aplicación de Escritorio
 # ============================================================
 GENERACION=${gen}
+SEMESTRE=${sem}
 TARGET_GROUP_ID=${settings.TARGET_GROUP_ID || ""}
 DRIVE_FOLDER_ID=${driveId}
+APPS_SCRIPT_URL=${existingAppsScriptUrl}
 GITHUB_REPO=${existingRepo}
 GITHUB_TOKEN=${existingToken}
 GITHUB_PAGES_URL=${pagesUrl}
@@ -232,7 +238,7 @@ GEMINI_API_KEY=${settings.GEMINI_API_KEY || ""}
 
   fs.writeFileSync(rutaEnv, contenido, "utf8");
   enviarLog("💾 Configuración guardada en .env", "success");
-  return { ok: true, driveId, pagesUrl, generacion: gen };
+  return { ok: true, driveId, pagesUrl, generacion: gen, semestre: sem };
 });
 
 // 7. Leer y Guardar Categorías (categorias.json)

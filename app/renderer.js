@@ -29,6 +29,7 @@ const logsTerminal = document.getElementById('logsTerminal');
 // Settings Form
 const settingsForm = document.getElementById('settingsForm');
 const inputGeneracion = document.getElementById('inputGeneracion');
+const selectSemestreConfig = document.getElementById('selectSemestreConfig');
 const inputDrive = document.getElementById('inputDrive');
 const inputGroup = document.getElementById('inputGroup');
 const inputPagesUrl = document.getElementById('inputPagesUrl');
@@ -236,6 +237,7 @@ btnOpenWeb.addEventListener('click', () => {
 async function cargarConfiguracion() {
   const datos = await window.golgiAPI.getSettings();
   if (inputGeneracion) inputGeneracion.value = datos.GENERACION || '2026';
+  if (selectSemestreConfig) selectSemestreConfig.value = datos.SEMESTRE || '1';
   inputDrive.value = datos.DRIVE_FOLDER_ID || '';
   inputGroup.value = datos.TARGET_GROUP_ID || '';
   inputGemini.value = datos.GEMINI_API_KEY || '';
@@ -249,6 +251,7 @@ settingsForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const settings = {
     GENERACION: inputGeneracion ? inputGeneracion.value.trim() : '2026',
+    SEMESTRE: selectSemestreConfig ? selectSemestreConfig.value : '1',
     DRIVE_FOLDER_ID: inputDrive.value.trim(),
     TARGET_GROUP_ID: inputGroup.value.trim(),
     GEMINI_API_KEY: inputGemini.value.trim(),
@@ -261,8 +264,9 @@ settingsForm.addEventListener('submit', async (e) => {
       currentPagesUrl = res.pagesUrl;
       if (inputPagesUrl) inputPagesUrl.value = res.pagesUrl;
     }
-    saveFeedback.textContent = '✅ Guardado con éxito';
-    setTimeout(() => { saveFeedback.textContent = ''; }, 3000);
+    const semTexto = settings.SEMESTRE === 'todos' ? 'Todos los semestres' : `${settings.SEMESTRE}º Semestre`;
+    saveFeedback.textContent = `✅ Configuración guardada (Semestre: ${semTexto})`;
+    setTimeout(() => { saveFeedback.textContent = ''; }, 3500);
   }
 });
 
