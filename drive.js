@@ -17,7 +17,21 @@ function escaparQuery(texto) {
 
 export async function iniciarDrive() {
   let authClient;
-  if (fs.existsSync(TOKEN_PATH)) {
+  if (process.env.GOOGLE_TOKEN_JSON && process.env.GOOGLE_CREDENTIALS_JSON) {
+    const token = typeof process.env.GOOGLE_TOKEN_JSON === 'string'
+      ? JSON.parse(process.env.GOOGLE_TOKEN_JSON)
+      : process.env.GOOGLE_TOKEN_JSON;
+    const credentials = typeof process.env.GOOGLE_CREDENTIALS_JSON === 'string'
+      ? JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON)
+      : process.env.GOOGLE_CREDENTIALS_JSON;
+    const keys = credentials.installed || credentials.web;
+    authClient = new google.auth.OAuth2(
+      keys.client_id,
+      keys.client_secret,
+      keys.redirect_uris[0],
+    );
+    authClient.setCredentials(token);
+  } else if (fs.existsSync(TOKEN_PATH)) {
     const token = JSON.parse(fs.readFileSync(TOKEN_PATH, "utf8"));
     const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf8"));
     const keys = credentials.installed || credentials.web;

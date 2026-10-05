@@ -1,0 +1,58 @@
+name: 📚 Actualizar Biblioteca Digital
+
+on:
+  # 1. Ejecución manual desde la pestaña Actions en GitHub
+  workflow_dispatch:
+
+  # 2. Ejecución automática activada por webhook (Google Apps Script)
+  repository_dispatch:
+    types: [actualizar_biblioteca]
+
+  # 3. Ejecución programada cada 6 horas para mantener sincronizado Google Drive
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  actualizar:
+    name: Escanear Google Drive y Compilar Web
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: ⚙️ Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: 📦 Instalar dependencias
+        run: npm install --omit=dev
+
+      - name: 📑 Escanear Drive y Generar Biblioteca Web
+        env:
+          DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID || '1yoFG4Vy7G0DMhLu-ONlbtfqqdyQKCczF' }}
+          GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+          GOOGLE_TOKEN_JSON: ${{ secrets.GOOGLE_TOKEN_JSON }}
+          GENERACION: "2026"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APPS_SCRIPT_URL: ${{ secrets.APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbzKDFJqHLSFQ9yuqz1Z0zB5m9pigYJx52SDDSrMg9n7M9-xtCF0UIKV-H2VEs-ar5JMKw/exec' }}
+        run: node indice.js --solo-local
+
+      - name: 🚀 Publicar cambios en GitHub Pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html docs/ 2026/ INDICE_BIBLIOTECA.html INDICE_BIBLIOTECA.csv INDICE_BIBLIOTECA.md generaciones.json enlaces.csv
+          if git diff --staged --quiet; then
+            echo "✨ La biblioteca ya estaba 100% al día. No hay cambios."
+          else
+            git commit -m "bot(ci): Auto-actualizar biblioteca digital en la nube [skip ci]"
+            git push origin main
+            echo "✅ Cambios desplegados exitosamente en GitHub Pages."
+          fi

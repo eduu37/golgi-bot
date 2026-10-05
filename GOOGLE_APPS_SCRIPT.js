@@ -34,6 +34,30 @@ const DRIVE_FOLDER_ID = "1yoFG4Vy7G0DMhLu-ONlbtfqqdyQKCczF";
 // PIN de seguridad opcional (déjalo vacío "" para uso abierto y rápido)
 const PIN_SEGURIDAD = "";
 
+// (Opcional) Token personal de GitHub si deseas que Apps Script despierte a GitHub Actions automáticamente
+const GITHUB_TOKEN = ""; 
+const GITHUB_REPO = "eduu37/golgi-bot";
+
+function dispararGitHubAction() {
+  if (!GITHUB_TOKEN) return;
+  try {
+    const url = "https://api.github.com/repos/" + GITHUB_REPO + "/dispatches";
+    UrlFetchApp.fetch(url, {
+      method: "post",
+      headers: {
+        "Authorization": "Bearer " + GITHUB_TOKEN,
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "Golgi-Bot-AppsScript"
+      },
+      contentType: "application/json",
+      payload: JSON.stringify({ event_type: "actualizar_biblioteca" }),
+      muteHttpExceptions: true
+    });
+  } catch (e) {
+    Logger.log("Error al disparar GitHub Action: " + e.toString());
+  }
+}
+
 function doPost(e) {
   return procesarSolicitud(e);
 }
@@ -105,6 +129,9 @@ function procesarSolicitud(e) {
         }
       }
     }
+
+    // Disparar compilación automática en GitHub Actions si está configurado
+    dispararGitHubAction();
 
     return jsonRespuesta({
       ok: true,
