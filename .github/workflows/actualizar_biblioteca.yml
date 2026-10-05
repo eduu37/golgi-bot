@@ -3,6 +3,11 @@ name: 📚 Actualizar Biblioteca Digital
 on:
   # 1. Ejecución manual desde la pestaña Actions en GitHub
   workflow_dispatch:
+    inputs:
+      generacion:
+        description: 'Generación a compilar ("todas" o año específico ej: 2026, 2027)'
+        required: true
+        default: 'todas'
 
   # 2. Ejecución automática activada por webhook (Google Apps Script)
   repository_dispatch:
@@ -39,16 +44,38 @@ jobs:
           DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID || '1yoFG4Vy7G0DMhLu-ONlbtfqqdyQKCczF' }}
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
           GOOGLE_TOKEN_JSON: ${{ secrets.GOOGLE_TOKEN_JSON }}
-          GENERACION: "2026"
+          GENERACION_INPUT: ${{ inputs.generacion || 'todas' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APPS_SCRIPT_URL: ${{ secrets.APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbzKDFJqHLSFQ9yuqz1Z0zB5m9pigYJx52SDDSrMg9n7M9-xtCF0UIKV-H2VEs-ar5JMKw/exec' }}
-        run: node indice.js --solo-local
+        run: |
+          node -e "
+            import('./indice.js').then(async m => {
+              const fs = await import('fs');
+              let gens = [{ id: '2026', driveFolderId: process.env.DRIVE_FOLDER_ID }];
+              if (fs.existsSync('generaciones.json')) {
+                try {
+                  const saved = JSON.parse(fs.readFileSync('generaciones.json', 'utf8'));
+                  if (Array.isArray(saved) && saved.length > 0) gens = saved;
+                } catch {}
+              }
+              const filtro = process.env.GENERACION_INPUT || 'todas';
+              for (const g of gens) {
+                if (filtro !== 'todas' && g.id !== filtro) continue;
+                const folder = g.driveFolderId || process.env.DRIVE_FOLDER_ID;
+                if (!folder) continue;
+                console.log('🔄 Sincronizando Generación:', g.id, '— Carpeta Drive:', folder);
+                process.env.GENERACION = g.id;
+                process.env.DRIVE_FOLDER_ID = folder;
+                await m.generarYSincronizarIndice({ subirADrive: false, publicarAGitHub: false, generacion: g.id });
+              }
+            });
+          "
 
       - name: 🚀 Publicar cambios en GitHub Pages
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html docs/ 2026/ INDICE_BIBLIOTECA.html INDICE_BIBLIOTECA.csv INDICE_BIBLIOTECA.md generaciones.json enlaces.csv
+          git add index.html docs/ INDICE_BIBLIOTECA.html INDICE_BIBLIOTECA.csv INDICE_BIBLIOTECA.md generaciones.json enlaces.csv [0-9]*/
           if git diff --staged --quiet; then
             echo "✨ La biblioteca ya estaba 100% al día. No hay cambios."
           else

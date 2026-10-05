@@ -102,10 +102,11 @@ function procesarSolicitud(e) {
       return jsonRespuesta({ ok: false, error: "No se encontró el archivo en Google Drive." });
     }
 
-    // 2. Localizar la carpeta raíz del Drive
+    // 2. Localizar la carpeta raíz del Drive (soporta multi-generación según el folderId enviado desde la web)
+    const folderIdDestino = params.folderId || params.driveFolderId || DRIVE_FOLDER_ID;
     let rootFolder;
-    if (DRIVE_FOLDER_ID) {
-      rootFolder = DriveApp.getFolderById(DRIVE_FOLDER_ID);
+    if (folderIdDestino) {
+      rootFolder = DriveApp.getFolderById(folderIdDestino);
     } else {
       rootFolder = DriveApp.getRootFolder();
     }

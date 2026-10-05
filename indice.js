@@ -1637,6 +1637,8 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     // Modal de clasificación manual y Webhook de Google Apps Script
     let itemAClasificar = null;
     const APPS_SCRIPT_URL_COMPILED = "${APPS_SCRIPT_URL}";
+    const DRIVE_FOLDER_ID_GEN = "${DRIVE_FOLDER_ID}";
+    const GENERACION_ACTIVA = "${generacion}";
     const modalClasificar = document.getElementById('modalClasificar');
     const modalClasificarNombre = document.getElementById('modalClasificarNombre');
     const selectMateriaClasificar = document.getElementById('selectMateriaClasificar');
@@ -1741,7 +1743,9 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
         const payload = {
           fileId: itemAClasificar.id,
           materia: materia,
-          tipo: tipo
+          tipo: tipo,
+          folderId: DRIVE_FOLDER_ID_GEN,
+          generacion: GENERACION_ACTIVA
         };
 
         const res = await fetch(urlScript, {
@@ -2285,6 +2289,7 @@ export async function generarYSincronizarIndice(opciones = {}) {
   const datosGen = {
     id: generacion,
     nombre: `Generación ${generacion}`,
+    driveFolderId: DRIVE_FOLDER_ID,
     totalArchivos: catalogo.totalArchivos,
     totalEnlaces: catalogo.totalEnlaces,
     totalItems: catalogo.totalItems,
