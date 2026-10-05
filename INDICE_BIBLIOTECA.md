@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 04-10-2026, 9:51:37 p. m.
+> **Última actualización:** 04-10-2026, 10:28:10 p. m.
 > **Total de Recursos:** 146 (123 en Drive, 23 enlaces web) | **Espacio Drive:** 661.55 MB
 
 ## 📁 Anatomía
@@ -12,12 +12,13 @@
 | Imagenología de Cavidad Oral.apkg | `ANKI` | 17.55 MB | [Abrir en Drive](https://drive.google.com/file/d/1iP6mRp_eUEcB16Zj9YgTchp057Gr23Yy/view?usp=drivesdk) |
 | S6 - ATM y Cavidad Oral.apkg | `ANKI` | 6.18 MB | [Abrir en Drive](https://drive.google.com/file/d/1HRRxZIXnbEITN6NtJor_Stx8Qk7_Nmvx/view?usp=drivesdk) |
 
-### Apuntes (11)
+### Apuntes (12)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Articulación Temporomandibular.pdf | `PDF` | 3.69 MB | [Abrir en Drive](https://drive.google.com/file/d/1YrC74CuwbzkzRGLlRCQeCqorBOg4HGyG/view?usp=drivesdk) |
 | ATM Transcripcion.pdf | `PDF` | 936.9 KB | [Abrir en Drive](https://drive.google.com/file/d/1dTyy968eY_uAjr-Qnm1i34ECLnuViMNf/view?usp=drivesdk) |
+| C1 2025.pdf | `PDF` | 476.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ON22-FY7uyCEfgnLCtnPL0U4CT19U2Ht/view?usp=drivesdk) |
 | Cavidad Oral.pdf | `PDF` | 5.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1-TKIDaC4FT9TzsNN6zTrm-9llQjuZss4/view?usp=drivesdk) |
 | Cavidad Oral.pdf | `PDF` | 5.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1XViwi-5eNEcLQu5ixvS63cjm2pOuGGzM/view?usp=drivesdk) |
 | Glandulas Salivales Mayores Transcripcion.pdf | `PDF` | 1.81 MB | [Abrir en Drive](https://drive.google.com/file/d/19FQbUhSVxEgEIH3iccE9k81mPU6077D7/view?usp=drivesdk) |
@@ -270,11 +271,10 @@
 
 ## 📁 Sin clasificar
 
-### Certámenes (6)
+### Certámenes (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| C1 2025.pdf | `PDF` | 476.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ON22-FY7uyCEfgnLCtnPL0U4CT19U2Ht/view?usp=drivesdk) |
 | Certamen 1 2022.pdf | `PDF` | 1.80 MB | [Abrir en Drive](https://drive.google.com/file/d/13opb1nBgdzU_PbcgRsy1PcJCp9UpZiVK/view?usp=drivesdk) |
 | Certamen 1 Pauta 2023.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1KcTBt6cJ2k1HzIu6PvNzYDWIVtwiaL3e/view?usp=drivesdk) |
 | Certamen I.pdf | `PDF` | 234.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1-MEE6yxxDrlhnwZXZqmflQ0I_R69BlFf/view?usp=drivesdk) |
