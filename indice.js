@@ -1462,6 +1462,15 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
 
   <script>
     const CATALOGO = ${itemsJsonSeguro};
+    // Persistencia local para recordar clasificaciones inmediatamente incluso si se recarga la página
+    const CLASIFICACIONES_LOCALES = JSON.parse(localStorage.getItem('golgi_clasificaciones_locales') || '{}');
+    for (const [id, datos] of Object.entries(CLASIFICACIONES_LOCALES)) {
+      const item = CATALOGO.find(it => String(it.id) === String(id));
+      if (item && datos.materia) {
+        item.materia = datos.materia;
+        if (datos.tipo) item.tipo = datos.tipo;
+      }
+    }
     let origenActivo = 'todos';
     let materiaActiva = 'todas';
     let tipoActivo = 'todos';
@@ -1507,6 +1516,18 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
       });
 
       visibleCount.textContent = filtrados.length;
+
+      // Actualizar conteos en las píldoras de materia reactivamente
+      pillsMateria.forEach(pill => {
+        const mat = pill.getAttribute('data-materia');
+        const countSpan = pill.querySelector('.pill-count');
+        if (countSpan) {
+          const c = mat === 'todas'
+            ? CATALOGO.length
+            : CATALOGO.filter(it => it.materia === mat).length;
+          countSpan.textContent = c;
+        }
+      });
 
       if (filtrados.length === 0) {
         grid.innerHTML = '';
@@ -1738,6 +1759,12 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
           // Actualizar dinámicamente en el catálogo local
           itemAClasificar.materia = materia;
           itemAClasificar.tipo = tipo;
+
+          // Guardar en persistencia local para que al recargar la página permanezca clasificado
+          try {
+            CLASIFICACIONES_LOCALES[itemAClasificar.id] = { materia, tipo, fecha: new Date().toISOString() };
+            localStorage.setItem('golgi_clasificaciones_locales', JSON.stringify(CLASIFICACIONES_LOCALES));
+          } catch {}
 
           // Re-renderizar después de breve pausa y cerrar modal
           setTimeout(() => {
