@@ -201,15 +201,35 @@
             <button class="btn btn-primary" id="btnAddSubject">+ Nueva Materia</button>
           </div>
 
-          <div class="modal-search-wrapper" style="margin-bottom: 1.25rem;">
-            <span class="modal-search-icon">🔍</span>
-            <input 
-              type="text" 
-              id="searchSubjectsInput" 
-              class="form-control modal-search-input" 
-              placeholder="Buscar materia o palabra clave (ej: Anatomía, fármaco, examen)..."
-              autocomplete="off"
-            >
+          <div style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+            <div class="modal-search-wrapper" style="flex: 1; min-width: 240px; margin-bottom: 0;">
+              <span class="modal-search-icon">🔍</span>
+              <input 
+                type="text" 
+                id="searchSubjectsInput" 
+                class="form-control modal-search-input" 
+                placeholder="Buscar materia o palabra clave (ej: Anatomía, fármaco, examen)..."
+                autocomplete="off"
+              >
+            </div>
+            <div style="min-width: 175px;">
+              <select id="filterSubjectSemester" class="form-control" style="cursor: pointer; background: rgba(18, 24, 38, 0.95); color: #fff; height: 100%;">
+                <option value="todos">🌟 Todos los Semestres</option>
+                <option value="1">1º Semestre</option>
+                <option value="2">2º Semestre</option>
+                <option value="3">3º Semestre</option>
+                <option value="4">4º Semestre</option>
+                <option value="5">5º Semestre</option>
+                <option value="6">6º Semestre</option>
+                <option value="7">7º Semestre</option>
+                <option value="8">8º Semestre</option>
+                <option value="9">9º Semestre</option>
+                <option value="10">10º Semestre</option>
+                <option value="11">11º Semestre</option>
+                <option value="12">12º Semestre</option>
+                <option value="ninguno">Sin asignar</option>
+              </select>
+            </div>
           </div>
 
           <div class="subjects-list" id="subjectsList">
@@ -314,6 +334,26 @@
           <label for="inputMateriaName">Nombre de la Asignatura</label>
           <div class="input-desc">Nombre oficial que tendrá la carpeta en Google Drive y la categoría en la web.</div>
           <input type="text" id="inputMateriaName" class="form-control" placeholder="Ej: Farmacología, Pediatría..." autocomplete="off">
+        </div>
+
+        <div class="form-group">
+          <label for="selectMateriaSemestre">📅 Semestre Académico</label>
+          <div class="input-desc">Semestre de la carrera al que corresponde este ramo (permite filtrar y organizar la biblioteca digital).</div>
+          <select id="selectMateriaSemestre" class="form-control" style="background: rgba(18, 24, 38, 0.95); color: #fff; cursor: pointer;">
+            <option value="1">1º Semestre</option>
+            <option value="2">2º Semestre</option>
+            <option value="3">3º Semestre</option>
+            <option value="4">4º Semestre</option>
+            <option value="5">5º Semestre</option>
+            <option value="6">6º Semestre</option>
+            <option value="7">7º Semestre</option>
+            <option value="8">8º Semestre</option>
+            <option value="9">9º Semestre</option>
+            <option value="10">10º Semestre</option>
+            <option value="11">11º Semestre</option>
+            <option value="12">12º Semestre</option>
+            <option value="ninguno">Sin asignar / General</option>
+          </select>
         </div>
 
         <div class="form-group">

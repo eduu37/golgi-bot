@@ -653,6 +653,25 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.subject-semestre-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.14);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.subject-semestre-badge.unassigned {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-dim);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
 .subject-keywords {
   display: flex;
   flex-wrap: wrap;

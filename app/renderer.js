@@ -39,6 +39,7 @@ const saveFeedback = document.getElementById('saveFeedback');
 // Subjects
 const subjectsList = document.getElementById('subjectsList');
 const searchSubjectsInput = document.getElementById('searchSubjectsInput');
+const filterSubjectSemester = document.getElementById('filterSubjectSemester');
 const btnAddSubject = document.getElementById('btnAddSubject');
 const btnSaveSubjects = document.getElementById('btnSaveSubjects');
 const saveSubjectsFeedback = document.getElementById('saveSubjectsFeedback');
@@ -52,6 +53,7 @@ const btnCancelModalMateria = document.getElementById('btnCancelModalMateria');
 const btnConfirmSaveMateria = document.getElementById('btnConfirmSaveMateria');
 const inputOriginalMateriaName = document.getElementById('inputOriginalMateriaName');
 const inputMateriaName = document.getElementById('inputMateriaName');
+const selectMateriaSemestre = document.getElementById('selectMateriaSemestre');
 const inputMateriaKeywords = document.getElementById('inputMateriaKeywords');
 const keywordsCount = document.getElementById('keywordsCount');
 const keywordsPreviewContainer = document.getElementById('keywordsPreviewContainer');
@@ -77,7 +79,7 @@ const groupsList = document.getElementById('groupsList');
 const noGroupsFound = document.getElementById('noGroupsFound');
 
 let currentStatus = 'detenido';
-let categoriasData = { materias: {}, tipos: {} };
+let categoriasData = { materias: {}, tipos: {}, semestres: {} };
 let listaGruposDetectados = [];
 let modalGruposAbierto = false;
 
@@ -387,7 +389,62 @@ groupsList.addEventListener('click', (e) => {
 // ============================================================
 async function cargarCategorias() {
   categoriasData = await window.golgiAPI.getCategorias();
+  if (!categoriasData.semestres) {
+    categoriasData.semestres = { "1": [], "2": [], "3": [], "4": [], "5": [], "6": [] };
+  }
   renderizarMaterias();
+}
+
+function obtenerSemestreDeMateriaData(materiaNombre) {
+  if (!categoriasData.semestres) return null;
+  const matNorm = (materiaNombre || '').toLowerCase().trim();
+  for (const [sem, mats] of Object.entries(categoriasData.semestres)) {
+    if (Array.isArray(mats)) {
+      if (mats.some((m) => m.toLowerCase().trim() === matNorm)) {
+        return String(sem);
+      }
+    }
+  }
+  return null;
+}
+
+function asignarSemestreAMateriaData(materiaNombre, nuevoSemestre, nombreOriginal = null) {
+  if (!categoriasData.semestres) {
+    categoriasData.semestres = { "1": [], "2": [], "3": [], "4": [], "5": [], "6": [] };
+  }
+  const nombresABorrar = [materiaNombre, nombreOriginal]
+    .filter(Boolean)
+    .map((n) => n.toLowerCase().trim());
+
+  // Quitar de cualquier semestre previo
+  for (const sem of Object.keys(categoriasData.semestres)) {
+    if (Array.isArray(categoriasData.semestres[sem])) {
+      categoriasData.semestres[sem] = categoriasData.semestres[sem].filter(
+        (m) => !nombresABorrar.includes(m.toLowerCase().trim()),
+      );
+    }
+  }
+
+  // Si se especificó un nuevo semestre válido, agregarlo
+  if (nuevoSemestre && nuevoSemestre !== 'ninguno') {
+    const semKey = String(nuevoSemestre);
+    if (!Array.isArray(categoriasData.semestres[semKey])) {
+      categoriasData.semestres[semKey] = [];
+    }
+    categoriasData.semestres[semKey].push(materiaNombre);
+  }
+}
+
+function removerMateriaDeSemestresData(materiaNombre) {
+  if (!categoriasData.semestres) return;
+  const matNorm = (materiaNombre || '').toLowerCase().trim();
+  for (const sem of Object.keys(categoriasData.semestres)) {
+    if (Array.isArray(categoriasData.semestres[sem])) {
+      categoriasData.semestres[sem] = categoriasData.semestres[sem].filter(
+        (m) => m.toLowerCase().trim() !== matNorm,
+      );
+    }
+  }
 }
 
 function parseKeywordsFromText(texto) {
@@ -427,14 +484,24 @@ function abrirModalMateria(materiaNombre = null) {
     const palabras = categoriasData.materias[materiaNombre] || [];
     inputMateriaKeywords.value = palabras.join(', ');
     modalMateriaTitle.textContent = `Modificar Asignatura`;
-    modalMateriaSubtitle.textContent = `Edita el nombre o añade, quita y modifica las palabras clave de "${materiaNombre}".`;
+    modalMateriaSubtitle.textContent = `Edita el nombre, semestre o añade, quita y modifica las palabras clave de "${materiaNombre}".`;
+
+    const semActual = obtenerSemestreDeMateriaData(materiaNombre);
+    if (selectMateriaSemestre) {
+      selectMateriaSemestre.value = semActual || 'ninguno';
+    }
   } else {
     // Modo Nueva Materia
     inputOriginalMateriaName.value = '';
     inputMateriaName.value = '';
     inputMateriaKeywords.value = '';
     modalMateriaTitle.textContent = 'Nueva Asignatura';
-    modalMateriaSubtitle.textContent = 'Configura el nombre y las palabras clave asociadas para clasificar apuntes.';
+    modalMateriaSubtitle.textContent = 'Configura el nombre, el semestre y las palabras clave asociadas para clasificar apuntes.';
+
+    if (selectMateriaSemestre) {
+      const semFiltro = filterSubjectSemester ? filterSubjectSemester.value : '';
+      selectMateriaSemestre.value = (semFiltro && semFiltro !== 'todos' && semFiltro !== 'ninguno') ? semFiltro : '1';
+    }
   }
 
   actualizarPreviewKeywords();
@@ -478,10 +545,17 @@ btnConfirmSaveMateria.addEventListener('click', async () => {
 
   categoriasData.materias[nuevoNombre] = palabras;
 
+  // Actualizar asignación de semestre
+  const semestreSeleccionado = selectMateriaSemestre ? selectMateriaSemestre.value : '1';
+  asignarSemestreAMateriaData(nuevoNombre, semestreSeleccionado, nombreOriginal);
+
   // Guardar de inmediato en categorias.json
   const res = await window.golgiAPI.saveCategorias(categoriasData);
   if (res.ok) {
-    saveSubjectsFeedback.textContent = `✅ Materia "${nuevoNombre}" guardada (${palabras.length} palabras)`;
+    const semTexto = (semestreSeleccionado && semestreSeleccionado !== 'ninguno')
+      ? `${semestreSeleccionado}º Semestre`
+      : 'Sin semestre';
+    saveSubjectsFeedback.textContent = `✅ Materia "${nuevoNombre}" guardada en ${semTexto} (${palabras.length} palabras)`;
     setTimeout(() => { saveSubjectsFeedback.textContent = ''; }, 3500);
   }
 
@@ -493,21 +567,39 @@ function renderizarMaterias(filtro = '') {
   subjectsList.innerHTML = '';
   const materias = categoriasData.materias || {};
   const query = (filtro || '').toLowerCase().trim();
+  const semestreFiltro = filterSubjectSemester ? filterSubjectSemester.value : 'todos';
 
   const entradas = Object.entries(materias)
     .filter(([nombre, palabras]) => {
+      // Filtro por semestre
+      if (semestreFiltro !== 'todos') {
+        const semMateria = obtenerSemestreDeMateriaData(nombre);
+        if (semestreFiltro === 'ninguno') {
+          if (semMateria) return false;
+        } else if (String(semMateria) !== String(semestreFiltro)) {
+          return false;
+        }
+      }
+
+      // Filtro de texto / keywords
       if (!query) return true;
       const nombreMatch = nombre.toLowerCase().includes(query);
       const palabraMatch = (palabras || []).some((p) => p.toLowerCase().includes(query));
       return nombreMatch || palabraMatch;
     })
-    .sort(([a], [b]) => a.localeCompare(b, 'es'));
+    .sort(([a], [b]) => {
+      // Ordenar primero por semestre (si tienen) y luego alfabéticamente
+      const semA = Number(obtenerSemestreDeMateriaData(a)) || 999;
+      const semB = Number(obtenerSemestreDeMateriaData(b)) || 999;
+      if (semA !== semB) return semA - semB;
+      return a.localeCompare(b, 'es');
+    });
 
   if (entradas.length === 0) {
     subjectsList.innerHTML = `
       <div style="text-align: center; padding: 2.5rem 1rem; color: var(--text-dim);">
         <p style="font-size: 1.1rem; margin-bottom: 0.5rem; color: #fff;">🔍 No se encontraron asignaturas</p>
-        <p style="font-size: 0.85rem;">Prueba con otro término de búsqueda o crea una nueva materia con el botón "+ Nueva Materia".</p>
+        <p style="font-size: 0.85rem;">Prueba con otro término de búsqueda o cambia el filtro de semestre.</p>
       </div>
     `;
     return;
@@ -528,10 +620,16 @@ function renderizarMaterias(filtro = '') {
       ? `<span class="keyword-tag-more">+${palabrasArr.length - maxTags} más</span>` 
       : '';
 
+    const semMateria = obtenerSemestreDeMateriaData(materia);
+    const badgeSemHtml = semMateria
+      ? `<span class="subject-semestre-badge">📅 ${semMateria}º Semestre</span>`
+      : `<span class="subject-semestre-badge unassigned">Sin semestre</span>`;
+
     item.innerHTML = `
       <div class="subject-main-info">
         <div class="subject-title-row">
           <span class="subject-name">${escapeHtml(materia)}</span>
+          ${badgeSemHtml}
           <span class="subject-count-badge">${palabrasArr.length} palabras clave</span>
         </div>
         <div class="subject-keywords">
@@ -540,7 +638,7 @@ function renderizarMaterias(filtro = '') {
         </div>
       </div>
       <div class="subject-actions">
-        <button type="button" class="btn-edit-subject" data-materia="${escapeHtml(materia)}" title="Modificar nombre o palabras clave">
+        <button type="button" class="btn-edit-subject" data-materia="${escapeHtml(materia)}" title="Modificar nombre, semestre o palabras clave">
           ✏️ Modificar
         </button>
         <button type="button" class="btn-delete-subject" data-materia="${escapeHtml(materia)}" title="Eliminar materia">
@@ -603,6 +701,7 @@ btnConfirmDeleteSubject.addEventListener('click', async () => {
   if (materiaAEliminar && categoriasData.materias && categoriasData.materias[materiaAEliminar]) {
     const matBorrada = materiaAEliminar;
     delete categoriasData.materias[materiaAEliminar];
+    removerMateriaDeSemestresData(matBorrada);
     const res = await window.golgiAPI.saveCategorias(categoriasData);
     if (res.ok) {
       saveSubjectsFeedback.textContent = `🗑️ Asignatura "${matBorrada}" eliminada`;
@@ -614,10 +713,16 @@ btnConfirmDeleteSubject.addEventListener('click', async () => {
   materiaAEliminar = null;
 });
 
-// Buscador de materias en vivo
+// Buscador de materias en vivo y filtro por semestre
 if (searchSubjectsInput) {
   searchSubjectsInput.addEventListener('input', (e) => {
     renderizarMaterias(e.target.value);
+  });
+}
+
+if (filterSubjectSemester) {
+  filterSubjectSemester.addEventListener('change', () => {
+    renderizarMaterias(searchSubjectsInput ? searchSubjectsInput.value : '');
   });
 }
 
