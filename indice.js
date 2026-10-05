@@ -460,8 +460,14 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
   // Opciones de píldoras de materias asociadas a su semestre
   const pillsMaterias = listaMaterias
     .map((m) => {
-      const sem = mapaMateriasSemestre[m] || "";
-      return `<button class="filter-pill filter-pill-materia" data-materia="${m}" data-semestre="${sem}">${m} <span class="pill-count">${materiasMap[m].total}</span></button>`;
+      let sem = mapaMateriasSemestre[m] || "";
+      const esSinClasificar = m.toLowerCase().includes("sin clasificar");
+      if (esSinClasificar) {
+        sem = semDefault || "1";
+      }
+      const claseExtra = esSinClasificar ? " filter-pill-unclassified" : "";
+      const texto = esSinClasificar ? `⚠️ ${m}` : m;
+      return `<button class="filter-pill filter-pill-materia${claseExtra}" data-materia="${m}" data-semestre="${sem}">${texto} <span class="pill-count">${materiasMap[m].total}</span></button>`;
     })
     .join("\n");
 
@@ -883,6 +889,25 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     .filter-pill.active .pill-count {
       background: rgba(0, 0, 0, 0.35);
       color: #fff;
+    }
+
+    .filter-pill-unclassified {
+      border-color: rgba(245, 158, 11, 0.4) !important;
+      color: #fbbf24 !important;
+      background: rgba(245, 158, 11, 0.1) !important;
+    }
+
+    .filter-pill-unclassified:hover {
+      background: rgba(245, 158, 11, 0.22) !important;
+      border-color: #f59e0b !important;
+      color: #fff !important;
+    }
+
+    .filter-pill-unclassified.active {
+      background: #f59e0b !important;
+      border-color: #f59e0b !important;
+      color: #041019 !important;
+      font-weight: 700 !important;
     }
 
     /* RESULTS SUMMARY */
@@ -1692,16 +1717,26 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
           }
         } else {
           const semMateria = pill.getAttribute('data-semestre') || MAPA_MATERIA_SEMESTRE[mat] || '';
-          const visible = (semestreActivo === 'todos') || (semMateria === semestreActivo);
-          pill.style.display = visible ? 'inline-flex' : 'none';
+          const esSinClasificar = (mat || '').toLowerCase().includes('sin clasificar');
 
           if (mat === materiaActiva) pill.classList.add('active');
           else pill.classList.remove('active');
 
           const countSpan = pill.querySelector('.pill-count');
+          let count = 0;
           if (countSpan) {
-            const count = CATALOGO.filter(it => it.materia === mat).length;
+            count = (semestreActivo === 'todos')
+              ? CATALOGO.filter(it => it.materia === mat).length
+              : CATALOGO.filter(it => it.materia === mat && String(it.semestre) === String(semestreActivo)).length;
             countSpan.textContent = count;
+          }
+
+          if (esSinClasificar) {
+            const visible = (semestreActivo === 'todos') || (count > 0);
+            pill.style.display = visible ? 'inline-flex' : 'none';
+          } else {
+            const visible = (semestreActivo === 'todos') || (semMateria === semestreActivo);
+            pill.style.display = visible ? 'inline-flex' : 'none';
           }
         }
       });
