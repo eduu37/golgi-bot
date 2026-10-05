@@ -22,6 +22,22 @@ export function cargarReglas() {
   }
 }
 
+export function obtenerSemestreDeMateria(materia) {
+  if (!materia || materia === "Sin clasificar") return null;
+  const reglas = cargarReglas();
+  if (reglas.semestres) {
+    for (const [sem, materias] of Object.entries(reglas.semestres)) {
+      if (Array.isArray(materias)) {
+        const encontrada = materias.some(
+          (m) => normalizar(m) === normalizar(materia),
+        );
+        if (encontrada) return String(sem);
+      }
+    }
+  }
+  return null;
+}
+
 export function normalizar(texto) {
   if (!texto) return "";
   return String(texto)

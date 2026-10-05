@@ -1,5 +1,21 @@
 {
   "materiaPorDefecto": "Sin clasificar",
+  "semestres": {
+    "1": [
+      "Anatomía",
+      "Biología célular y molecular",
+      "Bioestadística",
+      "Física"
+    ],
+    "2": [
+      "Histología y Embriología",
+      "Salúd pública"
+    ],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": []
+  },
   "materias": {
     "Anatomía": [
       "anato",

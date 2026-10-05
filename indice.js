@@ -10,6 +10,7 @@ import {
   GITHUB_PAGES_URL,
   GITHUB_PAGES_GENERACION_URL,
   APPS_SCRIPT_URL,
+  SEMESTRE_DEFAULT,
 } from "./config.js";
 import {
   iniciarDrive,
@@ -17,7 +18,7 @@ import {
   sincronizarArchivoEnDrive,
   sincronizarCSVDrive,
 } from "./drive.js";
-import { clasificarArchivo } from "./clasificador.js";
+import { clasificarArchivo, obtenerSemestreDeMateria } from "./clasificador.js";
 import { limpiarNombre } from "./renombrador.js";
 
 // ============================================================
@@ -62,6 +63,24 @@ function obtenerExtensionYTipo(nombre) {
     mp3: { badge: "AUDIO", icon: "🎵", color: "#a855f7" },
   };
   return mapaIconos[ext] || { badge: ext.toUpperCase() || "FILE", icon: "📁", color: "#64748b" };
+}
+
+export function determinarSemestreItem(materia, ancestorFolders = []) {
+  // 1. Revisar si alguna carpeta en la ruta de Drive menciona un semestre explícito (ej: "1º Semestre", "Semestre 2", "5to Semestre")
+  for (const folder of ancestorFolders) {
+    if (!folder || !folder.name) continue;
+    const match = folder.name.match(/(\d+)\s*(?:º|°|er|do|to|to|mo|vo|no)?\s*semestre|semestre\s*(\d+)/i);
+    if (match) {
+      return String(match[1] || match[2]);
+    }
+  }
+
+  // 2. Mapeo inteligente según la asignatura en categorias.json
+  const semMateria = obtenerSemestreDeMateria(materia);
+  if (semMateria) return String(semMateria);
+
+  // 3. Fallback al semestre por defecto configurado
+  return SEMESTRE_DEFAULT || "1";
 }
 
 // ============================================================
@@ -183,6 +202,7 @@ export async function recopilarEnlacesWeb() {
       nombreLimpio: nombre,
       materia,
       tipo,
+      semestre: determinarSemestreItem(materia, []),
       extension: "link",
       badge,
       icon,
@@ -288,12 +308,29 @@ export async function recopilarCatalogoDrive() {
     const infoExt = obtenerExtensionYTipo(item.name);
     const esDuplicado = idsDuplicados.has(item.id) || materia === "_Duplicados";
 
+    const ancestors = [];
+    if (parentFolder) ancestors.push(parentFolder);
+    if (grandParentFolder) ancestors.push(grandParentFolder);
+    let curr = grandParentFolder;
+    while (curr && curr.parents && curr.parents[0]) {
+      const nextParent = mapaPorId.get(curr.parents[0]);
+      if (nextParent && nextParent.id !== DRIVE_FOLDER_ID) {
+        ancestors.push(nextParent);
+        curr = nextParent;
+      } else {
+        break;
+      }
+    }
+
+    const semestre = determinarSemestreItem(materia, ancestors);
+
     catalogoArchivos.push({
       id: item.id,
       nombreOriginal: item.name,
       nombreLimpio: limpiarNombre(item.name),
       materia,
       tipo,
+      semestre,
       extension: path.extname(item.name).toLowerCase().replace(".", ""),
       badge: infoExt.badge,
       icon: infoExt.icon,
@@ -375,12 +412,57 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     timeStyle: "short",
   });
 
-  // Opciones de píldoras de materias
-  const pillsMaterias = listaMaterias
+  // Mapeo materias <-> semestres desde categorias.json
+  let mapaMateriasSemestre = {};
+  let semestresConfig = {};
+  try {
+    const cats = JSON.parse(fs.readFileSync(path.join(process.cwd(), "categorias.json"), "utf8"));
+    if (cats.semestres) {
+      semestresConfig = cats.semestres;
+      for (const [sem, mats] of Object.entries(cats.semestres)) {
+        if (Array.isArray(mats)) {
+          for (const m of mats) {
+            mapaMateriasSemestre[m] = String(sem);
+          }
+        }
+      }
+    }
+  } catch {}
+
+  // Conteo de recursos por semestre
+  const conteoPorSemestre = {};
+  for (const it of items) {
+    const s = String(it.semestre || "1");
+    conteoPorSemestre[s] = (conteoPorSemestre[s] || 0) + 1;
+  }
+
+  // Lista de semestres a mostrar en la barra
+  const setSemestres = new Set([
+    ...Object.keys(conteoPorSemestre),
+    ...Object.entries(semestresConfig)
+      .filter(([_, mats]) => Array.isArray(mats) && mats.length > 0)
+      .map(([s]) => s),
+  ]);
+  const listaSemestres = Array.from(setSemestres).sort((a, b) => Number(a) - Number(b));
+  const semDefault = SEMESTRE_DEFAULT || "1";
+
+  // Botones de pestañas de semestres
+  const tabsSemestresHtml = listaSemestres
     .map(
-      (m) =>
-        `<button class="filter-pill filter-pill-materia" data-materia="${m}">${m} <span class="pill-count">${materiasMap[m].total}</span></button>`,
+      (sem) =>
+        `<button class="semester-tab ${semDefault === String(sem) ? "active" : ""}" data-semestre="${sem}">
+          <span>${sem}º Semestre</span>
+          <span class="sem-count-badge" id="sem-count-${sem}">${conteoPorSemestre[sem] || 0}</span>
+        </button>`,
     )
+    .join("\n");
+
+  // Opciones de píldoras de materias asociadas a su semestre
+  const pillsMaterias = listaMaterias
+    .map((m) => {
+      const sem = mapaMateriasSemestre[m] || "";
+      return `<button class="filter-pill filter-pill-materia" data-materia="${m}" data-semestre="${sem}">${m} <span class="pill-count">${materiasMap[m].total}</span></button>`;
+    })
     .join("\n");
 
   // Opciones de píldoras de tipo
@@ -593,6 +675,72 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
       padding: 1.25rem;
       margin-bottom: 2rem;
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+    }
+
+    /* SEMESTER SELECTOR BAR */
+    .semester-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-bottom: 0.95rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .semester-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 0.35rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .semester-tab {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 0.48rem 0.95rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .semester-tab:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .semester-tab.active {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(56, 189, 248, 0.2));
+      border-color: var(--accent-emerald);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+    }
+
+    .sem-count-badge {
+      font-size: 0.73rem;
+      padding: 0.12rem 0.42rem;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted);
+    }
+
+    .semester-tab.active .sem-count-badge {
+      background: rgba(16, 185, 129, 0.35);
+      color: #fff;
     }
 
     /* ORIGIN TABS (TODOS / DRIVE / ENLACES) */
@@ -831,6 +979,12 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
       padding: 0.18rem 0.5rem;
       border-radius: 6px;
       text-transform: capitalize;
+    }
+
+    .tag-semestre {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.28);
     }
 
     .tag-materia {
@@ -1321,6 +1475,16 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     </header>
 
     <div class="controls-panel">
+      <!-- Selector de Semestre -->
+      <div class="semester-bar">
+        <span class="semester-label">📅 Semestre:</span>
+        <button class="semester-tab ${semDefault === "todos" ? "active" : ""}" data-semestre="todos">
+          <span>🌟 Todos</span>
+          <span class="sem-count-badge">${totalItems}</span>
+        </button>
+        ${tabsSemestresHtml}
+      </div>
+
       <!-- Selector de Origen -->
       <div class="origin-tabs">
         <button class="origin-tab active" data-origen="todos">
@@ -1402,6 +1566,18 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">📅 Semestre Académico</label>
+            <select id="selectSemestreClasificar" class="modal-select">
+              <option value="1">1º Semestre</option>
+              <option value="2">2º Semestre</option>
+              <option value="3">3º Semestre</option>
+              <option value="4">4º Semestre</option>
+              <option value="5">5º Semestre</option>
+              <option value="6">6º Semestre</option>
+            </select>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
             <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">📂 ¿Qué Tipo de Recurso es?</label>
             <select id="selectTipoClasificar" class="modal-select">
               <option value="Apuntes">Apuntes / Clases</option>
@@ -1462,15 +1638,18 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
 
   <script>
     const CATALOGO = ${itemsJsonSeguro};
+    const MAPA_MATERIA_SEMESTRE = ${JSON.stringify(mapaMateriasSemestre)};
     // Persistencia local para recordar clasificaciones inmediatamente incluso si se recarga la página
     const CLASIFICACIONES_LOCALES = JSON.parse(localStorage.getItem('golgi_clasificaciones_locales') || '{}');
     for (const [id, datos] of Object.entries(CLASIFICACIONES_LOCALES)) {
       const item = CATALOGO.find(it => String(it.id) === String(id));
-      if (item && datos.materia) {
-        item.materia = datos.materia;
+      if (item) {
+        if (datos.materia) item.materia = datos.materia;
         if (datos.tipo) item.tipo = datos.tipo;
+        if (datos.semestre) item.semestre = datos.semestre;
       }
     }
+    let semestreActivo = "${semDefault}";
     let origenActivo = 'todos';
     let materiaActiva = 'todas';
     let tipoActivo = 'todos';
@@ -1480,6 +1659,7 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     const emptyState = document.getElementById('emptyState');
     const visibleCount = document.getElementById('visibleCount');
     const searchInput = document.getElementById('searchInput');
+    const tabsSemestre = document.querySelectorAll('.semester-tab');
     const tabsOrigen = document.querySelectorAll('.origin-tab');
     const pillsMateria = document.querySelectorAll('.filter-pill-materia');
     const pillsTipo = document.querySelectorAll('.filter-pill-tipo');
@@ -1488,7 +1668,48 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
       const normalizar = (txt) => (txt || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       const query = normalizar(terminoBusqueda);
 
+      // Si la materia activa no corresponde al semestre activo, volver a 'todas'
+      if (semestreActivo !== 'todos' && materiaActiva !== 'todas') {
+        const semMateria = MAPA_MATERIA_SEMESTRE[materiaActiva];
+        if (semMateria && semMateria !== semestreActivo) {
+          materiaActiva = 'todas';
+        }
+      }
+
+      // Filtrar visibilidad y conteos de píldoras de materia según el semestre activo
+      pillsMateria.forEach(pill => {
+        const mat = pill.getAttribute('data-materia');
+        if (mat === 'todas') {
+          if (materiaActiva === 'todas') pill.classList.add('active');
+          else pill.classList.remove('active');
+
+          const countSpan = pill.querySelector('.pill-count');
+          if (countSpan) {
+            const count = semestreActivo === 'todos'
+              ? CATALOGO.length
+              : CATALOGO.filter(it => String(it.semestre) === String(semestreActivo)).length;
+            countSpan.textContent = count;
+          }
+        } else {
+          const semMateria = pill.getAttribute('data-semestre') || MAPA_MATERIA_SEMESTRE[mat] || '';
+          const visible = (semestreActivo === 'todos') || (semMateria === semestreActivo);
+          pill.style.display = visible ? 'inline-flex' : 'none';
+
+          if (mat === materiaActiva) pill.classList.add('active');
+          else pill.classList.remove('active');
+
+          const countSpan = pill.querySelector('.pill-count');
+          if (countSpan) {
+            const count = CATALOGO.filter(it => it.materia === mat).length;
+            countSpan.textContent = count;
+          }
+        }
+      });
+
       const filtrados = CATALOGO.filter(item => {
+        // Filtro por semestre
+        if (semestreActivo !== 'todos' && String(item.semestre) !== String(semestreActivo)) return false;
+
         // Filtro por pestaña de origen
         if (origenActivo === 'drive' && item.esEnlaceWeb) return false;
         if (origenActivo === 'links' && !item.esEnlaceWeb) return false;
@@ -1517,18 +1738,6 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
 
       visibleCount.textContent = filtrados.length;
 
-      // Actualizar conteos en las píldoras de materia reactivamente
-      pillsMateria.forEach(pill => {
-        const mat = pill.getAttribute('data-materia');
-        const countSpan = pill.querySelector('.pill-count');
-        if (countSpan) {
-          const c = mat === 'todas'
-            ? CATALOGO.length
-            : CATALOGO.filter(it => it.materia === mat).length;
-          countSpan.textContent = c;
-        }
-      });
-
       if (filtrados.length === 0) {
         grid.innerHTML = '';
         if (emptyState) emptyState.style.display = 'block';
@@ -1556,6 +1765,7 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
                   <div class="file-title" title="\${item.nombreOriginal}">\${item.nombreLimpio}</div>
                   \${item.autor ? \`<div class="file-author"><span>👤 \${item.autor}</span></div>\` : ''}
                   <div class="file-tags">
+                    <span class="tag tag-semestre">\${item.semestre ? item.semestre + 'º Sem' : 'General'}</span>
                     <span class="\${tagMateriaClase}">\${tagMateriaTexto}</span>
                     <span class="tag tag-tipo">\${item.tipo}</span>
                     <span class="tag \${badgeClase}">\${item.badge}</span>
@@ -1593,6 +1803,22 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     searchInput.addEventListener('input', (e) => {
       terminoBusqueda = e.target.value;
       renderizar();
+    });
+
+    // Pestañas de semestre
+    tabsSemestre.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabsSemestre.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        semestreActivo = tab.getAttribute('data-semestre');
+        if (semestreActivo !== 'todos' && materiaActiva !== 'todas') {
+          const semMateria = MAPA_MATERIA_SEMESTRE[materiaActiva];
+          if (semMateria && semMateria !== semestreActivo) {
+            materiaActiva = 'todas';
+          }
+        }
+        renderizar();
+      });
     });
 
     // Pestañas de origen (Todos / Drive / Enlaces)
@@ -1642,12 +1868,23 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     const modalClasificar = document.getElementById('modalClasificar');
     const modalClasificarNombre = document.getElementById('modalClasificarNombre');
     const selectMateriaClasificar = document.getElementById('selectMateriaClasificar');
+    const selectSemestreClasificar = document.getElementById('selectSemestreClasificar');
     const selectTipoClasificar = document.getElementById('selectTipoClasificar');
     const btnMoverEnDrive = document.getElementById('btnMoverEnDrive');
     const btnMoverDirecto = document.getElementById('btnMoverDirecto');
     const modalStatusBox = document.getElementById('modalStatusBox');
     const modalConfigBox = document.getElementById('modalConfigBox');
     const opcionesSecundarias = document.getElementById('opcionesSecundarias');
+
+    if (selectMateriaClasificar) {
+      selectMateriaClasificar.addEventListener('change', () => {
+        const mat = selectMateriaClasificar.value;
+        const semSugerido = MAPA_MATERIA_SEMESTRE[mat];
+        if (semSugerido && selectSemestreClasificar) {
+          selectSemestreClasificar.value = semSugerido;
+        }
+      });
+    }
 
     function obtenerAppsScriptUrl() {
       return APPS_SCRIPT_URL_COMPILED || localStorage.getItem('golgi_apps_script_url') || '';
@@ -1693,6 +1930,10 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
       btnMoverEnDrive.href = itemAClasificar.url;
       ocultarEstadoModal();
 
+      if (selectSemestreClasificar) {
+        selectSemestreClasificar.value = itemAClasificar.semestre || MAPA_MATERIA_SEMESTRE[selectMateriaClasificar.value] || '1';
+      }
+
       if (btnMoverDirecto) {
         btnMoverDirecto.disabled = false;
         btnMoverDirecto.innerHTML = '<span>⚡ Mover en Drive Ahora</span>';
@@ -1727,6 +1968,7 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
 
       const materia = selectMateriaClasificar ? selectMateriaClasificar.value : '';
       const tipo = selectTipoClasificar ? selectTipoClasificar.value : 'Apuntes';
+      const semestre = selectSemestreClasificar ? selectSemestreClasificar.value : (MAPA_MATERIA_SEMESTRE[materia] || '1');
 
       if (!materia) {
         mostrarEstadoModal('error', '⚠️ Debes seleccionar una asignatura destino.');
@@ -1738,12 +1980,13 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
           btnMoverDirecto.disabled = true;
           btnMoverDirecto.innerHTML = '<span>⏳ Moviendo en Drive...</span>';
         }
-        mostrarEstadoModal('loading', '⏳ Moviendo <strong>' + itemAClasificar.nombreLimpio + '</strong> a <strong>' + materia + ' / ' + tipo + '</strong> en Google Drive...');
+        mostrarEstadoModal('loading', '⏳ Moviendo <strong>' + itemAClasificar.nombreLimpio + '</strong> a <strong>' + materia + ' / ' + tipo + '</strong> (Semestre ' + semestre + ') en Google Drive...');
 
         const payload = {
           fileId: itemAClasificar.id,
           materia: materia,
           tipo: tipo,
+          semestre: semestre,
           folderId: DRIVE_FOLDER_ID_GEN,
           generacion: GENERACION_ACTIVA
         };
@@ -1763,10 +2006,11 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
           // Actualizar dinámicamente en el catálogo local
           itemAClasificar.materia = materia;
           itemAClasificar.tipo = tipo;
+          itemAClasificar.semestre = semestre;
 
           // Guardar en persistencia local para que al recargar la página permanezca clasificado
           try {
-            CLASIFICACIONES_LOCALES[itemAClasificar.id] = { materia, tipo, fecha: new Date().toISOString() };
+            CLASIFICACIONES_LOCALES[itemAClasificar.id] = { materia, tipo, semestre, fecha: new Date().toISOString() };
             localStorage.setItem('golgi_clasificaciones_locales', JSON.stringify(CLASIFICACIONES_LOCALES));
           } catch {}
 
