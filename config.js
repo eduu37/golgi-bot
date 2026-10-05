@@ -31,6 +31,9 @@ export const GITHUB_REPO = (process.env.GITHUB_REPO || 'eduu37/golgi-bot').trim(
 export const GITHUB_TOKEN = (process.env.GITHUB_TOKEN || '').trim();
 export const GITHUB_BRANCH = (process.env.GITHUB_BRANCH || 'main').trim();
 
+// ⚡ Webhook de Google Apps Script para mover archivos directo con 1 clic desde la web
+export const APPS_SCRIPT_URL = (process.env.APPS_SCRIPT_URL || '').trim();
+
 // Detección automática del enlace de la biblioteca web (GitHub Pages)
 export function obtenerUrlBibliotecaWeb(subpath = '') {
   let base = '';

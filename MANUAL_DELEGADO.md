@@ -85,4 +85,21 @@ El bot ya incluye internamente la conexión segura al servidor oficial de la Bib
 * Cualquier estudiante puede hacer doble clic en ese archivo en su computador o celular y tendrá la misma biblioteca interactiva funcionando sin depender de GitHub ni servidores.
 
 ---
+
+## ⚡ Botón "Mover en Drive Ahora" (Clasificación con 1 solo clic en la Web)
+
+Para que cualquier delegado o alumno pueda mover archivos pendientes directamente desde la página web sin abrir Drive:
+
+1. Ve a [script.google.com](https://script.google.com/) con la misma cuenta de Google dueña del Drive.
+2. Crea un **Nuevo proyecto**, borra el código que aparezca y pega el contenido del archivo [`GOOGLE_APPS_SCRIPT.js`](file:///c:/Users/eduan/Desktop/Golgi%20bot/GOOGLE_APPS_SCRIPT.js).
+3. Haz clic en **Implementar** > **Nueva implementación**:
+   * Tipo: **Aplicación web**.
+   * Ejecutar como: **Yo**.
+   * Quién tiene acceso: **Cualquier persona**.
+4. Copia la **URL de la aplicación web** (termina en `/exec`).
+5. En la biblioteca web, al hacer clic en **"🏷️ Clasificar"** en cualquier archivo sin clasificar, pega la URL en la cajita de configuración (se guarda automáticamente para siempre). También puedes guardarla en tu archivo `.env` como `APPS_SCRIPT_URL=https://.../exec`.
+
+¡A partir de ese momento, al presionar **"⚡ Mover en Drive Ahora"**, el archivo se reubicará en la carpeta adecuada de Google Drive de inmediato!
+
+---
 *Desarrollado para la carrera de Medicina por Eduardo Ortega — Golgi Bot.*
