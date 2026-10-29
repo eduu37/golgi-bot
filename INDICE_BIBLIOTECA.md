@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 9:37:04 p. m.
+> **Última actualización:** 29-10-2026, 9:40:17 p. m.
 > **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
 
 ## 📁 Anatomía
@@ -87,7 +87,7 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (20)
+### Apuntes (18)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -109,8 +109,6 @@
 | Biología Celular y Molecular - Apuntes - Transcripcion Gametogenesis Organizada.pdf | `PDF` | 5.32 MB | [Abrir en Drive](https://drive.google.com/file/d/13_Fx7fAmFfxO5p92Je1NllDGaEwpZs1h/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Gastrulacion.pdf | `PDF` | 2.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1WzY-r6WZ8h2EkI2pSrAE29kro39N7sCC/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
 ### Certámenes (4)
 
@@ -164,7 +162,7 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (5)
+### Apuntes (7)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -173,6 +171,8 @@
 | Histología y Embriología - Apuntes - Línea de Tiempo de Embriología.html | `HTML` | 508.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ZOrVWpGCDekkF1i3VjI2OpTb5MXUQNKz/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Linea Tiempo Embriologia.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Wu8Gt8ixYjpeEKmKmd3YEgeIIAfGNGad/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Transcripcion Ordenada Embriologia General Periodo Somitico.pdf | `PDF` | 24.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1OuJPQ_ya8-w8Tz6ra9Q3yWiDo-93L5aa/view?usp=drivesdk) |
+| Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
+| Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
 ### Controles (1)
 
