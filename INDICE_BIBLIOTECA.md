@@ -1,85 +1,68 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 3:24:30 p. m.
-> **Total de Recursos:** 139 (116 en Drive, 23 enlaces web) | **Espacio Drive:** 594.15 MB
+> **Última actualización:** 29-10-2026, 5:14:41 p. m.
+> **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
 
 ## 📁 Anatomía
 
-### Ankis (2)
+### Certámenes (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Imagenología de Cavidad Oral.apkg | `ANKI` | 17.55 MB | [Abrir en Drive](https://drive.google.com/file/d/1iP6mRp_eUEcB16Zj9YgTchp057Gr23Yy/view?usp=drivesdk) |
-| S6 - ATM y Cavidad Oral.apkg | `ANKI` | 6.18 MB | [Abrir en Drive](https://drive.google.com/file/d/1HRRxZIXnbEITN6NtJor_Stx8Qk7_Nmvx/view?usp=drivesdk) |
+| Anatomía - Certámenes - C2 Anato 2025.pdf | `PDF` | 1.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1XG8kSan6XpLx9XxEWLTzetj0qoeXM6xe/view?usp=drivesdk) |
 
-### Apuntes (11)
+### Resúmenes (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Articulación Temporomandibular.pdf | `PDF` | 3.69 MB | [Abrir en Drive](https://drive.google.com/file/d/1YrC74CuwbzkzRGLlRCQeCqorBOg4HGyG/view?usp=drivesdk) |
-| ATM Transcripcion.pdf | `PDF` | 936.9 KB | [Abrir en Drive](https://drive.google.com/file/d/1dTyy968eY_uAjr-Qnm1i34ECLnuViMNf/view?usp=drivesdk) |
-| C1 2025.pdf | `PDF` | 476.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ON22-FY7uyCEfgnLCtnPL0U4CT19U2Ht/view?usp=drivesdk) |
-| Cavidad Oral.pdf | `PDF` | 5.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1-TKIDaC4FT9TzsNN6zTrm-9llQjuZss4/view?usp=drivesdk) |
-| Glandulas Salivales Mayores Transcripcion.pdf | `PDF` | 1.81 MB | [Abrir en Drive](https://drive.google.com/file/d/19FQbUhSVxEgEIH3iccE9k81mPU6077D7/view?usp=drivesdk) |
-| Imagenología de Cavidad Oral.pdf | `PDF` | 556.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1s7K5d8MrVZ_eZ1Jay5GuhQB5dSvo8dQa/view?usp=drivesdk) |
-| Lengua y Dientes.pdf | `PDF` | 5.58 MB | [Abrir en Drive](https://drive.google.com/file/d/1Yu0xuntlmJQYt2-W6O2tVbaGIKnPdkE7/view?usp=drivesdk) |
-| Musculos del Cuello Transcripcion.pdf | `PDF` | 1.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1Vx3mBJy1wfdntfcm3LfxrN_dsst9wcjT/view?usp=drivesdk) |
-| Musculos Masticatorios Transcripcion.pdf | `PDF` | 1.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1mgPfUMNIL04eqnvYilqcPEa3EJBk-Tii/view?usp=drivesdk) |
-| Musculos Masticatorios.pdf | `PDF` | 4.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1oJo0us_QOWWfont2-TqjrtOH2UlTT6DE/view?usp=drivesdk) |
-| Unidad 2 Anato 4 y 5.xlsx | `XLSX` | 89.2 KB | [Abrir en Drive](https://docs.google.com/spreadsheets/d/1-0iRqnmIZ90xHw5kDkOkx4TBzFVz4fuE/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
+| Anatomía - Resúmenes - Resumen C2 Anatomia 2 Completo.pdf | `PDF` | 70.24 MB | [Abrir en Drive](https://drive.google.com/file/d/1IhLsFGqQigY4FXj1Q9Fd99sYTUFi9Uf9/view?usp=drivesdk) |
+| Anatomía - Resúmenes - Resumen C2 Anatomia 2 Liviano.pdf | `PDF` | 23.42 MB | [Abrir en Drive](https://drive.google.com/file/d/1nIyA4ZcKAA0ehKNAW1Za-OQoX8Esldog/view?usp=drivesdk) |
+
+## 📁 Anatomía I
+
+### Apuntes (16)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Anatomía I - Apuntes - Anato II Ua 2 Listo.xlsx | `XLSX` | 6.59 MB | [Abrir en Drive](https://docs.google.com/spreadsheets/d/1LsUpoR9DPAWj5iaEU60X0sPNzNzSeOHl/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
+| Anatomía I - Apuntes - Apuntes Anatomia II.zip | `ZIP` | 54.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1cOZJ10GgvzKDTVfUdK1uux0iP5SpxXZr/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Cavidad Nasal.pdf | `PDF` | 10.11 MB | [Abrir en Drive](https://drive.google.com/file/d/1xtgYJ0wWHhJQOv7M3pvUAGiWa0ESqPhE/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Contenido de la Orbita Apuntes.pdf | `PDF` | 3.84 MB | [Abrir en Drive](https://drive.google.com/file/d/1J8MgC4DI1bGa6rFqQoDEyXccfZvBzR9P/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Fascia Cervical 2026.pdf | `PDF` | 6.18 MB | [Abrir en Drive](https://drive.google.com/file/d/1ReWzSnB_aBV3SWIAmrsxpylLn76qEQ_c/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Musculos del Cuello 2026.pdf | `PDF` | 8.29 MB | [Abrir en Drive](https://drive.google.com/file/d/1MJ_k6qSjcPbbz8kPBVc_jtMUqBcBxrbB/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Musculos Extraoculares Apuntes.pdf | `PDF` | 3.12 MB | [Abrir en Drive](https://drive.google.com/file/d/1ee_BtOomXFNe7sWXSy1deuY9ISTK8qVP/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Preparados Willy - Todo Anato II 🤫.pdf | `PDF` | 177.82 MB | [Abrir en Drive](https://drive.google.com/file/d/1Io5mJlux2EQG3D6VASdXol1x_vXO5uDr/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Region Anterior del Cuello 2026.pdf | `PDF` | 5.55 MB | [Abrir en Drive](https://drive.google.com/file/d/1Z4jArgTSZTYtn7QdcX0gZ1NI_IDVrrlq/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Region Lateral del Cuello 2026.pdf | `PDF` | 3.64 MB | [Abrir en Drive](https://drive.google.com/file/d/1o0R9_XC5vZsPM_MbxggyZsVEdEKWnrWG/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Region Posterior del Cuello 2026.pdf | `PDF` | 4.05 MB | [Abrir en Drive](https://drive.google.com/file/d/1dPKcLVMOSl3WhIdVlf1IUsjjcz89ZqCf/view?usp=drivesdk) |
+| Anatomía I - Apuntes - S8 - Espacio Visceral del Cuello 2026.pdf | `PDF` | 18.44 MB | [Abrir en Drive](https://drive.google.com/file/d/17eNoy7i5J8wKpnJo3xo3Pi-QBemdgv5X/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Transcripcion Embriologia Sistema Cardiovascular.pdf | `PDF` | 4.18 MB | [Abrir en Drive](https://drive.google.com/file/d/1f6tENEwoqyV_l7cMYeUv0UPHxFuY3cyn/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Transcripcion Musculos de la Mimica (1).pdf | `PDF` | 4.97 MB | [Abrir en Drive](https://drive.google.com/file/d/1etsKyWyP_Pac2xWvqJbhIIdEZFRlmyFS/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Transcripción Músculos Extraoculares.pdf | `PDF` | 7.27 MB | [Abrir en Drive](https://drive.google.com/file/d/1guBQ7odf4B1IV6U9IRWbUsbauJKSx3tc/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Vascularización e Inervación de la Cavidad Nasal.docx (1).pdf | `PDF` | 4.98 MB | [Abrir en Drive](https://drive.google.com/file/d/1FP62HQGRcJJvJWdeQO8dWVNbOTBt2Slr/view?usp=drivesdk) |
+
+### Certámenes (2)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Anatomía I - Certámenes - () Medicina Uch 2° Semestre 🦴 Anatomía II Certamen 3 S9 - Topografía y Elementos Vasculonerviosos del Cuello.apkg | `ANKI` | 71.06 MB | [Abrir en Drive](https://drive.google.com/file/d/1FQXjSpykEZdbKV78WsNHXO_MlBc7aGSA/view?usp=drivesdk) |
+| Anatomía I - Certámenes - Pauta Certamen 2 Anatomia II 2020.pdf | `PDF` | 187.2 KB | [Abrir en Drive](https://drive.google.com/file/d/11XsRJP1wq1SDHr18REZejvC9Cklz-KUN/view?usp=drivesdk) |
+
+### Seminarios (2)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Anatomía I - Seminarios - Rotulado TP 9.pdf | `PDF` | 2.40 MB | [Abrir en Drive](https://drive.google.com/file/d/1CGmpRuhBU5Bzz7neLkjEBxeB2XPE_3mV/view?usp=drivesdk) |
+| Anatomía I - Seminarios - Seminario 5 - Elementos Vasculonerviosos del Cuello (Resolución).pdf | `PDF` | 3.08 MB | [Abrir en Drive](https://drive.google.com/file/d/1ci5kxlxsm7feXuOpYppNgOmVfW34HpPN/view?usp=drivesdk) |
+
+## 📁 Bioestadística
 
 ### Controles (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Controles Años Pasados Cavidad Oral.pdf | `PDF` | 9.85 MB | [Abrir en Drive](https://drive.google.com/file/d/1lWWZzf31onvLR1KuFmiFmXNUIg4xwmQ0/view?usp=drivesdk) |
-| Pautas Controles Años Anteriores Cavidad Nasal.pdf | `PDF` | 9.42 MB | [Abrir en Drive](https://drive.google.com/file/d/1fNp6HxW8bD3r1Eu1LpTeNs65GAae4l44/view?usp=drivesdk) |
-
-### Libros (2)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Guia Estudio Sistema Cardiovascular con Respuestas.docx | `DOCX` | 11.1 KB | [Abrir en Drive](https://docs.google.com/document/d/1XI1ZRO3Vmstj9vCXDUlUvcIbDR4iGxDu/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-| Guia Estudio Sistema Cardiovascular.docx | `DOCX` | 9.3 KB | [Abrir en Drive](https://docs.google.com/document/d/1rHSXgs5mgyCHWhzPh-tAnxgz18pLNGVJ/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-
-### Seminarios (14)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| 01 - Músculos del Cuello.apkg | `ANKI` | 17.81 MB | [Abrir en Drive](https://drive.google.com/file/d/1cPQhqv9_FDT1-tVRp4H-k_FAPRp1f23k/view?usp=drivesdk) |
-| 02 - Fascia Cervical y Compartimentalización del Cuello.apkg | `ANKI` | 18.59 MB | [Abrir en Drive](https://drive.google.com/file/d/1bYVBYps6hiXGKezfXVOWh6STRHQM_YJ8/view?usp=drivesdk) |
-| 03 - Región Anterior del Cuello.apkg | `ANKI` | 37.54 MB | [Abrir en Drive](https://drive.google.com/file/d/1iEeZUtzUjObPY_4rDnUsbM4wFixI2Ny8/view?usp=drivesdk) |
-| 04 - Región Esternocleidomastoidea.apkg | `ANKI` | 20.43 MB | [Abrir en Drive](https://drive.google.com/file/d/1pbIYevwM2Qj9aLfH061rDryDKxegOVfL/view?usp=drivesdk) |
-| 05 - Región Lateral del Cuello.apkg | `ANKI` | 39.19 MB | [Abrir en Drive](https://drive.google.com/file/d/1FiCEgomrgREL2J-xTWAjZK6uCxHRGHLj/view?usp=drivesdk) |
-| 06 - Región Posterior del Cuello.apkg | `ANKI` | 25.19 MB | [Abrir en Drive](https://drive.google.com/file/d/15bUW3MCA60qZKT3rsXcnTbWpxHHGjP5v/view?usp=drivesdk) |
-| 23- Cavidad Oral.pdf | `PDF` | 16.19 MB | [Abrir en Drive](https://drive.google.com/file/d/1ypm_CDngQIXuhIlKoO1aWMYARsBSNOR4/view?usp=drivesdk) |
-| 24- Glándulas Salivales Mayores.pdf | `PDF` | 4.09 MB | [Abrir en Drive](https://drive.google.com/file/d/12hifSj-7ZMllm1XfkKY6_jn5wixxGVbp/view?usp=drivesdk) |
-| 25- Articulación Temporomandibular.pdf | `PDF` | 4.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1MygY6oKB07zOYl8CzphUr4zSViOH10Ms/view?usp=drivesdk) |
-| 26- Músculos Masticatorios.pdf | `PDF` | 7.64 MB | [Abrir en Drive](https://drive.google.com/file/d/15qQSbodEv1aj4Dn3EKqCu-YMGhFvwtRQ/view?usp=drivesdk) |
-| 27- Lengua y Dientes.pdf | `PDF` | 4.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1DcRAu5oJ9X_8h4ZDQq6_984zJRxFX3GF/view?usp=drivesdk) |
-| Imagenologia TP Musculos del Cuello.pdf | `PDF` | 1.44 MB | [Abrir en Drive](https://drive.google.com/file/d/19NoA2mPWC9RFyiR6-70J-8GttUnO9DZY/view?usp=drivesdk) |
-| Rotulado TP 6.pdf | `PDF` | 1.28 MB | [Abrir en Drive](https://drive.google.com/file/d/18QNg8RREM0OkEtexX4zN-IOHq9XY2eoC/view?usp=drivesdk) |
-| Seminario 3 - Cavidad Oral (Resolución).pdf | `PDF` | 3.25 MB | [Abrir en Drive](https://drive.google.com/file/d/1EAyU1Qbx7aiGc1ezEtiqHXsYB4zR_U2-/view?usp=drivesdk) |
-
-## 📁 Bioestadística
-
-### Controles (13)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Control 02 Bioestat.pdf | `PDF` | 1.57 MB | [Abrir en Drive](https://drive.google.com/file/d/19Yr7jxs2jTVB0chL_Z67gA8AVXMjxbTG/view?usp=drivesdk) |
-| Control 03 Bioestat.pdf | `PDF` | 1.80 MB | [Abrir en Drive](https://drive.google.com/file/d/1uTslykMR2J83UJBO9mkkamAz5hP5nARR/view?usp=drivesdk) |
-| Control 04 Bioestat.pdf | `PDF` | 1.70 MB | [Abrir en Drive](https://drive.google.com/file/d/1y0eqk8AJVRn9aXvI13Qdzc3huIQHYWbj/view?usp=drivesdk) |
-| Control 6 de Bioestadística.html | `HTML` | 101.9 KB | [Abrir en Drive](https://drive.google.com/file/d/1j2CeZRGaQcvtYtOXQ45jMW_BGyFqruCR/view?usp=drivesdk) |
-| Control Formativo 5 Bioestat.pdf | `PDF` | 985.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1e8oz-ZiHXgOridClBzQ58OsZxNdooIve/view?usp=drivesdk) |
-| Control Formativo 5 Pauta Bioestat.pdf | `PDF` | 1.00 MB | [Abrir en Drive](https://drive.google.com/file/d/1tSx742j58KTqVM9pxGDQDsGYYICS5sEF/view?usp=drivesdk) |
-| Control y Pauta Bioestadística 6.pdf | `PDF` | 3.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1lsmikW62cWd1jnKKq0oFTqE1lqdVeC8Z/view?usp=drivesdk) |
-| Controles Bioestadistica.pdf | `PDF` | 3.46 MB | [Abrir en Drive](https://drive.google.com/file/d/1UBB2DlK1UDVl1ZD50G7coimvPllULR2Z/view?usp=drivesdk) |
-| Controles Formativos del 02 al 05 Bioestat.pdf | `PDF` | 2.33 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUYbzYY8-A1WaVRyjp04pJx2t2Ju-3-x/view?usp=drivesdk) |
-| Pauta Control 02 Bioestat.pdf | `PDF` | 1.64 MB | [Abrir en Drive](https://drive.google.com/file/d/1VydsJhLgZApLrWvO8DMUyLToDwgG1uil/view?usp=drivesdk) |
-| Pauta Control 03 Bioestat.pdf | `PDF` | 1.75 MB | [Abrir en Drive](https://drive.google.com/file/d/1MjlIK55-4CXsPQ6Fss872076qvDwBhRJ/view?usp=drivesdk) |
-| Pauta Control 04 Bioestat.pdf | `PDF` | 1.68 MB | [Abrir en Drive](https://drive.google.com/file/d/1t5kmbw6XJc2TH0B9XDCdicr7KRkBkgYZ/view?usp=drivesdk) |
-| Pauta Controles Formativos 02 al 06 Bioestat.pdf | `PDF` | 2.42 MB | [Abrir en Drive](https://drive.google.com/file/d/1UEHeK-rO0ftoEmjXNLwnIvUzKDHfv-_y/view?usp=drivesdk) |
+| Bioestadística - Controles - Control Formativo Bioestat 08.pdf | `PDF` | 1.88 MB | [Abrir en Drive](https://drive.google.com/file/d/1iPo8MF7UgJH2kpmyqSdwPjaKviBWav8y/view?usp=drivesdk) |
+| Bioestadística - Controles - Pauta Control Formativo Bioestat 08.pdf | `PDF` | 1.86 MB | [Abrir en Drive](https://drive.google.com/file/d/1kbwWPMgU67wWRyJ5z0kLoke5oy2bE73Y/view?usp=drivesdk) |
 
 ### Recursos Web (1)
 
@@ -87,140 +70,108 @@
 | :--- | :---: | :---: | :---: |
 | Cuaderno NotebookLM — Bioestadística | `NOTEBOOKLM` | Cuaderno IA | [Visitar NOTEBOOKLM](https://notebook.google.com/notebook/ced1526f-fac4-4b3c-ad07-e6059d76fdb7?authuser=1) |
 
-### Resúmenes (2)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Resumen Bioestadistica (Temas 2, 3, 4, 5).pdf | `PDF` | 222.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1wEm-n5xOrtRY1t5WRfOeoTk3EZUzCM7l/view?usp=drivesdk) |
-| Resumen Bioestadistica (Temas 2, 3, 4, 5).pdf | `PDF` | 222.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1KW9Cmr1qxixrT41eS0TEq5UZXVOlomnL/view?usp=drivesdk) |
-
 ## 📁 Biología celular y molecular
 
-### Apuntes (1)
+### Apuntes (21)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | BIOLOGÍA CELULAR - UNIDAD 1 | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Fase S Replicación Biocel.pdf | `PDF` | 259.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1Vtx3fW1gRCHA84I8PmWmKACSUZhd9Hgh/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Lengua y Dientes Transcripción.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1u9ihm4YQGcY8qCAVisBrjEu9mTs2yGCB/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Anexos Embrionarios Organizada.pdf | `PDF` | 8.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1szdSrLkBkgd_aLaUjAahUH2nzKfS8Ac4/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripción Cavidades Paranasales (1).pdf | `PDF` | 583.4 KB | [Abrir en Drive](https://drive.google.com/file/d/16krKSwMSNbad3Q-pUxz5Yl3EbnvVky7X/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Celulas Madre y Auto Organizacion.pdf | `PDF` | 5.09 MB | [Abrir en Drive](https://drive.google.com/file/d/1ctzSeNIW6eFOquIng8hQ2VGb_veQBe58/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripción Contenido de la Órbita.pdf | `PDF` | 7.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1UOmSdiH-nVXajVeYNLz1jpgEfaqCxNJ9/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Desarrollo Sistema Respiratorio Parte 2.pdf | `PDF` | 6.53 MB | [Abrir en Drive](https://drive.google.com/file/d/1jbWAXB4GmQyX2kOIQRLpHjvhhM0XuM5-/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Diferenciacion Informacion Posicional y Morfog.pdf | `PDF` | 4.92 MB | [Abrir en Drive](https://drive.google.com/file/d/1Z9c4Asd_K6w4BjjfbXj4gPrScvnDyost/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Diferenciacion Sexual.pdf | `PDF` | 8.41 MB | [Abrir en Drive](https://drive.google.com/file/d/1_eIflpuwdoWiQo-dHI0kK9IDak1MLCCR/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Embriologia Sistema Digestivo.pdf | `PDF` | 4.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1ETdY_RyLAE3_7KkDjQr3LPBPpj_KMx5F/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Embriologia Sistema Nervioso.pdf | `PDF` | 3.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1eL4YC1EP6jYvNRuGixsYjcmdF1Z7NQ_z/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Embriologia Sistema Urinario.pdf | `PDF` | 7.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1TnvleH6xXSMbtLJGq4YP2IQBbCazDmLT/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Gametogenesis Organizada.pdf | `PDF` | 5.32 MB | [Abrir en Drive](https://drive.google.com/file/d/13_Fx7fAmFfxO5p92Je1NllDGaEwpZs1h/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Gastrulacion.pdf | `PDF` | 2.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1WzY-r6WZ8h2EkI2pSrAE29kro39N7sCC/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Regiones Faciales (1).pdf | `PDF` | 13.67 MB | [Abrir en Drive](https://drive.google.com/file/d/1fP_0ST6fviuDr8rxhlxHFZiU3oSQd_VG/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
-## 📁 Biología célular y molecular
-
-### Apuntes (14)
+### Certámenes (4)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Apoyo Clase Transcripción.pdf | `PDF` | 1.10 MB | [Abrir en Drive](https://drive.google.com/file/d/1HPMfdx6puBV3ZDaHZ9Wyb_k2QGXCOz2l/view?usp=drivesdk) |
-| Apuntes Núcleo y Expresión Génica.pdf | `PDF` | 749.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1TYNNymWcno-HJN_vg51lU5rJnbxJChVa/view?usp=drivesdk) |
-| Apuntes Traducción.pdf | `PDF` | 804.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1pwqQl1GXNgkIhyrXViwoC7Frocldh7iS/view?usp=drivesdk) |
-| Cavidad Oral Transcripcion.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/138RrUCP3Wj0q5HxDB9Ol9ox-Rz-S4Ds1/view?usp=drivesdk) |
-| Fascia Cervical Transcripcion.pdf | `PDF` | 2.28 MB | [Abrir en Drive](https://drive.google.com/file/d/136mQxJEPCzdf0i7Cuc59RrbGLbv_WEwB/view?usp=drivesdk) |
-| Lengua y Dientes Transcripcion.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1SuYA4SUFnOhuBAfvxeWtuFb4pn3yj6ui/view?usp=drivesdk) |
-| Region Anterior Cuello Transcripcion.pdf | `PDF` | 3.23 MB | [Abrir en Drive](https://drive.google.com/file/d/1X4RJdusSBmOudyqIp0dW2Y9entElNFb3/view?usp=drivesdk) |
-| Region ECM Transcripcion.pdf | `PDF` | 2.05 MB | [Abrir en Drive](https://drive.google.com/file/d/1nw8qTh6QYPfbLJeEbTmksV1q8CpGzByF/view?usp=drivesdk) |
-| Region Lateral Cuello Transcripcion.pdf | `PDF` | 1.45 MB | [Abrir en Drive](https://drive.google.com/file/d/1JtGVLgkbm1TJdWXIrnWFm8V3pp28vF9n/view?usp=drivesdk) |
-| Region Posterior Cuello Transcripcion.pdf | `PDF` | 1.55 MB | [Abrir en Drive](https://drive.google.com/file/d/17CpN39J7PWVbUUvcVcPKohth9arFhW0a/view?usp=drivesdk) |
-| Resumen Clase 8 Expresion Genica Transcripcion.docx | `DOCX` | 9.44 MB | [Abrir en Drive](https://docs.google.com/document/d/1VqaypDSo3EC2gPMfjuWHn6t_Z3QUNc8l/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-| Resumen Clase 9 Transcripcion II.docx | `DOCX` | 8.32 MB | [Abrir en Drive](https://docs.google.com/document/d/1aMJpQF9x1zbfjdNFR-GEf8Wgt1wX3sD_/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-| Transcri Raw Celulas Madre y Autorganizacion.pdf | `PDF` | 302.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1yGtU6o9WygR42OL16Si3XpchIGUmTFZV/view?usp=drivesdk) |
-| Transcri Raw Transcripción II.docx | `DOCX` | 27.5 KB | [Abrir en Drive](https://docs.google.com/document/d/14LiiskeNMP920CZAAf39Hstvixm2NCzS/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
+| Biología Celular y Molecular - Certámenes - Biocel Certamen 2 (2).html | `HTML` | 2.37 MB | [Abrir en Drive](https://drive.google.com/file/d/1jwqOvidT9AmzVehUWtxUFLeQlFIozhWN/view?usp=drivesdk) |
+| Biología Celular y Molecular - Certámenes - Certámenes 2 Práctica de Biocel.html | `HTML` | 1.84 MB | [Abrir en Drive](https://drive.google.com/file/d/19WegFI3MeJAuvTgXPwtHHJiS2PL3Nqnt/view?usp=drivesdk) |
+| Biología Celular y Molecular - Certámenes - Glosario Certamen 2 Biocel.pdf | `PDF` | 79.3 KB | [Abrir en Drive](https://drive.google.com/file/d/1hw0BfForP9tkCoKKodxgTcFOFfj9GOji/view?usp=drivesdk) |
+| Biología Celular y Molecular - Certámenes - Pauteo Biocel C2.html | `HTML` | 1001.9 KB | [Abrir en Drive](https://drive.google.com/file/d/1wy2JvPplX7l2WzmTKZQPi0Frkplifvuq/view?usp=drivesdk) |
+
+### Resúmenes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Biología Celular y Molecular - Resúmenes - Resumen Factores y Proteinas Traduccion Eucariota.pdf | `PDF` | 191.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1TMKFenvE7mXKTfkurRBqeFJhupSjbK5Q/view?usp=drivesdk) |
+
+### Seminarios (2)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Biología Celular y Molecular - Seminarios - 16 - Replicación del DNA (Fase S).pdf | `PDF` | 2.08 MB | [Abrir en Drive](https://drive.google.com/file/d/16DNxoouhvIsgq3ERVkCallzqlpuBpEZe/view?usp=drivesdk) |
+| Biología Celular y Molecular - Seminarios - Seminario 5 Expresion Genica.pdf | `PDF` | 979.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1VjGwzP5OgctKq0PvGDlALlYLvtgb_X4Z/view?usp=drivesdk) |
+
+## 📁 Física
+
+### Apuntes (2)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Clase Circuitos I | `YOUTUBE` | Canal: Fisica Medicina 2021 | [Visitar YOUTUBE](https://youtu.be/Pq-U_el8_DU?si=_61eS5pUBvy7HtTo) |
+| Clase Circuitos II | `YOUTUBE` | Canal: Fisica Medicina 2021 | [Visitar YOUTUBE](https://youtu.be/RNFjABM4cK8?si=jqdZu_LNVDgdhuHb) |
 
 ### Certámenes (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Prueba 1 Seminario.pdf | `PDF` | 14.06 MB | [Abrir en Drive](https://drive.google.com/file/d/1hBe-dzpDuWW9lldE1xj9mbTKoBm_PWS0/view?usp=drivesdk) |
+| Carpeta de Recursos: Física | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/1ax-Da83S2p75wNsHGhXnhwBrnXu79g3M) |
+
+### Clases y Videos (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Clases física MED 2021 | `YOUTUBE` | Canal: Diego Lizama | [Visitar YOUTUBE](https://youtube.com/playlist?list=PLsrUDoXcspCkylWBOh0WfVb91fgnecQUq&si=CgR0t6igaGuZDObP) |
 
 ### Ejercicios (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Compilado Preguntas Biocel C1.pdf | `PDF` | 13.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1LhK0uAvgi2R7x-C2J9w6ytDxeZtTU4QU/view?usp=drivesdk) |
+| Física - Ejercicios - Recopilacion Serway Certamen 2 Completa.pdf | `PDF` | 548.3 KB | [Abrir en Drive](https://drive.google.com/file/d/1DVVw6GdZScb_5M6AQQ6t3h8arp0rHSYt/view?usp=drivesdk) |
 
-### Resúmenes (2)
+## 📁 Histología y embriología
 
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Resumen Nucleo Celular.docx | `DOCX` | 4.51 MB | [Abrir en Drive](https://docs.google.com/document/d/1TYju8Ho1n-w_gLr9XYnZQrn1QykgN5rc/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-| Resumen Ultracorto CP Biocel.pdf | `PDF` | 229.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1rbkB8Jwxn84QDvLdJ6MUtSYQKZX5t3Q1/view?usp=drivesdk) |
-
-### Seminarios (12)
+### Apuntes (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| 11 - Traducción.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1-4seH6rdLKbooIHIMsQZFMLmENqor1B9/view?usp=drivesdk) |
-| Clase Traduccion.pdf | `PDF` | 14.91 MB | [Abrir en Drive](https://drive.google.com/file/d/14vFBP_ZdbnFIRZ_ajD48OPcVnsKEPpjD/view?usp=drivesdk) |
-| Seminario 2 Membrana.pdf | `PDF` | 2.80 MB | [Abrir en Drive](https://drive.google.com/file/d/1UaG7Pe6EdQKSRCVu8BaI-ZPW-S5qaPAz/view?usp=drivesdk) |
-| Seminario 2 Membranas.html | `HTML` | 54.3 KB | [Abrir en Drive](https://drive.google.com/file/d/1Xm22vx4p5UL0M9cLZZzlflK_2xKRQme2/view?usp=drivesdk) |
-| Seminario 3 Citoesqueleto.html | `HTML` | 940.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1Ad63wGGBA10D2FSIs5f_kYdTU0tvKfeT/view?usp=drivesdk) |
-| Seminario 3 Citoesqueleto.pdf | `PDF` | 4.60 MB | [Abrir en Drive](https://drive.google.com/file/d/18-BS-hiNVwcBtjkcL7qCNs_q-5r6WC_E/view?usp=drivesdk) |
-| Seminario 4 Bioenergetica.html | `HTML` | 518.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1H6moRyfQC8lDIC98CDUrf2LdyKI-KNBm/view?usp=drivesdk) |
-| Seminario 4 Bioenergética.pdf | `PDF` | 3.32 MB | [Abrir en Drive](https://drive.google.com/file/d/162mS_BvI0_2FIUJvxH57OkGz90SGgrn4/view?usp=drivesdk) |
-| Seminario 7 Técnicas.pdf | `PDF` | 4.21 MB | [Abrir en Drive](https://drive.google.com/file/d/1rclqSRFqXoVyz8z8aylSSbFVLDdmMoue/view?usp=drivesdk) |
-| Seminarios 1-5.pdf | `PDF` | 2.05 MB | [Abrir en Drive](https://drive.google.com/file/d/1KFND6AQKDz2i4g3B0l38dn8F-tCKkVQG/view?usp=drivesdk) |
-| Taller de Apoyo a Seminarios 1 - Con Respuestas.pdf | `PDF` | 1.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1YX-uIvAK-3a_srYNC7VT_snlkyB3tfc6/view?usp=drivesdk) |
-| Taller de Apoyo a Seminarios 2018.pptx | `PPTX` | 3.03 MB | [Abrir en Drive](https://docs.google.com/presentation/d/1mwwZt2397rVCnTBpIS2orukyGh37amIc/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
+| Histología y Embriología - Apuntes - Embrio C2 CT 10 CT 20 Normal.zip | `ZIP` | 22.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1RFUWbByB-rNl7VTZuBBwt2inHHBbBIP6/view?usp=drivesdk) |
+| Histología y Embriología - Apuntes - Langman 15 Ed.pdf | `PDF` | 80.07 MB | [Abrir en Drive](https://drive.google.com/file/d/1VAIHDfwmAbtc8HTUPnfi8Ob4qpkt2Txc/view?usp=drivesdk) |
+| Histología y Embriología - Apuntes - Línea de Tiempo de Embriología.html | `HTML` | 508.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ZOrVWpGCDekkF1i3VjI2OpTb5MXUQNKz/view?usp=drivesdk) |
+| Histología y Embriología - Apuntes - Linea Tiempo Embriologia.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Wu8Gt8ixYjpeEKmKmd3YEgeIIAfGNGad/view?usp=drivesdk) |
+| Histología y Embriología - Apuntes - Transcripcion Ordenada Embriologia General Periodo Somitico.pdf | `PDF` | 24.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1OuJPQ_ya8-w8Tz6ra9Q3yWiDo-93L5aa/view?usp=drivesdk) |
 
-## 📁 Física
-
-### Apuntes (3)
+### Controles (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Cinemática 2.pdf | `PDF` | 1.09 MB | [Abrir en Drive](https://drive.google.com/file/d/1p_kEaZ2mgUfzJsZ9s5l2j5TjjiPRp3Kn/view?usp=drivesdk) |
-| Dinámica 2.pdf | `PDF` | 617.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1_AqwILjc-Vc1JzGDEcUrx6ItBIDHo983/view?usp=drivesdk) |
-| W y e Física - 10-9-2026.docx | `DOCX` | 60.8 KB | [Abrir en Drive](https://docs.google.com/document/d/1ga0Sqr1mcymb6QXTZ5Qq_tDCPY7oislV/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-
-### Certámenes (3)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| C1 2024.pdf | `PDF` | 286.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAJeArUd6AXZXkdDJcP7Her7jd0zsbQr/view?usp=drivesdk) |
-| Carpeta de Recursos: Física | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/1ax-Da83S2p75wNsHGhXnhwBrnXu79g3M) |
-| Certamen 1 2022.pdf | `PDF` | 1.80 MB | [Abrir en Drive](https://drive.google.com/file/d/13opb1nBgdzU_PbcgRsy1PcJCp9UpZiVK/view?usp=drivesdk) |
-
-### Controles (5)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Compilado Controles Cinemática 1.pdf | `PDF` | 840.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1oNMgf45idrKMMhwjGc3hzBjiFaPROoWl/view?usp=drivesdk) |
-| Compilado Controles Cinemática 2.pdf | `PDF` | 2.49 MB | [Abrir en Drive](https://drive.google.com/file/d/16_f1yhMU8g6s7DAKXsmzVcR1ash7ueWV/view?usp=drivesdk) |
-| Compilado Controles Dinámica 1.pdf | `PDF` | 7.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1R2oEW5srtXTb5akn6z5i1B54KZ482Jan/view?usp=drivesdk) |
-| Compilado Controles Dinámica 2.pdf | `PDF` | 2.55 MB | [Abrir en Drive](https://drive.google.com/file/d/1TeVmTFumfx3AnW5Bpyt1JNCrOuDnqyVl/view?usp=drivesdk) |
-| Control Cinemática 1.pdf | `PDF` | 2.81 MB | [Abrir en Drive](https://drive.google.com/file/d/1iN3Lzd6jfcUJZNq7FUOSH75uDuxii7JC/view?usp=drivesdk) |
-
-### Ejercicios (2)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Problemas Resueltos [Arellano] | `FILE` | 2.33 MB | [Abrir en Drive](https://drive.google.com/file/d/1zgld1weuUkTU2daswVtnF1Ewl6gqbemU/view?usp=drivesdk) |
-| Problemas Resueltos de Dinamica.pdf | `PDF` | 1.42 MB | [Abrir en Drive](https://drive.google.com/file/d/1q9DRL4eZnRz03UHD-Vn6ssdkSYgpD-jV/view?usp=drivesdk) |
-
-### Libros (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Guia Estudio Fisica.pdf | `PDF` | 174.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ApRVuOVYbdW8E7sg4jeEvDivU5Xkvr2H/view?usp=drivesdk) |
+| Histología y Embriología - Controles - Resumen Control 5 Embrio.pdf | `PDF` | 118.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tCEk1zUSk9_dT1vYgAvzEnsKnOrdPPH2/view?usp=drivesdk) |
 
 ### Seminarios (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Pautas Años Pasados TP 7.pdf | `PDF` | 5.47 MB | [Abrir en Drive](https://drive.google.com/file/d/1fl98ZTxX-74sGHHOYCo-FdksYCP74bFa/view?usp=drivesdk) |
+| Histología y Embriología - Seminarios - TP 9 - Embriología de Sistemas I.pdf | `PDF` | 3.41 MB | [Abrir en Drive](https://drive.google.com/file/d/14CKwgRgAKOcs3u5mcg7VUCDiIcQylkJY/view?usp=drivesdk) |
 
 ## 📁 Histología y Embriología
-
-### Ankis (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Histología y Embriología 🧫.apkg | `ANKI` | 90.88 MB | [Abrir en Drive](https://drive.google.com/file/d/1pa6dxU1j2lgbEHVdSQifeOtddX2yHzPT/view?usp=drivesdk) |
-
-### Apuntes (3)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Compilado Transcripciones Histo Embrio.pdf | `PDF` | 58.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1zlrttR0gS64xg7GUaCXhPlIjBKTjkAR3/view?usp=drivesdk) |
-| Transcri CT 14 Período Somítico. Histoembrio.pdf | `PDF` | 15.96 MB | [Abrir en Drive](https://drive.google.com/file/d/1aLzNKuiIZwalqDOXJKPhfd9j9W4hX9BK/view?usp=drivesdk) |
-| Transcri Raw Gametogenesis.pdf | `PDF` | 295.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1cpsn3Kup0r30FftL-PS3XQntXuBNV0JY/view?usp=drivesdk) |
 
 ### Clases y Videos (16)
 
@@ -243,71 +194,99 @@
 | STP  Embiologia III | `YOUTUBE` | Canal: Histoembrio ICBM | [Visitar YOUTUBE](https://youtu.be/pooIhOZjwmY) |
 | STP Embriología 1 | `YOUTUBE` | Canal: Histoembrio ICBM | [Visitar YOUTUBE](https://youtu.be/zM1gbAaskwM) |
 
-### Libros (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Guia Estudio Tejido Muscular.docx | `DOCX` | 9.2 KB | [Abrir en Drive](https://docs.google.com/document/d/1PGQ9819fh2EboITpaCb5u4Sefv4r974N/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-
 ### Recursos Web (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Carpeta de Recursos: Histología y Embriología | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/1gmT57Cj7OmtIO8aiFd8w4b4i0Y4o3mV6?usp=sharing) |
 
-### Resúmenes (2)
+### Seminarios (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Resumen Celulas Madre y Autoorganizacion.docx | `DOCX` | 2.14 MB | [Abrir en Drive](https://docs.google.com/document/d/1wez-bMpX7oC3l682KuBOW09IajFhifBd/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-| Resumen Tejido Muscular.pdf | `PDF` | 5.9 KB | [Abrir en Drive](https://drive.google.com/file/d/1xKwQPW52DMnUtZgKkYqXD6AP1WIkjefS/view?usp=drivesdk) |
-
-### Seminarios (14)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| 10 - Gametogénesis y Fecundación.pdf | `PDF` | 2.94 MB | [Abrir en Drive](https://drive.google.com/file/d/17S8617qC2658GpUed0oImjNf4LSC5iG1/view?usp=drivesdk) |
-| 11 - Células Madre y Autoorganización.pdf | `PDF` | 1.60 MB | [Abrir en Drive](https://drive.google.com/file/d/1_nBV5c-K-m3K_SL5HU67eA18BW6JYcg8/view?usp=drivesdk) |
-| 12 - Construyendo el Embrión Humano.pdf | `PDF` | 1.70 MB | [Abrir en Drive](https://drive.google.com/file/d/17fez3y4_mjO5HorrpozxB0sF8NNThzae/view?usp=drivesdk) |
-| 13 - Plan Corporal y Gastrulación.pdf | `PDF` | 1.50 MB | [Abrir en Drive](https://drive.google.com/file/d/1kJ5-ix2jOs5deFHbWQKDW6KOkebGNVtO/view?usp=drivesdk) |
 | Carpeta de Recursos: Histología y Embriología | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/1EY-1fKEWW3NKiMpnEEhco_iCC07--pCO) |
-| Clase 1 25-9-2026 Histoembrio IA.pdf | `PDF` | 130.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1cA1unHvfhZIxAhq7-VM2NKRoD1TYy4LD/view?usp=drivesdk) |
-| Clase 1 25-9-2026 Histoembrio.docx | `DOCX` | 56.8 KB | [Abrir en Drive](https://docs.google.com/document/d/1trphQ4muK06iRILM1iFop9qCtRMYLrgi/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-| Clase 1 Diferenciacion Info Posicional Morfogenesis.docx | `DOCX` | 2.28 MB | [Abrir en Drive](https://docs.google.com/document/d/1bb84OnIuTp2dQwQvICbG3w1V2a1irbXI/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-| Clase 2 26-9-2026 Histoembrio IA.pdf | `PDF` | 124.3 KB | [Abrir en Drive](https://drive.google.com/file/d/1g3kS5mD_BbHs_yXH3wgKIvKOZ1wahRZB/view?usp=drivesdk) |
-| Clase 2 Gastrulacion Plan Corporal.docx | `DOCX` | 2.24 MB | [Abrir en Drive](https://docs.google.com/document/d/1U6EFe7BwThTmbbGzzIVTXedcOgOBDhoE/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
-| Seminario 1 Microscopia.html | `HTML` | 36.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ShV2AcOfkNc1ENzSud_mBw0_OUw-sVNC/view?usp=drivesdk) |
-| Seminario 1 Microscopía.pdf | `PDF` | 1.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1bTNegQGu1RFLERezhH2FDeaaNVWoaJZI/view?usp=drivesdk) |
-| TP 1 - Unidad 2 Histología.pdf | `PDF` | 17.40 MB | [Abrir en Drive](https://drive.google.com/file/d/1NzwnWlkzGeWvvXJBACU1O5XpU10_SLhM/view?usp=drivesdk) |
-| TP 1 - Unidad 2 Histología.pdf | `PDF` | 17.40 MB | [Abrir en Drive](https://drive.google.com/file/d/1LSGWVujULk2wUl4Zmd4zMQ6wJ4js-y5K/view?usp=drivesdk) |
+
+## 📁 Salud Pública
+
+### Apuntes (2)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Salud Pública - Apuntes - Apunte de Contextualización Salud Publica.pdf | `PDF` | 74.2 KB | [Abrir en Drive](https://drive.google.com/file/d/12vAER30vxus73-1rsoYGh2jfnDGrv3mc/view?usp=drivesdk) |
+| Salud Pública - Apuntes - Argumentos Modelo Ges Salud Publica (en Contra).pdf | `PDF` | 59.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tRRFLGEojPTSFDvQbUfB-9sH7Xamv88Z/view?usp=drivesdk) |
+
+### Certámenes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Salud Pública - Certámenes - Apunte para el Certamen.pdf | `PDF` | 220.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1LJx4CouwUXjW0XDbpYUbZ9LJMn5rTNg8/view?usp=drivesdk) |
+
+### Resúmenes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Salud Pública - Resúmenes - Resumen Sicko Salud Publica.pdf | `PDF` | 52.9 KB | [Abrir en Drive](https://drive.google.com/file/d/11kBxyY3bo2DY14wigBxmOLJcH-rbyG5X/view?usp=drivesdk) |
 
 ## 📁 Sin clasificar
 
-### Certámenes (4)
+### Apuntes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Certamen 1 Pauta 2023.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1KcTBt6cJ2k1HzIu6PvNzYDWIVtwiaL3e/view?usp=drivesdk) |
-| Certamen I.pdf | `PDF` | 234.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1-MEE6yxxDrlhnwZXZqmflQ0I_R69BlFf/view?usp=drivesdk) |
-| Ensayo C1 2025.pdf | `PDF` | 142.5 KB | [Abrir en Drive](https://drive.google.com/file/d/15FFM5sF2Qq_vDuZfMM-tD4ryC_1CGk4U/view?usp=drivesdk) |
-| Pauta Certamen 1 2021.pdf | `PDF` | 1.95 MB | [Abrir en Drive](https://drive.google.com/file/d/1EZeb2S0y8mx89LVc2iUMZyheurRDJv2L/view?usp=drivesdk) |
+| Bulbo Ocular Apuntes.pdf | `PDF` | 3.75 MB | [Abrir en Drive](https://drive.google.com/file/d/120608OCnQ8_2mOMkjuoVAwUwJ9IqZt6r/view?usp=drivesdk) |
+| Oido Externo y Medio Apuntes.pdf | `PDF` | 3.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUJOGXc6lAkYJihroEW4LDrPEaexNfDX/view?usp=drivesdk) |
+| Oido Interno Apuntes.pdf | `PDF` | 2.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1xcdZunPkJ0_-t1u-H41HiqRXIWzY0_46/view?usp=drivesdk) |
+
+### Certámenes (7)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| 00 - Resumen del Certamen 2.pdf | `PDF` | 34.43 MB | [Abrir en Drive](https://drive.google.com/file/d/1QPQsMWsQOU-rpk0F3eu_qGOaJ1DVp7m4/view?usp=drivesdk) |
+| Certamen Isp 2022.pdf | `PDF` | 96.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1qFPnLV33KbCyNLN1UCxF9PGdvstqHC5L/view?usp=drivesdk) |
+| Pauta Certamen 2023.pdf | `PDF` | 126.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Pd0W5iDaaNxDjEbBO-OAo8oeGOIPaVxg/view?usp=drivesdk) |
+| Pauta Certamen Pr Ctico 2.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1TPis4En7W1P8pLNJRJAcRfeKfhpwdjHU/view?usp=drivesdk) |
+| Pauta Certamen Practico 2.pdf | `PDF` | 75.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1XTwXObeuMPROKYeoHazZdegTEWuAFtXl/view?usp=drivesdk) |
+| Pauta Certamen Te Rico 2.pdf | `PDF` | 197.8 KB | [Abrir en Drive](https://drive.google.com/file/d/16oFtOdDVcL1liI_MDnGCgeyXLrieB_7w/view?usp=drivesdk) |
+| Reconstrucción Certamen Isp con Respuestas 2023.pdf | `PDF` | 268.7 KB | [Abrir en Drive](https://drive.google.com/file/d/15ldJw0X2rcXoZ3JUjB0cjM_lHsFPElu9/view?usp=drivesdk) |
+
+### Documentos sin clasificar (4)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Bulbo Ocular.pdf | `PDF` | 1002.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1fNQycaJNLS1QOV4W7wlwn5nszPBpTiyI/view?usp=drivesdk) |
+| Oído Externo y Medio.pdf | `PDF` | 878.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1aoIe7BVtHmBC9FCkuKDHlV_np_3y7Eyk/view?usp=drivesdk) |
+| Region ECM 2026.pdf | `PDF` | 5.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1OG8ZkUhekBBn9YmaevUYSMtdkq54ff5X/view?usp=drivesdk) |
+| S8 - Espacio Craneovertebral y Perifaríngeo 2026.pdf | `PDF` | 5.72 MB | [Abrir en Drive](https://drive.google.com/file/d/1szXgIEHifZeUCajH6AhuPlq5JD_6Sde3/view?usp=drivesdk) |
 
 ### Ejercicios (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Preguntas.pdf | `PDF` | 729.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1Q37B8kEufNMlJEwBdxzhLLpSo8xLkaMk/view?usp=drivesdk) |
+| Pauta Desarrollo Isp.pdf | `PDF` | 276.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1V26-RfC6TMyzkb1DeOqmWn0GEyM9Qu_X/view?usp=drivesdk) |
 
-### Grabaciones (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Video_Grabacion.mp4 | `VIDEO` | 17.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1vYgTtaX-ulg8TABvlAiPWtytLEikp9Mq/view?usp=drivesdk) |
-
-### Recursos Web (2)
+### Recursos Web (4)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Artefacto Interactivo Claude AI | `CLAUDE` | Artefacto IA | [Visitar CLAUDE](https://claude.ai/artifact/GEZLnWC75jcfKgwVWDRvzR) |
+| Artefacto Interactivo Claude AI | `CLAUDE` | Artefacto IA | [Visitar CLAUDE](https://claude.ai/artifact/Y88oZ8tmBUXtcazu6VdD1f) |
+| Carpeta de Recursos: Drive | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/18QT78-aJoCCe7cc-Ptb1ZXRa2-Ai-qzH) |
 | Planilla / Base de Datos Compartida | `SHEETS` | Google Sheets | [Visitar SHEETS](https://docs.google.com/spreadsheets/d/1zrgohJktOkNd_Q2we3PpoUK1GRHJ_sWXMIhggbPsm3Y/edit?usp=drivesdk) |
+
+### Resúmenes (4)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Resumen C2.pdf | `PDF` | 10.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1HTmKAEf7Z7W8WouvsyD9LXaKgClpvWrW/view?usp=drivesdk) |
+| Resumen Isp Catita Monardes.pdf | `PDF` | 1.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1b3ptg4rq29rkso8okEaIDWbYzMzhlsyr/view?usp=drivesdk) |
+| Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
+| Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
+
+### Seminarios (3)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| 14 - Vía Endocítica.pdf | `PDF` | 2.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1veHZoJrbyPuOMZSyQsyqQ8Tk4afkgR1Q/view?usp=drivesdk) |
+| 15 - Regulación de la Proliferación.pdf | `PDF` | 1.75 MB | [Abrir en Drive](https://drive.google.com/file/d/1czMGw2e2KBZ61z-AwC5WPKNbGxFM77hy/view?usp=drivesdk) |
+| Seminario 6 Via Exocitica 1.pdf | `PDF` | 1.13 MB | [Abrir en Drive](https://drive.google.com/file/d/1gKtmdGrBdpY0m0AltTtCOAeqrOO4_EPP/view?usp=drivesdk) |
 
