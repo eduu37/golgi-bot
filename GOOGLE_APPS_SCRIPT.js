@@ -95,8 +95,25 @@ function procesarSolicitud(e) {
     const accion = String(params.accion || params.action || "mover").toLowerCase().trim();
     const pin = params.pin || "";
 
-    if (PIN_SEGURIDAD && pin !== PIN_SEGURIDAD) {
-      return jsonRespuesta({ ok: false, error: "PIN de seguridad incorrecto." });
+    // ============================================================
+    // ACCIÓN 0: OBTENER CATÁLOGO DE ARCHIVOS (PERMANENTE PARA CI/GITHUB ACTIONS)
+    // ============================================================
+    if (accion === "catalogo" || accion === "listar" || accion === "archivos") {
+      const folderIdCatalogo = params.folderId || params.driveFolderId || DRIVE_FOLDER_ID;
+      let targetFolder;
+      try {
+        targetFolder = folderIdCatalogo ? DriveApp.getFolderById(folderIdCatalogo) : DriveApp.getRootFolder();
+      } catch (errF) {
+        return jsonRespuesta({ ok: false, error: "No se pudo acceder a la carpeta: " + errF.toString() });
+      }
+
+      const lista = [];
+      recorrerCarpetaParaCatalogo(targetFolder, "", "", lista);
+      return jsonRespuesta({
+        ok: true,
+        total: lista.length,
+        archivos: lista
+      });
     }
 
     if (!fileId) {
@@ -234,6 +251,42 @@ function obtenerOCrearCarpeta(parentFolder, nombre) {
     return folders.next();
   }
   return parentFolder.createFolder(nombre);
+}
+
+function recorrerCarpetaParaCatalogo(carpeta, materia, tipo, resultado) {
+  if (!carpeta) return;
+  const files = carpeta.getFiles();
+  while (files.hasNext()) {
+    const f = files.next();
+    if (f.isTrashed()) continue;
+    const name = f.getName();
+    if (name.startsWith("INDICE_BIBLIOTECA") || name.startsWith("Enlaces_Guardados") || name === "desktop.ini") continue;
+
+    resultado.push({
+      id: f.getId(),
+      name: name,
+      size: f.getSize(),
+      createdTime: f.getDateCreated().toISOString(),
+      webViewLink: f.getUrl(),
+      materia: materia || "Sin clasificar",
+      tipo: tipo || "Apuntes",
+      mimeType: f.getMimeType()
+    });
+  }
+
+  const subCarpetas = carpeta.getFolders();
+  while (subCarpetas.hasNext()) {
+    const sub = subCarpetas.next();
+    if (sub.isTrashed()) continue;
+    const subNombre = sub.getName();
+    if (!materia) {
+      recorrerCarpetaParaCatalogo(sub, subNombre, "", resultado);
+    } else if (!tipo) {
+      recorrerCarpetaParaCatalogo(sub, materia, subNombre, resultado);
+    } else {
+      recorrerCarpetaParaCatalogo(sub, materia, tipo, resultado);
+    }
+  }
 }
 
 function jsonRespuesta(objeto) {

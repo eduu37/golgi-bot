@@ -226,6 +226,27 @@ export async function recopilarEnlacesWeb() {
 // 2. RECOPILACIÓN INTELIGENTE DEL CATÁLOGO DESDE DRIVE + ENLACES
 // ============================================================
 export async function recopilarCatalogoDrive(driveFolderId = DRIVE_FOLDER_ID) {
+  // 1. Intento primario permanente: Consultar a Google Apps Script
+  // Permite que GitHub Actions compile la web de por vida sin depender de tokens OAuth que vencen cada 7 días
+  const appsScriptEndpoint = (process.env.APPS_SCRIPT_URL || APPS_SCRIPT_URL || "").trim();
+  if (appsScriptEndpoint && !process.env.FORZAR_OAUTH_DRIVE) {
+    try {
+      console.log("🌐 Consultando catálogo de Google Drive vía Webhook permanente (Google Apps Script)...");
+      const urlFetch = `${appsScriptEndpoint}${appsScriptEndpoint.includes("?") ? "&" : "?"}accion=catalogo&folderId=${encodeURIComponent(driveFolderId)}`;
+      const res = await fetch(urlFetch, { signal: AbortSignal.timeout(25000) });
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.ok && Array.isArray(data.archivos)) {
+          console.log(`✅ Catálogo obtenido exitosamente desde Google Apps Script (${data.archivos.length} archivos).`);
+          return await procesarArchivosRemotosAppsScript(data.archivos, driveFolderId);
+        }
+      }
+    } catch (errScript) {
+      console.log(`⚠️ No se pudo obtener catálogo desde Apps Script (${errScript.message}). Intentando conexión OAuth directa...`);
+    }
+  }
+
+  // 2. Método alternativo: Conexión OAuth directa con Google Drive API
   await iniciarDrive();
   const drive = obtenerDriveClient();
 
@@ -424,6 +445,92 @@ export async function recopilarCatalogoDrive(driveFolderId = DRIVE_FOLDER_ID) {
   };
 }
 
+async function procesarArchivosRemotosAppsScript(archivosAppsScript, driveFolderId) {
+  let totalBytes = 0;
+  const catalogoArchivos = [];
+
+  for (const item of archivosAppsScript) {
+    let materia = item.materia || "Sin clasificar";
+    let tipo = item.tipo || "Apuntes";
+
+    if (materia === "Sin clasificar" || materia === "root") {
+      const resultado = await clasificarArchivo(item.name, "");
+      materia = resultado.materia;
+      tipo = resultado.tipo;
+    }
+
+    const sizeNum = parseInt(item.size || "0", 10);
+    totalBytes += isNaN(sizeNum) ? 0 : sizeNum;
+
+    const infoExt = obtenerExtensionYTipo(item.name);
+    const semestre = determinarSemestreItem(materia, []);
+
+    catalogoArchivos.push({
+      id: item.id,
+      nombreOriginal: item.name,
+      nombreLimpio: limpiarNombre(item.name),
+      materia,
+      tipo,
+      semestre,
+      extension: path.extname(item.name).toLowerCase().replace(".", ""),
+      badge: infoExt.badge,
+      icon: infoExt.icon,
+      colorIcono: infoExt.color,
+      sizeBytes: sizeNum,
+      sizeFormateado: formatearBytes(item.size),
+      createdTime: item.createdTime,
+      fechaFormateada: formatearFecha(item.createdTime),
+      url: item.webViewLink || `https://drive.google.com/file/d/${item.id}/view`,
+      md5Checksum: item.md5Checksum || "",
+      esDuplicado: false,
+      esEnlaceWeb: false,
+      autor: "",
+      actionLabel: "Abrir en Drive ↗",
+    });
+  }
+
+  // Recopilar enlaces web externos
+  const catalogoEnlaces = await recopilarEnlacesWeb();
+
+  // Catálogo unificado
+  const catalogoCombinado = [...catalogoArchivos, ...catalogoEnlaces];
+
+  // Ordenamos alfabéticamente por Materia -> Tipo -> Nombre
+  catalogoCombinado.sort((a, b) => {
+    if (a.materia !== b.materia) return a.materia.localeCompare(b.materia, "es");
+    if (a.tipo !== b.tipo) return a.tipo.localeCompare(b.tipo, "es");
+    return a.nombreLimpio.localeCompare(b.nombreLimpio, "es");
+  });
+
+  // Agrupamos por Materia y Tipo para estadísticas
+  const materiasMap = {};
+  for (const doc of catalogoCombinado) {
+    if (doc.esDuplicado) continue;
+    if (!materiasMap[doc.materia]) {
+      materiasMap[doc.materia] = { total: 0, tipos: {}, archivos: 0, enlaces: 0 };
+    }
+    materiasMap[doc.materia].total++;
+    if (doc.esEnlaceWeb) {
+      materiasMap[doc.materia].enlaces = (materiasMap[doc.materia].enlaces || 0) + 1;
+    } else {
+      materiasMap[doc.materia].archivos = (materiasMap[doc.materia].archivos || 0) + 1;
+    }
+    materiasMap[doc.materia].tipos[doc.tipo] =
+      (materiasMap[doc.materia].tipos[doc.tipo] || 0) + 1;
+  }
+
+  return {
+    fechaGeneracion: new Date().toISOString(),
+    totalArchivos: catalogoArchivos.length,
+    totalEnlaces: catalogoEnlaces.length,
+    totalItems: catalogoCombinado.length,
+    totalBytes,
+    totalBytesFormateado: formatearBytes(totalBytes),
+    duplicadosDetectados: 0,
+    materiasMap,
+    items: catalogoCombinado,
+  };
+}
 
 // ============================================================
 // 3. GENERADOR HTML DE BIBLIOTECA (MODULARIZADO EN templates/)
