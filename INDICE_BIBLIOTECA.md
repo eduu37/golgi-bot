@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 9:40:17 p. m.
+> **Última actualización:** 29-10-2026, 9:41:50 p. m.
 > **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
 
 ## 📁 Anatomía
@@ -57,11 +57,12 @@
 
 ## 📁 Anatomía II
 
-### Apuntes (2)
+### Apuntes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Bulbo Ocular Apuntes.pdf | `PDF` | 3.75 MB | [Abrir en Drive](https://drive.google.com/file/d/120608OCnQ8_2mOMkjuoVAwUwJ9IqZt6r/view?usp=drivesdk) |
+| Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
 | Transcripcion Regiones Faciales.pdf | `PDF` | 13.67 MB | [Abrir en Drive](https://drive.google.com/file/d/1fP_0ST6fviuDr8rxhlxHFZiU3oSQd_VG/view?usp=drivesdk) |
 
 ### Resúmenes (1)
@@ -87,7 +88,7 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (18)
+### Apuntes (17)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -108,7 +109,6 @@
 | Biología Celular y Molecular - Apuntes - Transcripcion Embriologia Sistema Urinario.pdf | `PDF` | 7.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1TnvleH6xXSMbtLJGq4YP2IQBbCazDmLT/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Gametogenesis Organizada.pdf | `PDF` | 5.32 MB | [Abrir en Drive](https://drive.google.com/file/d/13_Fx7fAmFfxO5p92Je1NllDGaEwpZs1h/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Gastrulacion.pdf | `PDF` | 2.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1WzY-r6WZ8h2EkI2pSrAE29kro39N7sCC/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
 
 ### Certámenes (4)
 
