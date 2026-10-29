@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 4:28:31 p. m.
-> **Total de Recursos:** 141 (118 en Drive, 23 enlaces web) | **Espacio Drive:** 594.59 MB
+> **Última actualización:** 29-10-2026, 4:29:25 p. m.
+> **Total de Recursos:** 140 (117 en Drive, 23 enlaces web) | **Espacio Drive:** 594.37 MB
 
 ## 📁 Anatomía
 
@@ -128,13 +128,12 @@
 | :--- | :---: | :---: | :---: |
 | Compilado Preguntas Biocel C1.pdf | `PDF` | 13.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1LhK0uAvgi2R7x-C2J9w6ytDxeZtTU4QU/view?usp=drivesdk) |
 
-### Resúmenes (3)
+### Resúmenes (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Resumen Nucleo Celular.docx | `DOCX` | 4.51 MB | [Abrir en Drive](https://docs.google.com/document/d/1TYju8Ho1n-w_gLr9XYnZQrn1QykgN5rc/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
 | Resumen Ultracorto CP Biocel.pdf | `PDF` | 229.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1rbkB8Jwxn84QDvLdJ6MUtSYQKZX5t3Q1/view?usp=drivesdk) |
-| Resumen Ultracorto CP Biocel.pdf | `PDF` | 229.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1x-DwPIaoqdpldpexkGgSnTQyk6bFarE7/view?usp=drivesdk) |
 
 ### Seminarios (12)
 
