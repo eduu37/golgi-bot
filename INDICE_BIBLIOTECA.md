@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 4:08:55 p. m.
+> **Última actualización:** 29-10-2026, 4:11:19 p. m.
 > **Total de Recursos:** 142 (119 en Drive, 23 enlaces web) | **Espacio Drive:** 609.66 MB
 
 ## 📁 Anatomía
@@ -117,6 +117,12 @@
 | Resumen Clase 9 Transcripcion II.docx | `DOCX` | 8.32 MB | [Abrir en Drive](https://docs.google.com/document/d/1aMJpQF9x1zbfjdNFR-GEf8Wgt1wX3sD_/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
 | Transcri Raw Celulas Madre y Autorganizacion.pdf | `PDF` | 302.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1yGtU6o9WygR42OL16Si3XpchIGUmTFZV/view?usp=drivesdk) |
 | Transcri Raw Transcripción II.docx | `DOCX` | 27.5 KB | [Abrir en Drive](https://docs.google.com/document/d/14LiiskeNMP920CZAAf39Hstvixm2NCzS/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
+
+### Certámenes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Prueba 1 Seminario.pdf | `PDF` | 14.06 MB | [Abrir en Drive](https://drive.google.com/file/d/1hBe-dzpDuWW9lldE1xj9mbTKoBm_PWS0/view?usp=drivesdk) |
 
 ### Ejercicios (1)
 
@@ -281,12 +287,6 @@
 | Certamen I.pdf | `PDF` | 234.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1-MEE6yxxDrlhnwZXZqmflQ0I_R69BlFf/view?usp=drivesdk) |
 | Ensayo C1 2025.pdf | `PDF` | 142.5 KB | [Abrir en Drive](https://drive.google.com/file/d/15FFM5sF2Qq_vDuZfMM-tD4ryC_1CGk4U/view?usp=drivesdk) |
 | Pauta Certamen 1 2021.pdf | `PDF` | 1.95 MB | [Abrir en Drive](https://drive.google.com/file/d/1EZeb2S0y8mx89LVc2iUMZyheurRDJv2L/view?usp=drivesdk) |
-
-### Documentos sin clasificar (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Foto.pdf | `PDF` | 14.06 MB | [Abrir en Drive](https://drive.google.com/file/d/1hBe-dzpDuWW9lldE1xj9mbTKoBm_PWS0/view?usp=drivesdk) |
 
 ### Ejercicios (1)
 
