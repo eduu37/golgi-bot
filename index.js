@@ -14,6 +14,7 @@ import {
   GITHUB_PAGES_URL,
   GITHUB_PAGES_GENERACION_URL,
   GENERACION,
+  SEMESTRE_DEFAULT,
 } from "./config.js";
 
 import {
@@ -26,7 +27,7 @@ import {
 } from "./drive.js";
 
 import { getLastIDSaved, guardarUltimoId } from "./status.js";
-import { clasificarArchivo } from "./clasificador.js";
+import { clasificarArchivo, obtenerSemestreDeMateria } from "./clasificador.js";
 import { procesarEnlaces } from "./enlaces.js";
 import { generarNombreEstandar } from "./renombrador.js";
 
@@ -243,9 +244,21 @@ client.on("ready", async () => {
               }
 
               // 📂 2. CREACIÓN Y BÚSQUEDA DE LAS CARPETAS EN DRIVE
+              // Jerarquía: DRIVE_FOLDER_ID -> GENERACION -> [Semestre] -> [Materia] -> [Tipo]
+              const sem = obtenerSemestreDeMateria(materia) || SEMESTRE_DEFAULT || "2";
+              const nombreCarpetaSemestre = `${sem}º Semestre`;
+
+              const idCarpetaGen = await obtenerOCrearCarpeta(
+                GENERACION,
+                DRIVE_FOLDER_ID,
+              );
+              const idCarpetaSem = await obtenerOCrearCarpeta(
+                nombreCarpetaSemestre,
+                idCarpetaGen,
+              );
               const idCarpetaMateria = await obtenerOCrearCarpeta(
                 materia,
-                DRIVE_FOLDER_ID,
+                idCarpetaSem,
               );
               const idSubcarpetaFinal = await obtenerOCrearCarpeta(
                 tipo,

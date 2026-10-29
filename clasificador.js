@@ -41,14 +41,38 @@ export function cargarReglas() {
 export function obtenerSemestreDeMateria(materia) {
   if (!materia || materia === "Sin clasificar") return null;
 
-  // 1. Prioridad: Revisar configuración oficial en malla.json
+  const matNorm = normalizar(materia);
   const malla = cargarMalla();
+
   if (malla && malla.semestres) {
+    // 1.1 Coincidencia exacta con algún ramo de la malla oficial
     for (const [sem, materias] of Object.entries(malla.semestres)) {
       if (Array.isArray(materias)) {
         const encontrada = materias.some(
-          (m) => normalizar(m) === normalizar(materia),
+          (m) => normalizar(m) === matNorm,
         );
+        if (encontrada) return String(sem);
+      }
+    }
+
+    // 1.2 Coincidencia parcial con el semestre activo (ej. "Anatomía" -> "Anatomía II" en semestre 2)
+    const semActivo = String(malla.semestreActivo || "2");
+    const materiasActivas = malla.semestres[semActivo];
+    if (Array.isArray(materiasActivas)) {
+      const encontradaActiva = materiasActivas.some((m) => {
+        const mNorm = normalizar(m);
+        return mNorm.startsWith(matNorm) || matNorm.startsWith(mNorm);
+      });
+      if (encontradaActiva) return semActivo;
+    }
+
+    // 1.3 Coincidencia parcial con cualquier otro semestre
+    for (const [sem, materias] of Object.entries(malla.semestres)) {
+      if (Array.isArray(materias)) {
+        const encontrada = materias.some((m) => {
+          const mNorm = normalizar(m);
+          return mNorm.startsWith(matNorm) || matNorm.startsWith(mNorm);
+        });
         if (encontrada) return String(sem);
       }
     }
@@ -60,7 +84,7 @@ export function obtenerSemestreDeMateria(materia) {
     for (const [sem, materias] of Object.entries(reglas.semestres)) {
       if (Array.isArray(materias)) {
         const encontrada = materias.some(
-          (m) => normalizar(m) === normalizar(materia),
+          (m) => normalizar(m) === matNorm,
         );
         if (encontrada) return String(sem);
       }

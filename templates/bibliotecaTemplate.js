@@ -898,9 +898,10 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
 
     .modal-select {
       width: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #fff;
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #f1f5f9;
+      color-scheme: dark;
       font-family: inherit;
       font-size: 0.92rem;
       padding: 0.65rem 0.85rem;
@@ -910,13 +911,24 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     }
 
     .modal-select:focus {
-      border-color: var(--accent-amber);
-      box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+    }
+
+    .modal-select optgroup {
+      background: #090d16;
+      color: var(--accent-cyan);
+      font-weight: 700;
+      font-size: 0.83rem;
+      letter-spacing: 0.04em;
+      padding: 0.4rem 0.2rem;
     }
 
     .modal-select option {
-      background: #131b2a;
-      color: #fff;
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 0.45rem 0.6rem;
+      font-size: 0.9rem;
     }
 
     .btn-classify {

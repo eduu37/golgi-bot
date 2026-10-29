@@ -225,14 +225,14 @@ export async function recopilarEnlacesWeb() {
 // ============================================================
 // 2. RECOPILACIÓN INTELIGENTE DEL CATÁLOGO DESDE DRIVE + ENLACES
 // ============================================================
-export async function recopilarCatalogoDrive(driveFolderId = DRIVE_FOLDER_ID) {
+export async function recopilarCatalogoDrive(driveFolderId = DRIVE_FOLDER_ID, generacion = GENERACION) {
   // 1. Intento primario permanente: Consultar a Google Apps Script
   // Permite que GitHub Actions compile la web de por vida sin depender de tokens OAuth que vencen cada 7 días
   const appsScriptEndpoint = (process.env.APPS_SCRIPT_URL || APPS_SCRIPT_URL || "").trim();
   if (appsScriptEndpoint && !process.env.FORZAR_OAUTH_DRIVE) {
     try {
       console.log("🌐 Consultando catálogo de Google Drive vía Webhook permanente (Google Apps Script)...");
-      const urlFetch = `${appsScriptEndpoint}${appsScriptEndpoint.includes("?") ? "&" : "?"}accion=catalogo&folderId=${encodeURIComponent(driveFolderId)}`;
+      const urlFetch = `${appsScriptEndpoint}${appsScriptEndpoint.includes("?") ? "&" : "?"}accion=catalogo&folderId=${encodeURIComponent(driveFolderId)}&generacion=${encodeURIComponent(generacion)}`;
       const res = await fetch(urlFetch, { signal: AbortSignal.timeout(25000) });
       if (res.ok) {
         const data = await res.json();
@@ -683,7 +683,7 @@ export async function generarYSincronizarIndice(opciones = {}) {
   console.log(`🚀 GENERADOR DE BIBLIOTECA DIGITAL — GENERACIÓN ${generacion}`);
   console.log("=================================================");
 
-  const catalogo = await recopilarCatalogoDrive(driveFolderId);
+  const catalogo = await recopilarCatalogoDrive(driveFolderId, generacion);
 
   console.log(`\n📦 Total de recursos catalogados: ${catalogo.totalItems}`);
   console.log(`   - 📄 Archivos en Google Drive: ${catalogo.totalArchivos}`);

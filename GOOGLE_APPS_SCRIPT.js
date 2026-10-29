@@ -107,8 +107,18 @@ function procesarSolicitud(e) {
         return jsonRespuesta({ ok: false, error: "No se pudo acceder a la carpeta: " + errF.toString() });
       }
 
+      const genParam = (params.generacion || "").trim();
+      let genInicial = "";
+      if (genParam) {
+        const subGens = targetFolder.getFoldersByName(genParam);
+        if (subGens.hasNext()) {
+          targetFolder = subGens.next();
+          genInicial = genParam;
+        }
+      }
+
       const lista = [];
-      recorrerCarpetaParaCatalogo(targetFolder, "", "", "", lista);
+      recorrerCarpetaParaCatalogo(targetFolder, genInicial, "", "", "", lista);
       return jsonRespuesta({
         ok: true,
         total: lista.length,
@@ -181,6 +191,7 @@ function procesarSolicitud(e) {
     const materia = (params.materia || "").trim();
     const tipo = (params.tipo || "Apuntes").trim();
     let semestre = String(params.semestre || "").trim();
+    const generacion = String(params.generacion || "2026").trim();
 
     if (materia) {
       if (!semestre || semestre === "null" || semestre === "undefined") {
@@ -188,13 +199,16 @@ function procesarSolicitud(e) {
       }
       const nombreCarpetaSemestre = semestre.toLowerCase().includes("semestre") ? semestre : (semestre + "º Semestre");
 
-      // Buscar o crear la carpeta del Semestre en la raíz
-      const semestreFolder = obtenerOCrearCarpeta(rootFolder, nombreCarpetaSemestre);
+      // 1. Buscar o crear la carpeta de la Generación en la raíz de Medicina
+      const generacionFolder = obtenerOCrearCarpeta(rootFolder, generacion);
 
-      // Buscar o crear la carpeta de la Asignatura/Materia dentro del Semestre
+      // 2. Buscar o crear la carpeta del Semestre dentro de la Generación
+      const semestreFolder = obtenerOCrearCarpeta(generacionFolder, nombreCarpetaSemestre);
+
+      // 3. Buscar o crear la carpeta de la Asignatura/Materia dentro del Semestre
       const materiaFolder = obtenerOCrearCarpeta(semestreFolder, materia);
 
-      // Buscar o crear la subcarpeta del Tipo (Apuntes, Certámenes, etc.)
+      // 4. Buscar o crear la subcarpeta del Tipo (Apuntes, Certámenes, etc.)
       const destinoFinal = tipo ? obtenerOCrearCarpeta(materiaFolder, tipo) : materiaFolder;
 
       // Mover el archivo a la subcarpeta destino
@@ -263,7 +277,7 @@ function obtenerOCrearCarpeta(parentFolder, nombre) {
   return parentFolder.createFolder(nombre);
 }
 
-function recorrerCarpetaParaCatalogo(carpeta, semestre, materia, tipo, resultado) {
+function recorrerCarpetaParaCatalogo(carpeta, generacion, semestre, materia, tipo, resultado) {
   if (!carpeta) return;
   const files = carpeta.getFiles();
   while (files.hasNext()) {
@@ -278,6 +292,7 @@ function recorrerCarpetaParaCatalogo(carpeta, semestre, materia, tipo, resultado
       size: f.getSize(),
       createdTime: f.getDateCreated().toISOString(),
       webViewLink: f.getUrl(),
+      generacion: generacion || "",
       semestre: semestre || "",
       materia: materia || "Sin clasificar",
       tipo: tipo || "Apuntes",
@@ -291,18 +306,22 @@ function recorrerCarpetaParaCatalogo(carpeta, semestre, materia, tipo, resultado
     if (sub.isTrashed()) continue;
     const subNombre = sub.getName();
 
-    // Detección de carpetas de Semestre (ej. "2º Semestre", "Semestre 2", "1° Semestre")
+    // 1. Detección de carpetas de Generación (ej. "2025", "2026", "2027")
+    const matchGen = subNombre.match(/^(20\d\d)$/);
+    // 2. Detección de carpetas de Semestre (ej. "2º Semestre", "Semestre 2", "1° Semestre")
     const matchSem = subNombre.match(/(\d+)\s*(?:º|°|er|do|to|mo|vo|no)?\s*semestre|semestre\s*(\d+)/i);
 
-    if (matchSem && !semestre && !materia) {
+    if (matchGen && !generacion && !semestre && !materia) {
+      recorrerCarpetaParaCatalogo(sub, matchGen[1], "", "", "", resultado);
+    } else if (matchSem && !semestre && !materia) {
       const numSem = String(matchSem[1] || matchSem[2]);
-      recorrerCarpetaParaCatalogo(sub, numSem, "", "", resultado);
+      recorrerCarpetaParaCatalogo(sub, generacion, numSem, "", "", resultado);
     } else if (!materia) {
-      recorrerCarpetaParaCatalogo(sub, semestre, subNombre, "", resultado);
+      recorrerCarpetaParaCatalogo(sub, generacion, semestre, subNombre, "", resultado);
     } else if (!tipo) {
-      recorrerCarpetaParaCatalogo(sub, semestre, materia, subNombre, resultado);
+      recorrerCarpetaParaCatalogo(sub, generacion, semestre, materia, subNombre, resultado);
     } else {
-      recorrerCarpetaParaCatalogo(sub, semestre, materia, tipo, resultado);
+      recorrerCarpetaParaCatalogo(sub, generacion, semestre, materia, tipo, resultado);
     }
   }
 }

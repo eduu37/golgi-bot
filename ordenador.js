@@ -6,6 +6,7 @@ import {
   AISLAR_DUPLICADOS,
   AUTO_ACTUALIZAR_INDICE,
   SEMESTRE_DEFAULT,
+  GENERACION,
 } from "./config.js";
 import {
   iniciarDrive,
@@ -153,13 +154,14 @@ async function ejecutarOrdenamientoTotal() {
       }
     }
 
-    // 3. Obtenemos las carpetas destino respetando la jerarquía [Semestre] -> [Materia] -> [Tipo]
+    // 3. Obtenemos las carpetas destino respetando la jerarquía [Generación] -> [Semestre] -> [Materia] -> [Tipo]
     const sem = obtenerSemestreDeMateria(materia) || SEMESTRE_DEFAULT || "2";
     const nombreCarpetaSemestre = `${sem}º Semestre`;
 
     let idSubcarpetaFinal = null;
     if (!esDryRun) {
-      const idCarpetaSemestre = await obtenerOCrearCarpeta(nombreCarpetaSemestre, DRIVE_FOLDER_ID);
+      const idCarpetaGen = await obtenerOCrearCarpeta(GENERACION, DRIVE_FOLDER_ID);
+      const idCarpetaSemestre = await obtenerOCrearCarpeta(nombreCarpetaSemestre, idCarpetaGen);
       const idCarpetaMateria = await obtenerOCrearCarpeta(materia, idCarpetaSemestre);
       idSubcarpetaFinal = await obtenerOCrearCarpeta(tipo, idCarpetaMateria);
     }
@@ -171,7 +173,7 @@ async function ejecutarOrdenamientoTotal() {
     }
 
     console.log(`🔄 Reubicando: "${nombreActual}"`);
-    console.log(`   ➡️ Destino: ${nombreCarpetaSemestre} / ${materia} / ${tipo}`);
+    console.log(`   ➡️ Destino: ${GENERACION} / ${nombreCarpetaSemestre} / ${materia} / ${tipo}`);
 
     if (!esDryRun) {
       const exito = await moverArchivo(

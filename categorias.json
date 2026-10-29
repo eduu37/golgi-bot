@@ -2,80 +2,92 @@
   "materiaPorDefecto": "Sin clasificar",
   "semestres": {
     "1": [
-      "Química General y Orgánica",
-      "Biología Celular",
-      "Introducción a la Medicina",
-      "Matemáticas y Biofísica",
-      "Antropología Médica"
+      "Química general y orgánica",
+      "Matemáticas",
+      "Anatomía I",
+      "Introducción a la profesión médica",
+      "Medicina, persona y sociedad",
+      "Inglés I",
+      "Formación general I"
     ],
     "2": [
-      "Anatomía",
-      "Histología y Embriología",
-      "Bioestadística",
-      "Biología célular y molecular",
+      "Biología celular y molecular",
       "Física",
-      "Salúd pública"
+      "Anatomía II",
+      "Histología y embriología",
+      "Salud Pública",
+      "Bioestadística",
+      "Inglés II"
     ],
     "3": [
+      "Bioquímica",
       "Fisiología I",
-      "Bioquímica Médica",
-      "Genética Clínica",
-      "Microbiología I"
+      "Genética",
+      "Epidemiología descriptiva",
+      "Profesionalismo médico",
+      "Metodología de la investigación",
+      "Inglés III"
     ],
     "4": [
+      "Nutrición",
       "Fisiología II",
-      "Fisiopatología I",
-      "Farmacología General",
-      "Microbiología II y Parasitología"
+      "Inmunología",
+      "Farmacología general",
+      "Habilidades clínicas",
+      "Epidemiología analítica",
+      "Bioética"
     ],
     "5": [
-      "Fisiopatología II",
-      "Semiología Médica",
-      "Farmacología Clínica",
-      "Anatomía Patológica"
+      "Microbiología I",
+      "Fisiopatología I",
+      "Farmacología clínica",
+      "Semiología",
+      "Seguridad social",
+      "Educación interprofesional y práctica colaborativa I"
     ],
     "6": [
-      "Medicina Interna I",
-      "Cirugía I",
-      "Infectología",
-      "Diagnóstico por Imágenes"
+      "Microbiología II",
+      "Fisiopatología II",
+      "Medicina interna I",
+      "Casos integradores I",
+      "Diagnóstico de situación de salud",
+      "Ética clínica I",
+      "Formación general II"
     ],
     "7": [
-      "Medicina Interna II",
-      "Cirugía II",
-      "Pediatría I",
-      "Obstetricia y Ginecología I"
+      "Anatomía patológica",
+      "Medicina interna II",
+      "Cirugía",
+      "Electivo profesional I",
+      "Gestión I",
+      "Ética clínica II"
     ],
     "8": [
-      "Pediatría II",
-      "Obstetricia y Ginecología II",
-      "Psiquiatría y Salud Mental",
-      "Neurología"
+      "Neurología",
+      "Psiquiatría de adultos",
+      "Especialidades médico quirúrgicas I",
+      "Geriatría",
+      "Gestión II",
+      "Medicina basada en la evidencia",
+      "Educación interprofesional y práctica colaborativa II"
     ],
     "9": [
-      "Traumatología y Ortopedia",
-      "Dermatología",
-      "Otorrinolaringología",
-      "Oftalmología",
-      "Urología"
+      "Pediatría y cirugía infantil",
+      "Medicina de urgencias",
+      "Especialidades médico quirúrgicas II",
+      "Fisiatría",
+      "Cuidados paliativos",
+      "Electivo profesional II",
+      "Formación general III"
     ],
     "10": [
-      "Medicina de Urgencia",
-      "Bioética y Medicina Legal",
-      "Gestión en Salud",
-      "Atención Primaria de Salud"
-    ],
-    "11": [
-      "Internado Medicina Interna"
-    ],
-    "12": [
-      "Internado Cirugía"
-    ],
-    "13": [
-      "Internado Pediatría"
-    ],
-    "14": [
-      "Internado Ginecología y Obstetricia"
+      "Obstetricia y ginecología",
+      "Medicina legal",
+      "Medicina general familiar",
+      "Psiquiatría infanto juvenil",
+      "Procedimientos clínicos",
+      "Electivo profesional III",
+      "Casos integradores II"
     ]
   },
   "materias": {
