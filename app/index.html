@@ -30,10 +30,6 @@
           <span class="nav-icon">⚙️</span>
           <span>Configuración</span>
         </button>
-        <button class="nav-item" data-tab="tab-subjects">
-          <span class="nav-icon">📚</span>
-          <span>Materias</span>
-        </button>
       </nav>
 
       <div class="sidebar-footer">
@@ -212,62 +208,6 @@
         </div>
       </section>
 
-      <!-- TAB 3: MATERIAS Y ASIGNATURAS -->
-      <section class="tab-pane" id="tab-subjects">
-        <div class="card subjects-card">
-          <div class="subjects-header">
-            <div>
-              <h2>Asignaturas y Palabras Clave</h2>
-              <p class="card-subtitle">Administra las materias de tu año para que el bot clasifique los apuntes de forma exacta.</p>
-            </div>
-            <button class="btn btn-primary" id="btnAddSubject">+ Nueva Materia</button>
-          </div>
-
-          <div style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
-            <div class="modal-search-wrapper" style="flex: 1; min-width: 240px; margin-bottom: 0;">
-              <span class="modal-search-icon">🔍</span>
-              <input 
-                type="text" 
-                id="searchSubjectsInput" 
-                class="form-control modal-search-input" 
-                placeholder="Buscar materia o palabra clave (ej: Anatomía, fármaco, examen)..."
-                autocomplete="off"
-              >
-            </div>
-            <div style="min-width: 175px;">
-              <select id="filterSubjectSemester" class="form-control" style="cursor: pointer; background: rgba(18, 24, 38, 0.95); color: #fff; height: 100%;">
-                <option value="todos">🌟 Todos los Semestres</option>
-                <option value="1">1º Semestre</option>
-                <option value="2">2º Semestre</option>
-                <option value="3">3º Semestre</option>
-                <option value="4">4º Semestre</option>
-                <option value="5">5º Semestre</option>
-                <option value="6">6º Semestre</option>
-                <option value="7">7º Semestre</option>
-                <option value="8">8º Semestre</option>
-                <option value="9">9º Semestre</option>
-                <option value="10">10º Semestre</option>
-                <option value="11">11º Semestre</option>
-                <option value="12">12º Semestre</option>
-                <option value="13">13º Semestre</option>
-                <option value="14">14º Semestre</option>
-                <option value="ninguno">Sin asignar</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="subjects-list" id="subjectsList">
-            <!-- Se llena dinámicamente con JavaScript -->
-          </div>
-
-          <div class="form-actions" style="margin-top: 1.5rem;">
-            <button class="btn btn-primary" id="btnSaveSubjects">
-              <span>💾 Guardar Materias</span>
-            </button>
-            <span class="save-feedback" id="saveSubjectsFeedback"></span>
-          </div>
-        </div>
-      </section>
     </main>
   </div>
 
@@ -333,97 +273,6 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" id="btnCancelGroupModal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL DE CREACIÓN / EDICIÓN DE MATERIA Y PALABRAS CLAVE -->
-  <div class="modal-overlay" id="modalMateria" style="display: none;">
-    <div class="modal-container" style="max-width: 580px;">
-      <div class="modal-header">
-        <div class="modal-title-wrapper">
-          <span class="modal-icon">📚</span>
-          <div>
-            <h3 id="modalMateriaTitle">Nueva Asignatura</h3>
-            <p class="modal-subtitle" id="modalMateriaSubtitle">Configura el nombre y las palabras clave asociadas.</p>
-          </div>
-        </div>
-        <button class="modal-close" id="btnCloseModalMateria" title="Cerrar">&times;</button>
-      </div>
-
-      <div class="modal-body">
-        <input type="hidden" id="inputOriginalMateriaName" value="">
-
-        <div class="form-group">
-          <label for="inputMateriaName">Nombre de la Asignatura</label>
-          <div class="input-desc">Nombre oficial que tendrá la carpeta en Google Drive y la categoría en la web.</div>
-          <input type="text" id="inputMateriaName" class="form-control" placeholder="Ej: Farmacología, Pediatría..." autocomplete="off">
-        </div>
-
-        <div class="form-group">
-          <label for="selectMateriaSemestre">📅 Semestre Académico</label>
-          <div class="input-desc">Semestre de la carrera al que corresponde este ramo (permite filtrar y organizar la biblioteca digital).</div>
-          <select id="selectMateriaSemestre" class="form-control" style="background: rgba(18, 24, 38, 0.95); color: #fff; cursor: pointer;">
-            <option value="1">1º Semestre</option>
-            <option value="2">2º Semestre</option>
-            <option value="3">3º Semestre</option>
-            <option value="4">4º Semestre</option>
-            <option value="5">5º Semestre</option>
-            <option value="6">6º Semestre</option>
-            <option value="7">7º Semestre</option>
-            <option value="8">8º Semestre</option>
-            <option value="9">9º Semestre</option>
-            <option value="10">10º Semestre</option>
-            <option value="11">11º Semestre</option>
-            <option value="12">12º Semestre</option>
-            <option value="13">13º Semestre</option>
-            <option value="14">14º Semestre</option>
-            <option value="ninguno">Sin asignar / General</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="inputMateriaKeywords">Palabras Clave (Keywords)</label>
-          <div class="input-desc">Ingresa las palabras clave separadas por comas (o saltos de línea). El bot las buscará en los archivos para clasificar el material aquí.</div>
-          <textarea id="inputMateriaKeywords" class="form-control" rows="5" placeholder="fármaco, dosis, receta, antibiótico, amoxicilina..." style="resize: vertical; font-family: inherit; font-size: 0.88rem; line-height: 1.5;"></textarea>
-        </div>
-
-        <div class="keywords-preview-box">
-          <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-dim); margin-bottom: 0.4rem;">
-            Vista previa de palabras clave (<span id="keywordsCount">0</span>):
-          </div>
-          <div class="subject-keywords" id="keywordsPreviewContainer" style="max-height: 110px; overflow-y: auto; padding-right: 0.25rem;">
-            <!-- Badges reactivos -->
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.75rem;">
-        <button type="button" class="btn btn-secondary" id="btnCancelModalMateria">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="btnConfirmSaveMateria">💾 Guardar Asignatura</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL DE CONFIRMACIÓN PARA ELIMINAR MATERIA -->
-  <div class="modal-overlay" id="modalConfirmDelete" style="display: none;">
-    <div class="modal-container" style="max-width: 440px;">
-      <div class="modal-header">
-        <div class="modal-title-wrapper">
-          <span class="modal-icon">⚠️</span>
-          <div>
-            <h3>¿Eliminar Asignatura?</h3>
-            <p class="modal-subtitle" id="deleteSubjectConfirmText">Esta acción removerá la materia de la clasificación.</p>
-          </div>
-        </div>
-        <button class="modal-close" id="btnCloseConfirmDelete" title="Cerrar">&times;</button>
-      </div>
-      <div class="modal-body" style="padding-top: 0.5rem; font-size: 0.88rem; color: var(--text-muted);">
-        Los archivos existentes en Google Drive no se borrarán, pero el bot ya no clasificará nuevos apuntes bajo este nombre.
-      </div>
-      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.75rem;">
-        <button type="button" class="btn btn-secondary" id="btnCancelDeleteSubject">Cancelar</button>
-        <button type="button" class="btn btn-danger" id="btnConfirmDeleteSubject">🗑️ Sí, Eliminar</button>
       </div>
     </div>
   </div>
