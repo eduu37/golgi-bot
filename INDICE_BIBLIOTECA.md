@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 06-10-2026, 10:16:17 p. m.
-> **Total de Recursos:** 146 (123 en Drive, 23 enlaces web) | **Espacio Drive:** 661.55 MB
+> **Última actualización:** 29-10-2026, 4:08:55 p. m.
+> **Total de Recursos:** 142 (119 en Drive, 23 enlaces web) | **Espacio Drive:** 609.66 MB
 
 ## 📁 Anatomía
 
@@ -159,14 +159,15 @@
 | Dinámica 2.pdf | `PDF` | 617.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1_AqwILjc-Vc1JzGDEcUrx6ItBIDHo983/view?usp=drivesdk) |
 | W y e Física - 10-9-2026.docx | `DOCX` | 60.8 KB | [Abrir en Drive](https://docs.google.com/document/d/1ga0Sqr1mcymb6QXTZ5Qq_tDCPY7oislV/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
 
-### Certámenes (2)
+### Certámenes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | C1 2024.pdf | `PDF` | 286.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAJeArUd6AXZXkdDJcP7Her7jd0zsbQr/view?usp=drivesdk) |
 | Carpeta de Recursos: Física | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/1ax-Da83S2p75wNsHGhXnhwBrnXu79g3M) |
+| Certamen 1 2022.pdf | `PDF` | 1.80 MB | [Abrir en Drive](https://drive.google.com/file/d/13opb1nBgdzU_PbcgRsy1PcJCp9UpZiVK/view?usp=drivesdk) |
 
-### Controles (4)
+### Controles (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -174,6 +175,7 @@
 | Compilado Controles Cinemática 2.pdf | `PDF` | 2.49 MB | [Abrir en Drive](https://drive.google.com/file/d/16_f1yhMU8g6s7DAKXsmzVcR1ash7ueWV/view?usp=drivesdk) |
 | Compilado Controles Dinámica 1.pdf | `PDF` | 7.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1R2oEW5srtXTb5akn6z5i1B54KZ482Jan/view?usp=drivesdk) |
 | Compilado Controles Dinámica 2.pdf | `PDF` | 2.55 MB | [Abrir en Drive](https://drive.google.com/file/d/1TeVmTFumfx3AnW5Bpyt1JNCrOuDnqyVl/view?usp=drivesdk) |
+| Control Cinemática 1.pdf | `PDF` | 2.81 MB | [Abrir en Drive](https://drive.google.com/file/d/1iN3Lzd6jfcUJZNq7FUOSH75uDuxii7JC/view?usp=drivesdk) |
 
 ### Ejercicios (2)
 
@@ -271,24 +273,20 @@
 
 ## 📁 Sin clasificar
 
-### Certámenes (5)
+### Certámenes (4)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Certamen 1 2022.pdf | `PDF` | 1.80 MB | [Abrir en Drive](https://drive.google.com/file/d/13opb1nBgdzU_PbcgRsy1PcJCp9UpZiVK/view?usp=drivesdk) |
 | Certamen 1 Pauta 2023.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1KcTBt6cJ2k1HzIu6PvNzYDWIVtwiaL3e/view?usp=drivesdk) |
 | Certamen I.pdf | `PDF` | 234.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1-MEE6yxxDrlhnwZXZqmflQ0I_R69BlFf/view?usp=drivesdk) |
 | Ensayo C1 2025.pdf | `PDF` | 142.5 KB | [Abrir en Drive](https://drive.google.com/file/d/15FFM5sF2Qq_vDuZfMM-tD4ryC_1CGk4U/view?usp=drivesdk) |
 | Pauta Certamen 1 2021.pdf | `PDF` | 1.95 MB | [Abrir en Drive](https://drive.google.com/file/d/1EZeb2S0y8mx89LVc2iUMZyheurRDJv2L/view?usp=drivesdk) |
 
-### Documentos sin clasificar (4)
+### Documentos sin clasificar (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Documento_Escaneado.pdf | `PDF` | 217.9 KB | [Abrir en Drive](https://drive.google.com/file/d/15kfDF-GruhxDZZPnxWqDhToMLqTo2p60/view?usp=drivesdk) |
 | Foto.pdf | `PDF` | 14.06 MB | [Abrir en Drive](https://drive.google.com/file/d/1hBe-dzpDuWW9lldE1xj9mbTKoBm_PWS0/view?usp=drivesdk) |
-| Pautas.pdf | `PDF` | 2.81 MB | [Abrir en Drive](https://drive.google.com/file/d/1iN3Lzd6jfcUJZNq7FUOSH75uDuxii7JC/view?usp=drivesdk) |
-| Pautas.pdf | `PDF` | 2.81 MB | [Abrir en Drive](https://drive.google.com/file/d/1TDHNFy0kiZP41f1_4kdXCBg27OzRvHl_/view?usp=drivesdk) |
 
 ### Ejercicios (1)
 
@@ -308,11 +306,4 @@
 | :--- | :---: | :---: | :---: |
 | Artefacto Interactivo Claude AI | `CLAUDE` | Artefacto IA | [Visitar CLAUDE](https://claude.ai/artifact/GEZLnWC75jcfKgwVWDRvzR) |
 | Planilla / Base de Datos Compartida | `SHEETS` | Google Sheets | [Visitar SHEETS](https://docs.google.com/spreadsheets/d/1zrgohJktOkNd_Q2we3PpoUK1GRHJ_sWXMIhggbPsm3Y/edit?usp=drivesdk) |
-
-### Seminarios (2)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| SEM Semana 6 Auryy.pdf | `PDF` | 24.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1FjmfXzIZHt8LT_cKEReC8_yIGPuMnXsq/view?usp=drivesdk) |
-| SEM Semana 6 Auryy.pdf | `PDF` | 24.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1aS9oF8QTuH1uMw1bz74D075obxSJX5U1/view?usp=drivesdk) |
 
