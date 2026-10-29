@@ -14,7 +14,8 @@
     "indice:local": "node indice.js --solo-local",
     "dist": "electron-builder",
     "dist:win": "electron-builder --win",
-    "dist:mac": "electron-builder --mac"
+    "dist:mac": "electron-builder --mac",
+    "postinstall": "node scripts/patch-wwebjs.js"
   },
   "build": {
     "appId": "com.medicina.golgibot",

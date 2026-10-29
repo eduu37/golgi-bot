@@ -320,7 +320,16 @@ ipcMain.handle("whatsapp:detectar-grupos", async () => {
 
   detectorClient = new Client({
     authStrategy: new LocalAuth(),
-    puppeteer: { args: ["--no-sandbox", "--disable-setuid-sandbox"] },
+    puppeteer: {
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-gpu",
+        "--disable-dev-shm-usage",
+        "--no-first-run",
+      ],
+    },
   });
 
   return new Promise((resolve) => {
@@ -345,41 +354,54 @@ ipcMain.handle("whatsapp:detectar-grupos", async () => {
       }
 
       try {
-        const chats = await detectorClient.getChats();
-
-        // 1. Mapear comunidades padre
-        mapaComunidades.clear();
-        for (const c of chats) {
-          const isCommunityParent = Boolean(c.isParentGroup || c.groupMetadata?.isParentGroup);
-          if (isCommunityParent) {
-            mapaComunidades.set(c.id._serialized, c.name || "Comunidad");
-          }
-        }
-
-        // 2. Extraer todos los grupos y subgrupos
-        const grupos = [];
-        for (const c of chats) {
-          const id = c.id && c.id._serialized;
-          if (!id) continue;
-          const isGroup = c.isGroup || id.endsWith("@g.us");
-          if (!isGroup) continue;
-
-          const isCommunityParent = Boolean(c.isParentGroup || c.groupMetadata?.isParentGroup);
-          const parentId = c.groupMetadata?.parentGroup?._serialized || null;
-          let comunidadNombre = null;
-          if (parentId && mapaComunidades.has(parentId)) {
-            comunidadNombre = mapaComunidades.get(parentId);
+        const grupos = await detectorClient.pupPage.evaluate(() => {
+          let chats = [];
+          try {
+            if (window.Store && window.Store.Chat) {
+              chats = window.Store.Chat.getModelsArray();
+            } else if (window.require) {
+              chats = window.require("WAWebCollections").Chat.getModelsArray();
+            }
+          } catch (e) {
+            console.error(e);
           }
 
-          grupos.push({
-            id,
-            name: c.name || c.formattedTitle || "Grupo sin nombre",
-            isCommunityParent,
-            isCommunitySubgroup: Boolean(parentId),
-            comunidadNombre,
-            unreadCount: c.unreadCount || 0,
-          });
-        }
+          const comunidades = new Map();
+          for (const c of chats) {
+            const isParent = Boolean(c.isParentGroup || (c.groupMetadata && c.groupMetadata.isParentGroup));
+            if (isParent) {
+              const id = c.id ? (c.id._serialized || c.id) : "";
+              comunidades.set(id, c.name || c.formattedTitle || "Comunidad");
+            }
+          }
+
+          return chats
+            .filter((c) => {
+              const id = c.id ? (c.id._serialized || c.id) : "";
+              return id.endsWith("@g.us") || c.isGroup;
+            })
+            .map((c) => {
+              const id = c.id ? (c.id._serialized || c.id) : "";
+              const name = c.name || c.formattedTitle || "Grupo sin nombre";
+              const isCommunityParent = Boolean(c.isParentGroup || (c.groupMetadata && c.groupMetadata.isParentGroup));
+              const parentId = c.groupMetadata && c.groupMetadata.parentGroup
+                ? (c.groupMetadata.parentGroup._serialized || c.groupMetadata.parentGroup)
+                : null;
+              let comunidadNombre = null;
+              if (parentId && comunidades.has(parentId)) {
+                comunidadNombre = comunidades.get(parentId);
+              }
+
+              return {
+                id,
+                name,
+                isCommunityParent,
+                isCommunitySubgroup: Boolean(parentId),
+                comunidadNombre,
+                unreadCount: c.unreadCount || 0,
+              };
+            });
+        });
 
         // Ordenar alfabéticamente
         grupos.sort((a, b) => a.name.localeCompare(b.name, "es"));
@@ -387,6 +409,7 @@ ipcMain.handle("whatsapp:detectar-grupos", async () => {
         enviarLog(`📋 Se encontraron ${grupos.length} grupos/comunidades disponibles.`, "info");
         resolve({ ok: true, grupos });
       } catch (err) {
+        enviarLog(`❌ Error obteniendo grupos: ${err.message}`, "error");
         resolve({ ok: false, error: err.message, grupos: [] });
       }
     });
