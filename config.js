@@ -51,7 +51,7 @@ if (!semPorDefecto) {
 export const SEMESTRE_DEFAULT = semPorDefecto || '2';
 
 // Detección automática del enlace de la biblioteca web (GitHub Pages)
-export function obtenerUrlBibliotecaWeb(subpath = '') {
+export function obtenerUrlBaseGithubPages() {
   let base = '';
   if (process.env.GITHUB_PAGES_URL && process.env.GITHUB_PAGES_URL.trim() !== '') {
     base = process.env.GITHUB_PAGES_URL.trim();
@@ -60,28 +60,39 @@ export function obtenerUrlBibliotecaWeb(subpath = '') {
       const remote = execSync('git config --get remote.origin.url', { encoding: 'utf8' }).trim();
       const match = remote.match(/github\.com[:/]([^/]+)\/([^/.]+)(?:\.git)?/i);
       if (match && match[1] && match[2]) {
-        base = `https://${match[1].toLowerCase()}.github.io/${match[2].toLowerCase()}/`;
+        base = `https://${match[1].toLowerCase()}.github.io/${match[2].toLowerCase()}`;
       }
     } catch {}
     if (!base) {
       const partes = GITHUB_REPO.split('/');
       if (partes.length === 2) {
-        base = `https://${partes[0].toLowerCase()}.github.io/${partes[1].toLowerCase()}/`;
+        base = `https://${partes[0].toLowerCase()}.github.io/${partes[1].toLowerCase()}`;
       } else {
-        base = 'https://eduu37.github.io/golgi-bot/';
+        base = 'https://eduu37.github.io/golgi-bot';
       }
     }
   }
 
-  if (!base.endsWith('/')) base += '/';
+  // Eliminar cualquier subcarpeta numérica de generación al final (ej: /2026/ o /2026) para tener la raíz limpia del repositorio
+  base = base.replace(/\/+\d{4}\/?$/i, '').replace(/\/+$/, '') + '/';
+  return base;
+}
+
+export function obtenerUrlBibliotecaWeb(subpath = '') {
+  const base = obtenerUrlBaseGithubPages();
   if (subpath) {
-    const cleanSub = subpath.replace(/^\/+|\/+$/g, '');
-    return `${base}${cleanSub}/`;
+    const partes = String(subpath)
+      .split(/[\/\\]+/)
+      .filter(Boolean);
+    const partesUnicas = partes.filter((p, i) => i === 0 || p !== partes[i - 1]);
+    if (partesUnicas.length > 0) {
+      return `${base}${partesUnicas.join('/')}/`;
+    }
   }
   return base;
 }
 
-export const GITHUB_PAGES_URL = obtenerUrlBibliotecaWeb();
+export const GITHUB_PAGES_URL = obtenerUrlBaseGithubPages();
 export const GITHUB_PAGES_GENERACION_URL = obtenerUrlBibliotecaWeb(GENERACION);
 
 export const SCOPES = ['https://www.googleapis.com/auth/drive.file'];

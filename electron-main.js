@@ -258,13 +258,12 @@ ipcMain.handle("settings:save", (_event, settings) => {
       if (m) {
         if (m[1] === "GITHUB_TOKEN") existingToken = m[2].trim();
         if (m[1] === "GITHUB_REPO") existingRepo = m[2].trim();
-        if (m[1] === "GITHUB_PAGES_URL") existingPagesUrl = m[2].trim();
         if (m[1] === "APPS_SCRIPT_URL") existingAppsScriptUrl = m[2].trim();
       }
     }
   }
 
-  const pagesUrl = existingPagesUrl || obtenerUrlBibliotecaWeb(gen);
+  const pagesUrl = obtenerUrlBibliotecaWeb(gen);
 
   const contenido = `# ============================================================
 # GOLGI BOT — VARIABLES DE ENTORNO
