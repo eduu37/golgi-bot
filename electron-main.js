@@ -9,6 +9,10 @@ import { obtenerUrlBibliotecaWeb } from "./config.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Suprimir advertencias internas de shaders y cachés de Chromium en Windows
+app.commandLine.appendSwitch("disable-gpu-shader-disk-cache");
+app.commandLine.appendSwitch("log-level", "3");
+
 let mainWindow = null;
 let botProcess = null;
 let currentStatus = "detenido"; // "detenido" | "conectando" | "activo"
@@ -132,7 +136,19 @@ ipcMain.handle("bot:start", async () => {
   });
 
   botProcess.stderr.on("data", (data) => {
-    enviarLog(data.toString().trim(), "error");
+    const raw = data.toString().trim();
+    if (!raw) return;
+    // Filtrar advertencias y diagnósticos internos no fatales del motor Chromium/GPU en Windows
+    if (
+      /\[\d+:\d+\/\d+\.\d+:ERROR:/.test(raw) ||
+      raw.includes("disk_cache") ||
+      raw.includes("gpu_disk_cache") ||
+      raw.includes("cache_util_win") ||
+      raw.includes("GL_")
+    ) {
+      return;
+    }
+    enviarLog(raw, "error");
   });
 
   botProcess.on("exit", (code) => {
@@ -326,8 +342,12 @@ ipcMain.handle("whatsapp:detectar-grupos", async () => {
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-gpu",
+        "--disable-gpu-shader-disk-cache",
+        "--disable-gpu-program-cache",
         "--disable-dev-shm-usage",
         "--no-first-run",
+        "--log-level=3",
+        "--silent-debugger-extension-api",
       ],
     },
   });

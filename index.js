@@ -46,8 +46,12 @@ const client = new Client({
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-gpu",
+      "--disable-gpu-shader-disk-cache",
+      "--disable-gpu-program-cache",
       "--disable-dev-shm-usage",
       "--no-first-run",
+      "--log-level=3",
+      "--silent-debugger-extension-api",
     ],
   },
 });
