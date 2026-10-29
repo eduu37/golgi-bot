@@ -17,6 +17,11 @@ on:
   schedule:
     - cron: "0 */6 * * *"
 
+# Evita colisiones cuando se hacen varias peticiones seguidas en la web
+concurrency:
+  group: actualizar-biblioteca
+  cancel-in-progress: false
+
 jobs:
   actualizar:
     name: Escanear Google Drive y Compilar Web
@@ -80,6 +85,15 @@ jobs:
             echo "✨ La biblioteca ya estaba 100% al día. No hay cambios."
           else
             git commit -m "bot(ci): Auto-actualizar biblioteca digital en la nube [skip ci]"
-            git push origin main
-            echo "✅ Cambios desplegados exitosamente en GitHub Pages."
+            for intento in 1 2 3 4 5; do
+              git pull --rebase origin main || true
+              if git push origin main; then
+                echo "✅ Cambios desplegados exitosamente en GitHub Pages (intento $intento)."
+                exit 0
+              fi
+              echo "⚠️ Reintentando push en 3 segundos (colisión concurrente resuelta)..."
+              sleep 3
+            done
+            echo "❌ No se pudo hacer push tras varios intentos."
+            exit 1
           fi
