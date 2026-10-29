@@ -198,3 +198,41 @@ if (fs.existsSync(messagePath)) {
     console.log("ℹ️ whatsapp-web.js Message.js is already patched.");
   }
 }
+
+// 3. Patch app-builder-lib resEdit.js to prevent Windows EBUSY file-lock race condition
+const resEditPath = path.join(
+  __dirname,
+  "..",
+  "node_modules",
+  "app-builder-lib",
+  "out",
+  "util",
+  "resEdit.js"
+);
+
+if (fs.existsSync(resEditPath)) {
+  let content = fs.readFileSync(resEditPath, "utf8");
+  if (!content.includes("for (let attempt = 1; attempt <= 10; attempt++)")) {
+    content = content.replace(
+      /await \(0, promises_1\.writeFile\)\(opts\.file, Buffer\.from\(executable\.generate\(\)\)\);/,
+      `const exeBuf = Buffer.from(executable.generate());
+    let written = false;
+    for (let attempt = 1; attempt <= 10; attempt++) {
+        try {
+            await (0, promises_1.writeFile)(opts.file, exeBuf);
+            written = true;
+            break;
+        } catch (err) {
+            if ((err.code === "EBUSY" || err.code === "EPERM") && attempt < 10) {
+                await new Promise((r) => setTimeout(r, 1000));
+            } else {
+                throw err;
+            }
+        }
+    }`
+    );
+    fs.writeFileSync(resEditPath, content, "utf8");
+    console.log("✅ app-builder-lib resEdit.js patch applied successfully!");
+  }
+}
+
