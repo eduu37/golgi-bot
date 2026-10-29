@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 4:11:19 p. m.
-> **Total de Recursos:** 142 (119 en Drive, 23 enlaces web) | **Espacio Drive:** 609.66 MB
+> **Última actualización:** 29-10-2026, 4:28:31 p. m.
+> **Total de Recursos:** 141 (118 en Drive, 23 enlaces web) | **Espacio Drive:** 594.59 MB
 
 ## 📁 Anatomía
 
@@ -12,7 +12,7 @@
 | Imagenología de Cavidad Oral.apkg | `ANKI` | 17.55 MB | [Abrir en Drive](https://drive.google.com/file/d/1iP6mRp_eUEcB16Zj9YgTchp057Gr23Yy/view?usp=drivesdk) |
 | S6 - ATM y Cavidad Oral.apkg | `ANKI` | 6.18 MB | [Abrir en Drive](https://drive.google.com/file/d/1HRRxZIXnbEITN6NtJor_Stx8Qk7_Nmvx/view?usp=drivesdk) |
 
-### Apuntes (12)
+### Apuntes (11)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -20,7 +20,6 @@
 | ATM Transcripcion.pdf | `PDF` | 936.9 KB | [Abrir en Drive](https://drive.google.com/file/d/1dTyy968eY_uAjr-Qnm1i34ECLnuViMNf/view?usp=drivesdk) |
 | C1 2025.pdf | `PDF` | 476.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ON22-FY7uyCEfgnLCtnPL0U4CT19U2Ht/view?usp=drivesdk) |
 | Cavidad Oral.pdf | `PDF` | 5.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1-TKIDaC4FT9TzsNN6zTrm-9llQjuZss4/view?usp=drivesdk) |
-| Cavidad Oral.pdf | `PDF` | 5.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1XViwi-5eNEcLQu5ixvS63cjm2pOuGGzM/view?usp=drivesdk) |
 | Glandulas Salivales Mayores Transcripcion.pdf | `PDF` | 1.81 MB | [Abrir en Drive](https://drive.google.com/file/d/19FQbUhSVxEgEIH3iccE9k81mPU6077D7/view?usp=drivesdk) |
 | Imagenología de Cavidad Oral.pdf | `PDF` | 556.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1s7K5d8MrVZ_eZ1Jay5GuhQB5dSvo8dQa/view?usp=drivesdk) |
 | Lengua y Dientes.pdf | `PDF` | 5.58 MB | [Abrir en Drive](https://drive.google.com/file/d/1Yu0xuntlmJQYt2-W6O2tVbaGIKnPdkE7/view?usp=drivesdk) |
@@ -29,12 +28,11 @@
 | Musculos Masticatorios.pdf | `PDF` | 4.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1oJo0us_QOWWfont2-TqjrtOH2UlTT6DE/view?usp=drivesdk) |
 | Unidad 2 Anato 4 y 5.xlsx | `XLSX` | 89.2 KB | [Abrir en Drive](https://docs.google.com/spreadsheets/d/1-0iRqnmIZ90xHw5kDkOkx4TBzFVz4fuE/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
 
-### Controles (3)
+### Controles (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Controles Años Pasados Cavidad Oral.pdf | `PDF` | 9.85 MB | [Abrir en Drive](https://drive.google.com/file/d/1lWWZzf31onvLR1KuFmiFmXNUIg4xwmQ0/view?usp=drivesdk) |
-| Controles Años Pasados Cavidad Oral.pdf | `PDF` | 9.85 MB | [Abrir en Drive](https://drive.google.com/file/d/1buHr5l1w4Bf18lb2YhT1Ua-ZP8aLfW1s/view?usp=drivesdk) |
 | Pautas Controles Años Anteriores Cavidad Nasal.pdf | `PDF` | 9.42 MB | [Abrir en Drive](https://drive.google.com/file/d/1fNp6HxW8bD3r1Eu1LpTeNs65GAae4l44/view?usp=drivesdk) |
 
 ### Libros (2)
@@ -195,6 +193,12 @@
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Guia Estudio Fisica.pdf | `PDF` | 174.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ApRVuOVYbdW8E7sg4jeEvDivU5Xkvr2H/view?usp=drivesdk) |
+
+### Resúmenes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Formulario.pdf | `PDF` | 217.9 KB | [Abrir en Drive](https://drive.google.com/file/d/15kfDF-GruhxDZZPnxWqDhToMLqTo2p60/view?usp=drivesdk) |
 
 ### Seminarios (1)
 
