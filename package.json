@@ -34,6 +34,7 @@
       "indice.js",
       "ordenador.js",
       "generaciones.json",
+      "malla.json",
       "config.js",
       "status.js",
       "templates/**/*",
