@@ -60,6 +60,16 @@ function dispararGitHubAction() {
   }
 }
 
+/**
+ * 🧪 Función de prueba y autorización:
+ * Ejecuta esta función una sola vez en el editor de Apps Script para conceder
+ * el permiso de peticiones externas (UrlFetchApp) y verificar la conexión con GitHub.
+ */
+function probarConexionGitHub() {
+  Logger.log("🧪 Probando conexión con GitHub Actions...");
+  dispararGitHubAction();
+}
+
 function doPost(e) {
   return procesarSolicitud(e);
 }
