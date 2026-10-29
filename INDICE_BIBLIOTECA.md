@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 5:14:41 p. m.
+> **Última actualización:** 29-10-2026, 9:11:36 p. m.
 > **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
 
 ## 📁 Anatomía
@@ -55,6 +55,14 @@
 | Anatomía I - Seminarios - Rotulado TP 9.pdf | `PDF` | 2.40 MB | [Abrir en Drive](https://drive.google.com/file/d/1CGmpRuhBU5Bzz7neLkjEBxeB2XPE_3mV/view?usp=drivesdk) |
 | Anatomía I - Seminarios - Seminario 5 - Elementos Vasculonerviosos del Cuello (Resolución).pdf | `PDF` | 3.08 MB | [Abrir en Drive](https://drive.google.com/file/d/1ci5kxlxsm7feXuOpYppNgOmVfW34HpPN/view?usp=drivesdk) |
 
+## 📁 Anatomía II
+
+### Resúmenes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Resumen Anatomía C2.pdf | `PDF` | 10.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1HTmKAEf7Z7W8WouvsyD9LXaKgClpvWrW/view?usp=drivesdk) |
+
 ## 📁 Bioestadística
 
 ### Controles (2)
@@ -76,7 +84,7 @@
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| BIOLOGÍA CELULAR - UNIDAD 1 | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
+| BIOLOGÍA CELULAR - UNIDAD 1 - Google Docs | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Fase S Replicación Biocel.pdf | `PDF` | 259.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1Vtx3fW1gRCHA84I8PmWmKACSUZhd9Hgh/view?usp=drivesdk) |
@@ -273,11 +281,10 @@
 | Carpeta de Recursos: Drive | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/18QT78-aJoCCe7cc-Ptb1ZXRa2-Ai-qzH) |
 | Planilla / Base de Datos Compartida | `SHEETS` | Google Sheets | [Visitar SHEETS](https://docs.google.com/spreadsheets/d/1zrgohJktOkNd_Q2we3PpoUK1GRHJ_sWXMIhggbPsm3Y/edit?usp=drivesdk) |
 
-### Resúmenes (4)
+### Resúmenes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Resumen C2.pdf | `PDF` | 10.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1HTmKAEf7Z7W8WouvsyD9LXaKgClpvWrW/view?usp=drivesdk) |
 | Resumen Isp Catita Monardes.pdf | `PDF` | 1.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1b3ptg4rq29rkso8okEaIDWbYzMzhlsyr/view?usp=drivesdk) |
 | Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
