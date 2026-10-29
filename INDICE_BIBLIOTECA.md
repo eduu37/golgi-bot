@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 9:41:50 p. m.
-> **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
+> **Última actualización:** 29-10-2026, 10:24:17 p. m.
+> **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
 
 ## 📁 Anatomía
 
@@ -125,12 +125,13 @@
 | :--- | :---: | :---: | :---: |
 | Biología Celular y Molecular - Resúmenes - Resumen Factores y Proteinas Traduccion Eucariota.pdf | `PDF` | 191.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1TMKFenvE7mXKTfkurRBqeFJhupSjbK5Q/view?usp=drivesdk) |
 
-### Seminarios (3)
+### Seminarios (4)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Biología Celular y Molecular - Seminarios - 16 - Replicación del DNA (Fase S).pdf | `PDF` | 2.08 MB | [Abrir en Drive](https://drive.google.com/file/d/16DNxoouhvIsgq3ERVkCallzqlpuBpEZe/view?usp=drivesdk) |
 | Biología Celular y Molecular - Seminarios - Seminario 5 Expresion Genica.pdf | `PDF` | 979.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1VjGwzP5OgctKq0PvGDlALlYLvtgb_X4Z/view?usp=drivesdk) |
+| Biología Celular y Molecular - Seminarios - Seminarios Biocel Certamen 2 Aury.pdf | `PDF` | 63.27 MB | [Abrir en Drive](https://drive.google.com/file/d/1gp2hMrUPmvRYuQVVTf0jXV6DcCJDiN1Q/view?usp=drivesdk) |
 | Seminario 6 Via Exocitica 1.pdf | `PDF` | 1.13 MB | [Abrir en Drive](https://drive.google.com/file/d/1gKtmdGrBdpY0m0AltTtCOAeqrOO4_EPP/view?usp=drivesdk) |
 
 ## 📁 Física
