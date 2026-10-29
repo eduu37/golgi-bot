@@ -143,10 +143,18 @@ client.on("ready", async () => {
         const links = await procesarEnlaces(msg, msg.timestamp);
         enlacesGuardados += links;
 
+        // Omitir stickers o notas de voz (no son material de estudio)
+        if (msg.type === "sticker" || msg.type === "ptt") {
+          continue;
+        }
+
         if (msg.hasMedia) {
           try {
             const media = await msg.downloadMedia();
-            if (media) {
+            if (!media) {
+              console.log("⏩ Archivo adjunto no disponible o expirado en WhatsApp. Omitiendo...");
+              continue;
+            }
               let extension = "";
 
               if (media.filename && media.filename.includes(".")) {
@@ -306,7 +314,6 @@ client.on("ready", async () => {
               }
 
               await new Promise((resolve) => setTimeout(resolve, 3000));
-            }
           } catch (err) {
             console.error("❌ Error al procesar archivo:", err.message);
           }

@@ -87,10 +87,114 @@ if (fs.existsSync(utilsPath)) {
 
   if (modified) {
     fs.writeFileSync(utilsPath, content, "utf8");
-    console.log("✅ whatsapp-web.js patch applied successfully!");
+    console.log("✅ whatsapp-web.js Utils.js patch applied successfully!");
   } else {
-    console.log("ℹ️ whatsapp-web.js is already patched.");
+    console.log("ℹ️ whatsapp-web.js Utils.js is already patched.");
   }
 } else {
-  console.log("⚠️ whatsapp-web.js not found in node_modules, skipping patch.");
+  console.log("⚠️ whatsapp-web.js Utils.js not found in node_modules, skipping patch.");
+}
+
+const messagePath = path.join(
+  __dirname,
+  "..",
+  "node_modules",
+  "whatsapp-web.js",
+  "src",
+  "structures",
+  "Message.js"
+);
+
+if (fs.existsSync(messagePath)) {
+  let content = fs.readFileSync(messagePath, "utf8");
+  if (content.includes("}, this.id._serialized);")) {
+    content = content.replace(
+      /const result = await this\.client\.pupPage\.evaluate\(async \(msgId\) => \{[\s\S]*?\}, this\.id\._serialized\);/,
+      `const result = await this.client.pupPage.evaluate(async (msgId, rawId) => {
+            let searchId = typeof msgId === 'string' ? msgId : (msgId?._serialized || msgId?.['$1'] || null);
+            if (!searchId && rawId) {
+                searchId = typeof rawId === 'string' ? rawId : (rawId._serialized || rawId['$1'] || rawId.id);
+            }
+
+            let msg = searchId ? window.require('WAWebCollections').Msg.get(searchId) : null;
+            if (!msg && searchId) {
+                try {
+                    msg = (await window.require('WAWebCollections').Msg.getMessagesById([searchId]))?.messages?.[0];
+                } catch (e) {}
+            }
+            if (!msg && rawId) {
+                const targetId = typeof rawId === 'string' ? rawId : (rawId.id || rawId._serialized || rawId['$1']);
+                const all = window.require('WAWebCollections').Msg.getModelsArray();
+                msg = all.find(m => {
+                    if (!m.id) return false;
+                    return m.id._serialized === targetId || m.id['$1'] === targetId || m.id.id === targetId || m.id === targetId;
+                });
+            }
+
+            if (
+                !msg ||
+                !msg.mediaData ||
+                msg.mediaData.mediaStage === 'REUPLOADING'
+            ) {
+                return null;
+            }
+            if (msg.mediaData.mediaStage != 'RESOLVED') {
+                try {
+                    await msg.downloadMedia({
+                        downloadEvenIfExpensive: true,
+                        rmrReason: 1,
+                    });
+                } catch (e) {}
+            }
+
+            if (
+                msg.mediaData.mediaStage &&
+                (msg.mediaData.mediaStage.includes('ERROR') || msg.mediaData.mediaStage === 'FETCHING')
+            ) {
+                return undefined;
+            }
+
+            try {
+                const mockQpl = {
+                    addAnnotations: function () {
+                        return this;
+                    },
+                    addPoint: function () {
+                        return this;
+                    },
+                };
+                const decryptedMedia = await window
+                    .require('WAWebDownloadManager')
+                    .downloadManager.downloadAndMaybeDecrypt({
+                        directPath: msg.directPath,
+                        encFilehash: msg.encFilehash,
+                        filehash: msg.filehash,
+                        mediaKey: msg.mediaKey,
+                        mediaKeyTimestamp: msg.mediaKeyTimestamp,
+                        type: msg.type,
+                        signal: new AbortController().signal,
+                        downloadQpl: mockQpl,
+                    });
+
+                const data =
+                    await window.WWebJS.arrayBufferToBase64Async(
+                        decryptedMedia,
+                    );
+
+                return {
+                    data,
+                    mimetype: msg.mimetype,
+                    filename: msg.filename,
+                    filesize: msg.size,
+                };
+            } catch (e) {
+                return undefined;
+            }
+        }, this.id?._serialized || this.id?.['$1'] || this.id, this.id);`
+    );
+    fs.writeFileSync(messagePath, content, "utf8");
+    console.log("✅ whatsapp-web.js Message.js patch applied successfully!");
+  } else {
+    console.log("ℹ️ whatsapp-web.js Message.js is already patched.");
+  }
 }
