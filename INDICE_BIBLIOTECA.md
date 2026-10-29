@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 9:12:58 p. m.
+> **Última actualización:** 29-10-2026, 9:13:58 p. m.
 > **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
 
 ## 📁 Anatomía
@@ -178,6 +178,12 @@
 | :--- | :---: | :---: | :---: |
 | Histología y Embriología - Controles - Resumen Control 5 Embrio.pdf | `PDF` | 118.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tCEk1zUSk9_dT1vYgAvzEnsKnOrdPPH2/view?usp=drivesdk) |
 
+### Resúmenes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Resumen del Certamen 2.pdf | `PDF` | 34.43 MB | [Abrir en Drive](https://drive.google.com/file/d/1QPQsMWsQOU-rpk0F3eu_qGOaJ1DVp7m4/view?usp=drivesdk) |
+
 ### Seminarios (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
@@ -250,11 +256,10 @@
 | Oido Externo y Medio Apuntes.pdf | `PDF` | 3.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUJOGXc6lAkYJihroEW4LDrPEaexNfDX/view?usp=drivesdk) |
 | Oido Interno Apuntes.pdf | `PDF` | 2.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1xcdZunPkJ0_-t1u-H41HiqRXIWzY0_46/view?usp=drivesdk) |
 
-### Certámenes (7)
+### Certámenes (6)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| 00 - Resumen del Certamen 2.pdf | `PDF` | 34.43 MB | [Abrir en Drive](https://drive.google.com/file/d/1QPQsMWsQOU-rpk0F3eu_qGOaJ1DVp7m4/view?usp=drivesdk) |
 | Certamen Isp 2022.pdf | `PDF` | 96.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1qFPnLV33KbCyNLN1UCxF9PGdvstqHC5L/view?usp=drivesdk) |
 | Pauta Certamen 2023.pdf | `PDF` | 126.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Pd0W5iDaaNxDjEbBO-OAo8oeGOIPaVxg/view?usp=drivesdk) |
 | Pauta Certamen Pr Ctico 2.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1TPis4En7W1P8pLNJRJAcRfeKfhpwdjHU/view?usp=drivesdk) |
