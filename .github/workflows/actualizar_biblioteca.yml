@@ -46,7 +46,7 @@ jobs:
           GOOGLE_TOKEN_JSON: ${{ secrets.GOOGLE_TOKEN_JSON }}
           GENERACION_INPUT: ${{ inputs.generacion || 'todas' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          APPS_SCRIPT_URL: ${{ secrets.APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbzKDFJqHLSFQ9yuqz1Z0zB5m9pigYJx52SDDSrMg9n7M9-xtCF0UIKV-H2VEs-ar5JMKw/exec' }}
+          APPS_SCRIPT_URL: ${{ secrets.APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwte8RGJo-cmbWxRGOz5M33rui7v-0KVK7tqhnHzZRwP3tBMys8jcjXE2HmXDH7TOlqXQ/exec' }}
         run: |
           node -e "
             import('./indice.js').then(async m => {
