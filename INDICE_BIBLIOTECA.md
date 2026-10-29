@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 9:11:36 p. m.
+> **Última actualización:** 29-10-2026, 9:12:58 p. m.
 > **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
 
 ## 📁 Anatomía
@@ -57,6 +57,12 @@
 
 ## 📁 Anatomía II
 
+### Apuntes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Transcripcion Regiones Faciales.pdf | `PDF` | 13.67 MB | [Abrir en Drive](https://drive.google.com/file/d/1fP_0ST6fviuDr8rxhlxHFZiU3oSQd_VG/view?usp=drivesdk) |
+
 ### Resúmenes (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
@@ -80,7 +86,7 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (21)
+### Apuntes (20)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -103,7 +109,6 @@
 | Biología Celular y Molecular - Apuntes - Transcripcion Gastrulacion.pdf | `PDF` | 2.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1WzY-r6WZ8h2EkI2pSrAE29kro39N7sCC/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripcion Regiones Faciales (1).pdf | `PDF` | 13.67 MB | [Abrir en Drive](https://drive.google.com/file/d/1fP_0ST6fviuDr8rxhlxHFZiU3oSQd_VG/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
 ### Certámenes (4)
