@@ -20,39 +20,70 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
     timeStyle: "short",
   });
 
-  // Mapeo materias <-> semestres desde categorias.json
+  // Mapeo materias <-> semestres desde malla.json (fuente de verdad oficial)
   let mapaMateriasSemestre = {};
   let semestresConfig = {};
+  let semestreActivoMalla = null;
+
   try {
-    const cats = JSON.parse(fs.readFileSync(path.join(process.cwd(), "categorias.json"), "utf8"));
-    if (cats.semestres) {
-      semestresConfig = cats.semestres;
-      for (const [sem, mats] of Object.entries(cats.semestres)) {
-        if (Array.isArray(mats)) {
-          for (const m of mats) {
-            mapaMateriasSemestre[m] = String(sem);
+    const rutaMalla = path.join(process.cwd(), "malla.json");
+    if (fs.existsSync(rutaMalla)) {
+      const malla = JSON.parse(fs.readFileSync(rutaMalla, "utf8"));
+      if (malla.semestres) {
+        semestresConfig = malla.semestres;
+        for (const [sem, mats] of Object.entries(malla.semestres)) {
+          if (Array.isArray(mats)) {
+            for (const m of mats) {
+              mapaMateriasSemestre[m] = String(sem);
+            }
+          }
+        }
+      }
+      if (malla.semestreActivo) {
+        semestreActivoMalla = String(malla.semestreActivo).trim();
+      }
+    }
+  } catch (errMalla) {
+    console.error("⚠️ Error al leer malla.json:", errMalla.message);
+  }
+
+  // Complementar con categorias.json si hay asignaturas adicionales
+  try {
+    const rutaCats = path.join(process.cwd(), "categorias.json");
+    if (fs.existsSync(rutaCats)) {
+      const cats = JSON.parse(fs.readFileSync(rutaCats, "utf8"));
+      if (cats.semestres) {
+        for (const [sem, mats] of Object.entries(cats.semestres)) {
+          if (!semestresConfig[sem]) semestresConfig[sem] = mats;
+          if (Array.isArray(mats)) {
+            for (const m of mats) {
+              if (!mapaMateriasSemestre[m]) {
+                mapaMateriasSemestre[m] = String(sem);
+              }
+            }
           }
         }
       }
     }
   } catch {}
 
-  // Conteo de recursos por semestre
+  const semDefault = SEMESTRE_DEFAULT || semestreActivoMalla || "2";
+
+  // Conteo de recursos por semestre (archivos sin clasificar caen en el semestre activo)
   const conteoPorSemestre = {};
   for (const it of items) {
-    const s = String(it.semestre || "1");
+    const s = String(it.semestre || semDefault);
     conteoPorSemestre[s] = (conteoPorSemestre[s] || 0) + 1;
   }
 
-  // Lista de semestres a mostrar en la barra
+  // Lista de semestres a mostrar en la barra (semestres activos 1 y 2, más cualquier semestre que tenga recursos)
   const setSemestres = new Set([
-    ...Object.keys(conteoPorSemestre),
-    ...Object.entries(semestresConfig)
-      .filter(([_, mats]) => Array.isArray(mats) && mats.length > 0)
-      .map(([s]) => s),
+    "1",
+    "2",
+    String(semDefault),
+    ...Object.keys(conteoPorSemestre).filter((s) => (conteoPorSemestre[s] || 0) > 0),
   ]);
   const listaSemestres = Array.from(setSemestres).sort((a, b) => Number(a) - Number(b));
-  const semDefault = SEMESTRE_DEFAULT || "1";
 
   // Botones de pestañas de semestres
   const tabsSemestresHtml = listaSemestres
@@ -71,7 +102,7 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
       let sem = mapaMateriasSemestre[m] || "";
       const esSinClasificar = m.toLowerCase().includes("sin clasificar");
       if (esSinClasificar) {
-        sem = semDefault || "1";
+        sem = semDefault;
       }
       const claseExtra = esSinClasificar ? " filter-pill-unclassified" : "";
       const texto = esSinClasificar ? `⚠️ ${m}` : m;
@@ -91,20 +122,42 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
   // Serializamos items en JSON para el cliente
   const itemsJsonSeguro = JSON.stringify(items).replace(/</g, "\\u003c");
 
-  // Lista completa de asignaturas para el modal de clasificar
+  // Lista completa de asignaturas para el modal de clasificar organizada por semestres
   let todasMaterias = [];
   try {
     const cats = JSON.parse(fs.readFileSync(path.join(process.cwd(), "categorias.json"), "utf8"));
     if (cats.materias) todasMaterias = Object.keys(cats.materias);
   } catch {}
-  if (todasMaterias.length === 0) todasMaterias = listaMaterias;
   todasMaterias = Array.from(new Set([...todasMaterias, ...listaMaterias]))
     .filter((m) => m !== "Sin clasificar" && m !== "_Duplicados" && m !== "root")
     .sort((a, b) => a.localeCompare(b, "es"));
 
-  const optionsMateriasClasificar = todasMaterias
-    .map((m) => `<option value="${m}">${m}</option>`)
-    .join("\n");
+  let optionsMateriasClasificar = "";
+  const semestresOrdenados = Object.keys(semestresConfig).sort((a, b) => Number(a) - Number(b));
+  const materiasVistasEnMalla = new Set();
+
+  for (const sem of semestresOrdenados) {
+    const mats = semestresConfig[sem];
+    if (Array.isArray(mats) && mats.length > 0) {
+      optionsMateriasClasificar += `<optgroup label="${sem}º Semestre">\n`;
+      for (const m of mats) {
+        materiasVistasEnMalla.add(m.toLowerCase());
+        optionsMateriasClasificar += `  <option value="${m}" data-semestre="${sem}">${m}</option>\n`;
+      }
+      optionsMateriasClasificar += `</optgroup>\n`;
+    }
+  }
+
+  // Materias adicionales fuera de la malla si existieran
+  const materiasAdicionales = todasMaterias.filter((m) => !materiasVistasEnMalla.has(m.toLowerCase()));
+  if (materiasAdicionales.length > 0) {
+    optionsMateriasClasificar += `<optgroup label="Otras Asignaturas">\n`;
+    for (const m of materiasAdicionales) {
+      const s = mapaMateriasSemestre[m] || semDefault;
+      optionsMateriasClasificar += `  <option value="${m}" data-semestre="${s}">${m}</option>\n`;
+    }
+    optionsMateriasClasificar += `</optgroup>\n`;
+  }
 
   return `<!DOCTYPE html>
 <html lang="es">
@@ -1599,10 +1652,24 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
 
     if (selectMateriaClasificar) {
       selectMateriaClasificar.addEventListener('change', () => {
+        const selectedOpt = selectMateriaClasificar.selectedOptions ? selectMateriaClasificar.selectedOptions[0] : null;
+        const semOpt = selectedOpt ? selectedOpt.getAttribute('data-semestre') : null;
         const mat = selectMateriaClasificar.value;
-        const semSugerido = MAPA_MATERIA_SEMESTRE[mat];
+        const semSugerido = semOpt || MAPA_MATERIA_SEMESTRE[mat];
         if (semSugerido && selectSemestreClasificar) {
           selectSemestreClasificar.value = semSugerido;
+        }
+      });
+    }
+
+    if (selectSemestreClasificar) {
+      selectSemestreClasificar.addEventListener('change', () => {
+        const sem = selectSemestreClasificar.value;
+        const selectedOpt = selectMateriaClasificar ? (selectMateriaClasificar.selectedOptions ? selectMateriaClasificar.selectedOptions[0] : null) : null;
+        const semActual = selectedOpt ? selectedOpt.getAttribute('data-semestre') : (selectMateriaClasificar ? MAPA_MATERIA_SEMESTRE[selectMateriaClasificar.value] : null);
+        if (semActual !== sem && selectMateriaClasificar) {
+          const opt = Array.from(selectMateriaClasificar.options).find(o => o.getAttribute('data-semestre') === sem);
+          if (opt) selectMateriaClasificar.value = opt.value;
         }
       });
     }

@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 
@@ -34,8 +35,20 @@ export const GITHUB_BRANCH = (process.env.GITHUB_BRANCH || 'main').trim();
 // ⚡ Webhook de Google Apps Script para mover archivos directo con 1 clic desde la web
 export const APPS_SCRIPT_URL = (process.env.APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwte8RGJo-cmbWxRGOz5M33rui7v-0KVK7tqhnHzZRwP3tBMys8jcjXE2HmXDH7TOlqXQ/exec').trim();
 
-// 📅 Semestre académico actual (por defecto 1)
-export const SEMESTRE_DEFAULT = (process.env.SEMESTRE || '1').trim();
+// 📅 Semestre académico actual (por defecto lee de .env, malla.json o '2')
+let semPorDefecto = (process.env.SEMESTRE || '').trim();
+if (!semPorDefecto) {
+  try {
+    const rutaMalla = path.join(process.cwd(), 'malla.json');
+    if (fs.existsSync(rutaMalla)) {
+      const malla = JSON.parse(fs.readFileSync(rutaMalla, 'utf8'));
+      if (malla && malla.semestreActivo) {
+        semPorDefecto = String(malla.semestreActivo).trim();
+      }
+    }
+  } catch {}
+}
+export const SEMESTRE_DEFAULT = semPorDefecto || '2';
 
 // Detección automática del enlace de la biblioteca web (GitHub Pages)
 export function obtenerUrlBibliotecaWeb(subpath = '') {

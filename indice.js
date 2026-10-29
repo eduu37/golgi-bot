@@ -69,18 +69,18 @@ export function determinarSemestreItem(materia, ancestorFolders = []) {
   // 1. Revisar si alguna carpeta en la ruta de Drive menciona un semestre explícito (ej: "1º Semestre", "Semestre 2", "5to Semestre")
   for (const folder of ancestorFolders) {
     if (!folder || !folder.name) continue;
-    const match = folder.name.match(/(\d+)\s*(?:º|°|er|do|to|to|mo|vo|no)?\s*semestre|semestre\s*(\d+)/i);
+    const match = folder.name.match(/(\d+)\s*(?:º|°|er|do|to|mo|vo|no)?\s*semestre|semestre\s*(\d+)/i);
     if (match) {
       return String(match[1] || match[2]);
     }
   }
 
-  // 2. Mapeo inteligente según la asignatura en categorias.json
+  // 2. Mapeo inteligente según la asignatura en malla.json / categorias.json
   const semMateria = obtenerSemestreDeMateria(materia);
   if (semMateria) return String(semMateria);
 
-  // 3. Fallback al semestre por defecto configurado
-  return SEMESTRE_DEFAULT || "1";
+  // 3. Fallback al semestre por defecto configurado (semestre activo de la generación)
+  return SEMESTRE_DEFAULT || "2";
 }
 
 // ============================================================
@@ -463,7 +463,10 @@ async function procesarArchivosRemotosAppsScript(archivosAppsScript, driveFolder
     totalBytes += isNaN(sizeNum) ? 0 : sizeNum;
 
     const infoExt = obtenerExtensionYTipo(item.name);
-    const semestre = determinarSemestreItem(materia, []);
+    let semestre = item.semestre || "";
+    if (!semestre) {
+      semestre = determinarSemestreItem(materia, []);
+    }
 
     catalogoArchivos.push({
       id: item.id,

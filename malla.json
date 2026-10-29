@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "descripcion": "Configuración oficial de asignaturas (ramos) por semestre académico para Golgi Bot",
+  "semestreActivo": "2",
+  "semestres": {
+    "1": [
+      "Química General y Orgánica",
+      "Biología Celular",
+      "Introducción a la Medicina",
+      "Matemáticas y Biofísica",
+      "Antropología Médica"
+    ],
+    "2": [
+      "Anatomía",
+      "Histología y Embriología",
+      "Bioestadística",
+      "Biología célular y molecular",
+      "Física",
+      "Salúd pública"
+    ],
+    "3": [
+      "Fisiología I",
+      "Bioquímica Médica",
+      "Genética Clínica",
+      "Microbiología I"
+    ],
+    "4": [
+      "Fisiología II",
+      "Fisiopatología I",
+      "Farmacología General",
+      "Microbiología II y Parasitología"
+    ],
+    "5": [
+      "Fisiopatología II",
+      "Semiología Médica",
+      "Farmacología Clínica",
+      "Anatomía Patológica"
+    ],
+    "6": [
+      "Medicina Interna I",
+      "Cirugía I",
+      "Infectología",
+      "Diagnóstico por Imágenes"
+    ],
+    "7": [
+      "Medicina Interna II",
+      "Cirugía II",
+      "Pediatría I",
+      "Obstetricia y Ginecología I"
+    ],
+    "8": [
+      "Pediatría II",
+      "Obstetricia y Ginecología II",
+      "Psiquiatría y Salud Mental",
+      "Neurología"
+    ],
+    "9": [
+      "Traumatología y Ortopedia",
+      "Dermatología",
+      "Otorrinolaringología",
+      "Oftalmología",
+      "Urología"
+    ],
+    "10": [
+      "Medicina de Urgencia",
+      "Bioética y Medicina Legal",
+      "Gestión en Salud",
+      "Atención Primaria de Salud"
+    ],
+    "11": [
+      "Internado Medicina Interna"
+    ],
+    "12": [
+      "Internado Cirugía"
+    ],
+    "13": [
+      "Internado Pediatría"
+    ],
+    "14": [
+      "Internado Ginecología y Obstetricia"
+    ]
+  }
+}

@@ -108,7 +108,7 @@ function procesarSolicitud(e) {
       }
 
       const lista = [];
-      recorrerCarpetaParaCatalogo(targetFolder, "", "", lista);
+      recorrerCarpetaParaCatalogo(targetFolder, "", "", "", lista);
       return jsonRespuesta({
         ok: true,
         total: lista.length,
@@ -180,10 +180,19 @@ function procesarSolicitud(e) {
 
     const materia = (params.materia || "").trim();
     const tipo = (params.tipo || "Apuntes").trim();
+    let semestre = String(params.semestre || "").trim();
 
     if (materia) {
-      // Buscar o crear la carpeta de la Asignatura/Materia
-      const materiaFolder = obtenerOCrearCarpeta(rootFolder, materia);
+      if (!semestre || semestre === "null" || semestre === "undefined") {
+        semestre = "2";
+      }
+      const nombreCarpetaSemestre = semestre.toLowerCase().includes("semestre") ? semestre : (semestre + "º Semestre");
+
+      // Buscar o crear la carpeta del Semestre en la raíz
+      const semestreFolder = obtenerOCrearCarpeta(rootFolder, nombreCarpetaSemestre);
+
+      // Buscar o crear la carpeta de la Asignatura/Materia dentro del Semestre
+      const materiaFolder = obtenerOCrearCarpeta(semestreFolder, materia);
 
       // Buscar o crear la subcarpeta del Tipo (Apuntes, Certámenes, etc.)
       const destinoFinal = tipo ? obtenerOCrearCarpeta(materiaFolder, tipo) : materiaFolder;
@@ -212,6 +221,7 @@ function procesarSolicitud(e) {
       mensaje: "Archivo actualizado con éxito en Google Drive",
       archivo: nombreActualizado,
       nombreAnterior: nombreOriginal,
+      semestre: semestre,
       materia: materia,
       tipo: tipo,
       fileId: fileId
@@ -253,7 +263,7 @@ function obtenerOCrearCarpeta(parentFolder, nombre) {
   return parentFolder.createFolder(nombre);
 }
 
-function recorrerCarpetaParaCatalogo(carpeta, materia, tipo, resultado) {
+function recorrerCarpetaParaCatalogo(carpeta, semestre, materia, tipo, resultado) {
   if (!carpeta) return;
   const files = carpeta.getFiles();
   while (files.hasNext()) {
@@ -268,6 +278,7 @@ function recorrerCarpetaParaCatalogo(carpeta, materia, tipo, resultado) {
       size: f.getSize(),
       createdTime: f.getDateCreated().toISOString(),
       webViewLink: f.getUrl(),
+      semestre: semestre || "",
       materia: materia || "Sin clasificar",
       tipo: tipo || "Apuntes",
       mimeType: f.getMimeType()
@@ -279,12 +290,19 @@ function recorrerCarpetaParaCatalogo(carpeta, materia, tipo, resultado) {
     const sub = subCarpetas.next();
     if (sub.isTrashed()) continue;
     const subNombre = sub.getName();
-    if (!materia) {
-      recorrerCarpetaParaCatalogo(sub, subNombre, "", resultado);
+
+    // Detección de carpetas de Semestre (ej. "2º Semestre", "Semestre 2", "1° Semestre")
+    const matchSem = subNombre.match(/(\d+)\s*(?:º|°|er|do|to|mo|vo|no)?\s*semestre|semestre\s*(\d+)/i);
+
+    if (matchSem && !semestre && !materia) {
+      const numSem = String(matchSem[1] || matchSem[2]);
+      recorrerCarpetaParaCatalogo(sub, numSem, "", "", resultado);
+    } else if (!materia) {
+      recorrerCarpetaParaCatalogo(sub, semestre, subNombre, "", resultado);
     } else if (!tipo) {
-      recorrerCarpetaParaCatalogo(sub, materia, subNombre, resultado);
+      recorrerCarpetaParaCatalogo(sub, semestre, materia, subNombre, resultado);
     } else {
-      recorrerCarpetaParaCatalogo(sub, materia, tipo, resultado);
+      recorrerCarpetaParaCatalogo(sub, semestre, materia, tipo, resultado);
     }
   }
 }

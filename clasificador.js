@@ -3,6 +3,22 @@ import path from "path";
 import { GEMINI_API_KEY } from "./config.js";
 
 let categoriasCache = null;
+let mallaCache = null;
+
+export function cargarMalla() {
+  if (mallaCache) return mallaCache;
+  const rutaJson = path.join(process.cwd(), "malla.json");
+  try {
+    if (fs.existsSync(rutaJson)) {
+      const data = fs.readFileSync(rutaJson, "utf-8");
+      mallaCache = JSON.parse(data);
+      return mallaCache;
+    }
+  } catch (err) {
+    console.error("⚠️ Error al leer malla.json:", err.message);
+  }
+  return null;
+}
 
 export function cargarReglas() {
   if (categoriasCache) return categoriasCache;
@@ -24,6 +40,21 @@ export function cargarReglas() {
 
 export function obtenerSemestreDeMateria(materia) {
   if (!materia || materia === "Sin clasificar") return null;
+
+  // 1. Prioridad: Revisar configuración oficial en malla.json
+  const malla = cargarMalla();
+  if (malla && malla.semestres) {
+    for (const [sem, materias] of Object.entries(malla.semestres)) {
+      if (Array.isArray(materias)) {
+        const encontrada = materias.some(
+          (m) => normalizar(m) === normalizar(materia),
+        );
+        if (encontrada) return String(sem);
+      }
+    }
+  }
+
+  // 2. Respaldo: Revisar categorias.json
   const reglas = cargarReglas();
   if (reglas.semestres) {
     for (const [sem, materias] of Object.entries(reglas.semestres)) {
