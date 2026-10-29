@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 9:34:51 p. m.
+> **Última actualización:** 29-10-2026, 9:37:04 p. m.
 > **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
 
 ## 📁 Anatomía
@@ -127,12 +127,13 @@
 | :--- | :---: | :---: | :---: |
 | Biología Celular y Molecular - Resúmenes - Resumen Factores y Proteinas Traduccion Eucariota.pdf | `PDF` | 191.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1TMKFenvE7mXKTfkurRBqeFJhupSjbK5Q/view?usp=drivesdk) |
 
-### Seminarios (2)
+### Seminarios (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Biología Celular y Molecular - Seminarios - 16 - Replicación del DNA (Fase S).pdf | `PDF` | 2.08 MB | [Abrir en Drive](https://drive.google.com/file/d/16DNxoouhvIsgq3ERVkCallzqlpuBpEZe/view?usp=drivesdk) |
 | Biología Celular y Molecular - Seminarios - Seminario 5 Expresion Genica.pdf | `PDF` | 979.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1VjGwzP5OgctKq0PvGDlALlYLvtgb_X4Z/view?usp=drivesdk) |
+| Seminario 6 Via Exocitica 1.pdf | `PDF` | 1.13 MB | [Abrir en Drive](https://drive.google.com/file/d/1gKtmdGrBdpY0m0AltTtCOAeqrOO4_EPP/view?usp=drivesdk) |
 
 ## 📁 Física
 
@@ -299,11 +300,10 @@
 | Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
 
-### Seminarios (3)
+### Seminarios (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | 14 - Vía Endocítica.pdf | `PDF` | 2.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1veHZoJrbyPuOMZSyQsyqQ8Tk4afkgR1Q/view?usp=drivesdk) |
 | 15 - Regulación de la Proliferación.pdf | `PDF` | 1.75 MB | [Abrir en Drive](https://drive.google.com/file/d/1czMGw2e2KBZ61z-AwC5WPKNbGxFM77hy/view?usp=drivesdk) |
-| Seminario 6 Via Exocitica 1.pdf | `PDF` | 1.13 MB | [Abrir en Drive](https://drive.google.com/file/d/1gKtmdGrBdpY0m0AltTtCOAeqrOO4_EPP/view?usp=drivesdk) |
 
