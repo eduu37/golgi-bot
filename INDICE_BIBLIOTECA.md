@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 3:14:02 p. m.
-> **Total de Recursos:** 140 (117 en Drive, 23 enlaces web) | **Espacio Drive:** 594.37 MB
+> **Última actualización:** 29-10-2026, 3:24:30 p. m.
+> **Total de Recursos:** 139 (116 en Drive, 23 enlaces web) | **Espacio Drive:** 594.15 MB
 
 ## 📁 Anatomía
 
@@ -94,16 +94,23 @@
 | Resumen Bioestadistica (Temas 2, 3, 4, 5).pdf | `PDF` | 222.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1wEm-n5xOrtRY1t5WRfOeoTk3EZUzCM7l/view?usp=drivesdk) |
 | Resumen Bioestadistica (Temas 2, 3, 4, 5).pdf | `PDF` | 222.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1KW9Cmr1qxixrT41eS0TEq5UZXVOlomnL/view?usp=drivesdk) |
 
+## 📁 Biología celular y molecular
+
+### Apuntes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| BIOLOGÍA CELULAR - UNIDAD 1 | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
+
 ## 📁 Biología célular y molecular
 
-### Apuntes (15)
+### Apuntes (14)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Apoyo Clase Transcripción.pdf | `PDF` | 1.10 MB | [Abrir en Drive](https://drive.google.com/file/d/1HPMfdx6puBV3ZDaHZ9Wyb_k2QGXCOz2l/view?usp=drivesdk) |
 | Apuntes Núcleo y Expresión Génica.pdf | `PDF` | 749.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1TYNNymWcno-HJN_vg51lU5rJnbxJChVa/view?usp=drivesdk) |
 | Apuntes Traducción.pdf | `PDF` | 804.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1pwqQl1GXNgkIhyrXViwoC7Frocldh7iS/view?usp=drivesdk) |
-| BIOLOGÍA CELULAR - UNIDAD 1 | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
 | Cavidad Oral Transcripcion.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/138RrUCP3Wj0q5HxDB9Ol9ox-Rz-S4Ds1/view?usp=drivesdk) |
 | Fascia Cervical Transcripcion.pdf | `PDF` | 2.28 MB | [Abrir en Drive](https://drive.google.com/file/d/136mQxJEPCzdf0i7Cuc59RrbGLbv_WEwB/view?usp=drivesdk) |
 | Lengua y Dientes Transcripcion.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1SuYA4SUFnOhuBAfvxeWtuFb4pn3yj6ui/view?usp=drivesdk) |
@@ -192,12 +199,6 @@
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Guia Estudio Fisica.pdf | `PDF` | 174.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ApRVuOVYbdW8E7sg4jeEvDivU5Xkvr2H/view?usp=drivesdk) |
-
-### Resúmenes (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Formulario.pdf | `PDF` | 217.9 KB | [Abrir en Drive](https://drive.google.com/file/d/15kfDF-GruhxDZZPnxWqDhToMLqTo2p60/view?usp=drivesdk) |
 
 ### Seminarios (1)
 

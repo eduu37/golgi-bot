@@ -1316,24 +1316,16 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
             </select>
           </div>
 
-          <div style="display: flex; flex-direction: column; gap: 0.35rem;">
-            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">📅 Semestre Académico</label>
-            <select id="selectSemestreClasificar" class="modal-select">
-              <option value="1">1º Semestre</option>
-              <option value="2">2º Semestre</option>
-              <option value="3">3º Semestre</option>
-              <option value="4">4º Semestre</option>
-              <option value="5">5º Semestre</option>
-              <option value="6">6º Semestre</option>
-              <option value="7">7º Semestre</option>
-              <option value="8">8º Semestre</option>
-              <option value="9">9º Semestre</option>
-              <option value="10">10º Semestre</option>
-              <option value="11">11º Semestre</option>
-              <option value="12">12º Semestre</option>
-              <option value="13">13º Semestre</option>
-              <option value="14">14º Semestre</option>
-            </select>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.65rem 0.95rem; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.22); border-radius: 10px;">
+            <div style="display: flex; align-items: center; gap: 0.45rem;">
+              <span style="font-size: 1.1rem;">📅</span>
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Semestre Académico:</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span id="badgeSemestreModal" style="font-size: 0.88rem; font-weight: 700; color: var(--accent-cyan);">2º Semestre</span>
+              <span style="font-size: 0.72rem; color: var(--text-dim); background: rgba(255, 255, 255, 0.06); padding: 0.15rem 0.45rem; border-radius: 6px;">Automático</span>
+            </div>
+            <input type="hidden" id="selectSemestreClasificar" value="2">
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 0.35rem;">
@@ -1667,22 +1659,12 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
         const selectedOpt = selectMateriaClasificar.selectedOptions ? selectMateriaClasificar.selectedOptions[0] : null;
         const semOpt = selectedOpt ? selectedOpt.getAttribute('data-semestre') : null;
         const mat = selectMateriaClasificar.value;
-        const semSugerido = semOpt || MAPA_MATERIA_SEMESTRE[mat];
-        if (semSugerido && selectSemestreClasificar) {
+        const semSugerido = semOpt || MAPA_MATERIA_SEMESTRE[mat] || '2';
+        if (selectSemestreClasificar) {
           selectSemestreClasificar.value = semSugerido;
         }
-      });
-    }
-
-    if (selectSemestreClasificar) {
-      selectSemestreClasificar.addEventListener('change', () => {
-        const sem = selectSemestreClasificar.value;
-        const selectedOpt = selectMateriaClasificar ? (selectMateriaClasificar.selectedOptions ? selectMateriaClasificar.selectedOptions[0] : null) : null;
-        const semActual = selectedOpt ? selectedOpt.getAttribute('data-semestre') : (selectMateriaClasificar ? MAPA_MATERIA_SEMESTRE[selectMateriaClasificar.value] : null);
-        if (semActual !== sem && selectMateriaClasificar) {
-          const opt = Array.from(selectMateriaClasificar.options).find(o => o.getAttribute('data-semestre') === sem);
-          if (opt) selectMateriaClasificar.value = opt.value;
-        }
+        const badgeSem = document.getElementById('badgeSemestreModal');
+        if (badgeSem) badgeSem.textContent = semSugerido + 'º Semestre';
       });
     }
 
@@ -1752,9 +1734,12 @@ export function generarHtmlIndice(datos, generacion = GENERACION) {
         }
       }
 
+      const semDetectado = itemAClasificar.semestre || MAPA_MATERIA_SEMESTRE[selectMateriaClasificar ? selectMateriaClasificar.value : ''] || '2';
       if (selectSemestreClasificar) {
-        selectSemestreClasificar.value = itemAClasificar.semestre || MAPA_MATERIA_SEMESTRE[selectMateriaClasificar ? selectMateriaClasificar.value : ''] || '1';
+        selectSemestreClasificar.value = semDetectado;
       }
+      const badgeSem = document.getElementById('badgeSemestreModal');
+      if (badgeSem) badgeSem.textContent = semDetectado + 'º Semestre';
 
       if (selectTipoClasificar) {
         selectTipoClasificar.value = itemAClasificar.tipo || 'Apuntes';

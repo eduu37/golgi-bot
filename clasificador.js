@@ -23,19 +23,96 @@ export function cargarMalla() {
 export function cargarReglas() {
   if (categoriasCache) return categoriasCache;
   const rutaJson = path.join(process.cwd(), "categorias.json");
+  let cats = {
+    materiaPorDefecto: "Sin clasificar",
+    tipoPorDefecto: "Documentos sin clasificar",
+    materias: {},
+    tipos: {},
+  };
+
   try {
     const data = fs.readFileSync(rutaJson, "utf-8");
-    categoriasCache = JSON.parse(data);
-    return categoriasCache;
+    cats = JSON.parse(data);
   } catch (err) {
     console.error("⚠️ Error al leer categorias.json:", err.message);
-    return {
-      materiaPorDefecto: "Sin clasificar",
-      tipoPorDefecto: "Documentos sin clasificar",
-      materias: {},
-      tipos: {},
-    };
   }
+
+  // Integrar automáticamente todos los ramos oficiales de malla.json
+  const malla = cargarMalla();
+  if (malla && malla.semestres) {
+    if (!cats.semestres) cats.semestres = malla.semestres;
+
+    const materiasActuales = { ...cats.materias };
+    const nuevasMaterias = {};
+
+    // Términos y jerga médica clave para ramos universitarios de Medicina
+    const terminosSugeridos = {
+      fisiologia: ["fisio", "fisiologia", "potencial de accion", "homeostasis", "guyton"],
+      bioquimica: ["bioq", "bioquimica", "enzimas", "metabolismo", "ciclo de krebs", "glucolisis", "lipidos"],
+      genetica: ["genetica", "herencia", "cromosoma", "mutacion", "mendel", "cariotipo"],
+      farmacologia: ["farmaco", "farmacologia", "farmacocinetica", "farmacodinamia", "dosis", "droga", "receptores", "goodman"],
+      inmunologia: ["inmuno", "inmunologia", "anticuerpo", "antigeno", "linfocito", "citoquina", "inmunidad", "roitt", "abbas"],
+      microbiologia: ["micro", "microbiologia", "bacteria", "virus", "hongo", "parasito", "tincion gram", "cultivo"],
+      semiologia: ["semio", "semiologia", "anamnesis", "examen fisico", "signo", "sintoma", "goic", "suros", "argente"],
+      patologia: ["pato", "patologia", "biopsia", "necrosis", "inflamacion", "robbins"],
+      pediatria: ["pedia", "pediatria", "nino", "lactante", "vacunas", "crecimiento y desarrollo", "nelson"],
+      neurologia: ["neuro", "neurologia", "acv", "cefalea", "epilepsia", "parkinson", "pares craneales"],
+      psiquiatria: ["psiquiatria", "psiquiatra", "trastorno", "depresion", "ansiedad", "psicosis", "dsm"],
+      cirugia: ["cirugia", "quirurgico", "pabellon", "apendicitis", "hernia", "postoperatorio", "schwartz"],
+      nutricion: ["nutricion", "dieta", "calorias", "macronutrientes", "micronutrientes", "desnutricion"],
+      urgencias: ["urgencia", "urgencias", "triage", "reanimacion", "rcp", "shock", "politrauma"],
+      obstetricia: ["obstetricia", "ginecologia", "gine", "embarazo", "parto", "cesarea", "puerperio", "feto", "uterino", "papanicolau", "pap"],
+      ingles: ["ingles", "english", "grammar", "vocabulary", "reading", "listening"],
+      quimica: ["quimica", "organica", "enlaces", "reacciones", "ph", "estequiometria"],
+      matematicas: ["matematicas", "calculo", "algebra", "ecuaciones"],
+    };
+
+    for (const [sem, lista] of Object.entries(malla.semestres)) {
+      if (!Array.isArray(lista)) continue;
+      for (const materiaOficial of lista) {
+        const matNorm = normalizar(materiaOficial);
+        let palabras = [];
+
+        // Buscar si existían palabras clave en categorias.json (ej. "Anatomía" -> "Anatomía II", "Salúd pública" -> "Salud Pública")
+        let encontradaKey = Object.keys(materiasActuales).find(
+          (k) => normalizar(k) === matNorm || matNorm.startsWith(normalizar(k)) || normalizar(k).startsWith(matNorm)
+        );
+
+        if (encontradaKey && Array.isArray(materiasActuales[encontradaKey])) {
+          palabras = [...materiasActuales[encontradaKey]];
+        }
+
+        // Agregar nombre completo y normalizado
+        palabras.push(materiaOficial.toLowerCase());
+        palabras.push(matNorm);
+
+        // Tokens significativos
+        const tokens = matNorm.split(" ").filter((t) => t.length > 3 && !["para", "como", "sobre", "entre", "cada"].includes(t));
+        palabras.push(...tokens);
+
+        // Añadir términos sugeridos según temática
+        for (const [clave, extras] of Object.entries(terminosSugeridos)) {
+          if (matNorm.includes(clave)) {
+            palabras.push(...extras);
+          }
+        }
+
+        nuevasMaterias[materiaOficial] = Array.from(new Set(palabras));
+      }
+    }
+
+    // Mantener también las materias de categorias.json que no estén en la malla
+    for (const [k, v] of Object.entries(materiasActuales)) {
+      if (!nuevasMaterias[k]) {
+        nuevasMaterias[k] = v;
+      }
+    }
+
+    cats.materias = nuevasMaterias;
+  }
+
+  categoriasCache = cats;
+  return categoriasCache;
 }
 
 export function obtenerSemestreDeMateria(materia) {
