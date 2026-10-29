@@ -42,15 +42,35 @@ const client = new Client({
   puppeteer: { args: ["--no-sandbox", "--disable-setuid-sandbox"] },
 });
 
-client.on("qr", (qr) => qrcode.generate(qr, { small: true }));
+client.on("qr", (qr) => {
+  qrcode.generate(qr, { small: true });
+  if (process.send) {
+    try {
+      process.send({ type: "qr", qr });
+    } catch {}
+  }
+});
 
 client.on("ready", async () => {
-  console.log("✅ WhatsApp conectado.");
+  if (process.send) {
+    try {
+      process.send({ type: "ready" });
+    } catch {}
+  }
+  console.log("✅ WhatsApp conectado. Iniciando procesamiento de lote de mensajes...");
   console.log("⏱️ Esperando 10 segundos para sincronizar el historial...");
   await new Promise((resolve) => setTimeout(resolve, 10000));
 
   try {
-    const chat = await client.getChatById(TARGET_GROUP_ID);
+    let chat;
+    try {
+      chat = await client.getChatById(TARGET_GROUP_ID);
+    } catch (errChat) {
+      console.error(`❌ No se pudo encontrar el grupo con ID "${TARGET_GROUP_ID}".`);
+      console.error(`Detalle: ${errChat.message}`);
+      await shutdownBot();
+      return;
+    }
     console.log(`📁 Grupo encontrado: "${chat.name}"`);
 
     const messages = await chat.fetchMessages({ limit: 300 });
@@ -360,7 +380,27 @@ async function shutdownBot() {
 
 async function arrancar() {
   console.log("🚀 Iniciando sistema...");
-  await iniciarDrive();
+
+  // Validación preventiva de configuración
+  if (!TARGET_GROUP_ID || TARGET_GROUP_ID.includes("tu_id_de_grupo")) {
+    console.error("❌ ERROR: TARGET_GROUP_ID no está configurado.");
+    console.error("💡 Configura el ID del grupo en la pestaña 'Configuración' de la app o en el archivo .env.");
+    process.exit(1);
+  }
+
+  if (!DRIVE_FOLDER_ID || DRIVE_FOLDER_ID.includes("tu_id_de_carpeta")) {
+    console.error("❌ ERROR: DRIVE_FOLDER_ID no está configurado.");
+    console.error("💡 Configura el ID de la carpeta de Drive en la pestaña 'Configuración' de la app o en el archivo .env.");
+    process.exit(1);
+  }
+
+  try {
+    await iniciarDrive();
+  } catch (err) {
+    console.error("❌ Error conectando a Google Drive:\n" + err.message);
+    process.exit(1);
+  }
+
   client.initialize();
 }
 

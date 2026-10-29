@@ -130,9 +130,9 @@ function actualizarEstadoUI(estado, qr = null) {
     globalStatusText.textContent = 'En Línea';
 
     heroBadge.className = 'hero-status-badge active';
-    heroBadgeText.textContent = 'Bot Activo';
-    heroTitle.textContent = 'Monitoreando WhatsApp';
-    heroDesc.textContent = 'El bot está escuchando el grupo y respaldará cualquier archivo o enlace automáticamente.';
+    heroBadgeText.textContent = 'Procesando Lote';
+    heroTitle.textContent = 'Procesando mensajes de WhatsApp';
+    heroDesc.textContent = 'El bot está analizando el historial del grupo, clasificando archivos y respaldando automáticamente en Google Drive.';
 
     btnToggleBot.className = 'btn btn-danger btn-large';
     btnBotIcon.textContent = '⏹️';
@@ -159,12 +159,12 @@ function actualizarEstadoUI(estado, qr = null) {
   } else {
     // detenido
     globalStatusDot.className = 'status-dot dot-offline';
-    globalStatusText.textContent = 'Desconectado';
+    globalStatusText.textContent = 'Listo / Pausado';
 
     heroBadge.className = 'hero-status-badge';
     heroBadgeText.textContent = 'Servicio en Pausa';
-    heroTitle.textContent = 'El bot está detenido';
-    heroDesc.textContent = 'Presiona Iniciar para conectar con WhatsApp, monitorear el grupo y respaldar apuntes automáticamente.';
+    heroTitle.textContent = 'El bot está listo';
+    heroDesc.textContent = 'Presiona Iniciar para procesar el lote de mensajes recientes del grupo y respaldar apuntes automáticamente.';
 
     btnToggleBot.className = 'btn btn-primary btn-large';
     btnBotIcon.textContent = '▶️';

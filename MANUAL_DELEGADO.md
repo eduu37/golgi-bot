@@ -86,9 +86,17 @@ El bot ya incluye internamente la conexión segura al servidor oficial de la Bib
 
 ---
 
-## ⚡ Botón "Mover en Drive Ahora" (Clasificación con 1 solo clic en la Web)
+## ⚙️ Gestión de Archivos desde la Web (Mover, Renombrar y Eliminar)
 
-Para que cualquier delegado o alumno pueda mover archivos pendientes directamente desde la página web sin abrir Drive:
+Cualquier usuario o delegado con acceso a la página web puede gestionar los archivos de Google Drive directamente desde la biblioteca:
+
+* **⚙️ Gestionar / 🏷️ Clasificar:** Cada tarjeta de archivo en la biblioteca cuenta con un botón de gestión.
+* **✏️ Renombrar:** Puedes escribir un nuevo nombre descriptivo para el archivo (la extensión se preserva automáticamente).
+* **📚 Mover de Categoría:** Puedes reubicar el archivo en otra asignatura, tipo de recurso (Apuntes, Certámenes, Controles, Seminarios, etc.) o semestre.
+* **🗑️ Eliminar:** Permite enviar el archivo a la papelera de Google Drive con un clic previa confirmación de seguridad.
+* **⚡ Respuesta Instantánea:** Al guardar o eliminar, los cambios se reflejan inmediatamente en la interfaz y se persisten en el navegador (`localStorage`) para que nunca vuelvan a aparecer desorganizados o borrados mientras se procesa la sincronización.
+
+### ⏱️ Configuración del Webhook en Google Apps Script:
 
 1. Ve a [script.google.com](https://script.google.com/) con la misma cuenta de Google dueña del Drive.
 2. Crea un **Nuevo proyecto**, borra el código que aparezca y pega el contenido del archivo [`GOOGLE_APPS_SCRIPT.js`](file:///c:/Users/eduan/Desktop/Golgi%20bot/GOOGLE_APPS_SCRIPT.js).
@@ -97,9 +105,19 @@ Para que cualquier delegado o alumno pueda mover archivos pendientes directament
    * Ejecutar como: **Yo**.
    * Quién tiene acceso: **Cualquier persona**.
 4. Copia la **URL de la aplicación web** (termina en `/exec`).
-5. En la biblioteca web, al hacer clic en **"🏷️ Clasificar"** en cualquier archivo sin clasificar, pega la URL en la cajita de configuración (se guarda automáticamente para siempre). También puedes guardarla en tu archivo `.env` como `APPS_SCRIPT_URL=https://.../exec`.
+5. En la biblioteca web, al hacer clic en **"⚙️ Gestionar"** o **"🏷️ Clasificar"**, pega la URL en la cajita de configuración (se guarda automáticamente para siempre). También puedes guardarla en tu archivo `.env` como `APPS_SCRIPT_URL=https://.../exec`.
 
-¡A partir de ese momento, al presionar **"⚡ Mover en Drive Ahora"**, el archivo se reubicará en la carpeta adecuada de Google Drive de inmediato!
+> 🔒 **Recomendación de Seguridad (PIN Opcional):**  
+> En la línea 35 de `GOOGLE_APPS_SCRIPT.js` puedes definir un `PIN_SEGURIDAD = "1234"` (o el que elijas). Al pulsar "💾 Guardar Cambios" o "🗑️ Eliminar", la web te pedirá este PIN una sola vez y lo guardará en tu navegador, impidiendo que personas no autorizadas modifiquen o borren archivos.
+
+---
+
+## 🔑 ¿Cómo evitar que el permiso de Google Drive expire cada semana?
+1. Entra a [Google Cloud Console](https://console.cloud.google.com/) en tu proyecto de Golgi Bot.
+2. En el menú lateral, ve a **APIs y servicios** > **Pantalla de consentimiento de OAuth**.
+3. Si el estado de publicación dice *"Prueba"* (Testing), haz clic en el botón **"Publicar la aplicación"** para pasarla a *"En producción"*.
+   *(Aunque Google te indique que no está verificada, como tú eres el único usuario/desarrollador que la usa, puedes continuar sin problemas).*
+4. De esta manera, el archivo `token.json` durará indefinidamente y no te pedirá volver a autorizar cada 7 días.
 
 ---
 *Desarrollado para la carrera de Medicina por Eduardo Ortega — Golgi Bot.*

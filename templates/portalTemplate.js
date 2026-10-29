@@ -1,0 +1,311 @@
+/**
+ * Plantilla del Portal Central de Generaciones
+ * Genera el index.html principal donde se listan todas las cohortes académicas.
+ */
+export function generarHtmlPortalGeneraciones(generaciones = []) {
+  const cardsHtml = generaciones
+    .map((gen) => {
+      const fecha = gen.ultimaActualizacion
+        ? new Date(gen.ultimaActualizacion).toLocaleDateString("es-CL", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          })
+        : "Reciente";
+
+      return `
+      <div class="gen-card">
+        <div class="gen-card-badge">🎓 Generación ${gen.id}</div>
+        <h2 class="gen-card-title">Generación ${gen.id}</h2>
+        <p class="gen-card-desc">Materiales oficiales, certámenes, seminarios y enlaces recopilados automáticamente por Golgi Bot.</p>
+        
+        <div class="gen-stats-grid">
+          <div class="gen-stat-item">
+            <span class="gen-stat-num">${gen.totalItems || 0}</span>
+            <span class="gen-stat-lbl">Recursos</span>
+          </div>
+          <div class="gen-stat-item">
+            <span class="gen-stat-num">${gen.totalMaterias || 0}</span>
+            <span class="gen-stat-lbl">Materias</span>
+          </div>
+          <div class="gen-stat-item">
+            <span class="gen-stat-num">${gen.totalArchivos || 0}</span>
+            <span class="gen-stat-lbl">Archivos Drive</span>
+          </div>
+        </div>
+
+        <div class="gen-card-footer">
+          <span class="gen-date">🕒 Act: ${fecha}</span>
+          <a href="${gen.url || gen.id + '/'}" class="btn-enter-gen">
+            <span>Entrar a Biblioteca</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+      `;
+    })
+    .join("\n");
+
+  return `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Digital de Medicina — Portal de Generaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0a0e17;
+      --bg-card: rgba(18, 24, 38, 0.7);
+      --bg-card-hover: rgba(26, 35, 54, 0.9);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(56, 189, 248, 0.4);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-cyan: #38bdf8;
+      --accent-teal: #14b8a6;
+      --accent-emerald: #10b981;
+      --glass-blur: blur(16px);
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.15), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(20, 184, 166, 0.1), transparent 60%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .generaciones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .gen-card {
+      background: var(--bg-card);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gen-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
+      opacity: 0.7;
+    }
+
+    .gen-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-active);
+      background: var(--bg-card-hover);
+      box-shadow: 0 16px 36px -12px rgba(56, 189, 248, 0.2);
+    }
+
+    .gen-card-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.78rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .gen-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .gen-card-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .gen-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 0.85rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .gen-stat-num {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+    }
+
+    .gen-stat-lbl {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 0.15rem;
+    }
+
+    .gen-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .gen-date {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .btn-enter-gen {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+      color: #041019;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-enter-gen:hover {
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-enter-gen .arrow {
+      transition: transform 0.2s ease;
+    }
+
+    .btn-enter-gen:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        Archivo Académico Central de Medicina
+      </div>
+      <h1>Biblioteca Digital — Portal de Generaciones</h1>
+      <p class="subtitle">Explora los apuntes, certámenes, seminarios y enlaces organizados por generación.</p>
+    </header>
+
+    <div class="generaciones-grid">
+      ${cardsHtml}
+    </div>
+
+    <footer>
+      <p>🧬 Desarrollado para la carrera de Medicina — Golgi Bot &bull; Actualizado automáticamente</p>
+    </footer>
+  </div>
+</body>
+</html>`;
+}

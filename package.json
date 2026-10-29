@@ -33,10 +33,10 @@
       "enlaces.js",
       "indice.js",
       "ordenador.js",
-      "sincronizador-git.js",
       "generaciones.json",
       "config.js",
       "status.js",
+      "templates/**/*",
       "categorias.json",
       "package.json"
     ],
@@ -69,7 +69,7 @@
     "pdf-parse": "^2.4.5",
     "qrcode": "^1.5.4",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": "github:pedroslopez/whatsapp-web.js#main"
+    "whatsapp-web.js": "^1.34.7"
   },
   "devDependencies": {
     "electron": "^44.5.1",

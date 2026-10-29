@@ -42,17 +42,19 @@ function dispararGitHubAction() {
   if (!GITHUB_TOKEN) return;
   try {
     const url = "https://api.github.com/repos/" + GITHUB_REPO + "/dispatches";
-    UrlFetchApp.fetch(url, {
+    const res = UrlFetchApp.fetch(url, {
       method: "post",
       headers: {
         "Authorization": "Bearer " + GITHUB_TOKEN,
-        "Accept": "application/vnd.github.v3+json",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
         "User-Agent": "Golgi-Bot-AppsScript"
       },
       contentType: "application/json",
       payload: JSON.stringify({ event_type: "actualizar_biblioteca" }),
       muteHttpExceptions: true
     });
+    Logger.log("GitHub Action disparada. Código de respuesta: " + res.getResponseCode());
   } catch (e) {
     Logger.log("Error al disparar GitHub Action: " + e.toString());
   }
@@ -80,8 +82,7 @@ function procesarSolicitud(e) {
     }
 
     const fileId = params.fileId || params.id;
-    const materia = (params.materia || "").trim();
-    const tipo = (params.tipo || "Apuntes").trim();
+    const accion = String(params.accion || params.action || "mover").toLowerCase().trim();
     const pin = params.pin || "";
 
     if (PIN_SEGURIDAD && pin !== PIN_SEGURIDAD) {
@@ -90,10 +91,6 @@ function procesarSolicitud(e) {
 
     if (!fileId) {
       return jsonRespuesta({ ok: false, error: "Falta el ID del archivo (fileId)." });
-    }
-
-    if (!materia) {
-      return jsonRespuesta({ ok: false, error: "Falta la materia destino." });
     }
 
     // 1. Localizar el archivo en Google Drive
@@ -111,22 +108,70 @@ function procesarSolicitud(e) {
       rootFolder = DriveApp.getRootFolder();
     }
 
-    // 3. Buscar o crear la carpeta de la Asignatura/Materia
-    const materiaFolder = obtenerOCrearCarpeta(rootFolder, materia);
+    // 2.1 Seguridad: Verificar que el archivo pertenezca a la jerarquía de la carpeta del bot
+    if (rootFolder && !esDescendienteDeCarpeta(file, rootFolder)) {
+      return jsonRespuesta({ ok: false, error: "Seguridad: El archivo solicitado no pertenece a la carpeta autorizada del bot." });
+    }
 
-    // 4. Buscar o crear la subcarpeta del Tipo (Apuntes, Certámenes, etc.)
-    const destinoFinal = tipo ? obtenerOCrearCarpeta(materiaFolder, tipo) : materiaFolder;
+    // ============================================================
+    // ACCIÓN 1: ELIMINAR ARCHIVO (MOVER A PAPELERA DE DRIVE)
+    // ============================================================
+    if (accion === "eliminar" || accion === "borrar" || accion === "trash") {
+      const nombreEliminado = file.getName();
+      file.setTrashed(true);
+      dispararGitHubAction();
+      return jsonRespuesta({
+        ok: true,
+        accion: "eliminar",
+        mensaje: `Archivo "${nombreEliminado}" enviado a la papelera de Google Drive con éxito.`,
+        archivo: nombreEliminado,
+        fileId: fileId
+      });
+    }
 
-    // 5. Mover el archivo a la subcarpeta destino
-    if (file.moveTo) {
-      file.moveTo(destinoFinal);
-    } else {
-      destinoFinal.addFile(file);
-      const padres = file.getParents();
-      while (padres.hasNext()) {
-        const padre = padres.next();
-        if (padre.getId() !== destinoFinal.getId()) {
-          padre.removeFile(file);
+    // ============================================================
+    // ACCIÓN 2: RENOMBRAR Y/O MOVER (ACTUALIZAR)
+    // ============================================================
+    const nombreOriginal = file.getName();
+    let nombreActualizado = nombreOriginal;
+    const nuevoNombre = (params.nuevoNombre || params.nombre || "").trim();
+
+    if (nuevoNombre && nuevoNombre !== nombreOriginal) {
+      // Preservar extensión original si el usuario no la escribió
+      let extensionOriginal = "";
+      const dotIndex = nombreOriginal.lastIndexOf(".");
+      if (dotIndex > 0) {
+        extensionOriginal = nombreOriginal.substring(dotIndex);
+      }
+      let nombreFinal = nuevoNombre;
+      if (extensionOriginal && !nombreFinal.toLowerCase().endsWith(extensionOriginal.toLowerCase())) {
+        nombreFinal += extensionOriginal;
+      }
+      file.setName(nombreFinal);
+      nombreActualizado = nombreFinal;
+    }
+
+    const materia = (params.materia || "").trim();
+    const tipo = (params.tipo || "Apuntes").trim();
+
+    if (materia) {
+      // Buscar o crear la carpeta de la Asignatura/Materia
+      const materiaFolder = obtenerOCrearCarpeta(rootFolder, materia);
+
+      // Buscar o crear la subcarpeta del Tipo (Apuntes, Certámenes, etc.)
+      const destinoFinal = tipo ? obtenerOCrearCarpeta(materiaFolder, tipo) : materiaFolder;
+
+      // Mover el archivo a la subcarpeta destino
+      if (file.moveTo) {
+        file.moveTo(destinoFinal);
+      } else {
+        destinoFinal.addFile(file);
+        const padres = file.getParents();
+        while (padres.hasNext()) {
+          const padre = padres.next();
+          if (padre.getId() !== destinoFinal.getId()) {
+            padre.removeFile(file);
+          }
         }
       }
     }
@@ -136,15 +181,41 @@ function procesarSolicitud(e) {
 
     return jsonRespuesta({
       ok: true,
-      mensaje: "Archivo movido con éxito en Google Drive",
-      archivo: file.getName(),
+      accion: "actualizar",
+      mensaje: "Archivo actualizado con éxito en Google Drive",
+      archivo: nombreActualizado,
+      nombreAnterior: nombreOriginal,
       materia: materia,
-      tipo: tipo
+      tipo: tipo,
+      fileId: fileId
     });
 
   } catch (err) {
     return jsonRespuesta({ ok: false, error: err.toString() });
   }
+}
+
+function esDescendienteDeCarpeta(archivo, carpetaRaiz) {
+  if (!carpetaRaiz) return true;
+  const raizId = carpetaRaiz.getId();
+  let padres = archivo.getParents();
+  let visitados = {};
+  let cola = [];
+  while (padres.hasNext()) {
+    cola.push(padres.next());
+  }
+  while (cola.length > 0) {
+    const p = cola.shift();
+    if (p.getId() === raizId) return true;
+    if (!visitados[p.getId()]) {
+      visitados[p.getId()] = true;
+      let abuelos = p.getParents();
+      while (abuelos.hasNext()) {
+        cola.push(abuelos.next());
+      }
+    }
+  }
+  return false;
 }
 
 function obtenerOCrearCarpeta(parentFolder, nombre) {

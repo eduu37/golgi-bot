@@ -32,6 +32,12 @@ export async function iniciarDrive() {
     );
     authClient.setCredentials(token);
   } else if (fs.existsSync(TOKEN_PATH)) {
+    if (!fs.existsSync(CREDENTIALS_PATH)) {
+      throw new Error(
+        `No se encontró el archivo de credenciales en: ${CREDENTIALS_PATH}\n` +
+        `Descarga credentials.json desde Google Cloud Console y colócalo en la raíz del proyecto.`
+      );
+    }
     const token = JSON.parse(fs.readFileSync(TOKEN_PATH, "utf8"));
     const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf8"));
     const keys = credentials.installed || credentials.web;
@@ -41,14 +47,52 @@ export async function iniciarDrive() {
       keys.redirect_uris[0],
     );
     authClient.setCredentials(token);
+
+    // Verificar si el token sigue siendo válido; si expiró (invalid_grant), re-autorizar automáticamente
+    try {
+      await authClient.getAccessToken();
+    } catch (errToken) {
+      if (errToken.message && (errToken.message.includes("invalid_grant") || errToken.message.includes("revoked"))) {
+        console.log("⚠️ El token de Google Drive ha caducado. Abriendo navegador para renovar sesión...");
+        authClient = await authenticate({
+          scopes: SCOPES,
+          keyfilePath: CREDENTIALS_PATH,
+        });
+        fs.writeFileSync(TOKEN_PATH, JSON.stringify(authClient.credentials, null, 2));
+        console.log("✅ Sesión de Google Drive renovada y guardada en token.json.");
+      } else {
+        throw errToken;
+      }
+    }
   } else {
+    if (!fs.existsSync(CREDENTIALS_PATH)) {
+      throw new Error(
+        `No se encontró el archivo credentials.json necesario para conectar con Google Drive.\n` +
+        `Descárgalo desde Google Cloud Console (Cliente OAuth 2.0) y guárdalo en la raíz del proyecto.`
+      );
+    }
     console.log("⚠️ Autorizando Google Drive...");
     authClient = await authenticate({
       scopes: SCOPES,
       keyfilePath: CREDENTIALS_PATH,
     });
-    fs.writeFileSync(TOKEN_PATH, JSON.stringify(authClient.credentials));
+    fs.writeFileSync(TOKEN_PATH, JSON.stringify(authClient.credentials, null, 2));
   }
+
+  // 🔄 Persistir automáticamente la renovación de tokens cuando expiren
+  authClient.on("tokens", (newTokens) => {
+    try {
+      const currentToken = fs.existsSync(TOKEN_PATH)
+        ? JSON.parse(fs.readFileSync(TOKEN_PATH, "utf8"))
+        : {};
+      const updatedToken = { ...currentToken, ...newTokens };
+      fs.writeFileSync(TOKEN_PATH, JSON.stringify(updatedToken, null, 2), "utf8");
+      console.log("🔄 Token de Google Drive renovado y persistido en disco.");
+    } catch (err) {
+      console.warn("⚠️ No se pudo guardar la renovación del token en disco:", err.message);
+    }
+  });
+
   driveClient = google.drive({ version: "v3", auth: authClient });
   return driveClient;
 }
@@ -107,18 +151,24 @@ export async function existeArchivoEnDrive(filename, carpetaDestinoId) {
 export async function cargarMapaHashesDrive(carpetaRaizId = DRIVE_FOLDER_ID) {
   if (!driveClient) throw new Error("Drive no está inicializado.");
   try {
-    const response = await driveClient.files.list({
-      q: `mimeType != 'application/vnd.google-apps.folder' and trashed = false`,
-      pageSize: 1000,
-      fields: "files(id, name, md5Checksum, parents)",
-    });
-
     const mapa = new Map();
-    for (const f of response.data.files || []) {
-      if (f.md5Checksum) {
-        mapa.set(f.md5Checksum, f);
+    let pageToken = null;
+    do {
+      const response = await driveClient.files.list({
+        q: `mimeType != 'application/vnd.google-apps.folder' and trashed = false`,
+        pageSize: 1000,
+        fields: "nextPageToken, files(id, name, md5Checksum, parents)",
+        pageToken: pageToken || undefined,
+      });
+
+      for (const f of response.data.files || []) {
+        if (f.md5Checksum) {
+          mapa.set(f.md5Checksum, f);
+        }
       }
-    }
+      pageToken = response.data.nextPageToken;
+    } while (pageToken);
+
     return mapa;
   } catch (error) {
     console.error("⚠️ Error cargando mapa de hashes de Drive:", error.message);
@@ -238,29 +288,35 @@ export async function listarTodosLosArchivos(carpetaId) {
   async function buscarRecursivamente(idActual) {
     try {
       const query = `'${idActual}' in parents and trashed = false`;
-      const response = await driveClient.files.list({
-        q: query,
-        // Pedimos 'parents', 'md5Checksum' y 'size' para detección de duplicados y reordenamiento
-        fields: "files(id, name, mimeType, parents, md5Checksum, size)",
-      });
+      let pageToken = null;
+      do {
+        const response = await driveClient.files.list({
+          q: query,
+          pageSize: 1000,
+          // Pedimos 'parents', 'md5Checksum' y 'size' para detección de duplicados y reordenamiento
+          fields: "nextPageToken, files(id, name, mimeType, parents, md5Checksum, size)",
+          pageToken: pageToken || undefined,
+        });
 
-      for (const item of response.data.files) {
-        if (item.mimeType === "application/vnd.google-apps.folder") {
-          // Si es carpeta, entramos a revisarla
-          await buscarRecursivamente(item.id);
-        } else {
-          // 🛑 EXCEPCIÓN: Si el archivo es nuestro Google Sheet de enlaces, lo ignoramos por completo
-          if (
-            item.name === "Enlaces_Guardados" ||
-            item.name === "Enlaces_Guardados.csv"
-          ) {
-            continue;
+        for (const item of response.data.files || []) {
+          if (item.mimeType === "application/vnd.google-apps.folder") {
+            // Si es carpeta, entramos a revisarla
+            await buscarRecursivamente(item.id);
+          } else {
+            // 🛑 EXCEPCIÓN: Si el archivo es nuestro Google Sheet de enlaces, lo ignoramos por completo
+            if (
+              item.name === "Enlaces_Guardados" ||
+              item.name === "Enlaces_Guardados.csv"
+            ) {
+              continue;
+            }
+
+            // Si es cualquier otro archivo, lo guardamos para evaluarlo
+            archivosEncontrados.push(item);
           }
-
-          // Si es cualquier otro archivo, lo guardamos para evaluarlo
-          archivosEncontrados.push(item);
         }
-      }
+        pageToken = response.data.nextPageToken;
+      } while (pageToken);
     } catch (error) {
       console.error(
         `❌ Error al escanear la carpeta ${idActual}:`,

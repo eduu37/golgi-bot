@@ -94,10 +94,39 @@ ipcMain.handle("bot:start", async () => {
     for (const linea of lineas) {
       enviarLog(linea, "info");
 
-      if (linea.includes("¡El bot está LISTO") || linea.includes("Bot conectado")) {
+      if (
+        linea.includes("¡El bot está LISTO") ||
+        linea.includes("Bot conectado") ||
+        linea.includes("WhatsApp conectado")
+      ) {
         cambiarEstado("activo");
         lastQR = null;
         if (mainWindow) mainWindow.webContents.send("bot:ready");
+      }
+    }
+  });
+
+  botProcess.on("message", async (msg) => {
+    if (msg && msg.type === "qr" && msg.qr) {
+      try {
+        const qrDataUrl = await QRCode.toDataURL(msg.qr, { margin: 2, scale: 6 });
+        lastQR = qrDataUrl;
+        cambiarEstado("conectando");
+        if (mainWindow && !mainWindow.isDestroyed()) {
+          mainWindow.webContents.send("bot:status-changed", {
+            estado: "conectando",
+            qr: qrDataUrl,
+          });
+          mainWindow.webContents.send("bot:qr", qrDataUrl);
+        }
+      } catch (err) {
+        enviarLog("Error generando imagen QR: " + err.message, "error");
+      }
+    } else if (msg && msg.type === "ready") {
+      cambiarEstado("activo");
+      lastQR = null;
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.webContents.send("bot:ready");
       }
     }
   });
