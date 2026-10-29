@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 29-10-2026, 9:13:58 p. m.
+> **Última actualización:** 29-10-2026, 9:34:51 p. m.
 > **Total de Recursos:** 114 (86 en Drive, 28 enlaces web) | **Espacio Drive:** 826.80 MB
 
 ## 📁 Anatomía
@@ -57,10 +57,11 @@
 
 ## 📁 Anatomía II
 
-### Apuntes (1)
+### Apuntes (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Bulbo Ocular Apuntes.pdf | `PDF` | 3.75 MB | [Abrir en Drive](https://drive.google.com/file/d/120608OCnQ8_2mOMkjuoVAwUwJ9IqZt6r/view?usp=drivesdk) |
 | Transcripcion Regiones Faciales.pdf | `PDF` | 13.67 MB | [Abrir en Drive](https://drive.google.com/file/d/1fP_0ST6fviuDr8rxhlxHFZiU3oSQd_VG/view?usp=drivesdk) |
 
 ### Resúmenes (1)
@@ -248,11 +249,10 @@
 
 ## 📁 Sin clasificar
 
-### Apuntes (3)
+### Apuntes (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Bulbo Ocular Apuntes.pdf | `PDF` | 3.75 MB | [Abrir en Drive](https://drive.google.com/file/d/120608OCnQ8_2mOMkjuoVAwUwJ9IqZt6r/view?usp=drivesdk) |
 | Oido Externo y Medio Apuntes.pdf | `PDF` | 3.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUJOGXc6lAkYJihroEW4LDrPEaexNfDX/view?usp=drivesdk) |
 | Oido Interno Apuntes.pdf | `PDF` | 2.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1xcdZunPkJ0_-t1u-H41HiqRXIWzY0_46/view?usp=drivesdk) |
 
