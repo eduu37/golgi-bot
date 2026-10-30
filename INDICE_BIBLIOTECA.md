@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 30-10-2026, 4:53:35 a. m.
-> **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
+> **Última actualización:** 30-10-2026, 4:54:13 a. m.
+> **Total de Recursos:** 116 (88 en Drive, 28 enlaces web) | **Espacio Drive:** 892.51 MB
 
 ## 📁 Anatomía
 
@@ -57,13 +57,14 @@
 
 ## 📁 Anatomía II
 
-### Apuntes (8)
+### Apuntes (9)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Bulbo Ocular Apuntes.pdf | `PDF` | 3.75 MB | [Abrir en Drive](https://drive.google.com/file/d/120608OCnQ8_2mOMkjuoVAwUwJ9IqZt6r/view?usp=drivesdk) |
 | Lengua y Dientes Transcripción.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1u9ihm4YQGcY8qCAVisBrjEu9mTs2yGCB/view?usp=drivesdk) |
 | Oido Externo y Medio Apuntes.pdf | `PDF` | 3.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUJOGXc6lAkYJihroEW4LDrPEaexNfDX/view?usp=drivesdk) |
+| Oído Externo y Medio.pdf | `PDF` | 878.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1aoIe7BVtHmBC9FCkuKDHlV_np_3y7Eyk/view?usp=drivesdk) |
 | Oido Interno Apuntes.pdf | `PDF` | 2.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1xcdZunPkJ0_-t1u-H41HiqRXIWzY0_46/view?usp=drivesdk) |
 | Transcripción Cavidades Paranasales (1).pdf | `PDF` | 583.4 KB | [Abrir en Drive](https://drive.google.com/file/d/16krKSwMSNbad3Q-pUxz5Yl3EbnvVky7X/view?usp=drivesdk) |
 | Transcripción Contenido de la Órbita.pdf | `PDF` | 7.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1UOmSdiH-nVXajVeYNLz1jpgEfaqCxNJ9/view?usp=drivesdk) |
@@ -93,10 +94,11 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (4)
+### Apuntes (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| 14 - Vía Endocítica.pdf | `PDF` | 2.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1veHZoJrbyPuOMZSyQsyqQ8Tk4afkgR1Q/view?usp=drivesdk) |
 | BIOLOGÍA CELULAR - UNIDAD 1 - Google Docs | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
@@ -264,12 +266,11 @@
 | Pauta Certamen Te Rico 2.pdf | `PDF` | 197.8 KB | [Abrir en Drive](https://drive.google.com/file/d/16oFtOdDVcL1liI_MDnGCgeyXLrieB_7w/view?usp=drivesdk) |
 | Reconstrucción Certamen Isp con Respuestas 2023.pdf | `PDF` | 268.7 KB | [Abrir en Drive](https://drive.google.com/file/d/15ldJw0X2rcXoZ3JUjB0cjM_lHsFPElu9/view?usp=drivesdk) |
 
-### Documentos sin clasificar (4)
+### Documentos sin clasificar (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Bulbo Ocular.pdf | `PDF` | 1002.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1fNQycaJNLS1QOV4W7wlwn5nszPBpTiyI/view?usp=drivesdk) |
-| Oído Externo y Medio.pdf | `PDF` | 878.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1aoIe7BVtHmBC9FCkuKDHlV_np_3y7Eyk/view?usp=drivesdk) |
 | Region ECM 2026.pdf | `PDF` | 5.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1OG8ZkUhekBBn9YmaevUYSMtdkq54ff5X/view?usp=drivesdk) |
 | S8 - Espacio Craneovertebral y Perifaríngeo 2026.pdf | `PDF` | 5.72 MB | [Abrir en Drive](https://drive.google.com/file/d/1szXgIEHifZeUCajH6AhuPlq5JD_6Sde3/view?usp=drivesdk) |
 
