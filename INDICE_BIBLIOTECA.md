@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 30-10-2026, 1:33:56 a. m.
+> **Última actualización:** 30-10-2026, 1:35:14 a. m.
 > **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
 
 ## 📁 Anatomía
@@ -57,13 +57,15 @@
 
 ## 📁 Anatomía II
 
-### Apuntes (5)
+### Apuntes (7)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Bulbo Ocular Apuntes.pdf | `PDF` | 3.75 MB | [Abrir en Drive](https://drive.google.com/file/d/120608OCnQ8_2mOMkjuoVAwUwJ9IqZt6r/view?usp=drivesdk) |
 | Lengua y Dientes Transcripción.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1u9ihm4YQGcY8qCAVisBrjEu9mTs2yGCB/view?usp=drivesdk) |
 | Oido Externo y Medio Apuntes.pdf | `PDF` | 3.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUJOGXc6lAkYJihroEW4LDrPEaexNfDX/view?usp=drivesdk) |
+| Transcripción Cavidades Paranasales (1).pdf | `PDF` | 583.4 KB | [Abrir en Drive](https://drive.google.com/file/d/16krKSwMSNbad3Q-pUxz5Yl3EbnvVky7X/view?usp=drivesdk) |
+| Transcripción Contenido de la Órbita.pdf | `PDF` | 7.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1UOmSdiH-nVXajVeYNLz1jpgEfaqCxNJ9/view?usp=drivesdk) |
 | Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
 | Transcripcion Regiones Faciales.pdf | `PDF` | 13.67 MB | [Abrir en Drive](https://drive.google.com/file/d/1fP_0ST6fviuDr8rxhlxHFZiU3oSQd_VG/view?usp=drivesdk) |
 
@@ -90,7 +92,7 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (15)
+### Apuntes (12)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -98,9 +100,6 @@
 | Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Fase S Replicación Biocel.pdf | `PDF` | 259.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1Vtx3fW1gRCHA84I8PmWmKACSUZhd9Hgh/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripción Cavidades Paranasales (1).pdf | `PDF` | 583.4 KB | [Abrir en Drive](https://drive.google.com/file/d/16krKSwMSNbad3Q-pUxz5Yl3EbnvVky7X/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripcion Celulas Madre y Auto Organizacion.pdf | `PDF` | 5.09 MB | [Abrir en Drive](https://drive.google.com/file/d/1ctzSeNIW6eFOquIng8hQ2VGb_veQBe58/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripción Contenido de la Órbita.pdf | `PDF` | 7.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1UOmSdiH-nVXajVeYNLz1jpgEfaqCxNJ9/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Desarrollo Sistema Respiratorio Parte 2.pdf | `PDF` | 6.53 MB | [Abrir en Drive](https://drive.google.com/file/d/1jbWAXB4GmQyX2kOIQRLpHjvhhM0XuM5-/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Diferenciacion Informacion Posicional y Morfog.pdf | `PDF` | 4.92 MB | [Abrir en Drive](https://drive.google.com/file/d/1Z9c4Asd_K6w4BjjfbXj4gPrScvnDyost/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Diferenciacion Sexual.pdf | `PDF` | 8.41 MB | [Abrir en Drive](https://drive.google.com/file/d/1_eIflpuwdoWiQo-dHI0kK9IDak1MLCCR/view?usp=drivesdk) |
@@ -163,7 +162,7 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (8)
+### Apuntes (9)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -173,6 +172,7 @@
 | Histología y Embriología - Apuntes - Linea Tiempo Embriologia.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Wu8Gt8ixYjpeEKmKmd3YEgeIIAfGNGad/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Transcripcion Ordenada Embriologia General Periodo Somitico.pdf | `PDF` | 24.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1OuJPQ_ya8-w8Tz6ra9Q3yWiDo-93L5aa/view?usp=drivesdk) |
 | Transcripcion Anexos Embrionarios Organizada.pdf | `PDF` | 8.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1szdSrLkBkgd_aLaUjAahUH2nzKfS8Ac4/view?usp=drivesdk) |
+| Transcripcion Celulas Madre y Auto Organizacion.pdf | `PDF` | 5.09 MB | [Abrir en Drive](https://drive.google.com/file/d/1ctzSeNIW6eFOquIng8hQ2VGb_veQBe58/view?usp=drivesdk) |
 | Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
 | Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
