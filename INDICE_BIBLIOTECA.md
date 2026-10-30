@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 30-10-2026, 1:35:14 a. m.
+> **Última actualización:** 30-10-2026, 1:36:55 a. m.
 > **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
 
 ## 📁 Anatomía
@@ -92,7 +92,7 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (12)
+### Apuntes (9)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -100,9 +100,6 @@
 | Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Fase S Replicación Biocel.pdf | `PDF` | 259.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1Vtx3fW1gRCHA84I8PmWmKACSUZhd9Hgh/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripcion Desarrollo Sistema Respiratorio Parte 2.pdf | `PDF` | 6.53 MB | [Abrir en Drive](https://drive.google.com/file/d/1jbWAXB4GmQyX2kOIQRLpHjvhhM0XuM5-/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripcion Diferenciacion Informacion Posicional y Morfog.pdf | `PDF` | 4.92 MB | [Abrir en Drive](https://drive.google.com/file/d/1Z9c4Asd_K6w4BjjfbXj4gPrScvnDyost/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripcion Diferenciacion Sexual.pdf | `PDF` | 8.41 MB | [Abrir en Drive](https://drive.google.com/file/d/1_eIflpuwdoWiQo-dHI0kK9IDak1MLCCR/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Embriologia Sistema Digestivo.pdf | `PDF` | 4.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1ETdY_RyLAE3_7KkDjQr3LPBPpj_KMx5F/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Embriologia Sistema Nervioso.pdf | `PDF` | 3.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1eL4YC1EP6jYvNRuGixsYjcmdF1Z7NQ_z/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Transcripcion Embriologia Sistema Urinario.pdf | `PDF` | 7.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1TnvleH6xXSMbtLJGq4YP2IQBbCazDmLT/view?usp=drivesdk) |
@@ -162,7 +159,7 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (9)
+### Apuntes (12)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -173,6 +170,9 @@
 | Histología y Embriología - Apuntes - Transcripcion Ordenada Embriologia General Periodo Somitico.pdf | `PDF` | 24.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1OuJPQ_ya8-w8Tz6ra9Q3yWiDo-93L5aa/view?usp=drivesdk) |
 | Transcripcion Anexos Embrionarios Organizada.pdf | `PDF` | 8.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1szdSrLkBkgd_aLaUjAahUH2nzKfS8Ac4/view?usp=drivesdk) |
 | Transcripcion Celulas Madre y Auto Organizacion.pdf | `PDF` | 5.09 MB | [Abrir en Drive](https://drive.google.com/file/d/1ctzSeNIW6eFOquIng8hQ2VGb_veQBe58/view?usp=drivesdk) |
+| Transcripcion Desarrollo Sistema Respiratorio Parte 2.pdf | `PDF` | 6.53 MB | [Abrir en Drive](https://drive.google.com/file/d/1jbWAXB4GmQyX2kOIQRLpHjvhhM0XuM5-/view?usp=drivesdk) |
+| Transcripcion Diferenciacion Informacion Posicional y Morfog.pdf | `PDF` | 4.92 MB | [Abrir en Drive](https://drive.google.com/file/d/1Z9c4Asd_K6w4BjjfbXj4gPrScvnDyost/view?usp=drivesdk) |
+| Transcripcion Diferenciacion Sexual.pdf | `PDF` | 8.41 MB | [Abrir en Drive](https://drive.google.com/file/d/1_eIflpuwdoWiQo-dHI0kK9IDak1MLCCR/view?usp=drivesdk) |
 | Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
 | Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
