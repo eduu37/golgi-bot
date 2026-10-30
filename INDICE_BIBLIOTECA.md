@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 30-10-2026, 12:04:36 p. m.
+> **Última actualización:** 30-10-2026, 4:57:51 p. m.
 > **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
 
 ## 📁 Anatomía
@@ -159,12 +159,11 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (17)
+### Apuntes (16)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Histología y Embriología - Apuntes - Embrio C2 CT 10 CT 20 Normal.zip | `ZIP` | 22.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1RFUWbByB-rNl7VTZuBBwt2inHHBbBIP6/view?usp=drivesdk) |
-| Histología y Embriología - Apuntes - Langman 15 Ed.pdf | `PDF` | 80.07 MB | [Abrir en Drive](https://drive.google.com/file/d/1VAIHDfwmAbtc8HTUPnfi8Ob4qpkt2Txc/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Línea de Tiempo de Embriología.html | `HTML` | 508.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ZOrVWpGCDekkF1i3VjI2OpTb5MXUQNKz/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Linea Tiempo Embriologia.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Wu8Gt8ixYjpeEKmKmd3YEgeIIAfGNGad/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Transcripcion Ordenada Embriologia General Periodo Somitico.pdf | `PDF` | 24.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1OuJPQ_ya8-w8Tz6ra9Q3yWiDo-93L5aa/view?usp=drivesdk) |
@@ -186,6 +185,12 @@
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Histología y Embriología - Controles - Resumen Control 5 Embrio.pdf | `PDF` | 118.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tCEk1zUSk9_dT1vYgAvzEnsKnOrdPPH2/view?usp=drivesdk) |
+
+### Libros (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Langman 15 Ed.pdf | `PDF` | 80.07 MB | [Abrir en Drive](https://drive.google.com/file/d/1VAIHDfwmAbtc8HTUPnfi8Ob4qpkt2Txc/view?usp=drivesdk) |
 
 ### Resúmenes (1)
 
