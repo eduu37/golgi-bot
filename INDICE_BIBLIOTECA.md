@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 30-10-2026, 4:12:59 a. m.
+> **Última actualización:** 30-10-2026, 4:53:35 a. m.
 > **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
 
 ## 📁 Anatomía
@@ -57,13 +57,14 @@
 
 ## 📁 Anatomía II
 
-### Apuntes (7)
+### Apuntes (8)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Bulbo Ocular Apuntes.pdf | `PDF` | 3.75 MB | [Abrir en Drive](https://drive.google.com/file/d/120608OCnQ8_2mOMkjuoVAwUwJ9IqZt6r/view?usp=drivesdk) |
 | Lengua y Dientes Transcripción.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1u9ihm4YQGcY8qCAVisBrjEu9mTs2yGCB/view?usp=drivesdk) |
 | Oido Externo y Medio Apuntes.pdf | `PDF` | 3.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUJOGXc6lAkYJihroEW4LDrPEaexNfDX/view?usp=drivesdk) |
+| Oido Interno Apuntes.pdf | `PDF` | 2.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1xcdZunPkJ0_-t1u-H41HiqRXIWzY0_46/view?usp=drivesdk) |
 | Transcripción Cavidades Paranasales (1).pdf | `PDF` | 583.4 KB | [Abrir en Drive](https://drive.google.com/file/d/16krKSwMSNbad3Q-pUxz5Yl3EbnvVky7X/view?usp=drivesdk) |
 | Transcripción Contenido de la Órbita.pdf | `PDF` | 7.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1UOmSdiH-nVXajVeYNLz1jpgEfaqCxNJ9/view?usp=drivesdk) |
 | Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
@@ -251,12 +252,6 @@
 | Salud Pública - Resúmenes - Resumen Sicko Salud Publica.pdf | `PDF` | 52.9 KB | [Abrir en Drive](https://drive.google.com/file/d/11kBxyY3bo2DY14wigBxmOLJcH-rbyG5X/view?usp=drivesdk) |
 
 ## 📁 Sin clasificar
-
-### Apuntes (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Oido Interno Apuntes.pdf | `PDF` | 2.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1xcdZunPkJ0_-t1u-H41HiqRXIWzY0_46/view?usp=drivesdk) |
 
 ### Certámenes (6)
 
