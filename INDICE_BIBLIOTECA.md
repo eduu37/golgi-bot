@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 30-10-2026, 4:54:13 a. m.
-> **Total de Recursos:** 116 (88 en Drive, 28 enlaces web) | **Espacio Drive:** 892.51 MB
+> **Última actualización:** 30-10-2026, 4:55:51 a. m.
+> **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
 
 ## 📁 Anatomía
 
@@ -57,11 +57,12 @@
 
 ## 📁 Anatomía II
 
-### Apuntes (9)
+### Apuntes (10)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Bulbo Ocular Apuntes.pdf | `PDF` | 3.75 MB | [Abrir en Drive](https://drive.google.com/file/d/120608OCnQ8_2mOMkjuoVAwUwJ9IqZt6r/view?usp=drivesdk) |
+| Bulbo Ocular.pdf | `PDF` | 1002.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1fNQycaJNLS1QOV4W7wlwn5nszPBpTiyI/view?usp=drivesdk) |
 | Lengua y Dientes Transcripción.pdf | `PDF` | 2.17 MB | [Abrir en Drive](https://drive.google.com/file/d/1u9ihm4YQGcY8qCAVisBrjEu9mTs2yGCB/view?usp=drivesdk) |
 | Oido Externo y Medio Apuntes.pdf | `PDF` | 3.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUJOGXc6lAkYJihroEW4LDrPEaexNfDX/view?usp=drivesdk) |
 | Oído Externo y Medio.pdf | `PDF` | 878.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1aoIe7BVtHmBC9FCkuKDHlV_np_3y7Eyk/view?usp=drivesdk) |
@@ -94,11 +95,12 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (5)
+### Apuntes (6)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | 14 - Vía Endocítica.pdf | `PDF` | 2.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1veHZoJrbyPuOMZSyQsyqQ8Tk4afkgR1Q/view?usp=drivesdk) |
+| 15 - Regulación de la Proliferación.pdf | `PDF` | 1.75 MB | [Abrir en Drive](https://drive.google.com/file/d/1czMGw2e2KBZ61z-AwC5WPKNbGxFM77hy/view?usp=drivesdk) |
 | BIOLOGÍA CELULAR - UNIDAD 1 - Google Docs | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
@@ -241,10 +243,12 @@
 | Salud Pública - Apuntes - Apunte de Contextualización Salud Publica.pdf | `PDF` | 74.2 KB | [Abrir en Drive](https://drive.google.com/file/d/12vAER30vxus73-1rsoYGh2jfnDGrv3mc/view?usp=drivesdk) |
 | Salud Pública - Apuntes - Argumentos Modelo Ges Salud Publica (en Contra).pdf | `PDF` | 59.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tRRFLGEojPTSFDvQbUfB-9sH7Xamv88Z/view?usp=drivesdk) |
 
-### Certámenes (1)
+### Certámenes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Certamen Isp 2022.pdf | `PDF` | 96.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1qFPnLV33KbCyNLN1UCxF9PGdvstqHC5L/view?usp=drivesdk) |
+| Pauta Desarrollo Isp.pdf | `PDF` | 276.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1V26-RfC6TMyzkb1DeOqmWn0GEyM9Qu_X/view?usp=drivesdk) |
 | Salud Pública - Certámenes - Apunte para el Certamen.pdf | `PDF` | 220.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1LJx4CouwUXjW0XDbpYUbZ9LJMn5rTNg8/view?usp=drivesdk) |
 
 ### Resúmenes (1)
@@ -255,30 +259,22 @@
 
 ## 📁 Sin clasificar
 
-### Certámenes (6)
+### Certámenes (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Certamen Isp 2022.pdf | `PDF` | 96.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1qFPnLV33KbCyNLN1UCxF9PGdvstqHC5L/view?usp=drivesdk) |
 | Pauta Certamen 2023.pdf | `PDF` | 126.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Pd0W5iDaaNxDjEbBO-OAo8oeGOIPaVxg/view?usp=drivesdk) |
 | Pauta Certamen Pr Ctico 2.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1TPis4En7W1P8pLNJRJAcRfeKfhpwdjHU/view?usp=drivesdk) |
 | Pauta Certamen Practico 2.pdf | `PDF` | 75.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1XTwXObeuMPROKYeoHazZdegTEWuAFtXl/view?usp=drivesdk) |
 | Pauta Certamen Te Rico 2.pdf | `PDF` | 197.8 KB | [Abrir en Drive](https://drive.google.com/file/d/16oFtOdDVcL1liI_MDnGCgeyXLrieB_7w/view?usp=drivesdk) |
 | Reconstrucción Certamen Isp con Respuestas 2023.pdf | `PDF` | 268.7 KB | [Abrir en Drive](https://drive.google.com/file/d/15ldJw0X2rcXoZ3JUjB0cjM_lHsFPElu9/view?usp=drivesdk) |
 
-### Documentos sin clasificar (3)
+### Documentos sin clasificar (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Bulbo Ocular.pdf | `PDF` | 1002.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1fNQycaJNLS1QOV4W7wlwn5nszPBpTiyI/view?usp=drivesdk) |
 | Region ECM 2026.pdf | `PDF` | 5.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1OG8ZkUhekBBn9YmaevUYSMtdkq54ff5X/view?usp=drivesdk) |
 | S8 - Espacio Craneovertebral y Perifaríngeo 2026.pdf | `PDF` | 5.72 MB | [Abrir en Drive](https://drive.google.com/file/d/1szXgIEHifZeUCajH6AhuPlq5JD_6Sde3/view?usp=drivesdk) |
-
-### Ejercicios (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Pauta Desarrollo Isp.pdf | `PDF` | 276.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1V26-RfC6TMyzkb1DeOqmWn0GEyM9Qu_X/view?usp=drivesdk) |
 
 ### Recursos Web (4)
 
@@ -296,11 +292,4 @@
 | Resumen Isp Catita Monardes.pdf | `PDF` | 1.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1b3ptg4rq29rkso8okEaIDWbYzMzhlsyr/view?usp=drivesdk) |
 | Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
-
-### Seminarios (2)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| 14 - Vía Endocítica.pdf | `PDF` | 2.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1veHZoJrbyPuOMZSyQsyqQ8Tk4afkgR1Q/view?usp=drivesdk) |
-| 15 - Regulación de la Proliferación.pdf | `PDF` | 1.75 MB | [Abrir en Drive](https://drive.google.com/file/d/1czMGw2e2KBZ61z-AwC5WPKNbGxFM77hy/view?usp=drivesdk) |
 
