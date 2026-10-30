@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 30-10-2026, 1:38:26 a. m.
+> **Última actualización:** 30-10-2026, 1:39:02 a. m.
 > **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
 
 ## 📁 Anatomía
@@ -92,7 +92,7 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (5)
+### Apuntes (4)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -100,7 +100,6 @@
 | Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Fase S Replicación Biocel.pdf | `PDF` | 259.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1Vtx3fW1gRCHA84I8PmWmKACSUZhd9Hgh/view?usp=drivesdk) |
-| Biología Celular y Molecular - Apuntes - Transcripcion Gastrulacion.pdf | `PDF` | 2.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1WzY-r6WZ8h2EkI2pSrAE29kro39N7sCC/view?usp=drivesdk) |
 
 ### Certámenes (4)
 
@@ -155,7 +154,7 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (16)
+### Apuntes (17)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -173,6 +172,7 @@
 | Transcripcion Embriologia Sistema Nervioso.pdf | `PDF` | 3.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1eL4YC1EP6jYvNRuGixsYjcmdF1Z7NQ_z/view?usp=drivesdk) |
 | Transcripcion Embriologia Sistema Urinario.pdf | `PDF` | 7.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1TnvleH6xXSMbtLJGq4YP2IQBbCazDmLT/view?usp=drivesdk) |
 | Transcripcion Gametogenesis Organizada.pdf | `PDF` | 5.32 MB | [Abrir en Drive](https://drive.google.com/file/d/13_Fx7fAmFfxO5p92Je1NllDGaEwpZs1h/view?usp=drivesdk) |
+| Transcripcion Gastrulacion.pdf | `PDF` | 2.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1WzY-r6WZ8h2EkI2pSrAE29kro39N7sCC/view?usp=drivesdk) |
 | Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
 | Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
