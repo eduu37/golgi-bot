@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 02-11-2026, 2:40:58 p. m.
-> **Total de Recursos:** 115 (87 en Drive, 28 enlaces web) | **Espacio Drive:** 890.07 MB
+> **Última actualización:** 03-11-2026, 12:27:44 a. m.
+> **Total de Recursos:** 116 (88 en Drive, 28 enlaces web) | **Espacio Drive:** 919.11 MB
 
 ## 📁 Anatomía
 
@@ -159,10 +159,11 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (16)
+### Apuntes (17)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Histología y Embriología - Apuntes - Clases C2 Actualizadas (Normal).zip | `ZIP` | 29.05 MB | [Abrir en Drive](https://drive.google.com/file/d/11vtmZiEW7rvzQRZ71C2Qpj47UNOEJ1nm/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Embrio C2 CT 10 CT 20 Normal.zip | `ZIP` | 22.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1RFUWbByB-rNl7VTZuBBwt2inHHBbBIP6/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Línea de Tiempo de Embriología.html | `HTML` | 508.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ZOrVWpGCDekkF1i3VjI2OpTb5MXUQNKz/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Linea Tiempo Embriologia.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Wu8Gt8ixYjpeEKmKmd3YEgeIIAfGNGad/view?usp=drivesdk) |
