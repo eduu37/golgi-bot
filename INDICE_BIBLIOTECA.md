@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 04-11-2026, 11:10:11 p. m.
+> **Última actualización:** 05-11-2026, 4:57:29 a. m.
 > **Total de Recursos:** 116 (88 en Drive, 28 enlaces web) | **Espacio Drive:** 919.11 MB
 
 ## 📁 Anatomía
@@ -101,7 +101,7 @@
 | :--- | :---: | :---: | :---: |
 | 14 - Vía Endocítica.pdf | `PDF` | 2.44 MB | [Abrir en Drive](https://drive.google.com/file/d/1veHZoJrbyPuOMZSyQsyqQ8Tk4afkgR1Q/view?usp=drivesdk) |
 | 15 - Regulación de la Proliferación.pdf | `PDF` | 1.75 MB | [Abrir en Drive](https://drive.google.com/file/d/1czMGw2e2KBZ61z-AwC5WPKNbGxFM77hy/view?usp=drivesdk) |
-| BIOLOGÍA CELULAR - UNIDAD 1 - Google Docs | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
+| BIOLOGÍA CELULAR - UNIDAD 1 | `DOCS` | Google Docs | [Visitar DOCS](https://docs.google.com/document/d/1jap8KFEOKOB6RzelNfFSMyNdDtazP1lVFvn_y_v5Gmo/edit?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Fase S Replicación Biocel.pdf | `PDF` | 259.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1Vtx3fW1gRCHA84I8PmWmKACSUZhd9Hgh/view?usp=drivesdk) |
