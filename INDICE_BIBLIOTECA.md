@@ -1,15 +1,27 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 05-11-2026, 11:14:43 p. m.
-> **Total de Recursos:** 116 (88 en Drive, 28 enlaces web) | **Espacio Drive:** 919.11 MB
+> **Última actualización:** 06-11-2026, 4:56:47 a. m.
+> **Total de Recursos:** 145 (117 en Drive, 28 enlaces web) | **Espacio Drive:** 1016.77 MB
 
 ## 📁 Anatomía
+
+### Apuntes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Anatomía - Apuntes - Conceptos Ua 2 Anato 2.xlsx | `XLSX` | 6.52 MB | [Abrir en Drive](https://docs.google.com/spreadsheets/d/1DXnEjAGwUup8XK4aSUzqqPx7nwHw7jDa/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
 
 ### Certámenes (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Anatomía - Certámenes - C2 Anato 2025.pdf | `PDF` | 1.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1XG8kSan6XpLx9XxEWLTzetj0qoeXM6xe/view?usp=drivesdk) |
+
+### Ejercicios (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Anatomía - Ejercicios - Cuestionario C2 Anatomia 2.html | `HTML` | 288.9 KB | [Abrir en Drive](https://drive.google.com/file/d/1D6iVwaf3RV8zKeYrgn3TDuGdRuxWzvIJ/view?usp=drivesdk) |
 
 ### Resúmenes (2)
 
@@ -20,13 +32,14 @@
 
 ## 📁 Anatomía I
 
-### Apuntes (16)
+### Apuntes (18)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Anatomía I - Apuntes - Anato II Ua 2 Listo.xlsx | `XLSX` | 6.59 MB | [Abrir en Drive](https://docs.google.com/spreadsheets/d/1LsUpoR9DPAWj5iaEU60X0sPNzNzSeOHl/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
 | Anatomía I - Apuntes - Apuntes Anatomia II.zip | `ZIP` | 54.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1cOZJ10GgvzKDTVfUdK1uux0iP5SpxXZr/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Cavidad Nasal.pdf | `PDF` | 10.11 MB | [Abrir en Drive](https://drive.google.com/file/d/1xtgYJ0wWHhJQOv7M3pvUAGiWa0ESqPhE/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Checklist CT 2 Anato II.pdf | `PDF` | 1.74 MB | [Abrir en Drive](https://drive.google.com/file/d/1oqSXBFEk7tJZCC41Zz7EV8rL11EYA9oU/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Contenido de la Orbita Apuntes.pdf | `PDF` | 3.84 MB | [Abrir en Drive](https://drive.google.com/file/d/1J8MgC4DI1bGa6rFqQoDEyXccfZvBzR9P/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Fascia Cervical 2026.pdf | `PDF` | 6.18 MB | [Abrir en Drive](https://drive.google.com/file/d/1ReWzSnB_aBV3SWIAmrsxpylLn76qEQ_c/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Musculos del Cuello 2026.pdf | `PDF` | 8.29 MB | [Abrir en Drive](https://drive.google.com/file/d/1MJ_k6qSjcPbbz8kPBVc_jtMUqBcBxrbB/view?usp=drivesdk) |
@@ -36,22 +49,37 @@
 | Anatomía I - Apuntes - Region Lateral del Cuello 2026.pdf | `PDF` | 3.64 MB | [Abrir en Drive](https://drive.google.com/file/d/1o0R9_XC5vZsPM_MbxggyZsVEdEKWnrWG/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Region Posterior del Cuello 2026.pdf | `PDF` | 4.05 MB | [Abrir en Drive](https://drive.google.com/file/d/1dPKcLVMOSl3WhIdVlf1IUsjjcz89ZqCf/view?usp=drivesdk) |
 | Anatomía I - Apuntes - S8 - Espacio Visceral del Cuello 2026.pdf | `PDF` | 18.44 MB | [Abrir en Drive](https://drive.google.com/file/d/17eNoy7i5J8wKpnJo3xo3Pi-QBemdgv5X/view?usp=drivesdk) |
+| Anatomía I - Apuntes - Toaz.info Netter Sin Rotular Pr 57 Bfd 090 Fca 6191030 Adec 0f49425629.pdf | `PDF` | 22.65 MB | [Abrir en Drive](https://drive.google.com/file/d/1K5zM99D8jjsvYW3pBEw8x8_P57qvnmrn/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Transcripcion Embriologia Sistema Cardiovascular.pdf | `PDF` | 4.18 MB | [Abrir en Drive](https://drive.google.com/file/d/1f6tENEwoqyV_l7cMYeUv0UPHxFuY3cyn/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Transcripcion Musculos de la Mimica (1).pdf | `PDF` | 4.97 MB | [Abrir en Drive](https://drive.google.com/file/d/1etsKyWyP_Pac2xWvqJbhIIdEZFRlmyFS/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Transcripción Músculos Extraoculares.pdf | `PDF` | 7.27 MB | [Abrir en Drive](https://drive.google.com/file/d/1guBQ7odf4B1IV6U9IRWbUsbauJKSx3tc/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Vascularización e Inervación de la Cavidad Nasal.docx (1).pdf | `PDF` | 4.98 MB | [Abrir en Drive](https://drive.google.com/file/d/1FP62HQGRcJJvJWdeQO8dWVNbOTBt2Slr/view?usp=drivesdk) |
 
-### Certámenes (2)
+### Certámenes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Anatomía I - Certámenes - () Medicina Uch 2° Semestre 🦴 Anatomía II Certamen 3 S9 - Topografía y Elementos Vasculonerviosos del Cuello.apkg | `ANKI` | 71.06 MB | [Abrir en Drive](https://drive.google.com/file/d/1FQXjSpykEZdbKV78WsNHXO_MlBc7aGSA/view?usp=drivesdk) |
+| Anatomía I - Certámenes - Certámenes Teóricos de Anatomía II.html | `HTML` | 878.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1_B4rlspazR1mGH3cFdsH6WvwHj12gji6/view?usp=drivesdk) |
 | Anatomía I - Certámenes - Pauta Certamen 2 Anatomia II 2020.pdf | `PDF` | 187.2 KB | [Abrir en Drive](https://drive.google.com/file/d/11XsRJP1wq1SDHr18REZejvC9Cklz-KUN/view?usp=drivesdk) |
 
-### Seminarios (2)
+### Controles (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Anatomía I - Controles - Controles 2.pdf | `PDF` | 7.42 MB | [Abrir en Drive](https://drive.google.com/file/d/17AiiNlkHjM4cEKwA9wRzpo9SDorabAgJ/view?usp=drivesdk) |
+
+### Resúmenes (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Anatomía I - Resúmenes - Mapa Vasos y Nervios Cabeza Cuello.pdf | `PDF` | 152.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1yzi5XvwaVxBUk6IOWld1jvZz34ZeHHK7/view?usp=drivesdk) |
+
+### Seminarios (3)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Anatomía I - Seminarios - Compilado Imagen CT 2.pdf | `PDF` | 11.09 MB | [Abrir en Drive](https://drive.google.com/file/d/1cfOKoN4c-qa0aVFNnmpXoHHuixfp3DCW/view?usp=drivesdk) |
 | Anatomía I - Seminarios - Rotulado TP 9.pdf | `PDF` | 2.40 MB | [Abrir en Drive](https://drive.google.com/file/d/1CGmpRuhBU5Bzz7neLkjEBxeB2XPE_3mV/view?usp=drivesdk) |
 | Anatomía I - Seminarios - Seminario 5 - Elementos Vasculonerviosos del Cuello (Resolución).pdf | `PDF` | 3.08 MB | [Abrir en Drive](https://drive.google.com/file/d/1ci5kxlxsm7feXuOpYppNgOmVfW34HpPN/view?usp=drivesdk) |
 
@@ -80,12 +108,14 @@
 
 ## 📁 Bioestadística
 
-### Controles (2)
+### Controles (4)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Bioestadística - Controles - Control 8 de Bioestadística.html | `HTML` | 89.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1vly89mckvzJgL6H2sWnmGiOv14VTZx_s/view?usp=drivesdk) |
 | Bioestadística - Controles - Control Formativo Bioestat 08.pdf | `PDF` | 1.88 MB | [Abrir en Drive](https://drive.google.com/file/d/1iPo8MF7UgJH2kpmyqSdwPjaKviBWav8y/view?usp=drivesdk) |
 | Bioestadística - Controles - Pauta Control Formativo Bioestat 08.pdf | `PDF` | 1.86 MB | [Abrir en Drive](https://drive.google.com/file/d/1kbwWPMgU67wWRyJ5z0kLoke5oy2bE73Y/view?usp=drivesdk) |
+| Bioestadística - Controles - Resolucion Control 8 Bioestadistica (1).pdf | `PDF` | 436.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1lQjLjGnRR9CpWbA_dsyKvJorug0r5J0E/view?usp=drivesdk) |
 
 ### Recursos Web (1)
 
@@ -95,7 +125,7 @@
 
 ## 📁 Biología celular y molecular
 
-### Apuntes (6)
+### Apuntes (7)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -105,6 +135,7 @@
 | Biología Celular y Molecular - Apuntes - 15 - Replicación del DNA (Fase S) (Transcripción de la Clase).pdf | `PDF` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1rKktmfjAfUpo_1McJt2QTijXmyztaAfb/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - 16 - Regulación de la Proliferación (Transcripción de la Clase).pdf | `PDF` | 85.2 KB | [Abrir en Drive](https://drive.google.com/file/d/10ddyNUG95PoslUgJ85KtBZavp3R8ti6C/view?usp=drivesdk) |
 | Biología Celular y Molecular - Apuntes - Fase S Replicación Biocel.pdf | `PDF` | 259.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1Vtx3fW1gRCHA84I8PmWmKACSUZhd9Hgh/view?usp=drivesdk) |
+| Biología Celular y Molecular - Apuntes - Muerte Celular Hetz.pdf | `PDF` | 430.5 KB | [Abrir en Drive](https://drive.google.com/file/d/11fpFgcqrv6lminAemg5fqP6OrKZecAMl/view?usp=drivesdk) |
 
 ### Certámenes (4)
 
@@ -181,6 +212,13 @@
 | Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
 | Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
+### Certámenes (2)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Histología y Embriología - Certámenes - 00 - Resumen del Certamen 2 - Embrio.pdf | `PDF` | 28.50 MB | [Abrir en Drive](https://drive.google.com/file/d/1LIoK7CM8ME8lGRGp7Zd0iGu43-YTMMOB/view?usp=drivesdk) |
+| Histología y Embriología - Certámenes - Embrio C2 Embriologia Sistema Digestivo.pdf | `PDF` | 1.41 MB | [Abrir en Drive](https://drive.google.com/file/d/17dtHcTd1iflYSOThoJWzoWd_ec3Wlxsw/view?usp=drivesdk) |
+
 ### Controles (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
@@ -249,7 +287,7 @@
 | Salud Pública - Apuntes - Apunte de Contextualización Salud Publica.pdf | `PDF` | 74.2 KB | [Abrir en Drive](https://drive.google.com/file/d/12vAER30vxus73-1rsoYGh2jfnDGrv3mc/view?usp=drivesdk) |
 | Salud Pública - Apuntes - Argumentos Modelo Ges Salud Publica (en Contra).pdf | `PDF` | 59.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tRRFLGEojPTSFDvQbUfB-9sH7Xamv88Z/view?usp=drivesdk) |
 
-### Certámenes (5)
+### Certámenes (6)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -258,6 +296,13 @@
 | Pauta Desarrollo Isp.pdf | `PDF` | 276.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1V26-RfC6TMyzkb1DeOqmWn0GEyM9Qu_X/view?usp=drivesdk) |
 | Reconstrucción Certamen Isp con Respuestas 2023.pdf | `PDF` | 268.7 KB | [Abrir en Drive](https://drive.google.com/file/d/15ldJw0X2rcXoZ3JUjB0cjM_lHsFPElu9/view?usp=drivesdk) |
 | Salud Pública - Certámenes - Apunte para el Certamen.pdf | `PDF` | 220.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1LJx4CouwUXjW0XDbpYUbZ9LJMn5rTNg8/view?usp=drivesdk) |
+| Salud Pública - Certámenes - Salud Publica Certamen.apkg | `ANKI` | 23.0 KB | [Abrir en Drive](https://drive.google.com/file/d/1pS4ofMj9r8pxwnk9kWpelCgpsWZbOmJ-/view?usp=drivesdk) |
+
+### Ejercicios (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Salud Pública - Ejercicios - Práctica Isp – Alternativas.html | `HTML` | 118.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1rD1Fqxpg1jQlEskOAutU-j6D0xvNYJrU/view?usp=drivesdk) |
 
 ### Resúmenes (1)
 
@@ -267,20 +312,29 @@
 
 ## 📁 Sin clasificar
 
-### Certámenes (3)
+### Certámenes (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Certámenes Anteriores de Isp.html | `HTML` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1pkSaitK_a_TkibaDjGnrOqny5rd3Ly4Q/view?usp=drivesdk) |
 | Pauta Certamen Pr Ctico 2.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1TPis4En7W1P8pLNJRJAcRfeKfhpwdjHU/view?usp=drivesdk) |
 | Pauta Certamen Practico 2.pdf | `PDF` | 75.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1XTwXObeuMPROKYeoHazZdegTEWuAFtXl/view?usp=drivesdk) |
 | Pauta Certamen Te Rico 2.pdf | `PDF` | 197.8 KB | [Abrir en Drive](https://drive.google.com/file/d/16oFtOdDVcL1liI_MDnGCgeyXLrieB_7w/view?usp=drivesdk) |
+| Preguntas de Desarrollo de Certámenes Anteriores.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1kztroPnWU3RKMA4FW_EXQVHpvbjj3MzH/view?usp=drivesdk) |
 
-### Documentos sin clasificar (2)
+### Controles (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Control 8.pdf | `PDF` | 4.46 MB | [Abrir en Drive](https://drive.google.com/file/d/1KJWkPeQip3ZZFP-2WWAQZC7DVBSPG7ej/view?usp=drivesdk) |
+
+### Documentos sin clasificar (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Region ECM 2026.pdf | `PDF` | 5.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1OG8ZkUhekBBn9YmaevUYSMtdkq54ff5X/view?usp=drivesdk) |
 | S8 - Espacio Craneovertebral y Perifaríngeo 2026.pdf | `PDF` | 5.72 MB | [Abrir en Drive](https://drive.google.com/file/d/1szXgIEHifZeUCajH6AhuPlq5JD_6Sde3/view?usp=drivesdk) |
+| Sesi N 1 Conceptos Fundamentales.pdf | `PDF` | 704.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1xQEAGYK1vcPU9rqbU0q3vHAkUoG2EWmt/view?usp=drivesdk) |
 
 ### Recursos Web (4)
 
@@ -291,11 +345,26 @@
 | Carpeta de Recursos: Drive | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/18QT78-aJoCCe7cc-Ptb1ZXRa2-Ai-qzH) |
 | Planilla / Base de Datos Compartida | `SHEETS` | Google Sheets | [Visitar SHEETS](https://docs.google.com/spreadsheets/d/1zrgohJktOkNd_Q2we3PpoUK1GRHJ_sWXMIhggbPsm3Y/edit?usp=drivesdk) |
 
-### Resúmenes (3)
+### Resúmenes (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| El Resumen del Resumen del Resumen del Nico.pdf | `PDF` | 50.3 KB | [Abrir en Drive](https://drive.google.com/file/d/1UOC69bW-lwgi23Q462Pm3CJcol9bzlZX/view?usp=drivesdk) |
+| Resumen del Resumen del Resumen del Resumen! (1).pdf | `PDF` | 13.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1Dl1pd2VVs9691_58joqstx7PZE0-9M5_/view?usp=drivesdk) |
 | Resumen Isp Catita Monardes.pdf | `PDF` | 1.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1b3ptg4rq29rkso8okEaIDWbYzMzhlsyr/view?usp=drivesdk) |
 | Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
+
+### Seminarios (8)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Clase 2.pdf | `PDF` | 69.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1-GsqQrr3KuR9tF99BFBEVWEtBTiqof5N/view?usp=drivesdk) |
+| Clase 4.pdf | `PDF` | 135.5 KB | [Abrir en Drive](https://drive.google.com/file/d/10RJAdLDAeZ19kpZZK4jpcwLRyHtzZbuT/view?usp=drivesdk) |
+| Clase 7.pdf | `PDF` | 1.57 MB | [Abrir en Drive](https://drive.google.com/file/d/1sWeG5Lu5sIrmy9Z0By03JqOk5wB4CXQw/view?usp=drivesdk) |
+| Clase 8.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/19A27oKi4DlDp5kjxlQzJDDBZu_DmjAc8/view?usp=drivesdk) |
+| Clase 82.pdf | `PDF` | 177.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1eNBKI0abmxknbEZaaq1ip9g8qvWZ3mZj/view?usp=drivesdk) |
+| Clase 9.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1lnxz8tU83CjAzVauluOQ78g-bB20lGRz/view?usp=drivesdk) |
+| Clases Completas en Youtube de los Profes.pdf | `PDF` | 78.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1f9p6pgu_CY4DBQvvhN01AxXHHcCoJDoS/view?usp=drivesdk) |
+| SEM 2 Visi N y Audici N.pdf | `PDF` | 7.27 MB | [Abrir en Drive](https://drive.google.com/file/d/1KJfUEhGme9oUgRivS0QXXrq5iSKNBgrw/view?usp=drivesdk) |
 
