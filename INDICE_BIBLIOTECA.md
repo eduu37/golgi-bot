@@ -1,7 +1,7 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 07-11-2026, 12:23:32 p. m.
-> **Total de Recursos:** 145 (117 en Drive, 28 enlaces web) | **Espacio Drive:** 1016.77 MB
+> **Última actualización:** 07-11-2026, 7:19:43 p. m.
+> **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
 
@@ -190,12 +190,11 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (17)
+### Apuntes (16)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Histología y Embriología - Apuntes - Clases C2 Actualizadas (Normal).zip | `ZIP` | 29.05 MB | [Abrir en Drive](https://drive.google.com/file/d/11vtmZiEW7rvzQRZ71C2Qpj47UNOEJ1nm/view?usp=drivesdk) |
-| Histología y Embriología - Apuntes - Embrio C2 CT 10 CT 20 Normal.zip | `ZIP` | 22.79 MB | [Abrir en Drive](https://drive.google.com/file/d/1RFUWbByB-rNl7VTZuBBwt2inHHBbBIP6/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Línea de Tiempo de Embriología.html | `HTML` | 508.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ZOrVWpGCDekkF1i3VjI2OpTb5MXUQNKz/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Linea Tiempo Embriologia.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Wu8Gt8ixYjpeEKmKmd3YEgeIIAfGNGad/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Transcripcion Ordenada Embriologia General Periodo Somitico.pdf | `PDF` | 24.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1OuJPQ_ya8-w8Tz6ra9Q3yWiDo-93L5aa/view?usp=drivesdk) |
