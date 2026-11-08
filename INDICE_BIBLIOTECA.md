@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 08-11-2026, 12:42:45 p. m.
+> **Última actualización:** 08-11-2026, 3:56:10 p. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
@@ -310,6 +310,12 @@
 | :--- | :---: | :---: | :---: |
 | Salud Pública - Resúmenes - Resumen Sicko Salud Publica.pdf | `PDF` | 52.9 KB | [Abrir en Drive](https://drive.google.com/file/d/11kBxyY3bo2DY14wigBxmOLJcH-rbyG5X/view?usp=drivesdk) |
 
+### Seminarios (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Clase 82.pdf | `PDF` | 177.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1eNBKI0abmxknbEZaaq1ip9g8qvWZ3mZj/view?usp=drivesdk) |
+
 ## 📁 Sin clasificar
 
 ### Certámenes (4)
@@ -354,7 +360,7 @@
 | Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
 
-### Seminarios (8)
+### Seminarios (7)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -362,7 +368,6 @@
 | Clase 4.pdf | `PDF` | 135.5 KB | [Abrir en Drive](https://drive.google.com/file/d/10RJAdLDAeZ19kpZZK4jpcwLRyHtzZbuT/view?usp=drivesdk) |
 | Clase 7.pdf | `PDF` | 1.57 MB | [Abrir en Drive](https://drive.google.com/file/d/1sWeG5Lu5sIrmy9Z0By03JqOk5wB4CXQw/view?usp=drivesdk) |
 | Clase 8.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/19A27oKi4DlDp5kjxlQzJDDBZu_DmjAc8/view?usp=drivesdk) |
-| Clase 82.pdf | `PDF` | 177.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1eNBKI0abmxknbEZaaq1ip9g8qvWZ3mZj/view?usp=drivesdk) |
 | Clase 9.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1lnxz8tU83CjAzVauluOQ78g-bB20lGRz/view?usp=drivesdk) |
 | Clases Completas en Youtube de los Profes.pdf | `PDF` | 78.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1f9p6pgu_CY4DBQvvhN01AxXHHcCoJDoS/view?usp=drivesdk) |
 | SEM 2 Visi N y Audici N.pdf | `PDF` | 7.27 MB | [Abrir en Drive](https://drive.google.com/file/d/1KJfUEhGme9oUgRivS0QXXrq5iSKNBgrw/view?usp=drivesdk) |
