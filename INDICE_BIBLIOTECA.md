@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 07-11-2026, 9:24:13 p. m.
+> **Última actualización:** 08-11-2026, 3:09:21 a. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
@@ -286,11 +286,12 @@
 | Salud Pública - Apuntes - Apunte de Contextualización Salud Publica.pdf | `PDF` | 74.2 KB | [Abrir en Drive](https://drive.google.com/file/d/12vAER30vxus73-1rsoYGh2jfnDGrv3mc/view?usp=drivesdk) |
 | Salud Pública - Apuntes - Argumentos Modelo Ges Salud Publica (en Contra).pdf | `PDF` | 59.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tRRFLGEojPTSFDvQbUfB-9sH7Xamv88Z/view?usp=drivesdk) |
 
-### Certámenes (6)
+### Certámenes (7)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Certamen Isp 2022.pdf | `PDF` | 96.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1qFPnLV33KbCyNLN1UCxF9PGdvstqHC5L/view?usp=drivesdk) |
+| Certámenes Anteriores de Isp.html | `HTML` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1pkSaitK_a_TkibaDjGnrOqny5rd3Ly4Q/view?usp=drivesdk) |
 | Pauta Certamen 2023.pdf | `PDF` | 126.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Pd0W5iDaaNxDjEbBO-OAo8oeGOIPaVxg/view?usp=drivesdk) |
 | Pauta Desarrollo Isp.pdf | `PDF` | 276.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1V26-RfC6TMyzkb1DeOqmWn0GEyM9Qu_X/view?usp=drivesdk) |
 | Reconstrucción Certamen Isp con Respuestas 2023.pdf | `PDF` | 268.7 KB | [Abrir en Drive](https://drive.google.com/file/d/15ldJw0X2rcXoZ3JUjB0cjM_lHsFPElu9/view?usp=drivesdk) |
@@ -311,11 +312,10 @@
 
 ## 📁 Sin clasificar
 
-### Certámenes (5)
+### Certámenes (4)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Certámenes Anteriores de Isp.html | `HTML` | 85.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1pkSaitK_a_TkibaDjGnrOqny5rd3Ly4Q/view?usp=drivesdk) |
 | Pauta Certamen Pr Ctico 2.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1TPis4En7W1P8pLNJRJAcRfeKfhpwdjHU/view?usp=drivesdk) |
 | Pauta Certamen Practico 2.pdf | `PDF` | 75.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1XTwXObeuMPROKYeoHazZdegTEWuAFtXl/view?usp=drivesdk) |
 | Pauta Certamen Te Rico 2.pdf | `PDF` | 197.8 KB | [Abrir en Drive](https://drive.google.com/file/d/16oFtOdDVcL1liI_MDnGCgeyXLrieB_7w/view?usp=drivesdk) |
