@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 09-11-2026, 5:53:37 p. m.
+> **Última actualización:** 09-11-2026, 5:55:24 p. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
@@ -295,13 +295,15 @@
 
 ## 📁 Salud Pública
 
-### Apuntes (3)
+### Apuntes (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Clase 7.pdf | `PDF` | 1.57 MB | [Abrir en Drive](https://drive.google.com/file/d/1sWeG5Lu5sIrmy9Z0By03JqOk5wB4CXQw/view?usp=drivesdk) |
 | Clase 8.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/19A27oKi4DlDp5kjxlQzJDDBZu_DmjAc8/view?usp=drivesdk) |
 | Salud Pública - Apuntes - Apunte de Contextualización Salud Publica.pdf | `PDF` | 74.2 KB | [Abrir en Drive](https://drive.google.com/file/d/12vAER30vxus73-1rsoYGh2jfnDGrv3mc/view?usp=drivesdk) |
 | Salud Pública - Apuntes - Argumentos Modelo Ges Salud Publica (en Contra).pdf | `PDF` | 59.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tRRFLGEojPTSFDvQbUfB-9sH7Xamv88Z/view?usp=drivesdk) |
+| Sesi N 1 Conceptos Fundamentales.pdf | `PDF` | 704.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1xQEAGYK1vcPU9rqbU0q3vHAkUoG2EWmt/view?usp=drivesdk) |
 
 ### Certámenes (7)
 
@@ -351,12 +353,6 @@
 | :--- | :---: | :---: | :---: |
 | Control 8.pdf | `PDF` | 4.46 MB | [Abrir en Drive](https://drive.google.com/file/d/1KJWkPeQip3ZZFP-2WWAQZC7DVBSPG7ej/view?usp=drivesdk) |
 
-### Documentos sin clasificar (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Sesi N 1 Conceptos Fundamentales.pdf | `PDF` | 704.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1xQEAGYK1vcPU9rqbU0q3vHAkUoG2EWmt/view?usp=drivesdk) |
-
 ### Recursos Web (4)
 
 | Título / Nombre | Formato | Detalle | Enlace |
@@ -374,11 +370,10 @@
 | Resumen del Resumen del Resumen del Resumen! (1).pdf | `PDF` | 13.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1Dl1pd2VVs9691_58joqstx7PZE0-9M5_/view?usp=drivesdk) |
 | Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
 
-### Seminarios (3)
+### Seminarios (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Clase 2.pdf | `PDF` | 69.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1-GsqQrr3KuR9tF99BFBEVWEtBTiqof5N/view?usp=drivesdk) |
 | Clase 4.pdf | `PDF` | 135.5 KB | [Abrir en Drive](https://drive.google.com/file/d/10RJAdLDAeZ19kpZZK4jpcwLRyHtzZbuT/view?usp=drivesdk) |
-| Clase 7.pdf | `PDF` | 1.57 MB | [Abrir en Drive](https://drive.google.com/file/d/1sWeG5Lu5sIrmy9Z0By03JqOk5wB4CXQw/view?usp=drivesdk) |
 
