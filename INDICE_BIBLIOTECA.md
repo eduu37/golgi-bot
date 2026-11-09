@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 09-11-2026, 4:29:27 a. m.
+> **Última actualización:** 09-11-2026, 5:49:43 p. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
@@ -99,6 +99,13 @@
 | Transcripción Contenido de la Órbita.pdf | `PDF` | 7.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1UOmSdiH-nVXajVeYNLz1jpgEfaqCxNJ9/view?usp=drivesdk) |
 | Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
 | Transcripcion Regiones Faciales.pdf | `PDF` | 13.67 MB | [Abrir en Drive](https://drive.google.com/file/d/1fP_0ST6fviuDr8rxhlxHFZiU3oSQd_VG/view?usp=drivesdk) |
+
+### Certámenes (2)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| Pauta Certamen Pr Ctico 2.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1TPis4En7W1P8pLNJRJAcRfeKfhpwdjHU/view?usp=drivesdk) |
+| Pauta Certamen Practico 2.pdf | `PDF` | 75.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1XTwXObeuMPROKYeoHazZdegTEWuAFtXl/view?usp=drivesdk) |
 
 ### Resúmenes (1)
 
@@ -318,12 +325,10 @@
 
 ## 📁 Sin clasificar
 
-### Certámenes (4)
+### Certámenes (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Pauta Certamen Pr Ctico 2.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1TPis4En7W1P8pLNJRJAcRfeKfhpwdjHU/view?usp=drivesdk) |
-| Pauta Certamen Practico 2.pdf | `PDF` | 75.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1XTwXObeuMPROKYeoHazZdegTEWuAFtXl/view?usp=drivesdk) |
 | Pauta Certamen Te Rico 2.pdf | `PDF` | 197.8 KB | [Abrir en Drive](https://drive.google.com/file/d/16oFtOdDVcL1liI_MDnGCgeyXLrieB_7w/view?usp=drivesdk) |
 | Preguntas de Desarrollo de Certámenes Anteriores.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1kztroPnWU3RKMA4FW_EXQVHpvbjj3MzH/view?usp=drivesdk) |
 
