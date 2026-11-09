@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 09-11-2026, 5:56:22 p. m.
+> **Última actualización:** 09-11-2026, 6:05:21 p. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
@@ -102,18 +102,20 @@
 | Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
 | Transcripcion Regiones Faciales.pdf | `PDF` | 13.67 MB | [Abrir en Drive](https://drive.google.com/file/d/1fP_0ST6fviuDr8rxhlxHFZiU3oSQd_VG/view?usp=drivesdk) |
 
-### Certámenes (2)
+### Certámenes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Pauta Certamen Pr Ctico 2.pdf | `PDF` | 77.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1TPis4En7W1P8pLNJRJAcRfeKfhpwdjHU/view?usp=drivesdk) |
 | Pauta Certamen Practico 2.pdf | `PDF` | 75.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1XTwXObeuMPROKYeoHazZdegTEWuAFtXl/view?usp=drivesdk) |
+| Pauta Certamen Te Rico 2.pdf | `PDF` | 197.8 KB | [Abrir en Drive](https://drive.google.com/file/d/16oFtOdDVcL1liI_MDnGCgeyXLrieB_7w/view?usp=drivesdk) |
 
-### Resúmenes (1)
+### Resúmenes (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Resumen Anatomía C2.pdf | `PDF` | 10.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1HTmKAEf7Z7W8WouvsyD9LXaKgClpvWrW/view?usp=drivesdk) |
+| Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
 
 ### Seminarios (1)
 
@@ -206,7 +208,7 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (17)
+### Apuntes (18)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -215,6 +217,7 @@
 | Histología y Embriología - Apuntes - Línea de Tiempo de Embriología.html | `HTML` | 508.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ZOrVWpGCDekkF1i3VjI2OpTb5MXUQNKz/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Linea Tiempo Embriologia.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Wu8Gt8ixYjpeEKmKmd3YEgeIIAfGNGad/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Transcripcion Ordenada Embriologia General Periodo Somitico.pdf | `PDF` | 24.20 MB | [Abrir en Drive](https://drive.google.com/file/d/1OuJPQ_ya8-w8Tz6ra9Q3yWiDo-93L5aa/view?usp=drivesdk) |
+| Histología y Embriología - Embrio C2 Embriologia Sistema Digestivo.pdf | `PDF` | 1.41 MB | [Abrir en Drive](https://drive.google.com/file/d/17dtHcTd1iflYSOThoJWzoWd_ec3Wlxsw/view?usp=drivesdk) |
 | Transcripcion Anexos Embrionarios Organizada.pdf | `PDF` | 8.71 MB | [Abrir en Drive](https://drive.google.com/file/d/1szdSrLkBkgd_aLaUjAahUH2nzKfS8Ac4/view?usp=drivesdk) |
 | Transcripcion Celulas Madre y Auto Organizacion.pdf | `PDF` | 5.09 MB | [Abrir en Drive](https://drive.google.com/file/d/1ctzSeNIW6eFOquIng8hQ2VGb_veQBe58/view?usp=drivesdk) |
 | Transcripcion Desarrollo Sistema Respiratorio Parte 2.pdf | `PDF` | 6.53 MB | [Abrir en Drive](https://drive.google.com/file/d/1jbWAXB4GmQyX2kOIQRLpHjvhhM0XuM5-/view?usp=drivesdk) |
@@ -228,12 +231,11 @@
 | Transcripcion Periodo Prefetal y Fetal.pdf | `PDF` | 9.62 MB | [Abrir en Drive](https://drive.google.com/file/d/1FRVhYKNeEN7melCb1mjZUbBCC_e8SLGA/view?usp=drivesdk) |
 | Transcripcion Sistema Respiratorio.pdf | `PDF` | 8.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1Dw_tWcMWLaIigBeZ-OyN5JnWR58Dzpk1/view?usp=drivesdk) |
 
-### Certámenes (2)
+### Certámenes (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Histología y Embriología - Certámenes - 00 - Resumen del Certamen 2 - Embrio.pdf | `PDF` | 28.50 MB | [Abrir en Drive](https://drive.google.com/file/d/1LIoK7CM8ME8lGRGp7Zd0iGu43-YTMMOB/view?usp=drivesdk) |
-| Histología y Embriología - Certámenes - Embrio C2 Embriologia Sistema Digestivo.pdf | `PDF` | 1.41 MB | [Abrir en Drive](https://drive.google.com/file/d/17dtHcTd1iflYSOThoJWzoWd_ec3Wlxsw/view?usp=drivesdk) |
 
 ### Controles (1)
 
@@ -296,10 +298,11 @@
 
 ## 📁 Salud Pública
 
-### Apuntes (5)
+### Apuntes (6)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Clase 2.pdf | `PDF` | 69.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1-GsqQrr3KuR9tF99BFBEVWEtBTiqof5N/view?usp=drivesdk) |
 | Clase 7.pdf | `PDF` | 1.57 MB | [Abrir en Drive](https://drive.google.com/file/d/1sWeG5Lu5sIrmy9Z0By03JqOk5wB4CXQw/view?usp=drivesdk) |
 | Clase 8.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/19A27oKi4DlDp5kjxlQzJDDBZu_DmjAc8/view?usp=drivesdk) |
 | Salud Pública - Apuntes - Apunte de Contextualización Salud Publica.pdf | `PDF` | 74.2 KB | [Abrir en Drive](https://drive.google.com/file/d/12vAER30vxus73-1rsoYGh2jfnDGrv3mc/view?usp=drivesdk) |
@@ -325,28 +328,25 @@
 | :--- | :---: | :---: | :---: |
 | Salud Pública - Ejercicios - Práctica Isp – Alternativas.html | `HTML` | 118.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1rD1Fqxpg1jQlEskOAutU-j6D0xvNYJrU/view?usp=drivesdk) |
 
-### Resúmenes (3)
+### Resúmenes (5)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| El Resumen del Resumen del Resumen del Nico.pdf | `PDF` | 50.3 KB | [Abrir en Drive](https://drive.google.com/file/d/1UOC69bW-lwgi23Q462Pm3CJcol9bzlZX/view?usp=drivesdk) |
+| Resumen del Resumen del Resumen del Resumen! (1).pdf | `PDF` | 13.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1Dl1pd2VVs9691_58joqstx7PZE0-9M5_/view?usp=drivesdk) |
 | Resumen Isp Catita Monardes.pdf | `PDF` | 1.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1b3ptg4rq29rkso8okEaIDWbYzMzhlsyr/view?usp=drivesdk) |
 | Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Salud Pública - Resúmenes - Resumen Sicko Salud Publica.pdf | `PDF` | 52.9 KB | [Abrir en Drive](https://drive.google.com/file/d/11kBxyY3bo2DY14wigBxmOLJcH-rbyG5X/view?usp=drivesdk) |
 
-### Seminarios (2)
+### Seminarios (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Clase 4.pdf | `PDF` | 135.5 KB | [Abrir en Drive](https://drive.google.com/file/d/10RJAdLDAeZ19kpZZK4jpcwLRyHtzZbuT/view?usp=drivesdk) |
 | Clase 82.pdf | `PDF` | 177.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1eNBKI0abmxknbEZaaq1ip9g8qvWZ3mZj/view?usp=drivesdk) |
 | Clase 9.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1lnxz8tU83CjAzVauluOQ78g-bB20lGRz/view?usp=drivesdk) |
 
 ## 📁 Sin clasificar
-
-### Certámenes (1)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Pauta Certamen Te Rico 2.pdf | `PDF` | 197.8 KB | [Abrir en Drive](https://drive.google.com/file/d/16oFtOdDVcL1liI_MDnGCgeyXLrieB_7w/view?usp=drivesdk) |
 
 ### Recursos Web (4)
 
@@ -356,19 +356,4 @@
 | Artefacto Interactivo Claude AI | `CLAUDE` | Artefacto IA | [Visitar CLAUDE](https://claude.ai/artifact/Y88oZ8tmBUXtcazu6VdD1f) |
 | Carpeta de Recursos: Drive | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/18QT78-aJoCCe7cc-Ptb1ZXRa2-Ai-qzH) |
 | Planilla / Base de Datos Compartida | `SHEETS` | Google Sheets | [Visitar SHEETS](https://docs.google.com/spreadsheets/d/1zrgohJktOkNd_Q2we3PpoUK1GRHJ_sWXMIhggbPsm3Y/edit?usp=drivesdk) |
-
-### Resúmenes (3)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| El Resumen del Resumen del Resumen del Nico.pdf | `PDF` | 50.3 KB | [Abrir en Drive](https://drive.google.com/file/d/1UOC69bW-lwgi23Q462Pm3CJcol9bzlZX/view?usp=drivesdk) |
-| Resumen del Resumen del Resumen del Resumen! (1).pdf | `PDF` | 13.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1Dl1pd2VVs9691_58joqstx7PZE0-9M5_/view?usp=drivesdk) |
-| Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
-
-### Seminarios (2)
-
-| Título / Nombre | Formato | Detalle | Enlace |
-| :--- | :---: | :---: | :---: |
-| Clase 2.pdf | `PDF` | 69.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1-GsqQrr3KuR9tF99BFBEVWEtBTiqof5N/view?usp=drivesdk) |
-| Clase 4.pdf | `PDF` | 135.5 KB | [Abrir en Drive](https://drive.google.com/file/d/10RJAdLDAeZ19kpZZK4jpcwLRyHtzZbuT/view?usp=drivesdk) |
 
