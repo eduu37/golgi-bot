@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 09-11-2026, 5:49:43 p. m.
+> **Última actualización:** 09-11-2026, 5:51:53 p. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
@@ -113,6 +113,12 @@
 | :--- | :---: | :---: | :---: |
 | Resumen Anatomía C2.pdf | `PDF` | 10.52 MB | [Abrir en Drive](https://drive.google.com/file/d/1HTmKAEf7Z7W8WouvsyD9LXaKgClpvWrW/view?usp=drivesdk) |
 
+### Seminarios (1)
+
+| Título / Nombre | Formato | Detalle | Enlace |
+| :--- | :---: | :---: | :---: |
+| SEM 2 Visi N y Audici N.pdf | `PDF` | 7.27 MB | [Abrir en Drive](https://drive.google.com/file/d/1KJfUEhGme9oUgRivS0QXXrq5iSKNBgrw/view?usp=drivesdk) |
+
 ## 📁 Bioestadística
 
 ### Controles (4)
@@ -197,10 +203,11 @@
 
 ## 📁 Histología y embriología
 
-### Apuntes (16)
+### Apuntes (17)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Clases Completas en Youtube de los Profes.pdf | `PDF` | 78.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1f9p6pgu_CY4DBQvvhN01AxXHHcCoJDoS/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Clases C2 Actualizadas (Normal).zip | `ZIP` | 29.05 MB | [Abrir en Drive](https://drive.google.com/file/d/11vtmZiEW7rvzQRZ71C2Qpj47UNOEJ1nm/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Línea de Tiempo de Embriología.html | `HTML` | 508.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1ZOrVWpGCDekkF1i3VjI2OpTb5MXUQNKz/view?usp=drivesdk) |
 | Histología y Embriología - Apuntes - Linea Tiempo Embriologia.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1Wu8Gt8ixYjpeEKmKmd3YEgeIIAfGNGad/view?usp=drivesdk) |
@@ -286,10 +293,11 @@
 
 ## 📁 Salud Pública
 
-### Apuntes (2)
+### Apuntes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Clase 8.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/19A27oKi4DlDp5kjxlQzJDDBZu_DmjAc8/view?usp=drivesdk) |
 | Salud Pública - Apuntes - Apunte de Contextualización Salud Publica.pdf | `PDF` | 74.2 KB | [Abrir en Drive](https://drive.google.com/file/d/12vAER30vxus73-1rsoYGh2jfnDGrv3mc/view?usp=drivesdk) |
 | Salud Pública - Apuntes - Argumentos Modelo Ges Salud Publica (en Contra).pdf | `PDF` | 59.1 KB | [Abrir en Drive](https://drive.google.com/file/d/1tRRFLGEojPTSFDvQbUfB-9sH7Xamv88Z/view?usp=drivesdk) |
 
@@ -317,11 +325,12 @@
 | :--- | :---: | :---: | :---: |
 | Salud Pública - Resúmenes - Resumen Sicko Salud Publica.pdf | `PDF` | 52.9 KB | [Abrir en Drive](https://drive.google.com/file/d/11kBxyY3bo2DY14wigBxmOLJcH-rbyG5X/view?usp=drivesdk) |
 
-### Seminarios (1)
+### Seminarios (2)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Clase 82.pdf | `PDF` | 177.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1eNBKI0abmxknbEZaaq1ip9g8qvWZ3mZj/view?usp=drivesdk) |
+| Clase 9.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1lnxz8tU83CjAzVauluOQ78g-bB20lGRz/view?usp=drivesdk) |
 
 ## 📁 Sin clasificar
 
@@ -365,15 +374,11 @@
 | Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
 
-### Seminarios (7)
+### Seminarios (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | Clase 2.pdf | `PDF` | 69.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1-GsqQrr3KuR9tF99BFBEVWEtBTiqof5N/view?usp=drivesdk) |
 | Clase 4.pdf | `PDF` | 135.5 KB | [Abrir en Drive](https://drive.google.com/file/d/10RJAdLDAeZ19kpZZK4jpcwLRyHtzZbuT/view?usp=drivesdk) |
 | Clase 7.pdf | `PDF` | 1.57 MB | [Abrir en Drive](https://drive.google.com/file/d/1sWeG5Lu5sIrmy9Z0By03JqOk5wB4CXQw/view?usp=drivesdk) |
-| Clase 8.pdf | `PDF` | 100.1 KB | [Abrir en Drive](https://drive.google.com/file/d/19A27oKi4DlDp5kjxlQzJDDBZu_DmjAc8/view?usp=drivesdk) |
-| Clase 9.pdf | `PDF` | 1.22 MB | [Abrir en Drive](https://drive.google.com/file/d/1lnxz8tU83CjAzVauluOQ78g-bB20lGRz/view?usp=drivesdk) |
-| Clases Completas en Youtube de los Profes.pdf | `PDF` | 78.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1f9p6pgu_CY4DBQvvhN01AxXHHcCoJDoS/view?usp=drivesdk) |
-| SEM 2 Visi N y Audici N.pdf | `PDF` | 7.27 MB | [Abrir en Drive](https://drive.google.com/file/d/1KJfUEhGme9oUgRivS0QXXrq5iSKNBgrw/view?usp=drivesdk) |
 
