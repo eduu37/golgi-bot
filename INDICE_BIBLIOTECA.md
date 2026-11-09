@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 09-11-2026, 5:51:53 p. m.
+> **Última actualización:** 09-11-2026, 5:53:37 p. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
@@ -85,7 +85,7 @@
 
 ## 📁 Anatomía II
 
-### Apuntes (10)
+### Apuntes (12)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
@@ -95,6 +95,8 @@
 | Oido Externo y Medio Apuntes.pdf | `PDF` | 3.36 MB | [Abrir en Drive](https://drive.google.com/file/d/1bUJOGXc6lAkYJihroEW4LDrPEaexNfDX/view?usp=drivesdk) |
 | Oído Externo y Medio.pdf | `PDF` | 878.5 KB | [Abrir en Drive](https://drive.google.com/file/d/1aoIe7BVtHmBC9FCkuKDHlV_np_3y7Eyk/view?usp=drivesdk) |
 | Oido Interno Apuntes.pdf | `PDF` | 2.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1xcdZunPkJ0_-t1u-H41HiqRXIWzY0_46/view?usp=drivesdk) |
+| Region ECM 2026.pdf | `PDF` | 5.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1OG8ZkUhekBBn9YmaevUYSMtdkq54ff5X/view?usp=drivesdk) |
+| S8 - Espacio Craneovertebral y Perifaríngeo 2026.pdf | `PDF` | 5.72 MB | [Abrir en Drive](https://drive.google.com/file/d/1szXgIEHifZeUCajH6AhuPlq5JD_6Sde3/view?usp=drivesdk) |
 | Transcripción Cavidades Paranasales (1).pdf | `PDF` | 583.4 KB | [Abrir en Drive](https://drive.google.com/file/d/16krKSwMSNbad3Q-pUxz5Yl3EbnvVky7X/view?usp=drivesdk) |
 | Transcripción Contenido de la Órbita.pdf | `PDF` | 7.77 MB | [Abrir en Drive](https://drive.google.com/file/d/1UOmSdiH-nVXajVeYNLz1jpgEfaqCxNJ9/view?usp=drivesdk) |
 | Transcripción Oído Interno.pdf | `PDF` | 9.61 MB | [Abrir en Drive](https://drive.google.com/file/d/13XIwbvIOumlF2T3x3t0vhfdHPVkNO30R/view?usp=drivesdk) |
@@ -319,10 +321,12 @@
 | :--- | :---: | :---: | :---: |
 | Salud Pública - Ejercicios - Práctica Isp – Alternativas.html | `HTML` | 118.7 KB | [Abrir en Drive](https://drive.google.com/file/d/1rD1Fqxpg1jQlEskOAutU-j6D0xvNYJrU/view?usp=drivesdk) |
 
-### Resúmenes (1)
+### Resúmenes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
+| Resumen Isp Catita Monardes.pdf | `PDF` | 1.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1b3ptg4rq29rkso8okEaIDWbYzMzhlsyr/view?usp=drivesdk) |
+| Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Salud Pública - Resúmenes - Resumen Sicko Salud Publica.pdf | `PDF` | 52.9 KB | [Abrir en Drive](https://drive.google.com/file/d/11kBxyY3bo2DY14wigBxmOLJcH-rbyG5X/view?usp=drivesdk) |
 
 ### Seminarios (2)
@@ -347,12 +351,10 @@
 | :--- | :---: | :---: | :---: |
 | Control 8.pdf | `PDF` | 4.46 MB | [Abrir en Drive](https://drive.google.com/file/d/1KJWkPeQip3ZZFP-2WWAQZC7DVBSPG7ej/view?usp=drivesdk) |
 
-### Documentos sin clasificar (3)
+### Documentos sin clasificar (1)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Region ECM 2026.pdf | `PDF` | 5.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1OG8ZkUhekBBn9YmaevUYSMtdkq54ff5X/view?usp=drivesdk) |
-| S8 - Espacio Craneovertebral y Perifaríngeo 2026.pdf | `PDF` | 5.72 MB | [Abrir en Drive](https://drive.google.com/file/d/1szXgIEHifZeUCajH6AhuPlq5JD_6Sde3/view?usp=drivesdk) |
 | Sesi N 1 Conceptos Fundamentales.pdf | `PDF` | 704.2 KB | [Abrir en Drive](https://drive.google.com/file/d/1xQEAGYK1vcPU9rqbU0q3vHAkUoG2EWmt/view?usp=drivesdk) |
 
 ### Recursos Web (4)
@@ -364,14 +366,12 @@
 | Carpeta de Recursos: Drive | `CARPETA` | Carpeta en Drive | [Visitar CARPETA](https://drive.google.com/drive/folders/18QT78-aJoCCe7cc-Ptb1ZXRa2-Ai-qzH) |
 | Planilla / Base de Datos Compartida | `SHEETS` | Google Sheets | [Visitar SHEETS](https://docs.google.com/spreadsheets/d/1zrgohJktOkNd_Q2we3PpoUK1GRHJ_sWXMIhggbPsm3Y/edit?usp=drivesdk) |
 
-### Resúmenes (5)
+### Resúmenes (3)
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
 | El Resumen del Resumen del Resumen del Nico.pdf | `PDF` | 50.3 KB | [Abrir en Drive](https://drive.google.com/file/d/1UOC69bW-lwgi23Q462Pm3CJcol9bzlZX/view?usp=drivesdk) |
 | Resumen del Resumen del Resumen del Resumen! (1).pdf | `PDF` | 13.4 KB | [Abrir en Drive](https://drive.google.com/file/d/1Dl1pd2VVs9691_58joqstx7PZE0-9M5_/view?usp=drivesdk) |
-| Resumen Isp Catita Monardes.pdf | `PDF` | 1.93 MB | [Abrir en Drive](https://drive.google.com/file/d/1b3ptg4rq29rkso8okEaIDWbYzMzhlsyr/view?usp=drivesdk) |
-| Resumen Isp.pdf | `PDF` | 766.8 KB | [Abrir en Drive](https://drive.google.com/file/d/1ck7wRFrotZ3E526IW9PZ1Bln2u0bTBEF/view?usp=drivesdk) |
 | Resumen S8.pdf | `PDF` | 1011.6 KB | [Abrir en Drive](https://drive.google.com/file/d/1jAtNyII9JF9lVAYLRNagCtCCsIkGwajK/view?usp=drivesdk) |
 
 ### Seminarios (3)
