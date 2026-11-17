@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 16-11-2026, 2:40:51 p. m.
+> **Última actualización:** 17-11-2026, 1:30:52 a. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
