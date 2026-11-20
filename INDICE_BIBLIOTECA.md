@@ -1,6 +1,6 @@
 # 📚 Biblioteca Digital Golgi — Índice de Materiales y Recursos
 
-> **Última actualización:** 20-11-2026, 12:15:35 a. m.
+> **Última actualización:** 20-11-2026, 2:51:06 p. m.
 > **Total de Recursos:** 144 (116 en Drive, 28 enlaces web) | **Espacio Drive:** 993.98 MB
 
 ## 📁 Anatomía
@@ -36,7 +36,7 @@
 
 | Título / Nombre | Formato | Detalle | Enlace |
 | :--- | :---: | :---: | :---: |
-| Anatomía I - Apuntes - Anato II Ua 2 Listo.xlsx | `XLSX` | 6.59 MB | [Abrir en Drive](https://docs.google.com/spreadsheets/d/1LsUpoR9DPAWj5iaEU60X0sPNzNzSeOHl/edit?usp=drivesdk&ouid=107509551050497362786&rtpof=true&sd=true) |
+| Anatomía I - Apuntes - Anato II Ua 2 Listo.xlsx | `XLSX` | 6.59 MB | [Abrir en Drive](https://docs.google.com/spreadsheets/d/1LsUpoR9DPAWj5iaEU60X0sPNzNzSeOHl/edit?usp=drivesdk&rtpof=true&sd=true) |
 | Anatomía I - Apuntes - Apuntes Anatomia II.zip | `ZIP` | 54.04 MB | [Abrir en Drive](https://drive.google.com/file/d/1cOZJ10GgvzKDTVfUdK1uux0iP5SpxXZr/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Cavidad Nasal.pdf | `PDF` | 10.11 MB | [Abrir en Drive](https://drive.google.com/file/d/1xtgYJ0wWHhJQOv7M3pvUAGiWa0ESqPhE/view?usp=drivesdk) |
 | Anatomía I - Apuntes - Checklist CT 2 Anato II.pdf | `PDF` | 1.74 MB | [Abrir en Drive](https://drive.google.com/file/d/1oqSXBFEk7tJZCC41Zz7EV8rL11EYA9oU/view?usp=drivesdk) |
